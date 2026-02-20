@@ -22,9 +22,13 @@
 }
 
 body {
+    background-image: url(../img/kasarao-fundo.PNG);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 100%;
     font-family: "Albert Sans", sans-serif;
     font-optical-sizing: auto;
-    font-weight: 400;
+    font-weight: 800;
     font-style: normal;
 }
 
@@ -98,10 +102,10 @@ main#principal div.corpo p {
 
 main#principal div.corpo p::first-letter {
     font-family: "Bonheur Royale", cursive;
-    font-weight: 400;
+    font-weight: 800;
     font-style: normal;
     color: var(--cor3);
-    font-size: 2rem;
+    font-size: 2.2rem;
 }
 
 main div.corpo p#paragrafo-destaque {
@@ -136,14 +140,14 @@ main#principal-galeria section#galeria figure.item-galeria {
     border-radius: 8px;
 }
 
-main section#galeria figure.item-galeria img {
+main#principal-galeria section#galeria figure.item-galeria img {
     width: 100%;
     display: block;
     box-shadow: 0 2px 6px var(--cor2);
     transition: transform .6s ease;
 }
 
-main#principal-galeria section#galeria figure.item-galeria figcaption {
+main section#galeria figure.item-galeria figcaption {
     font-weight: bold;
     position: absolute;
     bottom: 0;
@@ -160,7 +164,7 @@ main#principal-galeria section#galeria figure.item-galeria figcaption {
     /*****/
 }
 
-main#principal-galeria section#galeria figure.item-galeria:hover img {
+ main section#galeria figure.item-galeria:hover img {
     transform: scale(1.1);
     /* Aumenta a foto */
 }
@@ -198,7 +202,6 @@ main#principal-galeria section#galeria-videos video.item-galeria-videos:hover {
         linear-gradient(45deg, var(--cor5), var(--cor1)) border-box;
     box-shadow: 0 6px 12px rgba(0,0,0,0.15);
 }
-
 /******** PÁGINA "DESTILANDO MOMENTOS" - FIM ********/
 
 #rodape {
@@ -215,8 +218,9 @@ h2 {
     color: var(--cor4);
     font-family: "Golos Text", sans-serif;
     font-optical-sizing: auto;
-    font-weight: 200;
+    font-weight: bold;
     font-style: normal;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
 
 h2#titulo-momentos {
