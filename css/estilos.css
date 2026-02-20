@@ -174,14 +174,29 @@ main section#galeria figure.item-galeria:hover figcaption {
 
 main section#galeria-videos {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 1.3rem;
     padding: 1rem;
 }
 
 main#principal-galeria section#galeria-videos video.item-galeria-videos {
-    width: 300;
-    height: 200;
+    border: 4px solid transparent;
+    border-radius: 12px;
+    background:
+        linear-gradient(white, white) padding-box,
+        /* Fundo interno */
+        linear-gradient(45deg, var(--cor3), var(--cor2)) border-box;
+    /* Gradiente na borda */
+    padding: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+main#principal-galeria section#galeria-videos video.item-galeria-videos:hover {
+   background: 
+        linear-gradient(white, white) padding-box,
+        linear-gradient(45deg, var(--cor5), var(--cor1)) border-box;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
 }
 
 /******** PÁGINA "DESTILANDO MOMENTOS" - FIM ********/
