@@ -23,7 +23,6 @@ body {
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
-    /* background-image: url(../img/IMG_8940-1.png); */
 }
 
 header div.cabecalho {
@@ -136,6 +135,7 @@ main section#galeria figure.item-galeria img {
 }
 
 main section#galeria figure.item-galeria figcaption {
+    font-weight: bold;
     position: absolute;
     bottom: 0;
     left: 0;
