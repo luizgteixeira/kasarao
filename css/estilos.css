@@ -23,7 +23,7 @@ body {
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
-    background-image: url(../img/IMG_8940-1.png);
+    /* background-image: url(../img/IMG_8940-1.png); */
 }
 
 header div.cabecalho {
@@ -113,23 +113,52 @@ main div.corpo p#paragrafo-destaque img {
     width: 3rem;
 }
 
+/******** PÁGINA "DESTILANDO MOMENTOS" - INÍCIO ********/
 main section#galeria {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 1.3rem;
+    padding: 1rem;
 }
 
-main section#galeria img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
+main section#galeria figure.item-galeria {
+    position: relative;
+    margin: 0;
+    overflow: hidden; /* Corta a imagem quando ela cresce */
     border-radius: 8px;
-    box-shadow: 0 2px 6px var(--cor2);
 }
 
-main section#galeria img:hover {
-    transform: scale(1.5);
+main section#galeria figure.item-galeria img {
+    width: 100%;
+    display: block;
+    box-shadow: 0 2px 6px var(--cor2);
+    transition: transform .6s ease;
 }
+
+main section#galeria figure.item-galeria figcaption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8)); /*** Gradiente elegante ***/
+    color: white;
+    /*** Estado Inicial: Escondido abaixo ***/
+    opacity: 0;
+    transform: translateY(100%);
+    transition: transform .4s ease-out, opacity .4s ease;
+    /*****/
+}
+
+main section#galeria figure.item-galeria:hover img {
+    transform: scale(1.1); /* Aumenta a foto */
+}
+
+main section#galeria figure.item-galeria:hover figcaption {
+    opacity: 1; /*** Revela a legenda ***/
+    transform: translateY(0); /*** Desliza para a posição original ***/
+}
+/******** PÁGINA "DESTILANDO MOMENTOS" - FIM ********/
 
 #rodape {
     width: 98%;
@@ -140,8 +169,7 @@ main section#galeria img:hover {
     padding: .4rem .4rem;
 }
 
-/****** Tipografia ******/
-
+/****** TIPOGRAFIA ******/
 h2 {
     color: var(--cor4);
     font-family: "Golos Text", sans-serif;
