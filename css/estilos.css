@@ -9,6 +9,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Bonheur+Royale&display=swap');
 /* 1o letra do parágrafo */
 
+@import url('https://fonts.googleapis.com/css2?family=Ribeye&display=swap');
+/* títulos destaque */
+
 :root {
     --cor0: #FEFEFE;
     --cor1: #785D23;
@@ -28,7 +31,7 @@ body {
 header div.cabecalho {
     width: 100%;
     background-color: var(--cor5);
-    box-shadow: 2px 2px 3px var(--cor2);
+    box-shadow: 0 2px 4px #261600;
     margin: 0 auto;
     display: flex;
     flex-direction: row;
@@ -76,24 +79,24 @@ nav.menu-principal ul.lista-menu-principal li a.active {
     border-bottom: 2px solid var(--cor4);
 }
 
-main div.corpo {
+main#principal {
     background-image: url(../img/kasarao-k-opaco.png);
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
 
-main div.corpo img {
+main#principal div.corpo img {
     width: 1.9rem;
 }
 
-main div.corpo p {
+main#principal div.corpo p {
     text-indent: .5rem;
     text-align: justify;
     font-size: 1.2rem;
 }
 
-main div.corpo p::first-letter {
+main#principal div.corpo p::first-letter {
     font-family: "Bonheur Royale", cursive;
     font-weight: 400;
     font-style: normal;
@@ -113,17 +116,23 @@ main div.corpo p#paragrafo-destaque img {
 }
 
 /******** PÁGINA "DESTILANDO MOMENTOS" - INÍCIO ********/
-main section#galeria {
+main#principal-galeria {
+    background-image: url(../img/fundo-opaco.png);
+}
+
+main#principal-galeria section#galeria {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 1.3rem;
     padding: 1rem;
+    border-bottom: 2px solid var(--cor4);
 }
 
-main section#galeria figure.item-galeria {
+main#principal-galeria section#galeria figure.item-galeria {
     position: relative;
     margin: 0;
-    overflow: hidden; /* Corta a imagem quando ela cresce */
+    overflow: hidden;
+    /* Corta a imagem quando ela cresce */
     border-radius: 8px;
 }
 
@@ -134,14 +143,15 @@ main section#galeria figure.item-galeria img {
     transition: transform .6s ease;
 }
 
-main section#galeria figure.item-galeria figcaption {
+main#principal-galeria section#galeria figure.item-galeria figcaption {
     font-weight: bold;
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
     padding: 20px;
-    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8)); /*** Gradiente elegante ***/
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+    /*** Gradiente elegante ***/
     color: white;
     /*** Estado Inicial: Escondido abaixo ***/
     opacity: 0;
@@ -150,14 +160,30 @@ main section#galeria figure.item-galeria figcaption {
     /*****/
 }
 
-main section#galeria figure.item-galeria:hover img {
-    transform: scale(1.1); /* Aumenta a foto */
+main#principal-galeria section#galeria figure.item-galeria:hover img {
+    transform: scale(1.1);
+    /* Aumenta a foto */
 }
 
 main section#galeria figure.item-galeria:hover figcaption {
-    opacity: 1; /*** Revela a legenda ***/
-    transform: translateY(0); /*** Desliza para a posição original ***/
+    opacity: 1;
+    /*** Revela a legenda ***/
+    transform: translateY(0);
+    /*** Desliza para a posição original ***/
 }
+
+main section#galeria-videos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.3rem;
+    padding: 1rem;
+}
+
+main#principal-galeria section#galeria-videos video.item-galeria-videos {
+    width: 300;
+    height: 200;
+}
+
 /******** PÁGINA "DESTILANDO MOMENTOS" - FIM ********/
 
 #rodape {
@@ -176,4 +202,14 @@ h2 {
     font-optical-sizing: auto;
     font-weight: 200;
     font-style: normal;
+}
+
+h2#titulo-momentos {
+    font-family: "Ribeye", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 2.3rem;
+    color: var(--cor4);
+    padding-left: .5rem;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
