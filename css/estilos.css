@@ -1,0 +1,151 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Golos+Text:wght@400..900&display=swap');
+/* títulos */
+
+@import url('https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+/* textos */
+
+@import url('https://fonts.googleapis.com/css2?family=Bonheur+Royale&display=swap');
+/* 1o letra do parágrafo */
+
+:root {
+    --cor0: #FEFEFE;
+    --cor1: #785D23;
+    --cor2: #261600;
+    --cor3: #382300;
+    --cor4: #150F00;
+    --cor5: #6C5115;
+}
+
+body {
+    font-family: "Albert Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    background-image: url(../img/IMG_8940-1.png);
+}
+
+header div.cabecalho {
+    width: 100%;
+    background-color: var(--cor5);
+    box-shadow: 2px 2px 3px var(--cor2);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+header img {
+    width: 11rem;
+    margin: 0;
+}
+
+nav.menu-principal ul.lista-menu-principal {
+    list-style-type: none;
+}
+
+nav.menu-principal ul.lista-menu-principal li {
+    display: inline;
+}
+
+nav.menu-principal ul.lista-menu-principal li a {
+    color: var(--cor0);
+    padding: .4rem .4rem;
+    text-decoration: none;
+    border-radius: .5rem;
+    font-weight: 300;
+    transition: all 0.3s ease;
+}
+
+nav.menu-principal ul.lista-menu-principal li a:hover {
+    background-color: var(--cor0);
+    color: var(--cor4);
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px #0000004d;
+    border-radius: .4rem;
+}
+
+nav.menu-principal ul.lista-menu-principal li a:active {
+    border: 2px solid var(--cor4);
+    border-radius: .5rem;
+}
+
+nav.menu-principal ul.lista-menu-principal li a.active {
+    border-bottom: 2px solid var(--cor4);
+}
+
+main div.corpo {
+    background-image: url(../img/kasarao-k-opaco.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+main div.corpo img {
+    width: 1.9rem;
+}
+
+main div.corpo p {
+    text-indent: .5rem;
+    text-align: justify;
+    font-size: 1.2rem;
+}
+
+main div.corpo p::first-letter {
+    font-family: "Bonheur Royale", cursive;
+    font-weight: 400;
+    font-style: normal;
+    color: var(--cor3);
+    font-size: 2rem;
+}
+
+main div.corpo p#paragrafo-destaque {
+    color: var(--cor1);
+    font-size: 1.6rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+main div.corpo p#paragrafo-destaque img {
+    width: 3rem;
+}
+
+main section#galeria {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.3rem;
+}
+
+main section#galeria img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px var(--cor2);
+}
+
+main section#galeria img:hover {
+    transform: scale(1.5);
+}
+
+#rodape {
+    width: 98%;
+    background-color: var(--cor2);
+    color: var(--cor0);
+    margin: 0 auto;
+    text-align: center;
+    padding: .4rem .4rem;
+}
+
+/****** Tipografia ******/
+
+h2 {
+    color: var(--cor4);
+    font-family: "Golos Text", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 200;
+    font-style: normal;
+}
