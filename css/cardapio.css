@@ -1,32 +1,61 @@
-/* Cardápio
-   Objetivo: destaque visual + grid responsivo com cartões simples.
-   Mantém tipografia/cores via variáveis do global.css (var(--corX)).
-*/
+/* ======================================================
+   KASARÃO — CARDÁPIO (Premium • Fluido • Responsivo)
+   Compatível com global.css:
+   - Tema via body.light-mode
+   - Tokens: --bg-dark/--bg-light/--text-dark/--text-light/--primary
+   Ajustes:
+   1) Legendas SEMPRE visíveis no modo escuro (overlay com contraste)
+   2) Hover mais fluido nas imagens (zoom suave + glow discreto + lift)
+===================================================== */
+
+/* ---------- Tokens locais do Cardápio (derivados do global) ---------- */
+:root {
+  /* superfícies e bordas */
+  --cp-surface-dark: rgba(255, 255, 255, .06);
+  --cp-surface-light: rgba(0, 0, 0, .035);
+  --cp-line-dark: rgba(255, 255, 255, .10);
+  --cp-line-light: rgba(0, 0, 0, .08);
+
+  /* sombras */
+  --cp-shadow-dark: 0 18px 46px rgba(0, 0, 0, .50);
+  --cp-shadow-light: 0 18px 46px rgba(0, 0, 0, .18);
+
+  /* overlay da legenda */
+  --cp-cap-dark-1: rgba(6, 8, 10, .92);
+  --cp-cap-dark-2: rgba(6, 8, 10, .18);
+
+  --cp-cap-light-1: rgba(16, 18, 20, .82);
+  --cp-cap-light-2: rgba(16, 18, 20, .12);
+
+  /* animações */
+  --cp-ease: cubic-bezier(.2, .9, .2, 1);
+}
 
 #cardapio {
   padding: 2rem;
   text-align: center;
 }
 
-/* Título padronizado (reaproveitável em outras páginas) */
+/* ---------- Tipografia / Título (usando tokens do global) ---------- */
 .titulo-secao {
-  color: var(--cor4);
-  font: 700 2rem/1.2 "Golos Text", sans-serif;
-  text-shadow: 2px 2px 5px var(--cor4);
+  color: var(--primary);
+  font: 800 2rem/1.15 "Poppins", sans-serif;
+  letter-spacing: .2px;
   margin: 0 0 1rem;
-  border-bottom: 3px solid var(--cor5);
   display: inline-block;
-  padding-bottom: 0.5rem;
+  padding-bottom: .5rem;
+  border-bottom: 3px solid color-mix(in srgb, var(--primary) 72%, transparent);
+  text-shadow: 0 10px 26px rgba(0, 0, 0, .18);
 }
 
 .intro {
   margin: 0 0 2rem;
-  color: var(--cor4);
-  font-size: 1.2rem;
+  color: color-mix(in srgb, currentColor 78%, transparent);
+  font-size: 1.08rem;
   font-style: italic;
 }
 
-/* Grid fluido: cartões crescem conforme espaço disponível */
+/* ---------- Grid ---------- */
 .cardapio-destaque {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -34,32 +63,151 @@
   margin: 0 0 3rem;
 }
 
-.cardapio-destaque figure {
-  background: #fff8f0;
-  border-radius: 12px;
+/* ---------- Card (figure) ---------- */
+.cardapio-destaque figure,
+.cardapio-destaque .card {
+  position: relative;
   overflow: hidden;
-  box-shadow: 0 4px 8px var(--cor4);
-  transition: transform 0.25s ease;
+  border-radius: 16px;
+  isolation: isolate;
+  /* garante camadas/blur certos */
+
+  /* fundo adaptável ao tema */
+  background: var(--cp-surface-dark);
+  border: 1px solid var(--cp-line-dark);
+
+  box-shadow: 0 10px 28px rgba(0, 0, 0, .32);
+  transform: translateZ(0);
+
+  transition:
+    transform 520ms var(--cp-ease),
+    box-shadow 520ms var(--cp-ease),
+    border-color 520ms var(--cp-ease),
+    background 520ms var(--cp-ease);
 }
 
-.cardapio-destaque figure:hover {
-  transform: scale(1.04);
+/* Light mode (via global.css) */
+body.light-mode .cardapio-destaque figure,
+body.light-mode .cardapio-destaque .card {
+  background: rgba(255, 255, 255, .78);
+  border-color: var(--cp-line-light);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, .12);
 }
 
+body[data-theme="dark"] .cardapio-destaque figcaption {
+  background: linear-gradient(to top, rgba(6, 8, 10, .92), rgba(6, 8, 10, .18));
+  color: rgba(255, 255, 255, .95);
+}
+
+body[data-theme="light"] .cardapio-destaque figcaption {
+  background: linear-gradient(to top, rgba(16, 18, 20, .82), rgba(16, 18, 20, .12));
+  color: rgba(255, 255, 255, .95);
+}
+
+/* Lift premium ao hover */
+.cardapio-destaque figure:hover,
+.cardapio-destaque .card:hover {
+  transform: translateY(-7px);
+  box-shadow: var(--cp-shadow-dark);
+  border-color: color-mix(in srgb, var(--primary) 28%, var(--cp-line-dark));
+}
+
+body.light-mode .cardapio-destaque figure:hover,
+body.light-mode .cardapio-destaque .card:hover {
+  box-shadow: var(--cp-shadow-light);
+  border-color: color-mix(in srgb, var(--primary) 28%, var(--cp-line-light));
+}
+
+/* ---------- Imagem (hover mais fluido) ---------- */
 .cardapio-destaque img {
   display: block;
   width: 100%;
   height: auto;
+
+  /* sensação premium */
+  transform: scale(1.03);
+  filter: saturate(1.02) contrast(1.02);
+
+  transition:
+    transform 900ms var(--cp-ease),
+    filter 900ms var(--cp-ease);
+  will-change: transform, filter;
 }
 
+/* Hover: zoom suave + mais “vida” sem exagero */
+.cardapio-destaque figure:hover img,
+.cardapio-destaque .card:hover img {
+  transform: scale(1.12);
+  filter: saturate(1.10) contrast(1.06);
+}
+
+/* Glow discreto (camada por cima) */
+.cardapio-destaque figure::after,
+.cardapio-destaque .card::after {
+  content: "";
+  position: absolute;
+  inset: -35%;
+  pointer-events: none;
+  opacity: 0;
+
+  background:
+    radial-gradient(circle at 50% 55%,
+      color-mix(in srgb, var(--primary) 22%, transparent),
+      transparent 60%);
+
+  transform: rotate(10deg);
+  transition: opacity 900ms var(--cp-ease);
+}
+
+.cardapio-destaque figure:hover::after,
+.cardapio-destaque .card:hover::after {
+  opacity: 1;
+}
+
+/* ---------- Legenda (SEMPRE visível no dark e no light) ---------- */
 .cardapio-destaque figcaption {
-  padding: 1rem;
-  font-weight: 700;
-  color: var(--cor5);
-  background: #f9f4ef;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  padding: 1rem 1.1rem;
+  text-align: left;
+
+  font-weight: 800;
+  letter-spacing: .2px;
+
+  /* ✅ texto SEMPRE legível */
+  color: rgba(255, 255, 255, .95);
+
+  /* ✅ overlay: dark por padrão */
+  background: linear-gradient(to top,
+      var(--cp-cap-dark-1),
+      var(--cp-cap-dark-2));
+
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
+  transform: translateY(0);
+  transition:
+    transform 520ms var(--cp-ease),
+    background 520ms var(--cp-ease);
 }
 
-/* CTA */
+/* Light mode: mantém contraste (continua escuro, só um pouco mais leve) */
+body.light-mode .cardapio-destaque figcaption {
+  background: linear-gradient(to top,
+      var(--cp-cap-light-1),
+      var(--cp-cap-light-2));
+}
+
+/* Microinteração: legenda “respira” */
+.cardapio-destaque figure:hover figcaption,
+.cardapio-destaque .card:hover figcaption {
+  transform: translateY(-2px);
+}
+
+/* ---------- CTA ---------- */
 .btn-container {
   margin-top: 1rem;
 }
@@ -67,18 +215,42 @@
 .btn-cardapio {
   display: inline-block;
   padding: 1rem 2rem;
-  border-radius: 10px;
+  border-radius: 12px;
 
-  background: var(--cor1);
-  color: var(--cor0);
-  font-size: 1.2rem;
-  font-weight: 700;
+  background: var(--primary);
+  color: #0c1014;
+
+  font-size: 1.1rem;
+  font-weight: 900;
   text-decoration: none;
 
-  transition: transform 0.2s ease, background 0.3s ease;
+  box-shadow: 0 14px 32px rgba(0, 0, 0, .28);
+  transition:
+    transform 260ms var(--cp-ease),
+    filter 260ms var(--cp-ease),
+    background 260ms var(--cp-ease);
 }
 
 .btn-cardapio:hover {
-  background: var(--cor5);
-  transform: scale(1.04);
+  background: var(--primary-hover);
+  transform: translateY(-2px) scale(1.02);
+  filter: brightness(1.02);
+}
+
+/* ---------- Acessibilidade: menos movimento ---------- */
+@media (prefers-reduced-motion: reduce) {
+
+  .cardapio-destaque figure,
+  .cardapio-destaque img,
+  .cardapio-destaque figcaption {
+    transition: none !important;
+  }
+
+  .cardapio-destaque figure:hover {
+    transform: none;
+  }
+
+  .cardapio-destaque figure:hover img {
+    transform: none;
+  }
 }

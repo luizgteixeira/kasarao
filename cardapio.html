@@ -12,7 +12,7 @@
 
   <link rel="icon" href="img/kasarao-k.png" />
 
-  <!-- Open Graph: melhora preview quando compartilhar no WhatsApp/Instagram/FB -->
+  <!-- Open Graph -->
   <meta property="og:title" content="Kasarão Gastrobar - 🍻 O mais novo de Contagem ✨" />
   <meta property="og:description"
     content="Descubra o ambiente sofisticado, drinks exclusivos e eventos memoráveis do Kasarão Gastrobar." />
@@ -26,16 +26,15 @@
 </head>
 
 <body>
-  <!-- Header padrão do site (desktop + drawer mobile + tema).
-       Mantendo id/classes iguais para reutilizar o mesmo JS em todas as páginas. -->
   <header class="site-header">
     <div class="logo">
-      <img src="img/kasarao-semfundo.png" alt="Kasarão Gastrobar" />
+    <a href="index.html"><img src="img/kasarao-semfundo.png" alt="Kasarão Gastrobar" /></a>
     </div>
 
     <nav class="menu" aria-label="Navegação principal">
       <div class="nav-links">
-        <a href="index.html">Sobre</a>
+        <a href="index.html">Home</a>
+        <a href="quem-somos.html">Quem Somos</a>
         <a href="momentos.html">Momentos</a>
         <a href="contato.html">Contato</a>
         <a href="cardapio.html" aria-current="page">Cardápio</a>
@@ -69,7 +68,6 @@
         <a href="cardapio.html" aria-current="page">Cardápio</a>
       </nav>
 
-      <!-- Se existir toggle mobile, o JS deve espelhar o estado do toggle principal -->
       <div class="drawer-theme">
         <div class="theme-switch-wrapper">
           <span class="theme-label">Modo claro</span>
@@ -86,27 +84,29 @@
     <h1 class="titulo-secao">Nosso Cardápio</h1>
     <p class="intro">Sabores únicos, ambiente rústico e aconchegante. Explore nossas opções e peça online!</p>
 
-    <!-- Destaques (grid responsivo). Figure/figcaption preserva semântica de galeria. -->
     <section class="cardapio-destaque" aria-label="Destaques do cardápio">
-      <figure>
+
+      <!-- ✅ Alteração: adicionada class "card" no figure (só para estilização premium) -->
+      <figure class="card">
         <img src="img/amarula.png" alt="Drink Amarula" loading="lazy" />
         <figcaption>Amarula: um gole que vira espetáculo</figcaption>
       </figure>
 
-      <figure>
+      <figure class="card">
         <img src="img/drink-gostoso.png" alt="Sorvete na taça" loading="lazy" />
         <figcaption>Elegância servida em cada detalhe</figcaption>
       </figure>
 
-      <figure>
+      <figure class="card">
         <img src="img/torresmo-muito-bom.png" alt="Torresmo (tira-gosto)" loading="lazy" />
         <figcaption>Crocância que faz barulho até na alma</figcaption>
       </figure>
 
-      <figure>
+      <figure class="card">
         <img src="img/brinde-conosco.png" alt="Brinde no Kasarão" loading="lazy" />
         <figcaption>Dois copos, uma amizade e momentos que ficam na memória</figcaption>
       </figure>
+
     </section>
 
     <div class="btn-container">
@@ -141,7 +141,6 @@
     <p>&copy; 2026 Kasarão Gastrobar</p>
   </footer>
 
-  <!-- Botão flutuante único (evita duplicidade e conflito de layout) -->
   <a class="whatsapp-float"
     href="https://wa.me/5531885766915?text=Ol%C3%A1%21%20Vim%20pelo%20site%20do%20Kasar%C3%A3o%20Gastrobar%20e%20gostaria%20de%20informa%C3%A7%C3%B5es."
     target="_blank" rel="noopener noreferrer" aria-label="Falar no WhatsApp com o Kasarão">

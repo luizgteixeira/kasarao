@@ -1,143 +1,191 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="description" content="Site oficial do Kasarão Gastrobar">
-    <meta name="keywords"
-        content="Bar, Petiscos, Bebidas, Happy Hour, Almoço, Contagem, Ambiente Familiar, Música ao vivo">
-    <meta name="author" content="Luiz Gustavo">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE-edge">
-    <title>Kasarão Gastrobar - 🍻 ✨ O mais novo de Contagem ✨</title>
-    <link rel="shortcut icon" href="img/kasarao-k.png" type="image/x-icon">
-    <link rel="stylesheet" href="css/global.css">
-    <link rel="stylesheet" href="css/menu.css">
-    <link rel="stylesheet" href="css/quem-somos.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+  <title>Kasarão Gastrobar - Quem Somos</title>
+  <meta name="description"
+    content="Conheça a essência do Kasarão Gastrobar: história, ambiente, missão e proprietários." />
+  <meta name="theme-color" content="#0C1014" />
+
+  <link rel="icon" href="img/kasarao-k.png" />
+
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/menu.css" />
+  <link rel="stylesheet" href="css/quem-somos.css" />
 </head>
 
 <body>
-    <nav class="menu">
-        <div class="logo">
-            <a href="index.html" target="_self" rel="prev">
-                <img src="img/kasarao-semfundo.png" alt="Logo do Kasarão">
-            </a>
-        </div>
+  <!-- HEADER PADRÃO (igual index/momentos/contato/cardapio) -->
+  <header class="site-header">
+    <div class="logo">
+      <a href="index.html"><img src="img/kasarao-semfundo.png" alt="Kasarão Gastrobar" /></a>
+    </div>
 
-        <!-- Botão hamburger -->
-        <button class="hamburger" id="hamburger">☰</button>
-
-        <ul class="menu-links" id="menu-links">
-            <li><a href="index.html" target="_self" rel="prev">Início</a></li>
-            <li><a href="quem-somos.html" target="_self" class="active">Essência</a></li>
-            <li><a href="momentos.html" target="_self" rel="next">Momentos</a></li>
-            <li><a href="contato.html" target="_self" rel="next">Conexão</a></li>
-            <li><a href="cardapio.html" target="_self" rel="next">Sabores</a></li>
-        </ul>
+    <nav class="menu" aria-label="Navegação principal">
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="quem-somos.html" aria-current="page">Quem Somos</a>
+        <a href="momentos.html">Momentos</a>
+        <a href="contato.html">Contato</a>
+        <a href="cardapio.html">Cardápio</a>
+      </div>
     </nav>
-    <!-- Hero -->
-    <header class="essencia">
-        <h1 class="titulo-secao">Essência</h1>
+
+    <div class="theme-switch-wrapper">
+      <span class="theme-label">Tema</span>
+      <label class="theme-switch">
+        <input type="checkbox" id="theme-toggle" aria-label="Alternar tema" />
+        <span class="slider" aria-hidden="true"></span>
+      </label>
+    </div>
+
+    <button id="navToggle" class="nav-toggle" aria-label="Abrir menu" type="button">
+      <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+    </button>
+
+    <div id="navOverlay" class="nav-overlay" hidden></div>
+
+    <aside id="navDrawer" class="nav-drawer" aria-hidden="true">
+      <div class="drawer-header">
+        <img src="img/kasarao-semfundo.png" alt="Kasarão Gastrobar" />
+        <button id="drawerClose" class="drawer-close" aria-label="Fechar menu" type="button">✕</button>
+      </div>
+
+      <nav class="drawer-links" aria-label="Navegação mobile">
+        <a href="index.html">Home</a>
+        <a href="quem-somos.html" aria-current="page">Quem Somos</a>
+        <a href="momentos.html">Momentos</a>
+        <a href="contato.html">Contato</a>
+        <a href="cardapio.html">Cardápio</a>
+      </nav>
+
+      <div class="drawer-theme">
+        <div class="theme-switch-wrapper">
+          <span class="theme-label">Modo claro</span>
+          <label class="theme-switch">
+            <input type="checkbox" id="theme-toggle-mobile" aria-label="Alternar tema" />
+            <span class="slider" aria-hidden="true"></span>
+          </label>
+        </div>
+      </div>
+    </aside>
+  </header>
+
+  <!-- HERO (Essência) -->
+  <header class="qs-hero" role="banner">
+    <div class="qs-hero-inner">
+      <h1 class="qs-title">Essência</h1>
+      <p class="qs-sub">
+        A alma do Kasarão: nossa história, nossos sonhos e quem faz tudo acontecer.
+      </p>
+    </div>
+  </header>
+
+  <main id="quem-somos" class="qs-wrap">
+    <!-- Cards: História / Ambiente / Missão -->
+    <section class="qs-grid" aria-label="História, ambiente e missão">
+      <article class="qs-card">
+        <h2>História</h2>
+        <img src="img/k-gigante.png" alt="História do Kasarão" loading="lazy" />
         <p>
-            A alma do Kasarão: nossa história, nossos sonhos e quem faz tudo acontecer.
+          O Kasarão nasceu da paixão por boa comida, bons drinks e momentos inesquecíveis. Nosso espaço foi
+          pensado para unir rusticidade e aconchego, criando experiências únicas.
         </p>
-    </header>
+      </article>
 
-    <!-- Como surgiu a ideia -->
-    <main id="quem-somos"> <!-- Início main -->
-        <section class="sobre-bloco">
-            <h2>História</h2>
-            <img src="img/k-gigante.png" alt="História">
+      <article class="qs-card">
+        <h2>Ambiente</h2>
+        <img src="img/ambiente-externo.png" alt="Ambiente do Kasarão" loading="lazy" />
+        <p>
+          Um espaço rústico e acolhedor, perfeito para reunir amigos e celebrar bons momentos. Cada detalhe
+          foi pensado para trazer conforto e estilo.
+        </p>
+      </article>
 
-            <p>
-                O Kasarão nasceu da paixão por boa comida, bons drinks e momentos inesquecíveis. Nosso espaço foi
-                pensado para unir rusticidade e aconchego, criando experiências únicas.
-            </p>
-        </section>
-        <section class="sobre-bloco">
-            <h2>Ambiente</h2>
-            <img src="img/ambiente-noite.png" alt="Ambiente">
+      <article class="qs-card">
+        <h2>Missão</h2>
+        <img src="img/missao.png" alt="Missão do Kasarão" loading="lazy" />
+        <p>
+          Proporcionar experiências gastronômicas memoráveis, valorizando ingredientes de qualidade e
+          atendimento diferenciado.
+        </p>
+      </article>
+    </section>
 
-            <p>
-                Um espaço rústico e acolhedor, perfeito para reunir amigos e celebrar bons momentos. Cada detalhe
-                foi pensado para trazer conforto e estilo.
-            </p>
-        </section>
+    <!-- Proprietários -->
+    <section class="qs-owners" aria-label="Proprietários">
+      <h2 class="qs-section-title">Proprietários</h2>
 
-        <section class="sobre-bloco">
-            <h2>Missão</h2>
-            <img src="img/brindando-cerveja.png" alt="Missão">
+      <div class="qs-owners-grid">
+        <figure class="qs-owner" tabindex="0">
+          <img src="img/kelly-frente-bar.png" alt="Kelly Cristina" loading="lazy" />
+          <figcaption>
+            <h3>Kelly Cristina</h3>
+            <blockquote>
+              “Nossa missão é criar momentos inesquecíveis para cada cliente que entra no Kasarão,
+              oferecendo não apenas bebidas e pratos, mas experiências que ficam guardadas na memória.”
+            </blockquote>
+          </figcaption>
+        </figure>
 
-            <p>
-                Proporcionar experiências gastronômicas memoráveis, valorizando ingredientes de qualidade e
-                atendimento diferenciado
-            </p>
-        </section>
+        <figure class="qs-owner" tabindex="0">
+          <img src="img/luiz.png" alt="Cauã" loading="lazy" />
+          <figcaption>
+            <h3>Cauã</h3>
+            <blockquote>
+              “O Kasarão é mais que um bar, é um espaço de convivência e amizade, onde cada detalhe foi
+              pensado para acolher e encantar, transformando encontros em celebrações.”
+            </blockquote>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+  </main>
 
-        <!-- Proprietários abaixo -->
-        <section class="sobre-bloco proprietarios">
-            <h2>Proprietários</h2>
-            <div class="proprietario"> <img src="img/kelly-frente-bar.png" alt="Proprietário 1">
-                <h3>Kelly Cristina</h3>
-                <blockquote> "Nossa missão é criar momentos inesquecíveis para cada cliente que entra no Kasarão,
-                    oferecendo não apenas bebidas e pratos, mas experiências que ficam guardadas na memória."
-                </blockquote>
-            </div>
-            <div class="proprietario"> <img src="img/kelly-frente-bar.png" alt="Proprietário 2">
-                <h3>Cauã Reymond</h3>
-                <blockquote> "O Kasarão é mais que um bar, é um espaço de convivência e amizade, onde cada detalhe foi
-                    pensado para acolher e encantar, transformando encontros em celebrações." </blockquote>
-            </div>
-        </section>
-        <a href="https://wa.me/5531988576915" class="whatsapp-float" target="_blank"> <img src="img/whats1.ico"
-                alt="WhatsApp"> </a>
-    </main> <!-- Fim main -->
-    <footer>
-        <div class="footer-container">
-            <!-- Informações -->
-            <div class="footer-info">
-                <img src="img/kasarao-semfundo.png" width="100" alt="">
-                <p>
-                    Rua Abraão Evangelista Diniz, 39 – Contagem, MG
-                </p>
-                <p>
-                    📞 +55 (31) 98857-6915
-                </p>
-                <p>
-                    ✉️ contato@kasaraogastrobar.com
-                </p>
-            </div>
+  <!-- FOOTER PADRÃO (igual index) -->
+  <footer id="footer" class="footer">
+    <div class="footer-content">
+      <div class="footer-logo">
+        <img src="img/kasarao-semfundo.png" alt="Logo Kasarão Gastrobar" />
+      </div>
 
-            <!-- Redes sociais -->
-            <div class="footer-social">
-                <h4>Siga-nos</h4>
-                <a href="https://www.instagram.com/kasaraogastrobar/" target="_blank" title="Instagram">
-                    <img src="img/icone-instagram.ico" alt="Instagram">
-                </a>
-            </div>
+      <div class="social-icons">
+        <span class="follow-text">Siga-nos</span>
+        <a href="https://www.instagram.com/kasaraogastrobar/" target="_blank" rel="noopener noreferrer"
+          aria-label="Instagram do Kasarão">
+          <img src="img/icone-instagram.ico" alt="" aria-hidden="true" />
+        </a>
+      </div>
 
-            <!-- Newsletter -->
-            <div class="footer-newsletter">
-                <h4>Receba novidades</h4>
-                <form id="newsletter-form">
-                    <input type="email" placeholder="Seu email" required>
-                    <button type="submit">Inscrever-se</button>
-                </form>
-            </div>
-        </div>
+      <div class="contact-info">
+        <p>📍 Rua Abraão Evangelista Diniz, 39, Fonte Grande, Contagem - MG 32013-530, Brasil</p>
+        <p>📞 +55 31 8857-6915</p>
+      </div>
+    </div>
 
-        <div class="footer-copy">
-            <p id="saudacao-footer"></p>
-            <p>
-                © 2026 Kasarão Gastrobar - Todos os direitos reservados
-            </p>
-            <div class="footer-credit">
-                <img src="img/logo-altech.ico" alt="ALTech Logo" class="footer-logo"> <span>ALTech Desenvolvimento
-                    Web</span>
-            </div>
-        </div>
-    </footer>
-    <script type="text/javascript" src="js/script.js"></script>
+    <p class="developer-credit">Desenvolvido por Luiz Gustavo</p>
+    <p>&copy; 2026 Kasarão Gastrobar</p>
+  </footer>
+
+  <!-- WhatsApp float já é global.css (use o mesmo href do resto do site) -->
+  <a class="whatsapp-float"
+    href="https://wa.me/5531885766915?text=Ol%C3%A1%21%20Vim%20pelo%20site%20do%20Kasar%C3%A3o%20Gastrobar%20e%20gostaria%20de%20informa%C3%A7%C3%B5es."
+    target="_blank" rel="noopener noreferrer" aria-label="Falar no WhatsApp com o Kasarão">
+    <span class="whatsapp-tooltip">Converse com a gente</span>
+    <span class="whatsapp-icon" aria-hidden="true">
+      <svg viewBox="0 0 32 32" width="22" height="22">
+        <path fill="currentColor"
+          d="M19.11 17.53c-.27-.14-1.6-.79-1.85-.88-.25-.09-.43-.14-.61.14-.18.27-.7.88-.86 1.06-.16.18-.32.2-.59.07-.27-.14-1.13-.42-2.16-1.35-.8-.71-1.34-1.59-1.5-1.86-.16-.27-.02-.42.12-.56.12-.12.27-.32.41-.47.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.47-.07-.14-.61-1.47-.84-2.02-.22-.53-.45-.46-.61-.47h-.52c-.18 0-.47.07-.72.34-.25.27-.95.93-.95 2.27 0 1.34.98 2.64 1.11 2.82.14.18 1.93 2.95 4.67 4.13.65.28 1.16.45 1.56.58.66.21 1.27.18 1.74.11.53-.08 1.6-.65 1.83-1.28.23-.63.23-1.17.16-1.28-.07-.11-.25-.18-.52-.32z" />
+        <path fill="currentColor"
+          d="M26.67 5.33A14.5 14.5 0 0 0 3.86 22.02L2.5 29.5l7.64-1.32A14.5 14.5 0 0 0 26.67 5.33zM16 27.03c-2.32 0-4.59-.62-6.57-1.8l-.47-.28-4.53.78.8-4.41-.3-.5A11.93 11.93 0 1 1 16 27.03z" />
+      </svg>
+    </span>
+  </a>
+
+  <script src="js/script.js"></script>
 </body>
 
 </html>

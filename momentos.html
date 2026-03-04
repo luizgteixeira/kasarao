@@ -35,8 +35,9 @@
 
     <nav class="menu" aria-label="Navegação principal">
       <div class="nav-links">
-        <a href="index.html">Sobre</a>
-        <a href="momentos.html">Momentos</a>
+        <a href="index.html" >Home</a>
+        <a href="quem-somos.html">Quem Somos</a>
+        <a href="momentos.html" aria-current="page">Momentos</a>
         <a href="contato.html">Contato</a>
         <a href="cardapio.html">Cardápio</a>
       </div>
@@ -64,7 +65,7 @@
       </div>
 
       <nav class="drawer-links" aria-label="Navegação mobile">
-        <a href="index.html">Sobre</a>
+        <a href="index.html">Home</a>
         <a href="momentos.html">Momentos</a>
         <a href="contato.html">Contato</a>
         <a href="cardapio.html">Cardápio</a>
@@ -94,105 +95,184 @@
         <!-- Área “mascara” -->
         <div class="pc-viewport" data-viewport>
           <!-- Trilha que desliza -->
-          <div class="pc-track" data-track>
-            <!-- SLIDE 1 (imagem) -->
-            <article class="slide is-active" data-slide aria-roledescription="slide" aria-label="1 de 8">
-              <figure class="media">
-                <img src="img/ambiente-noite.png" alt="Ambiente sofisticado à noite" loading="lazy" decoding="async" />
-              </figure>
-
-              <div class="caption">
-                <h3>Ambiente sofisticado</h3>
-                <p>Luz, música e energia na medida para brindar.</p>
-              </div>
-            </article>
-
-            <!-- SLIDE 2 (imagem) -->
-            <article class="slide" data-slide aria-roledescription="slide" aria-label="2 de 8">
-              <figure class="media">
-                <img src="img/brindando-cerveja.png" alt="Brinde com cerveja" loading="lazy" decoding="async" />
-              </figure>
-
-              <div class="caption">
-                <h3>Brindes que viram história</h3>
-                <p>Os melhores encontros começam com um bom brinde 🍻</p>
-              </div>
-            </article>
-
-            <!-- SLIDE 3 (imagem) -->
-            <article class="slide" data-slide aria-roledescription="slide" aria-label="3 de 8">
-              <figure class="media">
-                <img src="img/kelly-drink.png" alt="Drink especial da casa" loading="lazy" decoding="async" />
-              </figure>
-
-              <div class="caption">
-                <h3>Drinks autorais</h3>
-                <p>Preparados com carinho — e com aquele toque do Kasarão.</p>
-              </div>
-            </article>
-
-            <!-- SLIDE 4 (imagem) -->
-            <article class="slide" data-slide aria-roledescription="slide" aria-label="4 de 8">
-              <figure class="media">
-                <img src="img/asa-frango.png" alt="Asinhas crocantes" loading="lazy" decoding="async" />
-              </figure>
-
-              <div class="caption">
-                <h3>Petiscos que chamam atenção</h3>
-                <p>Crocância, molho especial e mesa cheia.</p>
-              </div>
-            </article>
-
-            <!-- SLIDE 5 (imagem) -->
-            <article class="slide" data-slide aria-roledescription="slide" aria-label="5 de 8">
-              <figure class="media">
-                <img src="img/IMG_3125-1.png" alt="Sobremesa da casa" loading="lazy" decoding="async" />
-              </figure>
-
-              <div class="caption">
-                <h3>Final perfeito</h3>
-                <p>Sobremesas artesanais para fechar a noite com chave de ouro.</p>
-              </div>
-            </article>
-
-            <!-- SLIDE 6 (imagem) -->
-            <article class="slide" data-slide aria-roledescription="slide" aria-label="6 de 8">
-              <figure class="media">
-                <img src="img/comemore-conosco.png" alt="Grupo comemorando" loading="lazy" decoding="async" />
-              </figure>
-
-              <div class="caption">
-                <h3>Comemore com a gente</h3>
-                <p>O Kasarão é palco de momentos que ficam.</p>
-              </div>
-            </article>
-
-            <!-- SLIDE 7 (vídeo) — exemplo -->
-            <article class="slide" data-slide aria-roledescription="slide" aria-label="7 de 8">
-              <figure class="media">
-                <video controls preload="metadata" playsinline>
-                  <source src="video/kelly-entrada.mp4" type="video/mp4" />
-                </video>
-              </figure>
-
-              <div class="caption">
-                <h3>Um pouco do Kasarão em vídeo</h3>
-                <p>Chega mais: é vibe, é sabor, é experiência.</p>
-              </div>
-            </article>
-
-            <!-- SLIDE 8 (imagem) -->
-            <article class="slide" data-slide aria-roledescription="slide" aria-label="8 de 8">
-              <figure class="media">
-                <img src="img/brinde-conosco.png" alt="Drinks com limão" loading="lazy" decoding="async" />
-              </figure>
-
-              <div class="caption">
-                <h3>Drinks especiais</h3>
-                <p>Refrescante, elegante e do seu jeito.</p>
-              </div>
-            </article>
+      <div class="pc-track" data-track>
+        <!-- 1 -->
+        <article class="slide is-active" data-slide aria-roledescription="slide" aria-label="1 de 15">
+          <figure class="media">
+            <img src="img/ambiente-noite.png" alt="Ambiente sofisticado à noite" loading="lazy" decoding="async" />
+          </figure>
+          <div class="caption">
+            <h3>Ambiente sofisticado</h3>
+            <p>Luz, música e energia na medida para brindar.</p>
           </div>
+        </article>
+
+        <!-- 2 -->
+        <article class="slide" data-slide aria-roledescription="slide" aria-label="2 de 15">
+          <figure class="media">
+            <img src="img/brindando-cerveja.png" alt="Brinde com cerveja" loading="lazy" decoding="async" />
+          </figure>
+          <div class="caption">
+            <h3>Brindes que viram história</h3>
+            <p>Os melhores encontros começam com um bom brinde 🍻</p>
+          </div>
+        </article>
+
+        <!-- 3 -->
+        <article class="slide" data-slide aria-roledescription="slide" aria-label="3 de 15">
+          <figure class="media">
+            <img src="img/kelly-drink.png" alt="Drink especial da casa" loading="lazy" decoding="async" />
+          </figure>
+          <div class="caption">
+            <h3>Drinks autorais</h3>
+            <p>Preparados com carinho — e com aquele toque do Kasarão.</p>
+          </div>
+        </article>
+
+        <!-- 4 -->
+        <article class="slide" data-slide aria-roledescription="slide" aria-label="4 de 15">
+          <figure class="media">
+            <img src="img/asa-frango.png" alt="Asinhas crocantes" loading="lazy" decoding="async" />
+          </figure>
+          <div class="caption">
+            <h3>Petiscos que chamam atenção</h3>
+            <p>Crocância, molho especial e mesa cheia.</p>
+          </div>
+        </article>
+
+        <!-- 5 -->
+        <article class="slide" data-slide aria-roledescription="slide" aria-label="5 de 15">
+          <figure class="media">
+            <img src="img/IMG_3125-1.png" alt="Sobremesa da casa" loading="lazy" decoding="async" />
+          </figure>
+          <div class="caption">
+            <h3>Final perfeito</h3>
+            <p>Sobremesas artesanais para fechar a noite com chave de ouro.</p>
+          </div>
+        </article>
+
+        <!-- 6 -->
+        <article class="slide" data-slide aria-roledescription="slide" aria-label="6 de 15">
+          <figure class="media">
+            <img src="img/comemore-conosco.png" alt="Grupo comemorando" loading="lazy" decoding="async" />
+          </figure>
+          <div class="caption">
+            <h3>Comemore com a gente</h3>
+            <p>O Kasarão é palco de momentos que ficam.</p>
+          </div>
+        </article>
+
+        <!-- 7 -->
+        <article class="slide" data-slide aria-roledescription="slide" aria-label="7 de 15">
+          <figure class="media">
+            <video controls preload="metadata" playsinline>
+              <source src="video/kelly-entrada.mp4" type="video/mp4" />
+            </video>
+          </figure>
+          <div class="caption">
+            <h3>Um pouco do Kasarão em vídeo</h3>
+            <p>Chega mais: é vibe, é sabor, é experiência.</p>
+          </div>
+        </article>
+
+        <!-- 8 -->
+        <article class="slide" data-slide aria-roledescription="slide" aria-label="8 de 15">
+          <figure class="media">
+            <video controls preload="metadata" playsinline>
+              <source src="video/evento.mp4" type="video/mp4" />
+            </video>
+          </figure>
+          <div class="caption">
+            <h3>Noite especial</h3>
+            <p>Eventos e encontros que fazem história.</p>
+          </div>
+        </article>
+
+        <!-- 9 -->
+        <article class="slide" data-slide aria-roledescription="slide" aria-label="9 de 15">
+          <figure class="media">
+            <video controls preload="metadata" playsinline>
+              <source src="video/IMG_3568.mp4" type="video/mp4" />
+            </video>
+          </figure>
+          <div class="caption">
+            <h3>Vibe da casa</h3>
+            <p>Música, alegria e boa companhia.</p>
+          </div>
+        </article>
+
+        <!-- 10 -->
+        <article class="slide" data-slide aria-roledescription="slide" aria-label="10 de 15">
+          <figure class="media">
+            <video controls preload="metadata" playsinline>
+              <source src="video/IMG_6228.mp4" type="video/mp4" />
+            </video>
+          </figure>
+          <div class="caption">
+            <h3>Experiência completa</h3>
+            <p>Um pouco do Kasarão para você sentir de perto.</p>
+          </div>
+        </article>
+
+        <!-- 11 -->
+        <article class="slide" data-slide aria-roledescription="slide" aria-label="11 de 15">
+          <figure class="media">
+            <img src="img/brinde-conosco.png" alt="Drinks com limão" loading="lazy" decoding="async" />
+          </figure>
+          <div class="caption">
+            <h3>Drinks especiais</h3>
+            <p>Refrescante, elegante e do seu jeito.</p>
+          </div>
+        </article>
+
+        <!-- 12 (dup elegante, pode trocar imagem depois) -->
+        <article class="slide" data-slide aria-roledescription="slide" aria-label="12 de 15">
+          <figure class="media">
+            <img src="img/IMG_5100-1.png" alt="Ambiente com iluminação especial" loading="lazy" decoding="async" />
+          </figure>
+          <div class="caption">
+            <h3>Noite no Kasarão</h3>
+            <p>Ambiente perfeito para celebrar.</p>
+          </div>
+        </article>
+
+        <!-- 13 -->
+        <article class="slide" data-slide aria-roledescription="slide" aria-label="13 de 15">
+          <figure class="media">
+            <img src="img/IMG_7130-1.png" alt="Amigos brindando no Kasarão" loading="lazy" decoding="async" />
+          </figure>
+          <div class="caption">
+            <h3>Prato refinado</h3>
+            <p>Parmegiana simplesmente irresistível.</p>
+          </div>
+        </article>
+
+        <!-- 14 -->
+        <article class="slide" data-slide aria-roledescription="slide" aria-label="14 de 15">
+          <figure class="media">
+            <video controls preload="metadata" playsinline>
+              <source src="video/VID-20260215-WA0046.mp4" type="video/mp4" />
+            </video>
+          </figure>
+          <div class="caption">
+            <h3>Tira gosto sensacional</h3>
+            <p>Deliciosas batatas, sequinhas e crocantes.</p>
+          </div>
+        </article>
+
+        <!-- 15 -->
+        <article class="slide" data-slide aria-roledescription="slide" aria-label="15 de 15">
+          <figure class="media">
+            <video controls preload="metadata" playsinline>
+              <source src="video/musica-vivo.mp4" type="video/mp4" />
+            </video>
+          </figure>
+          <div class="caption">
+            <h3>Músicas ao vivo</h3>
+            <p>Venha cantar a dançar com a gente.</p>
+          </div>
+        </article>
+      </div>
         </div>
 
         <!-- Controles -->

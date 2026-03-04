@@ -78,15 +78,29 @@ document.addEventListener('DOMContentLoaded', () => {
     if (toggleMobile) toggleMobile.checked = light;
   }
 
+  function setThemeMetaColor(light) {
+    const meta = document.querySelector('meta[name="theme-color"]');
+    if (!meta) return;
+    // dark padrão do seu global.css + um claro compatível
+    meta.setAttribute('content', light ? '#f4f1ea' : '#0C1014');
+  }
+
   function applyTheme(light) {
-    body.classList.toggle('light-mode', !!light);
-    localStorage.setItem('theme', light ? 'light' : 'dark');
+    const isLightMode = !!light;
+
+    body.classList.toggle('light-mode', isLightMode);
+
+    // ✅ token profissional para CSS e debugging
+    body.dataset.theme = isLightMode ? 'light' : 'dark';
+
+    localStorage.setItem('theme', isLightMode ? 'light' : 'dark');
     syncThemeToggles();
+    setThemeMetaColor(isLightMode);
   }
 
   (function initTheme() {
     const saved = localStorage.getItem('theme');
-    applyTheme(saved === 'light');
+    applyTheme(saved === 'light'); // default: dark
   })();
 
   if (toggleDesktop)

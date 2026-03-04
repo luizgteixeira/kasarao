@@ -30,10 +30,20 @@ html, body{ overflow-x:hidden; }
   --wa-space: 84px;  /* espaço pro whatsapp */
 }
 
-body{
+body {
   font-family: 'Poppins', sans-serif;
+
+  /* tipografia mais profissional */
+  font-size: clamp(16px, 0.35vw + 15px, 18px);
+  line-height: 1.75;
+  letter-spacing: 0.2px;
+
   background: var(--bg-dark);
   color: var(--text-dark);
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
   transition: opacity .4s ease, background .4s ease, color .4s ease;
 }
 
@@ -282,4 +292,116 @@ body.light-mode .whatsapp-tooltip::after{
 
 @media (max-width: 768px){
   .whatsapp-tooltip{ display:none; }
+}
+
+/* =====================================================
+   KIT PREMIUM (Global)
+   - Tipografia + hierarquia
+   - Links + botões
+   - Cards/caixas (melhora .slide/.caption indiretamente)
+   - Focus acessível (padrão Big Tech)
+   Cole no FINAL do global.css
+===================================================== */
+
+/* ---------- Tipografia: base moderna e confortável ---------- */
+body {
+  font-size: clamp(16px, 0.35vw + 15px, 18px);
+  line-height: 1.75;
+  letter-spacing: 0.2px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Parágrafos: largura ideal de leitura (sem atrapalhar elementos pequenos) */
+p {
+  max-width: 68ch;
+}
+
+/* Títulos: mais “premium” e com presença */
+h1 {
+  font-size: clamp(2.0rem, 2vw + 1.5rem, 3.0rem);
+  line-height: 1.12;
+  letter-spacing: .2px;
+}
+
+h2 {
+  font-size: clamp(1.55rem, 1vw + 1.25rem, 2.25rem);
+  line-height: 1.18;
+  letter-spacing: .2px;
+}
+
+h3 {
+  font-size: clamp(1.15rem, .5vw + 1.05rem, 1.45rem);
+  line-height: 1.22;
+  letter-spacing: .15px;
+}
+
+/* ---------- Links: underline elegante e acessível ---------- */
+a {
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1.5px;
+}
+
+a:hover {
+  text-decoration-thickness: 2px;
+}
+
+/* ---------- Focus (teclado): padrão profissional ---------- */
+:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--primary) 55%, transparent);
+  outline-offset: 3px;
+  border-radius: 10px;
+}
+
+/* ---------- Botões/CTAs: micro-interações mais suaves ---------- */
+.btn-cardapio,
+button {
+  transition: transform .25s ease, box-shadow .25s ease, filter .25s ease;
+}
+
+/* ---------- Superfícies premium (cards e caixas) ---------- */
+/* Serve para blocos tipo "cards" sem alterar layout */
+.premium-surface {
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, .10);
+  background: rgba(255, 255, 255, .06);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, .45);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+body.light-mode .premium-surface {
+  border: 1px solid rgba(0, 0, 0, .08);
+  background: rgba(255, 255, 255, .75);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, .18);
+}
+
+/* ---------- Ajuste global de leitura no Dark/Light (alto impacto) ---------- */
+body:not(.light-mode) {
+  color: rgba(245, 245, 245, .92);
+}
+
+body.light-mode {
+  color: rgba(45, 42, 38, .92);
+}
+
+/* ---------- Correção universal para texto dentro de slides/captions (legível sempre) ---------- */
+body:not(.light-mode) .slide,
+body:not(.light-mode) .caption {
+  color: rgba(245, 245, 245, .92);
+}
+
+body.light-mode .slide,
+body.light-mode .caption {
+  color: rgba(45, 42, 38, .92);
+}
+
+/* ---------- Pequena melhoria em listas (horários) ---------- */
+ul {
+  padding-left: 1.1rem;
+}
+
+li {
+  margin: .22rem 0;
 }
