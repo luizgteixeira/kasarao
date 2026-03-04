@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Kasarão Gastrobar - 🍻 ✨ O mais novo de Contagem ✨</title>
+  <link rel="icon" href="img/kasarao-k.png" />
+
+  <!-- SEO essencial (keywords/author/robots são dispensáveis na maioria dos casos) -->
+  <meta name="description"
+    content="Galeria oficial do Kasarão Gastrobar. O mais novo gastrobar de Contagem. Ambiente sofisticado, drinks autorais, alta gastronomia e eventos exclusivos." />
+  <meta name="theme-color" content="#0C1014" />
+
+  <!-- Open Graph (prévia ao compartilhar em redes sociais) -->
+  <meta property="og:title" content="Kasarão Gastrobar - 🍻 O mais novo de Contagem ✨" />
+  <meta property="og:description"
+    content="Descubra o ambiente sofisticado, drinks exclusivos e eventos memoráveis do Kasarão Gastrobar." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.seusite.com.br" />
+  <meta property="og:image" content="https://www.seusite.com.br/imagem-preview.jpg" />
+
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/menu.css" />
+  <link rel="stylesheet" href="css/momentos.css" />
+</head>
+
+<body>
+  <!-- Header compartilhado (desktop + drawer mobile). IDs são usados no JS -->
+  <header class="site-header">
+    <div class="logo">
+      <img src="img/kasarao-semfundo.png" alt="Kasarão Gastrobar" />
+    </div>
+
+    <nav class="menu" aria-label="Navegação principal">
+      <div class="nav-links">
+        <a href="index.html">Sobre</a>
+        <a href="momentos.html">Momentos</a>
+        <a href="contato.html">Contato</a>
+        <a href="cardapio.html">Cardápio</a>
+      </div>
+    </nav>
+
+    <!-- Toggle de tema (desktop) -->
+    <div class="theme-switch-wrapper">
+      <span class="theme-label">Tema</span>
+      <label class="theme-switch">
+        <input type="checkbox" id="theme-toggle" aria-label="Alternar tema" />
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <!-- Drawer mobile -->
+    <button id="navToggle" class="nav-toggle" type="button" aria-label="Abrir menu">
+      <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+    </button>
+    <div id="navOverlay" class="nav-overlay" hidden></div>
+
+    <aside id="navDrawer" class="nav-drawer" aria-hidden="true">
+      <div class="drawer-header">
+        <img src="img/kasarao-semfundo.png" alt="Kasarão Gastrobar" />
+        <button id="drawerClose" class="drawer-close" type="button" aria-label="Fechar menu">✕</button>
+      </div>
+
+      <nav class="drawer-links" aria-label="Navegação mobile">
+        <a href="index.html">Sobre</a>
+        <a href="momentos.html">Momentos</a>
+        <a href="contato.html">Contato</a>
+        <a href="cardapio.html">Cardápio</a>
+      </nav>
+
+      <!-- Toggle de tema (mobile) -->
+      <div class="drawer-theme">
+        <div class="theme-switch-wrapper">
+          <span class="theme-label">Modo claro</span>
+          <label class="theme-switch">
+            <input type="checkbox" id="theme-toggle-mobile" aria-label="Alternar tema" />
+            <span class="slider"></span>
+          </label>
+        </div>
+      </div>
+    </aside>
+  </header>
+
+  <main>
+    <section class="premium-carousel" aria-label="Carrossel de fotos e vídeos do Kasarão">
+      <header class="pc-head">
+        <h1 class="pc-title">Momentos Inesquecíveis</h1>
+        <p class="pc-subtitle">Fotos e vídeos para você sentir a vibe do Kasarão.</p>
+      </header>
+
+      <div class="pc-shell" data-carousel>
+        <!-- Área “mascara” -->
+        <div class="pc-viewport" data-viewport>
+          <!-- Trilha que desliza -->
+          <div class="pc-track" data-track>
+            <!-- SLIDE 1 (imagem) -->
+            <article class="slide is-active" data-slide aria-roledescription="slide" aria-label="1 de 8">
+              <figure class="media">
+                <img src="img/ambiente-noite.png" alt="Ambiente sofisticado à noite" loading="lazy" decoding="async" />
+              </figure>
+
+              <div class="caption">
+                <h3>Ambiente sofisticado</h3>
+                <p>Luz, música e energia na medida para brindar.</p>
+              </div>
+            </article>
+
+            <!-- SLIDE 2 (imagem) -->
+            <article class="slide" data-slide aria-roledescription="slide" aria-label="2 de 8">
+              <figure class="media">
+                <img src="img/brindando-cerveja.png" alt="Brinde com cerveja" loading="lazy" decoding="async" />
+              </figure>
+
+              <div class="caption">
+                <h3>Brindes que viram história</h3>
+                <p>Os melhores encontros começam com um bom brinde 🍻</p>
+              </div>
+            </article>
+
+            <!-- SLIDE 3 (imagem) -->
+            <article class="slide" data-slide aria-roledescription="slide" aria-label="3 de 8">
+              <figure class="media">
+                <img src="img/kelly-drink.png" alt="Drink especial da casa" loading="lazy" decoding="async" />
+              </figure>
+
+              <div class="caption">
+                <h3>Drinks autorais</h3>
+                <p>Preparados com carinho — e com aquele toque do Kasarão.</p>
+              </div>
+            </article>
+
+            <!-- SLIDE 4 (imagem) -->
+            <article class="slide" data-slide aria-roledescription="slide" aria-label="4 de 8">
+              <figure class="media">
+                <img src="img/asa-frango.png" alt="Asinhas crocantes" loading="lazy" decoding="async" />
+              </figure>
+
+              <div class="caption">
+                <h3>Petiscos que chamam atenção</h3>
+                <p>Crocância, molho especial e mesa cheia.</p>
+              </div>
+            </article>
+
+            <!-- SLIDE 5 (imagem) -->
+            <article class="slide" data-slide aria-roledescription="slide" aria-label="5 de 8">
+              <figure class="media">
+                <img src="img/IMG_3125-1.png" alt="Sobremesa da casa" loading="lazy" decoding="async" />
+              </figure>
+
+              <div class="caption">
+                <h3>Final perfeito</h3>
+                <p>Sobremesas artesanais para fechar a noite com chave de ouro.</p>
+              </div>
+            </article>
+
+            <!-- SLIDE 6 (imagem) -->
+            <article class="slide" data-slide aria-roledescription="slide" aria-label="6 de 8">
+              <figure class="media">
+                <img src="img/comemore-conosco.png" alt="Grupo comemorando" loading="lazy" decoding="async" />
+              </figure>
+
+              <div class="caption">
+                <h3>Comemore com a gente</h3>
+                <p>O Kasarão é palco de momentos que ficam.</p>
+              </div>
+            </article>
+
+            <!-- SLIDE 7 (vídeo) — exemplo -->
+            <article class="slide" data-slide aria-roledescription="slide" aria-label="7 de 8">
+              <figure class="media">
+                <video controls preload="metadata" playsinline>
+                  <source src="video/kelly-entrada.mp4" type="video/mp4" />
+                </video>
+              </figure>
+
+              <div class="caption">
+                <h3>Um pouco do Kasarão em vídeo</h3>
+                <p>Chega mais: é vibe, é sabor, é experiência.</p>
+              </div>
+            </article>
+
+            <!-- SLIDE 8 (imagem) -->
+            <article class="slide" data-slide aria-roledescription="slide" aria-label="8 de 8">
+              <figure class="media">
+                <img src="img/brinde-conosco.png" alt="Drinks com limão" loading="lazy" decoding="async" />
+              </figure>
+
+              <div class="caption">
+                <h3>Drinks especiais</h3>
+                <p>Refrescante, elegante e do seu jeito.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <!-- Controles -->
+        <button class="pc-btn prev" type="button" aria-label="Slide anterior" data-prev>❮</button>
+        <button class="pc-btn next" type="button" aria-label="Próximo slide" data-next>❯</button>
+
+        <!-- Dots gerados via JS -->
+        <div class="pc-dots" data-dots aria-label="Paginação do carrossel"></div>
+      </div>
+
+      <p class="pc-hint">Dica: arraste no celular ou use as setas do teclado.</p>
+    </section>
+  </main>
+  <footer id="footer" class="footer">
+    <div class="footer-content">
+      <div class="footer-logo">
+        <img src="img/kasarao-semfundo.png" alt="Logo Kasarão Gastrobar" />
+      </div>
+
+      <div class="social-icons">
+        <span class="follow-text">Siga-nos</span>
+        <a href="https://www.instagram.com/kasaraogastrobar/" target="_blank" rel="noopener noreferrer"
+          aria-label="Instagram do Kasarão">
+          <img src="img/icone-instagram.ico" alt="Ícone do Instagram" />
+        </a>
+      </div>
+
+      <div class="contact-info">
+        <p>📍 Rua Abraao Evangelista Diniz 39, Fonte Grande, Contagem - MG 32013-530, Brasil</p>
+        <p>📞 +55 31 8857-6915</p>
+      </div>
+    </div>
+
+    <p class="developer-credit">
+      Desenvolvido por Luiz Gustavo
+    </p>
+  </footer>
+
+  <!-- WhatsApp: SVG embutido (sem dependências externas) -->
+  <a class="whatsapp-float"
+    href="https://wa.me/5531885766915?text=Ol%C3%A1%21%20Vim%20pelo%20site%20do%20Kasar%C3%A3o%20Gastrobar%20e%20gostaria%20de%20informa%C3%A7%C3%B5es."
+    target="_blank" rel="noopener noreferrer" aria-label="Falar no WhatsApp com o Kasarão">
+    <span class="whatsapp-tooltip">Converse com a gente</span>
+    <span class="whatsapp-icon" aria-hidden="true">
+      <svg viewBox="0 0 32 32" width="22" height="22">
+        <path fill="currentColor"
+          d="M19.11 17.53c-.27-.14-1.6-.79-1.85-.88-.25-.09-.43-.14-.61.14-.18.27-.7.88-.86 1.06-.16.18-.32.2-.59.07-.27-.14-1.13-.42-2.16-1.35-.8-.71-1.34-1.59-1.5-1.86-.16-.27-.02-.42.12-.56.12-.12.27-.32.41-.47.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.47-.07-.14-.61-1.47-.84-2.02-.22-.53-.45-.46-.61-.47h-.52c-.18 0-.47.07-.72.34-.25.27-.95.93-.95 2.27 0 1.34.98 2.64 1.11 2.82.14.18 1.93 2.95 4.67 4.13.65.28 1.16.45 1.56.58.66.21 1.27.18 1.74.11.53-.08 1.6-.65 1.83-1.28.23-.63.23-1.17.16-1.28-.07-.11-.25-.18-.52-.32z" />
+        <path fill="currentColor"
+          d="M26.67 5.33A14.5 14.5 0 0 0 3.86 22.02L2.5 29.5l7.64-1.32A14.5 14.5 0 0 0 26.67 5.33zM16 27.03c-2.32 0-4.59-.62-6.57-1.8l-.47-.28-4.53.78.8-4.41-.3-.5A11.93 11.93 0 1 1 16 27.03z" />
+      </svg>
+    </span>
+  </a>
+
+  <script src="js/script.js"></script>
+</body>
+
+</html>

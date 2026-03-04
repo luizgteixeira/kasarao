@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- SEO básico -->
+  <title>Kasarão Gastrobar - 🍻 ✨ O mais novo de Contagem ✨</title>
+  <meta name="description" content="Site oficial do Kasarão Gastrobar" />
+  <meta name="keywords"
+    content="Bar, Petiscos, Bebidas, Happy Hour, Almoço, Contagem, Ambiente Familiar, Música ao vivo" />
+  <meta name="author" content="Luiz Gustavo" />
+
+  <link rel="icon" href="img/kasarao-k.png" type="image/x-icon" />
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/menu.css" />
+  <link rel="stylesheet" href="css/contato.css" />
+</head>
+
+<body>
+  <!-- Header e navegação: mantém separado para reaproveitar o mesmo topo em todas as páginas -->
+  <header class="site-header">
+    <div class="logo">
+      <img src="img/kasarao-semfundo.png" alt="Kasarão Gastrobar" />
+    </div>
+
+    <!-- Menu desktop -->
+    <nav class="menu" aria-label="Navegação principal">
+      <div class="nav-links">
+        <a href="index.html">Sobre</a>
+        <a href="momentos.html">Momentos</a>
+        <a href="contato.html" aria-current="page">Contato</a>
+        <a href="cardapio.html">Cardápio</a>
+      </div>
+    </nav>
+
+    <!-- Toggle tema: 1 checkbox controla o tema; o JS pode espelhar no mobile -->
+    <div class="theme-switch-wrapper">
+      <span class="theme-label">Tema</span>
+      <label class="theme-switch">
+        <input type="checkbox" id="theme-toggle" aria-label="Alternar tema" />
+        <span class="slider" aria-hidden="true"></span>
+      </label>
+    </div>
+
+    <!-- Botão do drawer (mobile) -->
+    <button id="navToggle" class="nav-toggle" aria-label="Abrir menu" type="button">
+      <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+    </button>
+
+    <!-- Overlay do drawer: hidden evita foco/leitura quando fechado -->
+    <div id="navOverlay" class="nav-overlay" hidden></div>
+
+    <!-- Drawer (mobile): aria-hidden controlado via JS -->
+    <aside id="navDrawer" class="nav-drawer" aria-hidden="true">
+      <div class="drawer-header">
+        <img src="img/kasarao-semfundo.png" alt="Kasarão Gastrobar" />
+        <button id="drawerClose" class="drawer-close" aria-label="Fechar menu" type="button">✕</button>
+      </div>
+
+      <nav class="drawer-links" aria-label="Navegação mobile">
+        <a href="index.html">Sobre</a>
+        <a href="momentos.html">Momentos</a>
+        <a href="contato.html" aria-current="page">Contato</a>
+        <a href="cardapio.html">Cardápio</a>
+      </nav>
+
+      <!-- Se você quiser manter o toggle dentro do drawer, use o MESMO tema via JS (espelhar estado) -->
+      <div class="drawer-theme">
+        <div class="theme-switch-wrapper">
+          <span class="theme-label">Modo claro</span>
+          <label class="theme-switch">
+            <input type="checkbox" id="theme-toggle-mobile" aria-label="Alternar tema" />
+            <span class="slider" aria-hidden="true"></span>
+          </label>
+        </div>
+      </div>
+    </aside>
+  </header>
+
+  <main id="contato">
+    <h1 class="titulo-secao">Entre em Contato</h1>
+
+    <!-- Links de contato: use ícone + texto, mantendo clique fácil e acessível -->
+    <section class="contato-info" aria-label="Informações de contato">
+      <a href="mailto:contato@kasaraogastrobar.com" class="btn-contato">
+        <img src="img/mail-envelope.ico" alt="" class="icon-btn" aria-hidden="true" />
+        contato@kasaraogastrobar.com
+      </a>
+
+      <a href="https://wa.me/5531988576915" target="_blank" rel="noopener noreferrer" class="btn-contato">
+        <img src="img/whats1.ico" alt="" class="icon-btn" aria-hidden="true" />
+        +55 (31) 98857-6915
+      </a>
+    </section>
+
+    <section class="contato-mapa" aria-label="Localização">
+      <h2 class="titulo-secao">Nossa Localização</h2>
+
+      <!-- Embed do Google Maps: largura fluida via CSS, sem depender do width=600 -->
+      <div class="mapa-container">
+        <iframe title="Mapa - Kasarão Gastrobar"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3751.0588168180666!2d-44.08629412400699!3d-19.921926138058655!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa6953882dca0e3%3A0xa64c094a4c4e1ead!2sR.%20Abra%C3%A3o%20Evangelista%20Diniz%2C%2039%20-%20Fonte%20Grande%2C%20Contagem%20-%20MG%2C%2032013-530!5e0!3m2!1spt-BR!2sbr!4v1771956209211!5m2!1spt-BR!2sbr"
+          loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen>
+        </iframe>
+      </div>
+
+      <p id="endereco">Rua Abraão Evangelista Diniz, 39 CEP: 32013-530 - Contagem/MG</p>
+    </section>
+  </main>
+
+  <footer id="footer" class="footer">
+    <div class="footer-content">
+      <div class="footer-logo">
+        <img src="img/kasarao-semfundo.png" alt="Logo Kasarão Gastrobar" />
+      </div>
+
+      <div class="social-icons">
+        <span class="follow-text">Siga-nos</span>
+        <a href="https://www.instagram.com/kasaraogastrobar/" target="_blank" rel="noopener noreferrer"
+          aria-label="Instagram do Kasarão">
+          <img src="img/icone-instagram.ico" alt="" aria-hidden="true" />
+        </a>
+      </div>
+
+      <div class="contact-info">
+        <p>📍 Rua Abraão Evangelista Diniz, 39, Fonte Grande, Contagem - MG 32013-530, Brasil</p>
+        <p>📞 +55 31 8857-6915</p>
+      </div>
+    </div>
+
+    <p class="developer-credit">Desenvolvido por Luiz Gustavo</p>
+    <p>&copy; 2026 Kasarão Gastrobar</p>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+
+</html>

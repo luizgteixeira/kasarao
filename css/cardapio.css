@@ -1,0 +1,84 @@
+/* Cardápio
+   Objetivo: destaque visual + grid responsivo com cartões simples.
+   Mantém tipografia/cores via variáveis do global.css (var(--corX)).
+*/
+
+#cardapio {
+  padding: 2rem;
+  text-align: center;
+}
+
+/* Título padronizado (reaproveitável em outras páginas) */
+.titulo-secao {
+  color: var(--cor4);
+  font: 700 2rem/1.2 "Golos Text", sans-serif;
+  text-shadow: 2px 2px 5px var(--cor4);
+  margin: 0 0 1rem;
+  border-bottom: 3px solid var(--cor5);
+  display: inline-block;
+  padding-bottom: 0.5rem;
+}
+
+.intro {
+  margin: 0 0 2rem;
+  color: var(--cor4);
+  font-size: 1.2rem;
+  font-style: italic;
+}
+
+/* Grid fluido: cartões crescem conforme espaço disponível */
+.cardapio-destaque {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin: 0 0 3rem;
+}
+
+.cardapio-destaque figure {
+  background: #fff8f0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px var(--cor4);
+  transition: transform 0.25s ease;
+}
+
+.cardapio-destaque figure:hover {
+  transform: scale(1.04);
+}
+
+.cardapio-destaque img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.cardapio-destaque figcaption {
+  padding: 1rem;
+  font-weight: 700;
+  color: var(--cor5);
+  background: #f9f4ef;
+}
+
+/* CTA */
+.btn-container {
+  margin-top: 1rem;
+}
+
+.btn-cardapio {
+  display: inline-block;
+  padding: 1rem 2rem;
+  border-radius: 10px;
+
+  background: var(--cor1);
+  color: var(--cor0);
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-decoration: none;
+
+  transition: transform 0.2s ease, background 0.3s ease;
+}
+
+.btn-cardapio:hover {
+  background: var(--cor5);
+  transform: scale(1.04);
+}

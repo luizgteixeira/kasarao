@@ -1,0 +1,206 @@
+.titulo-secao {
+  color: var(--cor4);
+  font-size: 2rem;
+  font-family: "Golos Text", sans-serif;
+  font-weight: bold;
+  font-style: normal;
+  text-shadow: 2px 2px 5px var(--cor4);
+  margin-bottom: 1rem;
+  border-bottom: 3px solid var(--cor5);
+  display: inline-block;
+  padding-bottom: .5rem;
+}
+
+.essencia p {
+  font-size: 1.3rem;
+  color: var(--cor4);
+  text-align: center;
+}
+
+/* Container principal */
+#quem-somos {
+  display: flex;
+  flex-wrap: wrap;
+  /* permite quebrar em telas menores */
+  gap: 30px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+/* Blocos principais (História, Ambiente, Missão) */
+#quem-somos>.sobre-bloco:not(.proprietarios) {
+  flex: 1;
+  min-width: 280px;
+  background: #f9f9f9;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+#quem-somos>.sobre-bloco:not(.proprietarios) img {
+  width: 100%;
+  max-height: 220px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  transition: transform 0.4s ease;
+}
+
+.sobre-bloco h2 {
+  font-size: 1.6rem;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.sobre-bloco p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #555;
+  text-align: justify;
+}
+
+.sobre-bloco:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+
+.sobre-bloco:hover img {
+  transform: scale(1.05);
+}
+
+/* Proprietários abaixo */
+.sobre-bloco.proprietarios {
+  flex: 1 1 100%;
+  background: #fff8f0;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Cada proprietário agrupado */
+.proprietario {
+  display: inline-block;
+  margin: 20px;
+  text-align: center;
+}
+
+/* Imagem circular */
+.proprietario img {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.4s ease;
+}
+
+.proprietario img:hover {
+  transform: scale(1.08);
+}
+
+/* Nome do proprietário (inicialmente invisível e deslocado) */
+.proprietario h3 {
+  font-size: 1.2rem;
+  color: #444;
+  margin-top: 10px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+/* Citação (inicialmente invisível e deslocada) */
+.proprietario blockquote {
+  font-style: italic;
+  color: #222;
+  margin: 15px auto;
+  padding: 15px 20px;
+  border-left: 5px solid #ff9900;
+  background: #fff3e6;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  max-width: 400px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1.2s ease, transform 1.2s ease;
+}
+
+/* Hover: apenas o nome e citação do proprietário ativo aparecem */
+.proprietario:hover h3 {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.proprietario:hover blockquote {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsividade */
+@media (min-width: 1600px) {
+  #quem-somos {
+    gap: 50px;
+    max-width: 90%;
+  }
+
+  .sobre-bloco h2 {
+    font-size: 2rem;
+  }
+
+  .sobre-bloco p {
+    font-size: 1.2rem;
+  }
+
+  .proprietario h3 {
+    font-size: 1.4rem;
+  }
+
+  .proprietario blockquote {
+    font-size: 1.3rem;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1599px) {
+  #quem-somos {
+    flex-direction: row;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  #quem-somos {
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  .sobre-bloco h2 {
+    font-size: 1.4rem;
+  }
+
+  .sobre-bloco img {
+    max-height: 180px;
+  }
+
+  .proprietario h3 {
+    font-size: 1.1rem;
+  }
+}
+
+/* Em telas pequenas, mostrar sempre os nomes e citações */
+@media (max-width: 767px) {
+
+  .proprietario h3,
+  .proprietario blockquote {
+    opacity: 1;
+    transform: translateY(0);
+    transition: none;
+    /* remove transição para não dar bug */
+  }
+}  
