@@ -1,281 +1,457 @@
 /* =====================================================
-   momentos.css — CARROSSEL PREMIUM (IMG + VÍDEO)
-   - Legenda anima da ESQUERDA → DIREITA
-   - Faixa "safe" para não cobrir controles do vídeo
-   - Versão clara elegante no light-mode
+   momentos.css — CARROSSEL PREMIUM (20 itens: IMG + VÍDEO)
+   - Compatível com o HTML e com seu JS global (data-*)
+   - Não mexe no HEADER/NAV (isso fica no menu.css)
+   - Legenda (caption) aparece corretamente no desktop e mobile
+   - “Safe area” para não cobrir controles do vídeo
 ===================================================== */
 
-/* ---------- Cabeçalho da seção ---------- */
-.premium-carousel{
+/* =====================================================
+   Seção
+===================================================== */
+.premium-carousel {
   padding: 52px 8% 90px;
 }
 
-.pc-head{
+/* Cabeçalho da seção (não é <header>, para evitar duplicidade) */
+.pc-head {
   text-align: center;
   margin-bottom: 22px;
 }
 
-.pc-title{
+.pc-title {
   color: var(--primary);
   font-size: clamp(1.8rem, 2.5vw, 2.4rem);
   margin: 0 0 8px;
 }
 
-.pc-subtitle{
-  opacity: .9;
+.pc-subtitle {
   margin: 0 auto;
-  max-width: 60ch;
+  max-width: 64ch;
+  font-size: clamp(1.05rem, .7vw + 1rem, 1.35rem);
+  line-height: 1.8;
+  letter-spacing: .2px;
+  text-wrap: pretty;
+
+  color: rgba(245, 245, 245, .92);
+
+  padding: 10px 14px;
+  border-radius: 14px;
+  background: rgba(12, 16, 20, .25);
+  border: 1px solid rgba(255, 255, 255, .06);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, .18);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
 }
 
-/* ---------- Casca premium ---------- */
-.pc-shell{
+/* =====================================================
+   Casca premium do carrossel
+===================================================== */
+.pc-shell {
   position: relative;
-  border-radius: 22px;
+  isolation: isolate;
+  border-radius: 24px;
   overflow: hidden;
-  background: linear-gradient(180deg, rgba(20,26,32,.95), rgba(12,16,20,.95));
-  box-shadow: 0 22px 60px rgba(0,0,0,.55);
-  border: 1px solid rgba(255,255,255,.06);
+
+  background: linear-gradient(180deg, rgba(20, 26, 32, .95), rgba(12, 16, 20, .95));
+  border: 1px solid rgba(255, 255, 255, .08);
+  box-shadow:
+    0 28px 90px rgba(0, 0, 0, .62),
+    inset 0 1px 0 rgba(255, 255, 255, .06);
 }
 
-.pc-viewport{ overflow: hidden; }
+/* Glow/vinheta discreta (não bloqueia clique) */
+.pc-shell::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 0;
 
-/* trilha horizontal */
-.pc-track{
+  background:
+    radial-gradient(60% 70% at 50% 25%,
+      color-mix(in srgb, var(--primary) 22%, transparent),
+      transparent 62%),
+    radial-gradient(90% 80% at 50% 60%,
+      rgba(0, 0, 0, 0),
+      rgba(0, 0, 0, .55) 78%);
+  opacity: .85;
+}
+
+/* Linha “edge light” superior */
+.pc-shell::after {
+  content: "";
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  top: 14px;
+  height: 1px;
+  border-radius: 999px;
+  pointer-events: none;
+  z-index: 1;
+
+  background: linear-gradient(90deg,
+      transparent,
+      rgba(255, 255, 255, .10),
+      color-mix(in srgb, var(--primary) 40%, rgba(255, 255, 255, .10)),
+      rgba(255, 255, 255, .10),
+      transparent);
+  opacity: .75;
+}
+
+.pc-viewport {
+  overflow: hidden;
+  position: relative;
+  z-index: 2;
+}
+
+/* Track horizontal: cada slide ocupa 100% */
+.pc-track {
   display: grid;
   grid-auto-flow: column;
   grid-auto-columns: 100%;
-  transition: transform .55s cubic-bezier(.2,.8,.2,1);
+  transition: transform .55s cubic-bezier(.2, .8, .2, 1);
   will-change: transform;
+  position: relative;
+  z-index: 2;
 }
 
-/* ---------- Slide ---------- */
-.slide{
+/* =====================================================
+   Slide + mídia
+===================================================== */
+.slide {
   position: relative;
   min-height: clamp(360px, 62vh, 620px);
-  --caption-safe: 120px; /* espaço reservado p/ legenda + controls */
+
+  /* Espaço reservado para legenda e para os controles do vídeo */
+  --caption-safe: 124px;
 }
 
-/* vinheta suave */
-.slide::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background: radial-gradient(60% 60% at 50% 40%, rgba(0,0,0,.08), rgba(0,0,0,.60));
-  z-index:1;
-  pointer-events:none;
+/* Vinheta do slide */
+.slide::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: radial-gradient(70% 70% at 50% 35%, rgba(0, 0, 0, .06), rgba(0, 0, 0, .64));
 }
 
-/* mídia (img/video) */
-.media{
-  margin:0;
-  position:relative;
-  z-index:2;
-  height:calc(100% - var(--caption-safe));
-  display:grid;
-  place-items:center;
+/* Container da mídia */
+.media {
+  margin: 0;
+  position: relative;
+  z-index: 2;
+  height: calc(100% - var(--caption-safe));
+  display: grid;
+  place-items: center;
 }
 
+/* Imagem e vídeo com comportamento consistente */
 .media img,
-.media video{
-  width:min(410px,92%);
-  height:400px;
-  object-fit:contain;
-  display:block;
-  border-radius:18px;
+.media video {
+  width: min(760px, 92%);
+  height: min(440px, 52vh);
+  object-fit: contain;
+  display: block;
+
+  border-radius: 18px;
+  box-shadow:
+    0 20px 55px rgba(0, 0, 0, .55),
+    inset 0 1px 0 rgba(255, 255, 255, .06);
+  filter: saturate(1.02) contrast(1.03);
 }
 
 /* =====================================================
-   CAPTION — anima da ESQUERDA → DIREITA
+   Legenda (caption)
+   - Importante: NÃO escondemos no mobile
+   - pointer-events:none para não bloquear controles do vídeo
 ===================================================== */
-.caption{
-  position:absolute;
-  left:18px;
-  right:18px;
-  bottom:16px;
-  z-index:3;
+.caption {
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  bottom: 16px;
+  z-index: 3;
 
-  padding:14px 16px;
-  border-radius:16px;
+  padding: 14px 16px 14px 20px;
+  border-radius: 16px;
 
-  background: rgba(10,12,14,.78);
-  border: 1px solid rgba(255,255,255,.10);
-  backdrop-filter: blur(10px);
+  background: rgba(8, 10, 12, .72);
+  border: 1px solid rgba(255, 255, 255, .12);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, .36);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 
-  opacity:0;
-  transform:translateX(-60px); /* começa à esquerda */
-  transition:
-    transform .65s cubic-bezier(.22,.8,.2,1),
-    opacity .35s ease;
+  pointer-events: none;
+
+  opacity: 0;
+  transform: translateX(-60px);
   will-change: transform, opacity;
-
-  pointer-events:none; /* não bloqueia controles do vídeo */
 }
 
-.caption h3{
-  margin:0 0 6px;
-  color:var(--primary);
-  font-size:1.15rem;
-  letter-spacing:.2px;
+/* Linha dourada lateral */
+.caption::before {
+  content: "";
+  position: absolute;
+  left: 14px;
+  top: 14px;
+  bottom: 14px;
+  width: 3px;
+  border-radius: 999px;
+  background: linear-gradient(180deg,
+      color-mix(in srgb, var(--primary) 90%, transparent),
+      color-mix(in srgb, var(--primary) 40%, transparent));
+  opacity: .9;
 }
 
-.caption p{
-  margin:0;
-  line-height:1.45;
+.caption h3 {
+  margin: 0 0 6px;
+  color: var(--primary);
+  font-size: 1.12rem;
+  letter-spacing: .2px;
 }
 
-/* estado ativo (entra deslizando) */
-.slide:not(.is-active) .caption{
-  opacity:0 !important;
-  transform:translateX(-60px) !important;
-}
-.slide.is-active .caption{
-  opacity:1 !important;
-  transform:translateX(0) !important;
-  transition-delay:.08s;
+.caption p {
+  margin: 0;
+  line-height: 1.55;
+  opacity: .96;
 }
 
-/* ---------- Botões ---------- */
-.pc-btn{
-  position:absolute;
-  top:50%;
-  transform:translateY(-50%);
-  width:46px;
-  height:46px;
-  border-radius:999px;
-  border:1px solid rgba(255,255,255,.10);
-  background:rgba(12,16,20,.68);
-  color:#f7f7f7;
-  cursor:pointer;
-  display:grid;
-  place-items:center;
-  box-shadow:0 14px 30px rgba(0,0,0,.45);
-  transition:transform .2s ease, background .2s ease;
-  z-index:4;
-}
-.pc-btn:hover{
-  transform:translateY(-50%) scale(1.04);
-  background:rgba(12,16,20,.85);
-}
-.pc-btn.prev{ left:14px; }
-.pc-btn.next{ right:14px; }
+/* Animação ao ativar slide */
+@keyframes captionInLR {
+  from {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
 
-/* ---------- Dots ---------- */
-.pc-dots{
-  position:absolute;
-  left:16px;
-  right:16px;
-  bottom:12px;
-  z-index:4;
-  display:flex;
-  justify-content:center;
-  gap:8px;
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
-.pc-dot{
-  width:8px;
-  height:8px;
-  border-radius:999px;
-  border:none;
-  cursor:pointer;
-  background:rgba(255,255,255,.28);
-  transition:transform .2s ease, background .2s ease, width .2s ease;
-}
-.pc-dot.is-active{
-  background:rgba(200,169,106,.95);
-  width:22px;
-}
-
-/* dica */
-.pc-hint{
-  text-align:center;
-  margin:14px 0 0;
-  opacity:.75;
-  font-size:.95rem;
+.slide.is-active .caption {
+  opacity: 1;
+  transform: translateX(0);
+  animation: captionInLR .65s cubic-bezier(.22, .8, .2, 1) both;
 }
 
 /* =====================================================
-   MODO CLARO — versão elegante e clara do carrossel
+   Botões prev/next
 ===================================================== */
-body.light-mode .pc-shell{
-  background: linear-gradient(180deg, #f4ecdb, #e6d7bd);
-  border: 1px solid rgba(0,0,0,.08);
-  box-shadow: 0 20px 50px rgba(0,0,0,.18);
+.pc-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+
+  width: 46px;
+  height: 46px;
+  border-radius: 999px;
+  padding: 0;
+
+  border: 1px solid rgba(255, 255, 255, .14);
+  background:
+    radial-gradient(circle at 30% 25%,
+      rgba(255, 255, 255, .16),
+      rgba(12, 16, 20, .62) 60%);
+  color: #f7f7f7;
+  cursor: pointer;
+
+  display: grid;
+  place-items: center;
+
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, .50),
+    inset 0 1px 0 rgba(255, 255, 255, .10);
+
+  transition: transform .18s ease, background .22s ease, box-shadow .22s ease;
 }
 
-body.light-mode .slide::before{
-  background: radial-gradient(60% 60% at 50% 40%,
-              rgba(255,255,255,.15),
-              rgba(0,0,0,.12));
+.pc-btn.prev {
+  left: 14px;
+  right: auto;
 }
 
-body.light-mode .media img,
-body.light-mode .media video{
-  box-shadow: 0 12px 28px rgba(0,0,0,.18);
+.pc-btn.next {
+  right: 14px;
+  left: auto;
 }
 
-body.light-mode .caption{
-  background: rgba(255,255,255,.78);
-  border: 1px solid rgba(0,0,0,.08);
+.pc-btn:hover {
+  transform: translateY(-50%) scale(1.06);
+  background:
+    radial-gradient(circle at 30% 25%,
+      rgba(255, 255, 255, .20),
+      rgba(12, 16, 20, .78) 62%);
+}
+
+.pc-btn:active {
+  transform: translateY(-50%) scale(1.02);
+}
+
+.pc-btn svg {
+  width: 20px;
+  height: 20px;
+  display: block;
+
+  stroke: currentColor;
+  stroke-width: 2.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+
+  /* Clique sempre no botão, nunca no SVG */
+  pointer-events: none;
+}
+
+/* =====================================================
+   Dots
+===================================================== */
+.pc-dots {
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  bottom: 12px;
+  z-index: 5;
+
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.pc-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+
+  background: rgba(255, 255, 255, .26);
+  transition: transform .2s ease, background .2s ease, width .2s ease;
+}
+
+.pc-dot.is-active {
+  width: 26px;
+  background: linear-gradient(90deg,
+      color-mix(in srgb, var(--primary) 95%, transparent),
+      rgba(255, 255, 255, .35));
+  box-shadow: 0 10px 20px rgba(0, 0, 0, .22);
+}
+
+.pc-hint {
+  text-align: center;
+  margin: 14px 0 0;
+  opacity: .75;
+  font-size: .95rem;
+}
+
+/* =====================================================
+   Light Mode (elegante, sem “lavar”)
+===================================================== */
+body.light-mode .pc-subtitle {
+  color: rgba(45, 42, 38, .92);
+  background: rgba(255, 255, 255, .45);
+  border-color: rgba(0, 0, 0, .06);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, .10);
+}
+
+body.light-mode .pc-shell {
+  background: linear-gradient(180deg, #f6efdf, #e6d7bd);
+  border-color: rgba(0, 0, 0, .08);
+  box-shadow:
+    0 24px 70px rgba(0, 0, 0, .18),
+    inset 0 1px 0 rgba(255, 255, 255, .55);
+}
+
+body.light-mode .caption {
+  background: rgba(255, 255, 255, .80);
+  border-color: rgba(0, 0, 0, .10);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, .12);
+  color: rgba(45, 42, 38, .92);
+}
+
+body.light-mode .pc-btn {
+  background:
+    radial-gradient(circle at 30% 25%,
+      rgba(255, 255, 255, .95),
+      rgba(255, 255, 255, .62) 62%);
   color: #2d2a26;
+  border-color: rgba(0, 0, 0, .12);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, .18);
 }
 
-body.light-mode .caption p{
-  color: rgba(45,42,38,.88);
+body.light-mode .pc-dot {
+  background: rgba(0, 0, 0, .25);
 }
 
-body.light-mode .pc-btn{
-  background: rgba(255,255,255,.65);
-  color: #2d2a26;
-  border: 1px solid rgba(0,0,0,.12);
-  box-shadow: 0 10px 24px rgba(0,0,0,.18);
-}
-body.light-mode .pc-btn:hover{
-  background: rgba(255,255,255,.85);
-}
-
-body.light-mode .pc-dot{
-  background: rgba(0,0,0,.25);
-}
-body.light-mode .pc-dot.is-active{
+body.light-mode .pc-dot.is-active {
   background: var(--primary);
 }
 
-/* ---------- Responsivo ---------- */
-@media (max-width:768px){
-  .premium-carousel{ padding:44px 6% 84px; }
-  .pc-btn{ width:44px; height:44px; }
-  .slide{ --caption-safe:110px; }
-  .caption{ left:14px; right:14px; bottom:14px; }
-  .media img, .media video{ width:min(760px,94%); }
-}
-
 /* =====================================================
-   FIX: legenda SEMPRE anima (keyframes)
-   - entra da esquerda -> direita ao ativar o slide
+   Responsivo (mobile)
 ===================================================== */
+@media (max-width: 768px) {
+  .premium-carousel {
+    padding: 44px 6% 84px;
+  }
 
-/* estado base */
-.pc-shell .caption{
-  opacity: 0 !important;
-  transform: translateX(-60px) !important;
+  .slide {
+    --caption-safe: 132px;
+  }
+
+  .pc-btn {
+    width: 44px;
+    height: 44px;
+  }
+
+  .pc-btn.prev {
+    left: 10px;
+  }
+
+  .pc-btn.next {
+    right: 10px;
+  }
+
+  .caption {
+    left: 14px;
+    right: 14px;
+    bottom: 14px;
+    border-radius: 14px;
+  }
+
+  .caption::before {
+    left: 12px;
+    top: 12px;
+    bottom: 12px;
+  }
+
+  .media img,
+  .media video {
+    width: min(920px, 94%);
+    height: min(420px, 48vh);
+  }
 }
 
-/* animação (entra da esquerda p/ direita) */
-@keyframes captionInLR{
-  from{ opacity:0; transform:translateX(-60px); }
-  to  { opacity:1; transform:translateX(0); }
-}
+/* Acessibilidade: reduzir movimento */
+@media (prefers-reduced-motion: reduce) {
+  .pc-track {
+    transition: none;
+  }
 
-/* quando o slide fica ativo, anima */
-.pc-shell .slide.is-active .caption{
-  opacity: 1 !important;
-  transform: translateX(0) !important;
-  animation: captionInLR .65s cubic-bezier(.22,.8,.2,1) both;
-}
+  .pc-btn,
+  .pc-dot,
+  .media img,
+  .media video {
+    transition: none !important;
+  }
 
-/* acessibilidade: respeita usuários com redução de movimento */
-@media (prefers-reduced-motion: reduce){
-  .pc-shell .slide.is-active .caption{
+  .slide.is-active .caption {
     animation: none;
+    opacity: 1;
+    transform: none;
   }
 }

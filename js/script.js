@@ -1,5 +1,5 @@
 /* ======================================================
-   KASARÃO — script.js (CONSOLIDADO e ENXUTO)
+   KASARÃO — script.js
    - Tema em body.light-mode (persistente + sincroniza toggles)
    - Menu: scrolled + hide on scroll (no .site-header)
    - Drawer mobile (navToggle/navOverlay/navDrawer/drawerClose)
@@ -467,3 +467,28 @@ document.addEventListener('DOMContentLoaded', () => {
   // Estado inicial
   goTo(index);
 })();
+
+// AUTOPLAY INTELIGENTE (pausa ao interagir; não atrapalha vídeo)
+let autoplayId = null;
+
+function startAutoplay(){
+  stopAutoplay();
+  autoplayId = setInterval(() => {
+    const active = slides[index];
+    const v = active?.querySelector('video');
+    if (v && !v.paused) return; // se vídeo tocando, não avança
+    next();
+  }, 5000);
+}
+
+function stopAutoplay(){
+  if (autoplayId) clearInterval(autoplayId);
+  autoplayId = null;
+}
+
+root.addEventListener('mouseenter', stopAutoplay);
+root.addEventListener('mouseleave', startAutoplay);
+root.addEventListener('touchstart', stopAutoplay, { passive: true });
+root.addEventListener('touchend', startAutoplay);
+
+startAutoplay();

@@ -3,335 +3,381 @@
 
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Kasarão Gastrobar — Momentos</title>
 
-  <title>Kasarão Gastrobar - 🍻 ✨ O mais novo de Contagem ✨</title>
-  <link rel="icon" href="img/kasarao-k.png" />
-
-  <!-- SEO essencial (keywords/author/robots são dispensáveis na maioria dos casos) -->
-  <meta name="description"
-    content="Galeria oficial do Kasarão Gastrobar. O mais novo gastrobar de Contagem. Ambiente sofisticado, drinks autorais, alta gastronomia e eventos exclusivos." />
+  <!-- SEO básico -->
+  <meta name="description" content="Momentos no Kasarão: fotos e vídeos em um carrossel premium." />
   <meta name="theme-color" content="#0C1014" />
 
-  <!-- Open Graph (prévia ao compartilhar em redes sociais) -->
-  <meta property="og:title" content="Kasarão Gastrobar - 🍻 O mais novo de Contagem ✨" />
-  <meta property="og:description"
-    content="Descubra o ambiente sofisticado, drinks exclusivos e eventos memoráveis do Kasarão Gastrobar." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://www.seusite.com.br" />
-  <meta property="og:image" content="https://www.seusite.com.br/imagem-preview.jpg" />
+  <!-- Ícone -->
+  <link rel="icon" href="img/kasarao-k.png" />
 
+  <!-- Open Graph (WhatsApp/Instagram/Facebook) -->
+  <meta property="og:title" content="Kasarão Gastrobar — Momentos" />
+  <meta property="og:description"
+    content="Fotos e vídeos: drinks autorais, noites marcantes e um ambiente sofisticado em Contagem-MG." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="pt_BR" />
+  <!-- Troque por uma imagem real para compartilhamento -->
+  <meta property="og:image" content="img/og-kasarao.jpg" />
+
+  <!-- CSS padrão + CSS da página -->
   <link rel="stylesheet" href="css/global.css" />
   <link rel="stylesheet" href="css/menu.css" />
   <link rel="stylesheet" href="css/momentos.css" />
+
+  <!-- Schema.org (SEO local) -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Restaurant",
+      "name": "Kasarão Gastrobar",
+      "telephone": "+55 31 8857-6915",
+      "priceRange": "$$",
+      "servesCuisine": "Gastrobar",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Rua Abraao Evangelista Diniz 39",
+        "addressLocality": "Contagem",
+        "addressRegion": "MG",
+        "postalCode": "32013-530",
+        "addressCountry": "BR"
+      }
+    }
+  </script>
 </head>
 
 <body>
-  <!-- Header compartilhado (desktop + drawer mobile). IDs são usados no JS -->
+  <!-- =====================================================
+       HEADER ÚNICO (estilizado pelo menu.css)
+       IDs esperados pelo seu script.js:
+       #theme-toggle #navToggle
+  ====================================================== -->
   <header class="site-header">
     <div class="logo">
-      <a href="index.html">
+      <a href="index.html" aria-label="Voltar para a Home">
         <img src="img/kasarao-semfundo.png" alt="Kasarão Gastrobar" />
       </a>
     </div>
 
     <nav class="menu" aria-label="Navegação principal">
       <div class="nav-links">
-        <a href="index.html" >Home</a>
+        <a href="index.html">Home</a>
         <a href="quem-somos.html">Quem Somos</a>
-        <a href="momentos.html" aria-current="page">Momentos</a>
+        <a href="momentos.html" class="active" aria-current="page">Momentos</a>
         <a href="contato.html">Contato</a>
         <a href="cardapio.html">Cardápio</a>
       </div>
     </nav>
 
-    <!-- Toggle de tema (desktop) -->
     <div class="theme-switch-wrapper">
       <span class="theme-label">Tema</span>
       <label class="theme-switch">
         <input type="checkbox" id="theme-toggle" aria-label="Alternar tema" />
-        <span class="slider"></span>
+        <span class="slider" aria-hidden="true"></span>
       </label>
     </div>
 
-    <!-- Drawer mobile -->
-    <button id="navToggle" class="nav-toggle" type="button" aria-label="Abrir menu">
+    <button id="navToggle" class="nav-toggle" aria-label="Abrir menu" type="button">
       <span class="bar"></span><span class="bar"></span><span class="bar"></span>
     </button>
-    <div id="navOverlay" class="nav-overlay" hidden></div>
-
-    <aside id="navDrawer" class="nav-drawer" aria-hidden="true">
-      <div class="drawer-header">
-        <a href="index.html">
-          <img src="img/kasarao-semfundo.png" alt="Kasarão Gastrobar" />
-        </a>
-        <button id="drawerrawer-close" type="button" aria-label="Fechar menu">✕</button>
-      </div>
-      <nav class="drawer-links" aria-label="Navegação mobile">
-        <a href="index.html">Home</a>
-        <a href="quem-somos.html">Quem Somos</a>
-        <a href="momentos.html">Momentos</a>
-        <a href="contato.html">Contato</a>
-        <a href="cardapio.html">Cardápio</a>
-      </nav>
-
-      <!-- Toggle de tema (mobile) -->
-      <div class="drawer-theme">
-        <div class="theme-switch-wrapper">
-          <span class="theme-label">Modo claro</span>
-          <label class="theme-switch">
-            <input type="checkbox" id="theme-toggle-mobile" aria-label="Alternar tema" />
-            <span class="slider"></span>
-          </label>
-        </div>
-      </div>
-    </aside>
   </header>
 
-  <main>
-    <section class="premium-carousel" aria-label="Carrossel de fotos e vídeos do Kasarão">
-      <header class="pc-head">
-        <h1 class="pc-title">Momentos Inesquecíveis</h1>
-        <p class="pc-subtitle">Fotos e vídeos para você sentir a vibe do Kasarão.</p>
-      </header>
+  <!-- =====================================================
+       OVERLAY + DRAWER (fora do header)
+       IDs esperados pelo seu script.js:
+       #navOverlay #navDrawer #drawerClose #theme-toggle-mobile
+  ====================================================== -->
+  <div id="navOverlay" class="nav-overlay" hidden aria-hidden="true"></div>
 
-      <div class="pc-shell" data-carousel>
-        <!-- Área “mascara” -->
-        <div class="pc-viewport" data-viewport>
-          <!-- Trilha que desliza -->
-      <div class="pc-track" data-track>
-        <!-- 1 -->
-        <article class="slide is-active" data-slide aria-roledescription="slide" aria-label="1 de 15">
-          <figure class="media">
-            <img src="img/ambiente-noite.png" alt="Ambiente sofisticado à noite" loading="lazy" decoding="async" />
-          </figure>
-          <div class="caption">
-            <h3>Ambiente sofisticado</h3>
-            <p>Luz, música e energia na medida para brindar.</p>
-          </div>
-        </article>
+  <aside id="navDrawer" class="nav-drawer" aria-hidden="true">
+    <div class="drawer-header">
+      <img src="img/kasarao-semfundo.png" alt="Kasarão Gastrobar" />
+      <button id="drawerClose" class="drawer-close" aria-label="Fechar menu" type="button">✕</button>
+    </div>
 
-        <!-- 2 -->
-        <article class="slide" data-slide aria-roledescription="slide" aria-label="2 de 15">
-          <figure class="media">
-            <img src="img/brindando-cerveja.png" alt="Brinde com cerveja" loading="lazy" decoding="async" />
-          </figure>
-          <div class="caption">
-            <h3>Brindes que viram história</h3>
-            <p>Os melhores encontros começam com um bom brinde 🍻</p>
-          </div>
-        </article>
+    <nav class="drawer-links" aria-label="Navegação mobile">
+      <a href="index.html">Home</a>
+      <a href="quem-somos.html">Quem Somos</a>
+      <a href="momentos.html" class="active" aria-current="page">Momentos</a>
+      <a href="contato.html">Contato</a>
+      <a href="cardapio.html">Cardápio</a>
+    </nav>
 
-        <!-- 3 -->
-        <article class="slide" data-slide aria-roledescription="slide" aria-label="3 de 15">
-          <figure class="media">
-            <img src="img/kelly-drink.png" alt="Drink especial da casa" loading="lazy" decoding="async" />
-          </figure>
-          <div class="caption">
-            <h3>Drinks autorais</h3>
-            <p>Preparados com carinho — e com aquele toque do Kasarão.</p>
-          </div>
-        </article>
-
-        <!-- 4 -->
-        <article class="slide" data-slide aria-roledescription="slide" aria-label="4 de 15">
-          <figure class="media">
-            <img src="img/asa-frango.png" alt="Asinhas crocantes" loading="lazy" decoding="async" />
-          </figure>
-          <div class="caption">
-            <h3>Petiscos que chamam atenção</h3>
-            <p>Crocância, molho especial e mesa cheia.</p>
-          </div>
-        </article>
-
-        <!-- 5 -->
-        <article class="slide" data-slide aria-roledescription="slide" aria-label="5 de 15">
-          <figure class="media">
-            <img src="img/IMG_3125-1.png" alt="Sobremesa da casa" loading="lazy" decoding="async" />
-          </figure>
-          <div class="caption">
-            <h3>Final perfeito</h3>
-            <p>Sobremesas artesanais para fechar a noite com chave de ouro.</p>
-          </div>
-        </article>
-
-        <!-- 6 -->
-        <article class="slide" data-slide aria-roledescription="slide" aria-label="6 de 15">
-          <figure class="media">
-            <img src="img/comemore-conosco.png" alt="Grupo comemorando" loading="lazy" decoding="async" />
-          </figure>
-          <div class="caption">
-            <h3>Comemore com a gente</h3>
-            <p>O Kasarão é palco de momentos que ficam.</p>
-          </div>
-        </article>
-
-        <!-- 7 -->
-        <article class="slide" data-slide aria-roledescription="slide" aria-label="7 de 15">
-          <figure class="media">
-            <video controls preload="metadata" playsinline>
-              <source src="video/kelly-entrada.mp4" type="video/mp4" />
-            </video>
-          </figure>
-          <div class="caption">
-            <h3>Um pouco do Kasarão em vídeo</h3>
-            <p>Chega mais: é vibe, é sabor, é experiência.</p>
-          </div>
-        </article>
-
-        <!-- 8 -->
-        <article class="slide" data-slide aria-roledescription="slide" aria-label="8 de 15">
-          <figure class="media">
-            <video controls preload="metadata" playsinline>
-              <source src="video/evento.mp4" type="video/mp4" />
-            </video>
-          </figure>
-          <div class="caption">
-            <h3>Noite especial</h3>
-            <p>Eventos e encontros que fazem história.</p>
-          </div>
-        </article>
-
-        <!-- 9 -->
-        <article class="slide" data-slide aria-roledescription="slide" aria-label="9 de 15">
-          <figure class="media">
-            <video controls preload="metadata" playsinline>
-              <source src="video/IMG_3568.mp4" type="video/mp4" />
-            </video>
-          </figure>
-          <div class="caption">
-            <h3>Vibe da casa</h3>
-            <p>Música, alegria e boa companhia.</p>
-          </div>
-        </article>
-
-        <!-- 10 -->
-        <article class="slide" data-slide aria-roledescription="slide" aria-label="10 de 15">
-          <figure class="media">
-            <video controls preload="metadata" playsinline>
-              <source src="video/IMG_6228.mp4" type="video/mp4" />
-            </video>
-          </figure>
-          <div class="caption">
-            <h3>Experiência completa</h3>
-            <p>Um pouco do Kasarão para você sentir de perto.</p>
-          </div>
-        </article>
-
-        <!-- 11 -->
-        <article class="slide" data-slide aria-roledescription="slide" aria-label="11 de 15">
-          <figure class="media">
-            <img src="img/brinde-conosco.png" alt="Drinks com limão" loading="lazy" decoding="async" />
-          </figure>
-          <div class="caption">
-            <h3>Drinks especiais</h3>
-            <p>Refrescante, elegante e do seu jeito.</p>
-          </div>
-        </article>
-
-        <!-- 12 (dup elegante, pode trocar imagem depois) -->
-        <article class="slide" data-slide aria-roledescription="slide" aria-label="12 de 15">
-          <figure class="media">
-            <img src="img/IMG_5100-1.png" alt="Ambiente com iluminação especial" loading="lazy" decoding="async" />
-          </figure>
-          <div class="caption">
-            <h3>Noite no Kasarão</h3>
-            <p>Ambiente perfeito para celebrar.</p>
-          </div>
-        </article>
-
-        <!-- 13 -->
-        <article class="slide" data-slide aria-roledescription="slide" aria-label="13 de 15">
-          <figure class="media">
-            <img src="img/IMG_7130-1.png" alt="Amigos brindando no Kasarão" loading="lazy" decoding="async" />
-          </figure>
-          <div class="caption">
-            <h3>Prato refinado</h3>
-            <p>Parmegiana simplesmente irresistível.</p>
-          </div>
-        </article>
-
-        <!-- 14 -->
-        <article class="slide" data-slide aria-roledescription="slide" aria-label="14 de 15">
-          <figure class="media">
-            <video controls preload="metadata" playsinline>
-              <source src="video/VID-20260215-WA0046.mp4" type="video/mp4" />
-            </video>
-          </figure>
-          <div class="caption">
-            <h3>Tira gosto sensacional</h3>
-            <p>Deliciosas batatas, sequinhas e crocantes.</p>
-          </div>
-        </article>
-
-        <!-- 15 -->
-        <article class="slide" data-slide aria-roledescription="slide" aria-label="15 de 15">
-          <figure class="media">
-            <video controls preload="metadata" playsinline>
-              <source src="video/musica-vivo.mp4" type="video/mp4" />
-            </video>
-          </figure>
-          <div class="caption">
-            <h3>Músicas ao vivo</h3>
-            <p>Venha cantar a dançar com a gente.</p>
-          </div>
-        </article>
+    <div class="drawer-theme">
+      <div class="theme-switch-wrapper">
+        <span class="theme-label">Modo claro</span>
+        <label class="theme-switch">
+          <input type="checkbox" id="theme-toggle-mobile" aria-label="Alternar tema" />
+          <span class="slider" aria-hidden="true"></span>
+        </label>
       </div>
+    </div>
+  </aside>
+
+  <main>
+    <section class="premium-carousel" aria-label="Momentos no Kasarão">
+      <!-- Cabeçalho da seção (DIV para não criar “2 headers”) -->
+      <div class="pc-head">
+        <h1 class="pc-title">Momentos</h1>
+        <p class="pc-subtitle">
+          A energia do Kasarão em fotos e vídeos — drinks autorais, noites marcantes e um ambiente sofisticado.
+        </p>
+      </div>
+
+      <!-- =====================================================
+           CARROSSEL
+           REGRAS IMPORTANTES:
+           1) Cada slide = um <article class="slide" data-slide>
+           2) Apenas o PRIMEIRO slide começa com "is-active"
+           3) IMG e VÍDEO podem misturar (o JS já suporta)
+           4) O JS cria os dots automaticamente baseado na quantidade de slides
+      ====================================================== -->
+      <div class="pc-shell" data-carousel>
+        <div class="pc-viewport">
+          <div class="pc-track" data-track>
+<!-- 01 -->
+<article class="slide is-active" data-slide>
+  <figure class="media">
+    <img src="img/kelly-drink.png" alt="Drink especial do Kasarão" loading="lazy">
+  </figure>
+</article>
+
+<!-- 02 -->
+<article class="slide" data-slide>
+  <figure class="media">
+    <img src="img/IMG_2916-1.png" alt="Vinho Malbec servido no Kasarão" loading="lazy">
+  </figure>
+</article>
+
+<!-- 03 -->
+<article class="slide" data-slide>
+  <figure class="media">
+    <img src="img/IMG_3125-1.png" alt="Sobremesa pudim artesanal" loading="lazy">
+  </figure>
+</article>
+
+<!-- 04 -->
+<article class="slide" data-slide>
+  <figure class="media">
+    <img src="img/IMG_4795-1.png" alt="Petiscos do Kasarão" loading="lazy">
+  </figure>
+</article>
+
+<!-- 05 (VÍDEO) -->
+<article class="slide" data-slide>
+  <figure class="media">
+    <video controls playsinline preload="metadata">
+      <source src="video/evento.mp4" type="video/mp4" />
+      Seu navegador não suporta vídeo.
+    </video>
+  </figure>
+  <div class="caption">
+    <h3>Momentos ao Vivo</h3>
+    <p>Um pouco da vibe do Kasarão.</p>
+  </div>
+</article>
+
+<!-- 06 (VÍDEO) -->
+<article class="slide" data-slide>
+  <figure class="media">
+    <video controls playsinline preload="metadata">
+      <source src="video/IMG_6228.mp4" type="video/mp4" />
+      Seu navegador não suporta vídeo.
+    </video>
+  </figure>
+  <div class="caption">
+    <h3>Experiência</h3>
+    <p>Detalhes que fazem a diferença.</p>
+  </div>
+</article>
+
+<!-- 07 (VÍDEO) -->
+<article class="slide" data-slide>
+  <figure class="media">
+    <video controls playsinline preload="metadata">
+      <source src="video/IMG_3568.mp4" type="video/mp4" />
+      Seu navegador não suporta vídeo.
+    </video>
+  </figure>
+  <div class="caption">
+    <h3>Noite no Kasarão</h3>
+    <p>Música, energia e brinde.</p>
+  </div>
+</article>
+
+
+<!-- 08 -->
+<article class="slide" data-slide>
+  <figure class="media">
+    <img src="img/IMG_5100-1.png" alt="Drink cremoso especial" loading="lazy">
+  </figure>
+</article>
+
+<!-- 09 -->
+<article class="slide" data-slide>
+  <figure class="media">
+    <img src="img/IMG_7130-1.png" alt="Lasanha gratinada" loading="lazy">
+  </figure>
+</article>
+
+<!-- 10 -->
+<article class="slide" data-slide>
+  <figure class="media">
+    <img src="img/IMG_7329-1.png" alt="Brownie com sorvete" loading="lazy">
+  </figure>
+</article>
+
+<!-- 11 -->
+<article class="slide" data-slide>
+  <figure class="media">
+    <img src="img/IMG_7790-1.png" alt="Carne com mandioca" loading="lazy">
+  </figure>
+</article>
+
+<!-- 12 -->
+<article class="slide" data-slide>
+  <figure class="media">
+    <img src="img/IMG-20260215-WA0045-1.png" alt="Lasanha com suco natural" loading="lazy">
+  </figure>
+</article>
+
+<!-- 13 (VÍDEO) -->
+<article class="slide" data-slide>
+  <figure class="media">
+    <video controls playsinline preload="metadata">
+      <source src="video/IMG_3350.mp4" type="video/mp4" />
+      Seu navegador não suporta vídeo.
+    </video>
+  </figure>
+  <div class="caption">
+    <h3>Ambiente</h3>
+    <p>Atmosfera envolvente e sofisticada.</p>
+  </div>
+</article>
+
+<!-- 14 (VÍDEO) -->
+<article class="slide" data-slide>
+  <figure class="media">
+    <video controls playsinline preload="metadata">
+      <source src="video/IMG_6228.mp4" type="video/mp4" />
+      Seu navegador não suporta vídeo.
+    </video>
+  </figure>
+  <div class="caption">
+    <h3>Brinde</h3>
+    <p>Porque o momento merece.</p>
+  </div>
+</article>
+
+<!-- 15 -->
+<article class="slide" data-slide>
+  <figure class="media">
+    <img src="img/kelly-brinde.png" alt="Drink tropical" loading="lazy">
+  </figure>
+</article>
+
+<!-- 16 -->
+<article class="slide" data-slide>
+  <figure class="media">
+    <img src="img/ambiente-noite.png" alt="Ambiente noturno do Kasarão" loading="lazy">
+  </figure>
+</article>
+
+<!-- 17 -->
+<article class="slide" data-slide>
+  <figure class="media">
+    <img src="img/asa-frango.png" alt="Asa de frango especial" loading="lazy">
+  </figure>
+</article>
+
+<!-- 18 -->
+<article class="slide" data-slide>
+  <figure class="media">
+    <img src="img/brinde-conosco.png" alt="Brinde com caipirinhas" loading="lazy">
+  </figure>
+</article>
+
+<!-- 19 -->
+<article class="slide" data-slide>
+  <figure class="media">
+    <img src="img/comemore-conosco.png" alt="Grupo de amigos no Kasarão" loading="lazy">
+  </figure>
+</article>
+
+<!-- 20 -->
+<article class="slide" data-slide>
+  <figure class="media">
+    <img src="img/IMG_1793.JPG.png" alt="Área externa iluminada do Kasarão" loading="lazy">
+  </figure>
+</article>
+          </div>
         </div>
 
-        <!-- Controles -->
-        <button class="pc-btn prev" type="button" aria-label="Slide anterior" data-prev>❮</button>
-        <button class="pc-btn next" type="button" aria-label="Próximo slide" data-next>❯</button>
+        <!-- Botões (o JS lê data-prev/data-next) -->
+        <button class="pc-btn prev" type="button" data-prev aria-label="Slide anterior">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M15 5l-7 7 7 7"></path>
+          </svg>
+        </button>
 
-        <!-- Dots gerados via JS -->
-        <div class="pc-dots" data-dots aria-label="Paginação do carrossel"></div>
+        <button class="pc-btn next" type="button" data-next aria-label="Próximo slide">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M9 5l7 7-7 7"></path>
+          </svg>
+        </button>
+
+        <!-- Dots: o JS cria automaticamente (não colocar botões manualmente aqui) -->
+        <div class="pc-dots" data-dots aria-label="Navegação por slides"></div>
       </div>
 
       <p class="pc-hint">Dica: arraste no celular ou use as setas do teclado.</p>
     </section>
+
+    <!-- Rodapé padrão -->
+    <footer id="footer" class="footer">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <img src="img/kasarao-semfundo.png" alt="Logo Kasarão Gastrobar" />
+        </div>
+
+        <div class="social-icons">
+          <span class="follow-text">Siga-nos</span>
+          <a href="https://www.instagram.com/kasaraogastrobar/" target="_blank" rel="noopener noreferrer"
+            aria-label="Instagram do Kasarão">
+            <img src="img/icone-instagram.ico" alt="Ícone do Instagram" />
+          </a>
+        </div>
+
+        <div class="contact-info">
+          <p>📍 Rua Abraao Evangelista Diniz 39, Fonte Grande, Contagem - MG 32013-530, Brasil</p>
+          <p>📞 +55 31 8857-6915</p>
+        </div>
+      </div>
+
+      <p class="developer-credit">Desenvolvido por Luiz Gustavo</p>
+      <p>&copy; 2026 Kasarão Gastrobar</p>
+    </footer>
+
+    <!-- WhatsApp flutuante (global) -->
+    <a class="whatsapp-float"
+      href="https://wa.me/5531885766915?text=Ol%C3%A1%21%20Vim%20pelo%20site%20do%20Kasar%C3%A3o%20Gastrobar%20e%20gostaria%20de%20informa%C3%A7%C3%B5es."
+      target="_blank" rel="noopener noreferrer" aria-label="Falar no WhatsApp com o Kasarão">
+      <span class="whatsapp-tooltip">Converse com a gente</span>
+      <span class="whatsapp-icon" aria-hidden="true">
+        <svg viewBox="0 0 32 32" width="22" height="22">
+          <path fill="currentColor"
+            d="M19.11 17.53c-.27-.14-1.6-.79-1.85-.88-.25-.09-.43-.14-.61.14-.18.27-.7.88-.86 1.06-.16.18-.32.2-.59.07-.27-.14-1.13-.42-2.16-1.35-.8-.71-1.34-1.59-1.5-1.86-.16-.27-.02-.42.12-.56.12-.12.27-.32.41-.47.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.47-.07-.14-.61-1.47-.84-2.02-.22-.53-.45-.46-.61-.47h-.52c-.18 0-.47.07-.72.34-.25.27-.95.93-.95 2.27 0 1.34.98 2.64 1.11 2.82.14.18 1.93 2.95 4.67 4.13.65.28 1.16.45 1.56.58.66.21 1.27.18 1.74.11.53-.08 1.6-.65 1.83-1.28.23-.63.23-1.17.16-1.28-.07-.11-.25-.18-.52-.32z" />
+          <path fill="currentColor"
+            d="M26.67 5.33A14.5 14.5 0 0 0 3.86 22.02L2.5 29.5l7.64-1.32A14.5 14.5 0 0 0 26.67 5.33zM16 27.03c-2.32 0-4.59-.62-6.57-1.8l-.47-.28-4.53.78.8-4.41-.3-.5A11.93 11.93 0 1 1 16 27.03z" />
+        </svg>
+      </span>
+    </a>
   </main>
 
-  <!-- FOOTER PADRÃO (igual index) -->
-  <footer id="footer" class="footer">
-    <div class="footer-content">
-      <div class="footer-logo">
-        <img src="img/kasarao-semfundo.png" alt="Logo Kasarão Gastrobar" />
-      </div>
-
-      <div class="social-icons">
-        <span class="follow-text">Siga-nos</span>
-        <a href="https://www.instagram.com/kasaraogastrobar/" target="_blank" rel="noopener noreferrer"
-          aria-label="Instagram do Kasarão">
-          <img src="img/icone-instagram.ico" alt="" aria-hidden="true" />
-        </a>
-      </div>
-
-      <div class="contact-info">
-        <p>📍 Rua Abraão Evangelista Diniz, 39, Fonte Grande, Contagem - MG 32013-530, Brasil</p>
-        <p>📞 +55 31 8857-6915</p>
-      </div>
-    </div>
-
-    <p class="developer-credit">Desenvolvido por Luiz Gustavo</p>
-    <p>&copy; 2026 Kasarão Gastrobar</p>
-  </footer>
-
-  <!-- WhatsApp: SVG embutido (sem dependências externas) -->
-  <a class="whatsapp-float"
-    href="https://wa.me/5531885766915?text=Ol%C3%A1%21%20Vim%20pelo%20site%20do%20Kasar%C3%A3o%20Gastrobar%20e%20gostaria%20de%20informa%C3%A7%C3%B5es."
-    target="_blank" rel="noopener noreferrer" aria-label="Falar no WhatsApp com o Kasarão">
-    <span class="whatsapp-tooltip">Converse com a gente</span>
-    <span class="whatsapp-icon" aria-hidden="true">
-      <svg viewBox="0 0 32 32" width="22" height="22">
-        <path fill="currentColor"
-          d="M19.11 17.53c-.27-.14-1.6-.79-1.85-.88-.25-.09-.43-.14-.61.14-.18.27-.7.88-.86 1.06-.16.18-.32.2-.59.07-.27-.14-1.13-.42-2.16-1.35-.8-.71-1.34-1.59-1.5-1.86-.16-.27-.02-.42.12-.56.12-.12.27-.32.41-.47.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.47-.07-.14-.61-1.47-.84-2.02-.22-.53-.45-.46-.61-.47h-.52c-.18 0-.47.07-.72.34-.25.27-.95.93-.95 2.27 0 1.34.98 2.64 1.11 2.82.14.18 1.93 2.95 4.67 4.13.65.28 1.16.45 1.56.58.66.21 1.27.18 1.74.11.53-.08 1.6-.65 1.83-1.28.23-.63.23-1.17.16-1.28-.07-.11-.25-.18-.52-.32z" />
-        <path fill="currentColor"
-          d="M26.67 5.33A14.5 14.5 0 0 0 3.86 22.02L2.5 29.5l7.64-1.32A14.5 14.5 0 0 0 26.67 5.33zM16 27.03c-2.32 0-4.59-.62-6.57-1.8l-.47-.28-4.53.78.8-4.41-.3-.5A11.93 11.93 0 1 1 16 27.03z" />
-      </svg>
-    </span>
-  </a>
-
-  <script src="js/script.js"></script>
+  <!-- JS global do site -->
+  <script src="js/script.js" defer></script>
 </body>
 
 </html>
