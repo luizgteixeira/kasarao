@@ -570,3 +570,51 @@ body.light-mode .slide p{
   font-size: clamp(1.05rem, .35vw + 1.0rem, 1.2rem);
   line-height: 1.25;
 }
+
+/* =========================================
+   FIX MOBILE — MOMENTOS: caption sempre visível
+   (mobile não tem hover)
+========================================= */
+@media (max-width: 900px) {
+
+  /* garante que o slide seja referência para a caption */
+  #momentos .slide {
+    position: relative;
+  }
+
+  /* deixa a caption sempre visível */
+  #momentos .caption {
+    opacity: 1 !important;
+    transform: none !important;
+
+    /* mantém o overlay na parte de baixo */
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    padding: 14px 16px;
+    border-radius: 0;
+
+    background: rgba(12, 16, 20, .68);
+    color: #f7f7f7;
+  }
+
+  /* tema claro */
+  body.light-mode #momentos .caption {
+    background: rgba(255, 255, 255, .78);
+    color: #2d2a26;
+    border-top: 1px solid rgba(0, 0, 0, .08);
+  }
+}
+
+@media (max-width: 900px) {
+
+  #momentos .slide>img,
+  #momentos .slide>video {
+    display: block;
+    /* espaço para a legenda não cobrir conteúdo importante */
+    padding-bottom: 56px;
+    box-sizing: border-box;
+  }
+}

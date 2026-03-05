@@ -6,17 +6,101 @@
 ====================================================== */
 
 /* ---------- Hero (Essência) ---------- */
+/* ---------- Hero (Essência) ---------- */
+/* ---------- Hero (Essência) — Premium Upgrade ---------- */
 .qs-hero {
+  position: relative;
+  isolation: isolate;
+  /* garante camadas acima do background */
   padding: calc(var(--nav-h) + 36px) 8% 40px;
-  background: linear-gradient(to bottom, #0c1014, #150f1a);
+
+  /* camada base + banner bem suave */
+  background:
+    linear-gradient(rgba(12, 16, 20, .86), rgba(21, 15, 26, .86)),
+    url("../img/banner-kasarao.png") center/cover no-repeat;
+
   color: rgba(245, 245, 245, .92);
   border-bottom: 1px solid rgba(255, 255, 255, .06);
+  overflow: hidden;
+}
+
+/* Vinheta + glow dourado ultra discreto */
+.qs-hero::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  z-index: -1;
+  pointer-events: none;
+
+  background:
+    radial-gradient(60% 70% at 50% 35%,
+      color-mix(in srgb, var(--primary) 18%, transparent),
+      transparent 58%),
+    radial-gradient(90% 80% at 50% 50%,
+      rgba(0, 0, 0, .00),
+      rgba(0, 0, 0, .55) 78%);
+
+  opacity: .9;
+}
+
+/* Textura cinematográfica (grain) + blur MUITO leve */
+.qs-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+
+  /* grain via gradients (sem imagem extra) */
+  background:
+    radial-gradient(circle at 20% 30%, rgba(255, 255, 255, .06), transparent 42%),
+    radial-gradient(circle at 80% 35%, rgba(255, 255, 255, .05), transparent 45%),
+    radial-gradient(circle at 40% 80%, rgba(255, 255, 255, .04), transparent 48%),
+    repeating-linear-gradient(0deg,
+      rgba(255, 255, 255, .015),
+      rgba(255, 255, 255, .015) 1px,
+      transparent 1px,
+      transparent 3px);
+
+  mix-blend-mode: overlay;
+  opacity: .22;
+  filter: blur(.35px);
 }
 
 body.light-mode .qs-hero {
-  background: linear-gradient(to bottom, #f3efe7, #e6dcc6);
+  background:
+    linear-gradient(rgba(243, 239, 231, .90), rgba(230, 220, 198, .90)),
+    url("../img/banner-kasarao.png") center/cover no-repeat;
+
   color: rgba(45, 42, 38, .92);
   border-bottom-color: rgba(0, 0, 0, .06);
+}
+
+body.light-mode .qs-hero {
+  background:
+    linear-gradient(rgba(243, 239, 231, .90), rgba(230, 220, 198, .90)),
+    url("../img/banner-kasarao.png") center/cover no-repeat;
+
+  color: rgba(45, 42, 38, .92);
+  border-bottom-color: rgba(0, 0, 0, .06);
+}
+
+/* No claro: vinheta mais leve e glow ainda mais suave */
+body.light-mode .qs-hero::before {
+  background:
+    radial-gradient(60% 70% at 50% 35%,
+      color-mix(in srgb, var(--primary) 12%, transparent),
+      transparent 60%),
+    radial-gradient(90% 80% at 50% 50%,
+      rgba(255, 255, 255, .00),
+      rgba(0, 0, 0, .18) 80%);
+  opacity: .85;
+}
+
+body.light-mode .qs-hero::after {
+  mix-blend-mode: multiply;
+  opacity: .12;
+  filter: blur(.25px);
 }
 
 .qs-hero-inner {
@@ -246,4 +330,10 @@ body.light-mode .qs-owner blockquote {
 .qs-owner:focus-visible {
   outline: 3px solid rgba(200, 169, 106, .55);
   outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .qs-hero::after {
+    filter: none;
+  }
 }

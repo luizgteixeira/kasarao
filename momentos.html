@@ -30,7 +30,9 @@
   <!-- Header compartilhado (desktop + drawer mobile). IDs são usados no JS -->
   <header class="site-header">
     <div class="logo">
-      <img src="img/kasarao-semfundo.png" alt="Kasarão Gastrobar" />
+      <a href="index.html">
+        <img src="img/kasarao-semfundo.png" alt="Kasarão Gastrobar" />
+      </a>
     </div>
 
     <nav class="menu" aria-label="Navegação principal">
@@ -60,12 +62,15 @@
 
     <aside id="navDrawer" class="nav-drawer" aria-hidden="true">
       <div class="drawer-header">
-        <img src="img/kasarao-semfundo.png" alt="Kasarão Gastrobar" />
+        <a href="index.html">
+          <img src="img/kasarao-semfundo.png" alt="Kasarão Gastrobar" />
+        </a>
         <button id="drawerClose" class="drawer-close" type="button" aria-label="Fechar menu">✕</button>
       </div>
 
       <nav class="drawer-links" aria-label="Navegação mobile">
         <a href="index.html">Home</a>
+        <a href="quem-somos.html">Quem Somos</a>
         <a href="momentos.html">Momentos</a>
         <a href="contato.html">Contato</a>
         <a href="cardapio.html">Cardápio</a>
@@ -286,6 +291,8 @@
       <p class="pc-hint">Dica: arraste no celular ou use as setas do teclado.</p>
     </section>
   </main>
+
+  <!-- FOOTER PADRÃO (igual index) -->
   <footer id="footer" class="footer">
     <div class="footer-content">
       <div class="footer-logo">
@@ -296,19 +303,18 @@
         <span class="follow-text">Siga-nos</span>
         <a href="https://www.instagram.com/kasaraogastrobar/" target="_blank" rel="noopener noreferrer"
           aria-label="Instagram do Kasarão">
-          <img src="img/icone-instagram.ico" alt="Ícone do Instagram" />
+          <img src="img/icone-instagram.ico" alt="" aria-hidden="true" />
         </a>
       </div>
 
       <div class="contact-info">
-        <p>📍 Rua Abraao Evangelista Diniz 39, Fonte Grande, Contagem - MG 32013-530, Brasil</p>
+        <p>📍 Rua Abraão Evangelista Diniz, 39, Fonte Grande, Contagem - MG 32013-530, Brasil</p>
         <p>📞 +55 31 8857-6915</p>
       </div>
     </div>
 
-    <p class="developer-credit">
-      Desenvolvido por Luiz Gustavo
-    </p>
+    <p class="developer-credit">Desenvolvido por Luiz Gustavo</p>
+    <p>&copy; 2026 Kasarão Gastrobar</p>
   </footer>
 
   <!-- WhatsApp: SVG embutido (sem dependências externas) -->
