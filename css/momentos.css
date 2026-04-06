@@ -348,6 +348,42 @@
   font-size: .95rem;
 }
 
+.momentos-cta{
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, .9fr);
+  gap: 28px;
+  align-items: center;
+  margin: 0 8% 90px;
+  padding: 32px;
+  border-radius: 24px;
+  background:
+    radial-gradient(circle at top left, rgba(208,172,103,.18), transparent 36%),
+    rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.10);
+  box-shadow: 0 24px 52px rgba(0,0,0,.24);
+}
+
+.momentos-cta-kicker{
+  display: inline-flex;
+  margin-bottom: 12px;
+  color: var(--primary);
+  font-size: .8rem;
+  text-transform: uppercase;
+  letter-spacing: .18em;
+  font-weight: 800;
+}
+
+.momentos-cta h2{
+  margin-bottom: 10px;
+  color: var(--primary);
+}
+
+.momentos-cta-actions{
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
 /* =====================================================
    Light Mode (elegante, sem “lavar”)
 ===================================================== */
@@ -389,6 +425,14 @@ body.light-mode .pc-dot {
 
 body.light-mode .pc-dot.is-active {
   background: var(--primary);
+}
+
+body.light-mode .momentos-cta{
+  background:
+    radial-gradient(circle at top left, rgba(208,172,103,.14), transparent 36%),
+    rgba(255,255,255,.76);
+  border-color: rgba(0,0,0,.08);
+  box-shadow: 0 22px 46px rgba(0,0,0,.10);
 }
 
 /* =====================================================
@@ -433,6 +477,12 @@ body.light-mode .pc-dot.is-active {
   .media video {
     width: min(920px, 94%);
     height: min(420px, 48vh);
+  }
+
+  .momentos-cta{
+    grid-template-columns: 1fr;
+    margin: 0 6% 84px;
+    padding: 24px;
   }
 }
 

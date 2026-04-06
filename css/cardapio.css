@@ -31,15 +31,39 @@
   --cp-ease: cubic-bezier(.2, .9, .2, 1);
 }
 
-#cardapio {
-  padding: 2rem;
+.cardapio-page {
+  padding: 48px 8% 90px;
   text-align: center;
+}
+
+.cardapio-hero{
+  max-width: 920px;
+  margin: 0 auto 40px;
+}
+
+.cardapio-kicker{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 14px;
+  color: var(--primary);
+  font-size: .8rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  font-weight: 800;
+}
+
+.cardapio-actions{
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 26px;
 }
 
 /* ---------- Tipografia / Título (usando tokens do global) ---------- */
 .titulo-secao {
   color: var(--primary);
-  font: 800 2rem/1.15 "Poppins", sans-serif;
   letter-spacing: .2px;
   margin: 0 0 1rem;
   display: inline-block;
@@ -57,7 +81,7 @@
   text-align: center;
 
   /* tipografia mais elegante */
-  font-family: "Poppins", sans-serif;
+  font-family: "Lexend Deca", sans-serif;
   font-size: clamp(1.15rem, 1.1rem + 0.4vw, 1.35rem);
   line-height: 1.6;
   font-weight: 500;
@@ -267,6 +291,53 @@ body.light-mode .cardapio-destaque figcaption {
   filter: brightness(1.02);
 }
 
+.cardapio-actions .btn-cardapio{
+  margin-top: 0;
+}
+
+.cardapio-actions .btn-ghost,
+.cardapio-note .btn-ghost{
+  background: rgba(255,255,255,.06);
+  color: var(--text-dark);
+  border: 1px solid rgba(255,255,255,.12);
+}
+
+body.light-mode .cardapio-actions .btn-ghost,
+body.light-mode .cardapio-note .btn-ghost{
+  background: rgba(255,255,255,.78);
+  color: var(--text-light);
+  border-color: rgba(0,0,0,.08);
+}
+
+.cardapio-note{
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, .9fr);
+  gap: 24px;
+  align-items: center;
+  margin-top: 42px;
+  padding: 28px;
+  border-radius: 24px;
+  background:
+    radial-gradient(circle at top left, rgba(208,172,103,.18), transparent 36%),
+    rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.10);
+  box-shadow: 0 22px 48px rgba(0,0,0,.24);
+  text-align: left;
+}
+
+.cardapio-note h2{
+  margin-bottom: 8px;
+  color: var(--primary);
+}
+
+body.light-mode .cardapio-note{
+  background:
+    radial-gradient(circle at top left, rgba(208,172,103,.14), transparent 36%),
+    rgba(255,255,255,.76);
+  border-color: rgba(0,0,0,.08);
+  box-shadow: 0 22px 42px rgba(0,0,0,.10);
+}
+
 /* ---------- Acessibilidade: menos movimento ---------- */
 @media (prefers-reduced-motion: reduce) {
 
@@ -282,5 +353,28 @@ body.light-mode .cardapio-destaque figcaption {
 
   .cardapio-destaque figure:hover img {
     transform: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .cardapio-page{
+    padding: 32px 6% 72px;
+  }
+
+  .cardapio-actions{
+    flex-direction: column;
+    width: min(100%, 360px);
+    margin-inline: auto;
+    margin-top: 24px;
+  }
+
+  .cardapio-actions .btn-cardapio{
+    width: 100%;
+  }
+
+  .cardapio-note{
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding: 22px;
   }
 }

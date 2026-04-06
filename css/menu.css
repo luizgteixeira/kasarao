@@ -17,7 +17,7 @@
   justify-content: space-between;
   gap: 18px;
 
-  padding: 14px 8%;
+  padding: 12px 6%;
   background: rgba(12, 16, 20, 0.88);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
@@ -27,7 +27,7 @@
 }
 
 .site-header.scrolled{
-  padding: 10px 8%;
+  padding: 10px 6%;
   background: rgba(12,16,20,0.68);
 }
 
@@ -37,7 +37,7 @@
 
 /* Logo */
 .site-header .logo img{
-  height: 110px;
+  height: 104px;
   display: block;
   object-fit: contain;
 }
@@ -47,7 +47,7 @@
 .menu .nav-links{
   display:flex;
   align-items:center;
-  gap: 26px;
+  gap: 20px;
 }
 
 .menu .nav-links a{
@@ -55,20 +55,23 @@
   color: var(--primary);
   font-weight: 700;
   letter-spacing: .4px;
-  padding-bottom: 6px;
-  border-bottom: 2px solid transparent;
-  transition: color .25s ease, border-color .25s ease, transform .25s ease;
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  transition: color .25s ease, border-color .25s ease, transform .25s ease, background .25s ease;
 }
 
 .menu .nav-links a:hover{
   color:#fff;
-  border-bottom-color: var(--primary);
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(255,255,255,0.08);
   transform: translateY(-1px);
 }
 
 .menu .nav-links a.active{
   color:#fff;
-  border-bottom-color: var(--primary);
+  background: rgba(255,255,255,0.08);
+  border-color: rgba(255,255,255,0.08);
 }
 
 /* =====================================================
@@ -291,5 +294,5 @@
 
 @media (max-width: 480px){
   .site-header{ padding: 12px 4%; }
-  .site-header .logo img{ height: 48px; }
+  .site-header .logo img{ height: 68px; }
 }

@@ -1,62 +1,136 @@
-/* Página Contato
-   - Mantém layout centralizado
-   - Botões de contato com bom alvo de toque
-   - Mapa responsivo sem depender de width/height fixos no HTML
-*/
+/* ======================================================
+   CONTATO.CSS — Kasarão Gastrobar
+====================================================== */
 
-#contato {
-  padding: 2rem;
+.contact-page {
+  padding: 48px 8% 90px;
+}
+
+.contact-hero {
   text-align: center;
+  margin: 0 auto 36px;
+  max-width: 760px;
+}
+
+.contact-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+  color: var(--primary);
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 800;
+}
+
+.contact-kicker::before,
+.contact-kicker::after {
+  content: "";
+  width: 28px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--primary), transparent);
 }
 
 .titulo-secao {
-  color: var(--cor4);
-  font: bold 2rem/1.2 "Golos Text", sans-serif;
-  text-shadow: 2px 2px 5px var(--cor4);
-  margin: 0 0 1rem;
-  border-bottom: 3px solid var(--cor5);
+  color: var(--primary);
+  margin: 0 0 12px;
   display: inline-block;
-  padding-bottom: 0.5rem;
 }
 
-/* Contatos */
+.contact-intro {
+  margin: 0 auto;
+  font-size: 1.05rem;
+  color: color-mix(in srgb, var(--text-dark) 88%, transparent);
+}
+
+body.light-mode .contact-intro {
+  color: color-mix(in srgb, var(--text-light) 86%, transparent);
+}
+
 .contato-info {
   display: flex;
   justify-content: center;
-  gap: 3rem;
-  margin: 0 0 3rem;
-  flex-wrap: wrap; /* evita quebrar layout em telas intermediárias */
+  gap: 18px;
+  margin: 0 0 42px;
+  flex-wrap: wrap;
 }
 
 .btn-contato {
   display: inline-flex;
   align-items: center;
-  gap: 0.6rem;
-  padding: 0.85rem 1.3rem;
-
-  background: var(--cor1);
-  color: var(--cor0);
+  gap: 0.75rem;
+  min-height: 58px;
+  padding: 0.95rem 1.4rem;
+  border-radius: 999px;
+  background: rgba(255,255,255,.06);
+  color: var(--text-dark);
   font-weight: 700;
   text-decoration: none;
+  border: 1px solid rgba(255,255,255,.12);
+  box-shadow: 0 14px 34px rgba(0,0,0,.22);
+  transition: transform .25s ease, background .25s ease, border-color .25s ease, box-shadow .25s ease;
+}
 
-  border-radius: 8px;
-  transition: transform 0.2s ease, background 0.3s ease;
+body.light-mode .btn-contato {
+  background: rgba(255,255,255,.7);
+  color: var(--text-light);
+  border-color: rgba(0,0,0,.08);
+  box-shadow: 0 14px 28px rgba(0,0,0,.10);
 }
 
 .btn-contato:hover {
-  background: var(--cor5);
-  transform: scale(1.04);
+  transform: translateY(-3px);
+  border-color: color-mix(in srgb, var(--primary) 36%, transparent);
+  background: rgba(255,255,255,.10);
 }
 
-/* Ícones dentro do botão:
-   Mantém proporção correta (evita distorção do .icon-btn antigo) */
+.btn-whatsapp {
+  background: linear-gradient(135deg, #25D366, #128C7E);
+  color: #ffffff;
+  border-color: transparent;
+}
+
+.btn-whatsapp:hover {
+  background: linear-gradient(135deg, #2ce06c, #149f88);
+}
+
 .icon-btn {
-  width: 28px;
-  height: 28px;
+  width: 24px;
+  height: 24px;
   object-fit: contain;
+  flex-shrink: 0;
 }
 
-/* Mapa */
+.icon-emoji {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+}
+
+.contato-mapa {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 28px;
+  border-radius: 24px;
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.10);
+  box-shadow: 0 20px 50px rgba(0,0,0,.24);
+}
+
+body.light-mode .contato-mapa {
+  background: rgba(255,255,255,.76);
+  border-color: rgba(0,0,0,.08);
+  box-shadow: 0 20px 40px rgba(0,0,0,.10);
+}
+
+.contato-mapa .titulo-secao {
+  display: block;
+  text-align: center;
+  margin-bottom: 18px;
+}
+
 .mapa-container {
   display: flex;
   justify-content: center;
@@ -64,31 +138,39 @@
 }
 
 .mapa-container iframe {
-  width: min(900px, 100%);
-  height: 450px;
+  width: min(980px, 100%);
+  height: 460px;
   border: 0;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px var(--cor4);
+  border-radius: 18px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.20);
 }
 
 #endereco {
-  margin: 0.5rem 0 0;
-  font-size: 1.1rem;
-  color: var(--cor4);
+  margin: 0.5rem auto 0;
+  text-align: center;
+  color: color-mix(in srgb, var(--text-dark) 88%, transparent);
 }
 
-/* Texto extra na seção (se existir) */
-.contato-mapa p {
-  color: var(--cor5);
+body.light-mode #endereco {
+  color: color-mix(in srgb, var(--text-light) 86%, transparent);
 }
 
-/* Responsivo */
 @media (max-width: 768px) {
-  .contato-info {
-    gap: 1.2rem;
+  .contact-page {
+    padding: 32px 6% 72px;
+  }
+
+  .btn-contato {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .contato-mapa {
+    padding: 18px;
+    border-radius: 18px;
   }
 
   .mapa-container iframe {
-    height: 300px;
+    height: 320px;
   }
 }

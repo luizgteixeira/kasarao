@@ -26,6 +26,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const toggleDesktop = document.getElementById('theme-toggle');
   const toggleMobile = document.getElementById('theme-toggle-mobile');
 
+  if (navToggle) {
+    navToggle.setAttribute('aria-expanded', 'false');
+  }
+
   /* =====================================
      0) ALTURA DINÂMICA DA NAV (ANTI-CORTE)
   ====================================== */
@@ -349,6 +353,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('a').forEach((link) => {
     const href = (link.getAttribute('href') || '').trim();
     if (!href || href === '#' || href.startsWith('#')) return;
+    if (href.startsWith('mailto:') || href.startsWith('tel:') || href.startsWith('javascript:')) return;
 
     const isExternal =
       link.hostname && link.hostname !== window.location.hostname;
@@ -377,6 +382,7 @@ document.addEventListener('DOMContentLoaded', () => {
    - suporta img e video
    - dots automáticos
    - swipe + teclado
+   - autoplay inteligente
 ============================ */
 (function initPremiumCarousel() {
   const root = document.querySelector('[data-carousel]');
@@ -393,29 +399,49 @@ document.addEventListener('DOMContentLoaded', () => {
   let index = slides.findIndex((s) => s.classList.contains('is-active'));
   if (index < 0) index = 0;
 
-  // Dots
   const dots = slides.map((_, i) => {
-    const b = document.createElement('button');
-    b.type = 'button';
-    b.className = 'pc-dot';
-    b.setAttribute('aria-label', `Ir para o slide ${i + 1}`);
-    b.addEventListener('click', () => goTo(i));
-    dotsWrap?.appendChild(b);
-    return b;
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'pc-dot';
+    button.setAttribute('aria-label', `Ir para o slide ${i + 1}`);
+    button.addEventListener('click', () => goTo(i));
+    dotsWrap?.appendChild(button);
+    return button;
   });
 
   function stopVideosExcept(activeIdx) {
-    slides.forEach((s, i) => {
-      if (i === activeIdx) return;
-      const v = s.querySelector('video');
-      if (v && !v.paused) v.pause();
+    slides.forEach((slide, i) => {
+      const video = slide.querySelector('video');
+      if (!video) return;
+
+      if (i !== activeIdx && !video.paused) {
+        video.pause();
+        video.currentTime = 0;
+      }
     });
   }
 
+  function playActiveVideo(activeIdx) {
+    const activeSlide = slides[activeIdx];
+    const activeVideo = activeSlide?.querySelector('video');
+    if (!activeVideo) return;
+
+    activeVideo.muted = true;
+    activeVideo.playsInline = true;
+
+    const playPromise = activeVideo.play();
+    if (playPromise && typeof playPromise.catch === 'function') {
+      playPromise.catch(() => {
+        /* alguns navegadores podem bloquear autoplay mesmo em muted */
+      });
+    }
+  }
+
   function setActive(i) {
-    slides.forEach((s, idx) => s.classList.toggle('is-active', idx === i));
-    dots.forEach((d, idx) => d.classList.toggle('is-active', idx === i));
+    slides.forEach((slide, idx) => slide.classList.toggle('is-active', idx === i));
+    dots.forEach((dot, idx) => dot.classList.toggle('is-active', idx === i));
     stopVideosExcept(i);
+    playActiveVideo(i);
   }
 
   function goTo(i) {
@@ -427,6 +453,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function next() {
     goTo(index + 1);
   }
+
   function prev() {
     goTo(index - 1);
   }
@@ -434,13 +461,11 @@ document.addEventListener('DOMContentLoaded', () => {
   prevBtn?.addEventListener('click', prev);
   nextBtn?.addEventListener('click', next);
 
-  // Teclado (setas)
   window.addEventListener('keydown', (e) => {
     if (e.key === 'ArrowRight') next();
     if (e.key === 'ArrowLeft') prev();
   });
 
-  // Swipe básico
   let startX = 0;
   let touching = false;
 
@@ -464,31 +489,122 @@ document.addEventListener('DOMContentLoaded', () => {
     diff < 0 ? next() : prev();
   });
 
-  // Estado inicial
+  let autoplayId = null;
+
+  function stopAutoplay() {
+    if (autoplayId) clearInterval(autoplayId);
+    autoplayId = null;
+  }
+
+  function startAutoplay() {
+    stopAutoplay();
+    autoplayId = window.setInterval(() => {
+      const activeSlide = slides[index];
+      const activeVideo = activeSlide?.querySelector('video');
+      if (activeVideo && !activeVideo.paused) return;
+      next();
+    }, 5000);
+  }
+
+  root.addEventListener('mouseenter', stopAutoplay);
+  root.addEventListener('mouseleave', startAutoplay);
+  root.addEventListener('touchstart', stopAutoplay, { passive: true });
+  root.addEventListener('touchend', startAutoplay);
+
   goTo(index);
+  startAutoplay();
 })();
 
-// AUTOPLAY INTELIGENTE (pausa ao interagir; não atrapalha vídeo)
-let autoplayId = null;
+/* ============================
+  Carrossel de Depoimentos
+============================ */
+(function initTestimonialsCarousel() {
+  const root = document.querySelector('[data-testimonials]');
+  if (!root) return;
 
-function startAutoplay(){
-  stopAutoplay();
-  autoplayId = setInterval(() => {
-    const active = slides[index];
-    const v = active?.querySelector('video');
-    if (v && !v.paused) return; // se vídeo tocando, não avança
-    next();
-  }, 5000);
-}
+  const track = root.querySelector('[data-testimonial-track]');
+  const slides = Array.from(root.querySelectorAll('[data-testimonial-slide]'));
+  const prevBtn = root.querySelector('[data-testimonial-prev]');
+  const nextBtn = root.querySelector('[data-testimonial-next]');
+  const dotsWrap = root.querySelector('[data-testimonial-dots]');
 
-function stopAutoplay(){
-  if (autoplayId) clearInterval(autoplayId);
-  autoplayId = null;
-}
+  if (!track || slides.length === 0) return;
 
-root.addEventListener('mouseenter', stopAutoplay);
-root.addEventListener('mouseleave', startAutoplay);
-root.addEventListener('touchstart', stopAutoplay, { passive: true });
-root.addEventListener('touchend', startAutoplay);
+  let index = slides.findIndex((slide) => slide.classList.contains('is-active'));
+  if (index < 0) index = 0;
 
-startAutoplay();
+  const dots = slides.map((_, i) => {
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'testimonials-dot';
+    button.setAttribute('aria-label', `Ir para o depoimento ${i + 1}`);
+    button.addEventListener('click', () => goTo(i));
+    dotsWrap?.appendChild(button);
+    return button;
+  });
+
+  function setActive(i) {
+    slides.forEach((slide, idx) => slide.classList.toggle('is-active', idx === i));
+    dots.forEach((dot, idx) => dot.classList.toggle('is-active', idx === i));
+  }
+
+  function goTo(i) {
+    index = (i + slides.length) % slides.length;
+    track.style.transform = `translateX(-${index * 100}%)`;
+    setActive(index);
+  }
+
+  function next() {
+    goTo(index + 1);
+  }
+
+  function prev() {
+    goTo(index - 1);
+  }
+
+  prevBtn?.addEventListener('click', prev);
+  nextBtn?.addEventListener('click', next);
+
+  let startX = 0;
+  let touching = false;
+
+  root.addEventListener(
+    'touchstart',
+    (e) => {
+      startX = e.touches[0].clientX;
+      touching = true;
+    },
+    { passive: true }
+  );
+
+  root.addEventListener('touchend', (e) => {
+    if (!touching) return;
+    touching = false;
+
+    const endX = e.changedTouches[0].clientX;
+    const diff = endX - startX;
+
+    if (Math.abs(diff) < 40) return;
+    diff < 0 ? next() : prev();
+  });
+
+  let autoplayId = null;
+
+  function stopAutoplay() {
+    if (autoplayId) clearInterval(autoplayId);
+    autoplayId = null;
+  }
+
+  function startAutoplay() {
+    stopAutoplay();
+    autoplayId = window.setInterval(next, 6500);
+  }
+
+  root.addEventListener('mouseenter', stopAutoplay);
+  root.addEventListener('mouseleave', startAutoplay);
+  root.addEventListener('touchstart', stopAutoplay, { passive: true });
+  root.addEventListener('touchend', startAutoplay);
+
+  goTo(index);
+  startAutoplay();
+})();

@@ -5,19 +5,76 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
 
-  <title>Kasarão Gastrobar - 🍻 ✨ O mais novo de Contagem ✨</title>
-  <link rel="icon" href="img/k-normal.ico" type="image/x-icon" />
+  <title>Kasarão Gastrobar | Ambiente Sofisticado, Drinks Autorais e Alta Gastronomia em Contagem</title>
+  <link rel="icon" href="img/kasarao-k-opaco.png" type="image/x-icon" />
 
   <meta name="description"
-    content="Galeria oficial do Kasarão Gastrobar. O mais novo gastrobar de Contagem. Ambiente sofisticado, drinks autorais, alta gastronomia e eventos exclusivos." />
+    content="Conheça o Kasarão Gastrobar em Contagem: ambiente sofisticado, drinks autorais, petiscos especiais, música e experiências para viver bons momentos." />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="author" content="Kasarão Gastrobar" />
   <meta name="theme-color" content="#0C1014" />
+  <link rel="canonical" href="https://kasaraogastrobar.com/" />
 
-  <meta property="og:title" content="Kasarão Gastrobar - 🍻 O mais novo de Contagem ✨" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:title" content="Kasarão Gastrobar | Ambiente Sofisticado e Sabores Marcantes em Contagem" />
   <meta property="og:description"
-    content="Descubra o ambiente sofisticado, drinks exclusivos e eventos memoráveis do Kasarão Gastrobar." />
+    content="Descubra o ambiente sofisticado, drinks autorais, experiências gastronômicas e momentos especiais do Kasarão Gastrobar." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://www.seusite.com.br" />
-  <meta property="og:image" content="https://www.seusite.com.br/imagem-preview.jpg" />
+  <meta property="og:url" content="https://kasaraogastrobar.com/" />
+  <meta property="og:image" content="https://kasaraogastrobar.com/img/banner-kasarao.png" />
+  <meta property="og:image:alt" content="Ambiente do Kasarão Gastrobar" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Kasarão Gastrobar | Ambiente Sofisticado e Sabores Marcantes em Contagem" />
+  <meta name="twitter:description" content="Ambiente sofisticado, drinks autorais, alta gastronomia e momentos especiais no Kasarão Gastrobar." />
+  <meta name="twitter:image" content="https://kasaraogastrobar.com/img/banner-kasarao.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Restaurant",
+      "name": "Kasarão Gastrobar",
+      "url": "https://kasaraogastrobar.com/",
+      "image": "https://kasaraogastrobar.com/img/banner-kasarao.png",
+      "telephone": "+55 31 8857-6915",
+      "priceRange": "$$",
+      "servesCuisine": "Gastrobar",
+      "menu": "https://pedido.anota.ai/loja/kasarao-bistro-contagem?f=ms",
+      "acceptsReservations": true,
+      "sameAs": [
+        "https://www.instagram.com/kasaraogastrobar/"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Rua Abraão Evangelista Diniz, 39",
+        "addressLocality": "Contagem",
+        "addressRegion": "MG",
+        "postalCode": "32013-530",
+        "addressCountry": "BR"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Thursday", "Friday"],
+          "opens": "18:00",
+          "closes": "23:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "11:30",
+          "closes": "23:59"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Sunday",
+          "opens": "11:30",
+          "closes": "17:00"
+        }
+      ]
+    }
+  </script>
 
   <link rel="stylesheet" href="css/global.css" />
   <link rel="stylesheet" href="css/menu.css" />
@@ -25,10 +82,11 @@
 </head>
 
 <body>
+  <a class="skip-link" href="#main-content">Pular para o conteúdo</a>
   <!-- HEADER FIXO (desktop + drawer mobile) -->
   <header class="site-header">
     <div class="logo">
-      <a href="index.html"><img src="img/kasarao-semfundo.png" alt="Kasarão Gastrobar" /></a>
+      <a href="index.html"><img src="img/kasarao-semfundo.png" alt="Kasarão Gastrobar" fetchpriority="high" decoding="async" /></a>
     </div>
 
     <nav class="menu" aria-label="Navegação principal">
@@ -82,20 +140,33 @@
   </header>
 
   <!-- HERO -->
+  <main id="main-content">
   <section id="hero" class="hero fade-in">
-    <video autoplay muted loop playsinline preload="auto" class="bg-video">
+    <video autoplay muted loop playsinline preload="metadata" poster="img/banner-kasarao.png" class="bg-video">
       <source src="video/IMG_3350.webm" type="video/webm" />
       <source src="video/IMG_3350.mp4" type="video/mp4" />
       Seu navegador não suporta vídeos em HTML5.
     </video>
 
-    <h1 id="saudacao"></h1>
-    <p>O espaço perfeito em Contagem para celebrar bons momentos com amigos, boa música e sabores únicos.</p>
+    <p id="saudacao" class="hero-status">Boa noite! Estamos prontos para receber você.</p>
+    <h1>Seu ponto de encontro em Contagem para viver noites memoráveis.</h1>
+    <p>Ambiente envolvente, drinks autorais, gastronomia cuidadosa e a atmosfera ideal para encontros que merecem ser lembrados.</p>
 
-    <a href="cardapio.html" class="btn-cardapio">
-      Ver Cardápio
-      <img src="img/icone-cardapio.ico" width="30" alt="Ícone do cardápio" />
-    </a>
+    <div class="hero-actions">
+      <a href="https://wa.me/5531885766915?text=Ol%C3%A1%21%20Quero%20reservar%20ou%20tirar%20d%C3%BAvidas%20sobre%20o%20Kasar%C3%A3o%20Gastrobar." class="btn-cardapio btn-hero-primary" target="_blank" rel="noopener noreferrer">
+        Reservar pelo WhatsApp
+      </a>
+      <a href="cardapio.html" class="btn-cardapio btn-hero-secondary">
+        Ver Cardápio
+        <img src="img/icone-cardapio.ico" width="30" alt="Ícone do cardápio" />
+      </a>
+    </div>
+
+    <div class="hero-badges" aria-label="Diferenciais do Kasarão">
+      <span>Drinks autorais</span>
+      <span>Ambiente acolhedor</span>
+      <span>Eventos especiais</span>
+    </div>
   </section>
 
   <!-- SOBRE -->
@@ -106,21 +177,24 @@
       <div class="sobre-flex">
         <div class="sobre-texto">
           <p>
-            <strong>Ambiente descontraído e acolhedor</strong>, ideal para reunir amigos e celebrar bons momentos com
-            tranquilidade.
+            <strong>Ambiente acolhedor e atmosfera envolvente</strong>, ideal para reunir amigos, celebrar ocasiões especiais e aproveitar o tempo com leveza.
           </p>
 
           <p>
-            Aqui, cada visita vira memória — com <span class="micro-highlight">experiências gastronômicas</span> únicas,
-            boa
-            música e um clima que convida a ficar.
+            Aqui, cada visita se transforma em memória, com <span class="micro-highlight">experiências gastronômicas</span> marcantes, boa música e um clima que convida a permanecer.
           </p>
         </div>
 
         <div class="video-container">
-          <video controls>
+          <div class="video-card">
+            <span class="video-eyebrow">Apresentação da casa</span>
+            <h3>Conheça o Kasarão pela voz de quem vive a experiência todos os dias.</h3>
+            <p class="video-note">Dê o play e veja uma apresentação rápida sobre o ambiente, a proposta e a energia do Kasarão.</p>
+
+          <video controls preload="metadata" poster="img/kelly-frente-bar.png">
             <source src="video/kelly-entrada.mp4" type="video/mp4" />
           </video>
+          </div>
         </div>
       </div>
     </div>
@@ -132,7 +206,7 @@
       <h2>Horário de Funcionamento</h2>
 
       <div class="slide active">
-        <img src="img/icone-horario.ico" alt="Ícone de horário" />
+        <img src="img/icone-horario.ico" alt="Ícone de horário" loading="lazy" decoding="async" />
         <div class="caption">
           <ul>
             <li>Quinta e Sexta: 18:00 às 23:00h</li>
@@ -144,43 +218,142 @@
     </section>
 
     <section id="cardapio" class="section gallery fade-in">
-      <h2>Converse Conosco</h2>
+      <h2>Reserve Sua Mesa</h2>
 
       <div class="slide active">
-        <img src="img/icone-contato.ico" alt="Ícone contato" />
+        <img src="img/icone-contato.ico" alt="Ícone contato" loading="lazy" decoding="async" />
         <div class="caption">
-          <p>Se quiser, entre em contato com a gente! Estamos aqui para te atender com muito carinho.</p>
+          <p>Para celebrar, encontrar amigos ou simplesmente viver uma boa noite, nossa equipe ajuda você a escolher o melhor momento para vir ao Kasarão.</p>
 
           <div class="cardapio-actions">
-            <a href="contato.html" class="btn-cardapio">Fale com a gente</a>
+            <a href="https://wa.me/5531885766915?text=Ol%C3%A1%21%20Quero%20reservar%20uma%20mesa%20no%20Kasar%C3%A3o%20Gastrobar." class="btn-cardapio" target="_blank" rel="noopener noreferrer">Reservar agora</a>
           </div>
         </div>
       </div>
     </section>
   </div>
 
-  <!-- DESTAQUES -->
+  <section class="reserve-strip fade-in" aria-label="Reserva rápida">
+    <div class="reserve-strip-copy">
+      <span class="reserve-strip-kicker">Seu próximo encontro começa aqui</span>
+      <h2>Ambiente marcante, atendimento atencioso e uma experiência pensada nos detalhes.</h2>
+      <p>Se a ideia for viver uma noite especial, celebrar com elegância ou simplesmente apreciar boa comida e bons drinks, fale com a equipe do Kasarão.</p>
+    </div>
+    <div class="reserve-strip-actions">
+      <a href="https://wa.me/5531885766915?text=Ol%C3%A1%21%20Quero%20reservar%20uma%20mesa%20no%20Kasar%C3%A3o%20Gastrobar." class="btn-cardapio btn-hero-primary" target="_blank" rel="noopener noreferrer">Reservar pelo WhatsApp</a>
+      <a href="contato.html" class="btn-cardapio btn-hero-secondary">Ver contato</a>
+    </div>
+  </section>
+
+  <section class="testimonials fade-in" aria-label="Avaliações e depoimentos">
+    <div class="testimonials-head">
+      <span class="testimonials-kicker">Prova social</span>
+      <h2>Um espaço pensado para valorizar a confiança de quem já viveu a experiência Kasarão.</h2>
+      <p>Avaliações 5 estrelas recentes reforçam o que define a experiência Kasarão: ambiente familiar e acolhedor, atendimento atencioso e uma casa elogiada pela comida, pelos drinks e pela cerveja sempre gelada.</p>
+
+      <div class="testimonials-highlight" aria-label="Resumo de avaliações recentes">
+        <span class="testimonials-highlight-chip">Ambiente familiar, lindo e aconchegante</span>
+        <span class="testimonials-highlight-chip">Atendimento carinhoso, atencioso e impecável</span>
+        <span class="testimonials-highlight-chip">Comida, drinks e cerveja gelada sempre em destaque</span>
+      </div>
+
+      <p class="testimonials-source-note">Avaliações reais ordenadas por recência, com base em comentários de clientes no Google.</p>
+    </div>
+
+    <div class="testimonials-carousel" data-testimonials>
+      <button class="testimonials-nav testimonials-prev" type="button" data-testimonial-prev aria-label="Depoimento anterior">❮</button>
+
+      <div class="testimonials-viewport">
+        <div class="testimonials-track" data-testimonial-track>
+          <article class="testimonial-card is-active" data-testimonial-slide>
+            <div class="testimonial-meta">
+              <div class="testimonial-stars" aria-label="5 de 5 estrelas">★★★★★</div>
+              <span class="testimonial-age">3 meses atrás</span>
+            </div>
+            <blockquote>
+              “Ambiente espetacular, lugar lindo, atendimento super carinhoso e ótimas opções de comida.”
+            </blockquote>
+            <div class="testimonial-footer">
+              <p class="testimonial-author">Mauricio Costa</p>
+              <span class="testimonial-source">Google Reviews • 5 estrelas</span>
+            </div>
+          </article>
+
+          <article class="testimonial-card" data-testimonial-slide>
+            <div class="testimonial-meta">
+              <div class="testimonial-stars" aria-label="5 de 5 estrelas">★★★★★</div>
+              <span class="testimonial-age">6 meses atrás</span>
+            </div>
+            <blockquote>
+              “Estava à procura de um ambiente familiar para comemorar meu aniversário e, confesso, fiquei um pouco receosa por não conhecer o local. Arrisquei e me surpreendi! O espaço é ainda mais lindo e aconchegante pessoalmente, a comida chegou super rápido e os atendentes foram extremamente atenciosos. Foi, sem dúvida, uma ótima escolha, e recomendo de olhos fechados!”
+            </blockquote>
+            <div class="testimonial-footer">
+              <p class="testimonial-author">Kaylane Caroline</p>
+              <span class="testimonial-source">Google Reviews • 5 estrelas</span>
+            </div>
+          </article>
+
+          <article class="testimonial-card" data-testimonial-slide>
+            <div class="testimonial-meta">
+              <div class="testimonial-stars" aria-label="5 de 5 estrelas">★★★★★</div>
+              <span class="testimonial-age">6 meses atrás</span>
+            </div>
+            <blockquote>
+              “Um ambiente super tranquilo e acolhedor! Drinks e comidas maravilhosas e atendimento impecável!!”
+            </blockquote>
+            <div class="testimonial-footer">
+              <p class="testimonial-author">Maria Luiza Santos de Oliveira</p>
+              <span class="testimonial-source">Google Reviews • 5 estrelas</span>
+            </div>
+          </article>
+
+          <article class="testimonial-card" data-testimonial-slide>
+            <div class="testimonial-meta">
+              <div class="testimonial-stars" aria-label="5 de 5 estrelas">★★★★★</div>
+              <span class="testimonial-age">11 meses atrás</span>
+            </div>
+            <blockquote>
+              “Lugar excelente!! Comida boa, cerveja gelada, música agradável e atendimento excepcional. Ambiente familiar.”
+            </blockquote>
+            <div class="testimonial-footer">
+              <p class="testimonial-author">Graziela Mourão</p>
+              <span class="testimonial-source">Google Reviews • 5 estrelas</span>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <button class="testimonials-nav testimonials-next" type="button" data-testimonial-next aria-label="Próximo depoimento">❯</button>
+      <div class="testimonials-dots" data-testimonial-dots aria-label="Navegação dos depoimentos"></div>
+    </div>
+  </section>
+
+  <!-- CURADORIA -->
   <section id="destaques" class="section gallery fade-in">
-    <h2>Destaques da Semana</h2>
+    <div class="destaques-head">
+      <span class="destaques-kicker">Curadoria da Casa</span>
+      <h2>Seleções pensadas para traduzir o melhor do Kasarão.</h2>
+      <p>Uma leitura delicada da experiência da casa, entre coquetelaria autoral, cozinha cuidadosa e atmosfera musical.</p>
+    </div>
 
     <div class="slide active">
       <div class="caption">
-        <h3>🍹 Drink Especial</h3>
-        <p>Experimente nosso coquetel exclusivo preparado pelo bartender da casa.</p>
+        <h3>Coquetelaria Autoral</h3>
+        <p>Criações elaboradas para surpreender no aroma, no visual e na elegância de cada gole.</p>
       </div>
     </div>
 
     <div class="slide">
       <div class="caption">
-        <h3>🍖 Petisco do Chef</h3>
-        <p>Uma combinação irresistível de sabores mineiros com toque gourmet.</p>
+        <h3>Cozinha com Presença</h3>
+        <p>Sabores intensos, execução cuidadosa e pratos que valorizam o tempo à mesa.</p>
       </div>
     </div>
 
     <div class="slide">
       <div class="caption">
-        <h3>🎶 Música ao Vivo</h3>
-        <p>Todo sábado, artistas locais animam a noite com repertório variado.</p>
+        <h3>Atmosfera Musical</h3>
+        <p>Nos sábados, a música ao vivo integra a noite com a mesma sutileza dos demais detalhes da casa.</p>
       </div>
     </div>
 
@@ -193,46 +366,60 @@
     <h2>Alguns momentos inesquecíveis por aqui...</h2>
 
     <div class="slide active">
-      <img src="img/sobre1.png" alt="Pessoas brindando" />
-      <div class="caption">Lugar perfeito para passar a dois...</div>
+      <img src="img/sobre1.png" alt="Pessoas brindando" loading="lazy" decoding="async" />
+      <div class="caption">
+        <h3>Um Cenário para Dois</h3>
+        <p>Um ambiente pensado para conversas tranquilas, taças bem servidas e momentos que merecem ser lembrados.</p>
+      </div>
     </div>
 
     <div class="slide">
-      <img src="img/sobre2.png" alt="Pessoas comemorando" />
-      <div class="caption">Deixe a festa por nossa conta!</div>
+      <img src="img/sobre2.png" alt="Pessoas comemorando" loading="lazy" decoding="async" />
+      <div class="caption">
+        <h3>Celebrações com Presença</h3>
+        <p>O Kasarão recebe encontros e comemorações com a atmosfera certa para transformar a noite em ocasião.</p>
+      </div>
     </div>
 
     <div class="slide">
-      <img src="img/sobre3.png" alt="Brinde sob luzes" />
-      <div class="caption">A noite fica mais agradável com a gente!</div>
+      <img src="img/sobre3.png" alt="Brinde sob luzes" loading="lazy" decoding="async" />
+      <div class="caption">
+        <h3>Noites que Pedem Mais Tempo</h3>
+        <p>Luzes, clima e detalhes que convidam a permanecer e aproveitar cada instante com calma.</p>
+      </div>
     </div>
 
     <button class="prev" type="button" aria-label="Anterior">❮</button>
     <button class="next" type="button" aria-label="Próximo">❯</button>
   </section>
+  </main>
 
   <!-- RODAPÉ -->
   <footer id="footer" class="footer">
     <div class="footer-content">
       <div class="footer-logo">
-        <img src="img/kasarao-semfundo.png" alt="Logo Kasarão Gastrobar" />
+        <img src="img/kasarao-semfundo.png" alt="Logo Kasarão Gastrobar" loading="lazy" decoding="async" />
       </div>
 
       <div class="social-icons">
         <span class="follow-text">Siga-nos</span>
+        <a href="https://wa.me/5531885766915?text=Ol%C3%A1%21%20Gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20o%20Kasar%C3%A3o%20Gastrobar." target="_blank" rel="noopener noreferrer"
+          aria-label="WhatsApp do Kasarão">
+          <img src="img/whats1.ico" alt="Ícone do WhatsApp" loading="lazy" decoding="async" />
+        </a>
         <a href="https://www.instagram.com/kasaraogastrobar/" target="_blank" rel="noopener noreferrer"
           aria-label="Instagram do Kasarão">
-          <img src="img/icone-instagram.ico" alt="Ícone do Instagram" />
+          <img src="img/icone-instagram.ico" alt="Ícone do Instagram" loading="lazy" decoding="async" />
         </a>
       </div>
 
-      <div class="contact-info">
-        <p>📍 Rua Abraao Evangelista Diniz 39, Fonte Grande, Contagem - MG 32013-530, Brasil</p>
-        <p>📞 +55 31 8857-6915</p>
+            <div class="contact-info">
+        <p><a href="https://www.google.com/maps/dir/?api=1&destination=Rua+Abra%C3%A3o+Evangelista+Diniz,+39,+Contagem,+MG" target="_blank" rel="noopener noreferrer" aria-label="Como chegar ao Kasarão Gastrobar pelo Google Maps">📍 Rua Abraão Evangelista Diniz, 39, Fonte Grande, Contagem - MG 32013-530, Brasil</a></p>
+        <p><a href="tel:+5531885766915" aria-label="Ligar para o Kasarão Gastrobar">📞 +55 31 8857-6915</a></p>
       </div>
     </div>
 
-    <p class="developer-credit">Desenvolvido por Luiz Gustavo</p>
+    <p class="developer-credit">Desenvolvido por <strong>Luiz Gustavo</strong> <a href="https://luizgustavodev.com" target="_blank" rel="noopener noreferrer">luizgustavodev.com</a></p>
     <p>&copy; 2026 Kasarão Gastrobar</p>
   </footer>
 
@@ -250,7 +437,7 @@
     </span>
   </a>
 
-  <script src="js/script.js"></script>
+  <script src="js/script.js" defer></script>
 </body>
 
 </html>
