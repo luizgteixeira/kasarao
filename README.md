@@ -26,7 +26,7 @@
 
 ## Preview
 
-![Preview do site](img/site-demo.gif)
+![Preview do site](img/kasarao-site.gif)
 
 ## Contexto
 
