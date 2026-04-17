@@ -174,3 +174,18 @@ body.light-mode #endereco {
     height: 320px;
   }
 }
+
+@media (max-width: 420px) {
+  .contato-info {
+    gap: 12px;
+  }
+
+  .btn-contato {
+    min-height: 54px;
+    padding-inline: 1rem;
+  }
+
+  .mapa-container iframe {
+    height: 280px;
+  }
+}

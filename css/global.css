@@ -37,6 +37,42 @@ img, video{ max-width:100%; }
   /* Layout */
   --nav-h: 92px;     /* fallback (JS atualiza) */
   --wa-space: 84px;  /* espaço pro whatsapp */
+
+  /* Escala tipográfica estável, ajustada por breakpoints em vez de viewport width */
+  --fs-body: 1.0625rem;
+  --fs-small: .96rem;
+  --fs-caption: 1rem;
+  --fs-lead: 1.1rem;
+  --fs-h1: 2.65rem;
+  --fs-h2: 2rem;
+  --fs-h3: 1.3rem;
+  --fs-hero: 3.35rem;
+}
+
+@media (max-width: 768px){
+  :root{
+    --fs-body: 1rem;
+    --fs-small: .94rem;
+    --fs-caption: .98rem;
+    --fs-lead: 1rem;
+    --fs-h1: 2.2rem;
+    --fs-h2: 1.65rem;
+    --fs-h3: 1.18rem;
+    --fs-hero: 2.45rem;
+  }
+}
+
+@media (min-width: 1200px){
+  :root{
+    --fs-body: 1.0625rem;
+    --fs-small: .98rem;
+    --fs-caption: 1rem;
+    --fs-lead: 1.12rem;
+    --fs-h1: 3rem;
+    --fs-h2: 2.25rem;
+    --fs-h3: 1.42rem;
+    --fs-hero: 4rem;
+  }
 }
 
 body {
@@ -46,7 +82,7 @@ body {
     font-style: normal;
 
   /* tipografia mais profissional */
-  font-size: clamp(16px, 0.35vw + 15px, 18px);
+  font-size: var(--fs-body);
   line-height: 1.75;
   letter-spacing: 0.2px;
 
@@ -192,6 +228,13 @@ footer.footer .contact-info a:hover{
   text-decoration: underline;
 }
 
+.developer-portfolio{
+  display: grid;
+  justify-items: center;
+  gap: 14px;
+  margin-top: 18px;
+}
+
 /* Logo ao lado do crédito do desenvolvedor */
 .developer-credit{
   display:flex;
@@ -205,6 +248,16 @@ footer.footer .contact-info a:hover{
   color: rgba(247,247,247,.88);
 }
 
+.developer-credit a{
+  color: var(--primary);
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.developer-credit a:hover{
+  text-decoration: underline;
+}
+
 .developer-credit strong{
   font-family: "Cormorant Garamond", serif;
   font-size: 1.15rem;
@@ -213,29 +266,44 @@ footer.footer .contact-info a:hover{
   letter-spacing: .3px;
 }
 
-.developer-credit a{
+.portfolio-qr-link{
   display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 8px 14px;
-  border-radius: 999px;
-  text-decoration: none;
-  color: #0c1014;
-  background: linear-gradient(135deg, var(--primary), var(--primary-hover));
-  box-shadow: 0 12px 28px rgba(0,0,0,.22);
-  font-weight: 800;
-  transition: transform .2s ease, filter .2s ease, box-shadow .2s ease;
+  width: min(176px, 62vw);
+  padding: 10px;
+  border-radius: 20px;
+  background:
+    linear-gradient(180deg, rgba(208,172,103,.20), rgba(255,255,255,.04)),
+    rgba(255,255,255,.04);
+  border: 1px solid rgba(208,172,103,.34);
+  box-shadow: 0 18px 42px rgba(0,0,0,.34);
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
 }
 
-.developer-credit a:hover{
-  transform: translateY(-2px);
-  filter: brightness(1.03);
-  box-shadow: 0 16px 32px rgba(0,0,0,.28);
+.portfolio-qr-link:hover{
+  transform: translateY(-3px);
+  border-color: rgba(208,172,103,.62);
+  box-shadow: 0 24px 52px rgba(0,0,0,.42);
+}
+
+.portfolio-qr-link img{
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+}
+
+.portfolio-qr-hint{
+  max-width: 34ch;
+  margin: -4px auto 0;
+  text-align: center;
+  color: rgba(247,247,247,.72);
+  font-size: .92rem;
+  line-height: 1.55;
 }
 
 footer.footer p:last-child{
   text-align: center;
-  margin-top: 6px;
+  margin-top: 18px;
   font-size: 0.9rem;
   color: #8a8a8a;
 }
@@ -366,8 +434,51 @@ body.light-mode .whatsapp-tooltip::after{
   border-top:1px solid rgba(0,0,0,0.08);
 }
 
-@media (max-width: 768px){
-  .whatsapp-tooltip{ display:none; }
+@media (hover: none), (pointer: coarse), (max-width: 768px){
+  .whatsapp-tooltip{
+    display: block;
+    right: 0;
+    bottom: calc(100% + 10px);
+    width: max-content;
+    max-width: min(220px, calc(100vw - 32px));
+    white-space: normal;
+    text-align: center;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    font-size: .82rem;
+    line-height: 1.35;
+    padding: 9px 12px;
+  }
+
+  .whatsapp-tooltip::after{
+    right: 22px;
+    top: auto;
+    bottom: -6px;
+    transform: rotate(45deg);
+  }
+
+  .whatsapp-float:hover .whatsapp-tooltip{
+    transform: none;
+  }
+}
+
+@media (max-width: 420px){
+  .btn-cardapio,
+  .btn-contato{
+    width: 100%;
+    max-width: 100%;
+    white-space: normal;
+    text-align: center;
+    padding-inline: 16px;
+  }
+
+  .whatsapp-float{
+    right: 14px;
+    bottom: 14px;
+    width: 54px;
+    height: 54px;
+  }
 }
 
 /* =====================================================
@@ -381,7 +492,7 @@ body.light-mode .whatsapp-tooltip::after{
 
 /* ---------- Tipografia: base moderna e confortável ---------- */
 body {
-  font-size: clamp(16px, 0.35vw + 15px, 18px);
+  font-size: var(--fs-body);
   line-height: 1.75;
   letter-spacing: 0.2px;
   -webkit-font-smoothing: antialiased;
@@ -396,19 +507,19 @@ p {
 
 /* Títulos: mais “premium” e com presença */
 h1 {
-  font-size: clamp(2.0rem, 2vw + 1.5rem, 3.0rem);
+  font-size: var(--fs-h1);
   line-height: 1.12;
   letter-spacing: .2px;
 }
 
 h2 {
-  font-size: clamp(1.55rem, 1vw + 1.25rem, 2.25rem);
+  font-size: var(--fs-h2);
   line-height: 1.18;
   letter-spacing: .2px;
 }
 
 h3 {
-  font-size: clamp(1.15rem, .5vw + 1.05rem, 1.45rem);
+  font-size: var(--fs-h3);
   line-height: 1.22;
   letter-spacing: .15px;
 }

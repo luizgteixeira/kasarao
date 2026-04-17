@@ -14,7 +14,7 @@
 .hero {
   position: relative;
   min-height: clamp(420px, 62vh, 680px);
-  padding: calc(var(--nav-h) + 28px) 8% 42px;
+  padding: 48px 8% 42px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -55,7 +55,7 @@
 .hero h1{
   max-width: 13ch;
   margin: 10px auto 14px;
-  font-size: clamp(2.4rem, 3.8vw, 4.4rem);
+  font-size: var(--fs-hero);
   color: #fff;
   text-shadow: 0 18px 42px rgba(0,0,0,.32);
 }
@@ -63,7 +63,7 @@
 .hero > p{
   max-width: 64ch;
   margin: 0 auto;
-  font-size: clamp(1rem, .45vw + .95rem, 1.15rem);
+  font-size: var(--fs-lead);
 }
 
 .hero-status{
@@ -235,6 +235,63 @@ body.light-mode .section.gallery {
   right: 14px;
 }
 
+.gallery-dots{
+  position: relative;
+  z-index: 3;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.gallery-dot{
+  width: 10px;
+  height: 10px;
+  padding: 0;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  background: rgba(255,255,255,.25);
+  box-shadow: 0 8px 18px rgba(0,0,0,.16);
+  transition: width .25s ease, transform .25s ease, background .25s ease;
+}
+
+.gallery-dot.is-active{
+  width: 28px;
+  background: var(--primary);
+  transform: translateY(-1px);
+}
+
+body.light-mode .gallery-dot{
+  background: rgba(0,0,0,.18);
+}
+
+body.light-mode .gallery-dot.is-active{
+  background: var(--primary);
+}
+
+.section.gallery .caption[data-icon]{
+  position: relative;
+}
+
+.section.gallery .caption[data-icon]::before{
+  content: attr(data-icon);
+  position: absolute;
+  left: 18px;
+  top: 18px;
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  color: #0c1014;
+  background: linear-gradient(135deg, var(--primary), var(--primary-hover));
+  box-shadow: 0 12px 26px rgba(0,0,0,.24);
+  font-family: "Lexend Deca", sans-serif;
+  font-weight: 900;
+  line-height: 1;
+}
+
 /* -----------------------------
    SOBRE (texto + vídeo lado a lado)
 ------------------------------ */
@@ -284,7 +341,7 @@ body.light-mode #sobre .video-card{
 #sobre .video-card h3{
   margin: 0 0 8px;
   color: var(--primary);
-  font-size: clamp(1.2rem, .6vw + 1.08rem, 1.55rem);
+  font-size: var(--fs-h3);
 }
 
 #sobre .video-note{
@@ -421,8 +478,18 @@ body.light-mode .duo-sections {
   transform: none;
 }
 
+#destaques .caption[data-icon]{
+  padding-left: 70px;
+}
+
+#horarios .caption[data-icon],
+#cardapio .caption[data-icon]{
+  padding-left: 68px;
+  min-height: 52px;
+}
+
 #destaques .caption h3{
-  font-size: clamp(1.25rem, .55vw + 1.15rem, 1.55rem);
+  font-size: var(--fs-h3);
   margin-bottom: 8px;
 }
 
@@ -491,24 +558,75 @@ body.light-mode #destaques .caption{
 }
 
 /* -----------------------------
-   MOMENTOS — mini carrossel + mídia menor (sem blur)
+   MOMENTOS — carrossel dinâmico estilo página Momentos
 ------------------------------ */
 
-/* mantém comportamento do slider (só 1 ativo visível) */
+#momentos.section.gallery{
+  isolation: isolate;
+}
+
+#momentos.section.gallery > h2{
+  margin-bottom: 32px;
+}
+
 #momentos.gallery .slide {
   display: none;
+  min-height: clamp(470px, 58vh, 620px);
+  padding: 34px 22px 128px;
+  border-radius: 24px;
+  isolation: isolate;
+  background:
+    radial-gradient(70% 70% at 50% 28%, color-mix(in srgb, var(--primary) 20%, transparent), transparent 64%),
+    linear-gradient(180deg, rgba(20,26,32,.96), rgba(12,16,20,.98));
+  border: 1px solid rgba(255,255,255,.09);
+  box-shadow:
+    0 28px 80px rgba(0,0,0,.48),
+    inset 0 1px 0 rgba(255,255,255,.06);
+  overflow: hidden;
 }
 
 #momentos.gallery .slide.active {
-  display: flex;
-  justify-content: center;
+  display: grid;
+  place-items: center;
+  animation: momentosSlideIn .45s cubic-bezier(.2,.8,.2,1) both;
 }
 
-/* mídia menor para evitar upscale/desfoque */
+@keyframes momentosSlideIn {
+  from { opacity: 0; transform: translateY(12px) scale(.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+#momentos.gallery .slide::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(75% 62% at 50% 42%, rgba(0,0,0,0), rgba(0,0,0,.56) 82%),
+    linear-gradient(180deg, rgba(255,255,255,.04), transparent 32%);
+}
 
 #momentos .slide>img {
-  width: min(300px, 85%);
-  height: 370px;
+  width: min(465px, 88%);
+  height: min(390px, 42vh);
+  object-fit: cover;
+  border-radius: 18px;
+  box-shadow: 0 22px 56px rgba(0,0,0,.46);
+}
+
+#momentos .slide>picture {
+  display: block;
+  width: min(465px, 88%);
+}
+
+#momentos .slide>picture>img {
+  display: block;
+  width: 100%;
+  height: min(390px, 42vh);
+  object-fit: cover;
+  border-radius: 18px;
+  box-shadow: 0 22px 56px rgba(0,0,0,.46);
 }
 
 #momentos .slide>video {
@@ -519,12 +637,74 @@ body.light-mode #destaques .caption{
   display: block;
 }
 
+#momentos .caption{
+  left: 24px;
+  right: 24px;
+  bottom: 22px;
+  padding: 16px 18px 16px 68px;
+  border-radius: 16px;
+  background: rgba(8,10,12,.72);
+  border: 1px solid rgba(255,255,255,.12);
+  box-shadow: 0 18px 45px rgba(0,0,0,.36);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: #f7f7f7;
+  opacity: 0;
+  transform: translateX(-54px);
+  pointer-events: none;
+}
+
+#momentos .slide.active .caption{
+  animation: homeMomentosCaptionIn .68s cubic-bezier(.22,.8,.2,1) .12s both;
+}
+
+@keyframes homeMomentosCaptionIn{
+  from{
+    opacity: 0;
+    transform: translateX(-54px);
+  }
+  to{
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+#momentos .caption h3{
+  color: var(--primary);
+}
+
+#momentos .caption[data-icon]{
+  padding-left: 68px;
+}
+
+#momentos .gallery-dots{
+  margin-top: 24px;
+}
+
+body.light-mode #momentos.gallery .slide{
+  background:
+    radial-gradient(70% 70% at 50% 28%, color-mix(in srgb, var(--primary) 16%, transparent), transparent 64%),
+    linear-gradient(180deg, #f6efdf, #e6d7bd);
+  border-color: rgba(0,0,0,.08);
+  box-shadow:
+    0 24px 70px rgba(0,0,0,.16),
+    inset 0 1px 0 rgba(255,255,255,.55);
+}
+
+body.light-mode #momentos .caption{
+  background: rgba(255,255,255,.82);
+  border-color: rgba(0,0,0,.10);
+  color: rgba(45,42,38,.92);
+  box-shadow: 0 18px 45px rgba(0,0,0,.12);
+}
+
 /* telas muito grandes: pode aumentar um pouco */
 @media (min-width:1400px) {
 
   #momentos .slide>img,
+  #momentos .slide>picture,
   #momentos .slide>video {
-    width: min(900px, 85%);
+    width: min(520px, 85%);
   }
 }
 
@@ -803,7 +983,7 @@ body.light-mode .testimonial-card{
 .testimonial-card blockquote{
   margin: 0;
   max-width: 100%;
-  font-size: clamp(1.02rem, .4vw + .98rem, 1.14rem);
+  font-size: var(--fs-lead);
   line-height: 1.8;
   font-style: italic;
 }
@@ -943,8 +1123,7 @@ body.light-mode #sobre .sobre-texto {
 #sobre .sobre-texto p {
   margin: 0;
 
-  /* ✅ maior e responsivo */
-  font-size: clamp(1.08rem, 0.7vw + 1.02rem, 1.35rem);
+  font-size: var(--fs-lead);
 
   /* ✅ mais “fluido” para leitura */
   line-height: 1.85;
@@ -1057,7 +1236,7 @@ body.light-mode .slide p{
    CAPTION — parágrafos menores (não passam da imagem)
 ===================================================== */
 .caption p {
-  font-size: clamp(.92rem, .25vw + .88rem, 1.02rem);
+  font-size: var(--fs-caption);
   line-height: 1.55;
   margin: 0.25rem 0 0;
 }
@@ -1065,7 +1244,7 @@ body.light-mode .slide p{
 /* Se houver títulos em caption, mantém hierarquia elegante */
 .caption h3 {
   margin: 0 0 .25rem;
-  font-size: clamp(1.05rem, .35vw + 1.0rem, 1.2rem);
+  font-size: var(--fs-h3);
   line-height: 1.25;
 }
 
@@ -1082,20 +1261,30 @@ body.light-mode .slide p{
 
   /* deixa a caption sempre visível */
   #momentos .caption {
-    opacity: 1 !important;
-    transform: none !important;
-
     /* mantém o overlay na parte de baixo */
     position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    left: 14px;
+    right: 14px;
+    bottom: 14px;
 
-    padding: 14px 16px;
-    border-radius: 0;
+    padding: 14px 16px 14px 64px;
+    border-radius: 14px;
 
     background: rgba(12, 16, 20, .68);
     color: #f7f7f7;
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+
+  #momentos .caption[data-icon] {
+    padding-left: 64px;
+  }
+
+  #momentos .caption[data-icon]::before {
+    left: 14px;
+    top: 14px;
+    width: 32px;
+    height: 32px;
   }
 
   /* tema claro */
@@ -1140,10 +1329,9 @@ body.light-mode .slide p{
 @media (max-width: 900px) {
 
   #momentos .slide>img,
+  #momentos .slide>picture,
   #momentos .slide>video {
     display: block;
-    /* espaço para a legenda não cobrir conteúdo importante */
-    padding-bottom: 56px;
     box-sizing: border-box;
   }
 
@@ -1154,6 +1342,25 @@ body.light-mode .slide p{
   }
 
   .hero-actions .btn-cardapio{
+    width: 100%;
+  }
+}
+
+@media (max-width: 420px) {
+  .hero {
+    padding: 34px 6% 36px;
+  }
+
+  .hero h1 {
+    max-width: 13ch;
+  }
+
+  .hero-badges span {
+    width: 100%;
+  }
+
+  .testimonials-highlight-chip,
+  .testimonial-source {
     width: 100%;
   }
 }

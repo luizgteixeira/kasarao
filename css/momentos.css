@@ -21,14 +21,14 @@
 
 .pc-title {
   color: var(--primary);
-  font-size: clamp(1.8rem, 2.5vw, 2.4rem);
+  font-size: var(--fs-h2);
   margin: 0 0 8px;
 }
 
 .pc-subtitle {
   margin: 0 auto;
   max-width: 64ch;
-  font-size: clamp(1.05rem, .7vw + 1rem, 1.35rem);
+  font-size: var(--fs-lead);
   line-height: 1.8;
   letter-spacing: .2px;
   text-wrap: pretty;
@@ -483,6 +483,38 @@ body.light-mode .momentos-cta{
     grid-template-columns: 1fr;
     margin: 0 6% 84px;
     padding: 24px;
+  }
+}
+
+@media (max-width: 420px) {
+  .pc-head {
+    margin-bottom: 18px;
+  }
+
+  .pc-shell {
+    border-radius: 18px;
+  }
+
+  .slide {
+    min-height: 520px;
+    --caption-safe: 168px;
+  }
+
+  .media img,
+  .media video {
+    width: min(920px, 96%);
+    height: min(330px, 44vh);
+  }
+
+  .caption {
+    left: 10px;
+    right: 10px;
+    bottom: 18px;
+    padding: 12px 14px 12px 18px;
+  }
+
+  .momentos-cta-actions .btn-cardapio {
+    width: 100%;
   }
 }
 

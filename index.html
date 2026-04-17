@@ -16,6 +16,7 @@
   <link rel="canonical" href="https://kasaraogastrobar.com/" />
 
   <meta property="og:locale" content="pt_BR" />
+  <meta property="og:site_name" content="Kasarão Gastrobar" />
   <meta property="og:title" content="Kasarão Gastrobar | Ambiente Sofisticado e Sabores Marcantes em Contagem" />
   <meta property="og:description"
     content="Descubra o ambiente sofisticado, drinks autorais, experiências gastronômicas e momentos especiais do Kasarão Gastrobar." />
@@ -27,6 +28,7 @@
   <meta name="twitter:title" content="Kasarão Gastrobar | Ambiente Sofisticado e Sabores Marcantes em Contagem" />
   <meta name="twitter:description" content="Ambiente sofisticado, drinks autorais, alta gastronomia e momentos especiais no Kasarão Gastrobar." />
   <meta name="twitter:image" content="https://kasaraogastrobar.com/img/banner-kasarao.png" />
+  <meta name="twitter:image:alt" content="Ambiente do Kasarão Gastrobar" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
@@ -34,6 +36,7 @@
     {
       "@context": "https://schema.org",
       "@type": "Restaurant",
+      "@id": "https://kasaraogastrobar.com/#restaurant",
       "name": "Kasarão Gastrobar",
       "url": "https://kasaraogastrobar.com/",
       "image": "https://kasaraogastrobar.com/img/banner-kasarao.png",
@@ -86,7 +89,7 @@
   <!-- HEADER FIXO (desktop + drawer mobile) -->
   <header class="site-header">
     <div class="logo">
-      <a href="index.html"><img src="img/kasarao-semfundo.png" alt="Kasarão Gastrobar" fetchpriority="high" decoding="async" /></a>
+      <a href="index.html"><img src="img/kasarao-semfundo.png" alt="Kasarão Gastrobar" fetchpriority="high" decoding="async" width="504" height="495" /></a>
     </div>
 
     <nav class="menu" aria-label="Navegação principal">
@@ -115,7 +118,7 @@
 
     <aside id="navDrawer" class="nav-drawer" aria-hidden="true">
       <div class="drawer-header">
-        <img src="img/kasarao-semfundo.png" alt="Kasarão Gastrobar" />
+        <img src="img/kasarao-semfundo.png" alt="Kasarão Gastrobar" width="504" height="495" decoding="async" />
         <button id="drawerClose" class="drawer-close" aria-label="Fechar menu" type="button">✕</button>
       </div>
 
@@ -143,7 +146,9 @@
   <main id="main-content">
   <section id="hero" class="hero fade-in">
     <video autoplay muted loop playsinline preload="metadata" poster="img/banner-kasarao.png" class="bg-video">
+      <source src="video/mobile/IMG_3350-mobile.webm" type="video/webm" media="(max-width: 768px)" />
       <source src="video/IMG_3350.webm" type="video/webm" />
+      <source src="video/mobile/IMG_3350-mobile.mp4" type="video/mp4" media="(max-width: 768px)" />
       <source src="video/IMG_3350.mp4" type="video/mp4" />
       Seu navegador não suporta vídeos em HTML5.
     </video>
@@ -158,7 +163,7 @@
       </a>
       <a href="cardapio.html" class="btn-cardapio btn-hero-secondary">
         Ver Cardápio
-        <img src="img/icone-cardapio.ico" width="30" alt="Ícone do cardápio" />
+        <img src="img/icone-cardapio.ico" width="30" height="30" alt="Ícone do cardápio" decoding="async" />
       </a>
     </div>
 
@@ -192,6 +197,7 @@
             <p class="video-note">Dê o play e veja uma apresentação rápida sobre o ambiente, a proposta e a energia do Kasarão.</p>
 
           <video controls preload="metadata" poster="img/kelly-frente-bar.png">
+            <source src="video/mobile/kelly-entrada-mobile.mp4" type="video/mp4" media="(max-width: 768px)" />
             <source src="video/kelly-entrada.mp4" type="video/mp4" />
           </video>
           </div>
@@ -206,8 +212,8 @@
       <h2>Horário de Funcionamento</h2>
 
       <div class="slide active">
-        <img src="img/icone-horario.ico" alt="Ícone de horário" loading="lazy" decoding="async" />
-        <div class="caption">
+        <img src="img/icone-horario.ico" alt="Ícone de horário" loading="lazy" decoding="async" width="48" height="48" />
+        <div class="caption" data-icon="◷">
           <ul>
             <li>Quinta e Sexta: 18:00 às 23:00h</li>
             <li>Sábado: 11:30 às 00:00h</li>
@@ -221,8 +227,8 @@
       <h2>Reserve Sua Mesa</h2>
 
       <div class="slide active">
-        <img src="img/icone-contato.ico" alt="Ícone contato" loading="lazy" decoding="async" />
-        <div class="caption">
+        <img src="img/icone-contato.ico" alt="Ícone contato" loading="lazy" decoding="async" width="48" height="48" />
+        <div class="caption" data-icon="☎">
           <p>Para celebrar, encontrar amigos ou simplesmente viver uma boa noite, nossa equipe ajuda você a escolher o melhor momento para vir ao Kasarão.</p>
 
           <div class="cardapio-actions">
@@ -337,21 +343,21 @@
     </div>
 
     <div class="slide active">
-      <div class="caption">
+      <div class="caption" data-icon="♢">
         <h3>Coquetelaria Autoral</h3>
         <p>Criações elaboradas para surpreender no aroma, no visual e na elegância de cada gole.</p>
       </div>
     </div>
 
     <div class="slide">
-      <div class="caption">
+      <div class="caption" data-icon="◌">
         <h3>Cozinha com Presença</h3>
         <p>Sabores intensos, execução cuidadosa e pratos que valorizam o tempo à mesa.</p>
       </div>
     </div>
 
     <div class="slide">
-      <div class="caption">
+      <div class="caption" data-icon="♪">
         <h3>Atmosfera Musical</h3>
         <p>Nos sábados, a música ao vivo integra a noite com a mesma sutileza dos demais detalhes da casa.</p>
       </div>
@@ -366,24 +372,36 @@
     <h2>Alguns momentos inesquecíveis por aqui...</h2>
 
     <div class="slide active">
-      <img src="img/sobre1.png" alt="Pessoas brindando" loading="lazy" decoding="async" />
-      <div class="caption">
+      <picture>
+        <source type="image/avif" srcset="img/optimized/sobre1-465.avif 465w" sizes="(max-width: 900px) 85vw, 300px" />
+        <source type="image/webp" srcset="img/optimized/sobre1-465.webp 465w" sizes="(max-width: 900px) 85vw, 300px" />
+        <img src="img/sobre1.png" alt="Pessoas brindando" loading="lazy" decoding="async" width="465" height="577" />
+      </picture>
+      <div class="caption" data-icon="♡">
         <h3>Um Cenário para Dois</h3>
         <p>Um ambiente pensado para conversas tranquilas, taças bem servidas e momentos que merecem ser lembrados.</p>
       </div>
     </div>
 
     <div class="slide">
-      <img src="img/sobre2.png" alt="Pessoas comemorando" loading="lazy" decoding="async" />
-      <div class="caption">
+      <picture>
+        <source type="image/avif" srcset="img/optimized/sobre2-463.avif 463w" sizes="(max-width: 900px) 85vw, 300px" />
+        <source type="image/webp" srcset="img/optimized/sobre2-463.webp 463w" sizes="(max-width: 900px) 85vw, 300px" />
+        <img src="img/sobre2.png" alt="Pessoas comemorando" loading="lazy" decoding="async" width="463" height="564" />
+      </picture>
+      <div class="caption" data-icon="✦">
         <h3>Celebrações com Presença</h3>
         <p>O Kasarão recebe encontros e comemorações com a atmosfera certa para transformar a noite em ocasião.</p>
       </div>
     </div>
 
     <div class="slide">
-      <img src="img/sobre3.png" alt="Brinde sob luzes" loading="lazy" decoding="async" />
-      <div class="caption">
+      <picture>
+        <source type="image/avif" srcset="img/optimized/sobre3-459.avif 459w" sizes="(max-width: 900px) 85vw, 300px" />
+        <source type="image/webp" srcset="img/optimized/sobre3-459.webp 459w" sizes="(max-width: 900px) 85vw, 300px" />
+        <img src="img/sobre3.png" alt="Brinde sob luzes" loading="lazy" decoding="async" width="459" height="562" />
+      </picture>
+      <div class="caption" data-icon="☾">
         <h3>Noites que Pedem Mais Tempo</h3>
         <p>Luzes, clima e detalhes que convidam a permanecer e aproveitar cada instante com calma.</p>
       </div>
@@ -398,18 +416,18 @@
   <footer id="footer" class="footer">
     <div class="footer-content">
       <div class="footer-logo">
-        <img src="img/kasarao-semfundo.png" alt="Logo Kasarão Gastrobar" loading="lazy" decoding="async" />
+        <img src="img/kasarao-semfundo.png" alt="Logo Kasarão Gastrobar" loading="lazy" decoding="async" width="504" height="495" />
       </div>
 
       <div class="social-icons">
         <span class="follow-text">Siga-nos</span>
         <a href="https://wa.me/5531885766915?text=Ol%C3%A1%21%20Gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20o%20Kasar%C3%A3o%20Gastrobar." target="_blank" rel="noopener noreferrer"
           aria-label="WhatsApp do Kasarão">
-          <img src="img/whats1.ico" alt="Ícone do WhatsApp" loading="lazy" decoding="async" />
+          <img src="img/whats1.ico" alt="Ícone do WhatsApp" loading="lazy" decoding="async" width="48" height="48" />
         </a>
         <a href="https://www.instagram.com/kasaraogastrobar/" target="_blank" rel="noopener noreferrer"
           aria-label="Instagram do Kasarão">
-          <img src="img/icone-instagram.ico" alt="Ícone do Instagram" loading="lazy" decoding="async" />
+          <img src="img/icone-instagram.ico" alt="Ícone do Instagram" loading="lazy" decoding="async" width="48" height="48" />
         </a>
       </div>
 
@@ -419,14 +437,20 @@
       </div>
     </div>
 
-    <p class="developer-credit">Desenvolvido por <strong>Luiz Gustavo</strong> <a href="https://luizgustavodev.com" target="_blank" rel="noopener noreferrer">luizgustavodev.com</a></p>
+    <div class="developer-portfolio">
+      <p class="developer-credit">Desenvolvido por <strong>Luiz Gustavo</strong></p>
+      <a class="portfolio-qr-link" href="https://luizgustavodev.com" target="_blank" rel="noopener noreferrer" aria-label="Abrir portfólio de Luiz Gustavo">
+        <img src="img/portfolio-qr.png" alt="QR Code para o portfólio de Luiz Gustavo" loading="lazy" decoding="async" width="520" height="640" />
+      </a>
+      <p class="portfolio-qr-hint">Clique no QR Code ou aproxime a câmera do celular para ver o portfólio.</p>
+    </div>
     <p>&copy; 2026 Kasarão Gastrobar</p>
   </footer>
 
   <a class="whatsapp-float"
     href="https://wa.me/5531885766915?text=Ol%C3%A1%21%20Vim%20pelo%20site%20do%20Kasar%C3%A3o%20Gastrobar%20e%20gostaria%20de%20informa%C3%A7%C3%B5es."
     target="_blank" rel="noopener noreferrer" aria-label="Falar no WhatsApp com o Kasarão">
-    <span class="whatsapp-tooltip">Converse com a gente</span>
+    <span class="whatsapp-tooltip">Olá 😉! Reserve sua mesa</span>
     <span class="whatsapp-icon" aria-hidden="true">
       <svg viewBox="0 0 32 32" width="22" height="22">
         <path fill="currentColor"

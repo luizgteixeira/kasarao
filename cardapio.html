@@ -17,6 +17,7 @@
 
   <!-- Open Graph -->
   <meta property="og:locale" content="pt_BR" />
+  <meta property="og:site_name" content="Kasarão Gastrobar" />
   <meta property="og:title" content="Cardápio e Pedidos | Kasarão Gastrobar em Contagem" />
   <meta property="og:description"
     content="Descubra pratos, drinks e destaques do Kasarão Gastrobar e peça online com praticidade." />
@@ -28,6 +29,7 @@
   <meta name="twitter:title" content="Cardápio e Pedidos | Kasarão Gastrobar em Contagem" />
   <meta name="twitter:description" content="Veja pratos e drinks especiais do Kasarão Gastrobar e faça seu pedido ou sua reserva." />
   <meta name="twitter:image" content="https://kasaraogastrobar.com/img/banner-kasarao.png" />
+  <meta name="twitter:image:alt" content="Cardápio do Kasarão Gastrobar" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
@@ -35,6 +37,7 @@
     {
       "@context": "https://schema.org",
       "@type": "Restaurant",
+      "@id": "https://kasaraogastrobar.com/#restaurant",
       "name": "Kasarão Gastrobar",
       "url": "https://kasaraogastrobar.com/cardapio.html",
       "image": "https://kasaraogastrobar.com/img/banner-kasarao.png",
@@ -86,7 +89,7 @@
   <a class="skip-link" href="#main-content">Pular para o conteúdo</a>
   <header class="site-header">
     <div class="logo">
-    <a href="index.html"><img src="img/kasarao-semfundo.png" alt="Kasarão Gastrobar" fetchpriority="high" decoding="async" /></a>
+    <a href="index.html"><img src="img/kasarao-semfundo.png" alt="Kasarão Gastrobar" fetchpriority="high" decoding="async" width="504" height="495" /></a>
     </div>
 
     <nav class="menu" aria-label="Navegação principal">
@@ -115,7 +118,7 @@
 
     <aside id="navDrawer" class="nav-drawer" aria-hidden="true">
       <div class="drawer-header">
-        <img src="img/kasarao-semfundo.png" alt="Kasarão Gastrobar" />
+        <img src="img/kasarao-semfundo.png" alt="Kasarão Gastrobar" width="504" height="495" decoding="async" />
         <button id="drawerClose" class="drawer-close" aria-label="Fechar menu" type="button">✕</button>
       </div>
 
@@ -161,22 +164,38 @@
 
       <!-- ✅ Alteração: adicionada class "card" no figure (só para estilização premium) -->
       <figure class="card">
-        <img src="img/amarula.png" alt="Drink Amarula" loading="lazy" />
+        <picture>
+          <source type="image/avif" srcset="img/optimized/amarula-230.avif 230w" sizes="(max-width: 768px) 88vw, (max-width: 1200px) 42vw, 560px" />
+          <source type="image/webp" srcset="img/optimized/amarula-230.webp 230w" sizes="(max-width: 768px) 88vw, (max-width: 1200px) 42vw, 560px" />
+          <img src="img/amarula.png" alt="Drink Amarula" loading="lazy" width="230" height="302" decoding="async" />
+        </picture>
         <figcaption>Um drink cremoso e envolvente, com presença desde o primeiro gole.</figcaption>
       </figure>
 
       <figure class="card">
-        <img src="img/drink-gostoso.png" alt="Sorvete na taça" loading="lazy" />
+        <picture>
+          <source type="image/avif" srcset="img/optimized/drink-gostoso-228.avif 228w" sizes="(max-width: 768px) 88vw, (max-width: 1200px) 42vw, 560px" />
+          <source type="image/webp" srcset="img/optimized/drink-gostoso-228.webp 228w" sizes="(max-width: 768px) 88vw, (max-width: 1200px) 42vw, 560px" />
+          <img src="img/drink-gostoso.png" alt="Sorvete na taça" loading="lazy" width="228" height="303" decoding="async" />
+        </picture>
         <figcaption>Delicadeza, frescor e apresentação cuidadosa em cada detalhe.</figcaption>
       </figure>
 
       <figure class="card">
-        <img src="img/torresmo-muito-bom.png" alt="Torresmo (tira-gosto)" loading="lazy" />
+        <picture>
+          <source type="image/avif" srcset="img/optimized/torresmo-muito-bom-228.avif 228w" sizes="(max-width: 768px) 88vw, (max-width: 1200px) 42vw, 560px" />
+          <source type="image/webp" srcset="img/optimized/torresmo-muito-bom-228.webp 228w" sizes="(max-width: 768px) 88vw, (max-width: 1200px) 42vw, 560px" />
+          <img src="img/torresmo-muito-bom.png" alt="Torresmo (tira-gosto)" loading="lazy" width="228" height="303" decoding="async" />
+        </picture>
         <figcaption>Crocância, sabor e personalidade para compartilhar à mesa.</figcaption>
       </figure>
 
       <figure class="card">
-        <img src="img/IMG_7790-1.png" alt="Brinde no Kasarão" loading="lazy" />
+        <picture>
+          <source type="image/avif" srcset="img/optimized/IMG_7790-1-480.avif 480w, img/optimized/IMG_7790-1-768.avif 768w, img/optimized/IMG_7790-1-1200.avif 1200w, img/optimized/IMG_7790-1-1600.avif 1600w, img/optimized/IMG_7790-1-2432.avif 2432w" sizes="(max-width: 768px) 88vw, (max-width: 1200px) 42vw, 560px" />
+          <source type="image/webp" srcset="img/optimized/IMG_7790-1-480.webp 480w, img/optimized/IMG_7790-1-768.webp 768w, img/optimized/IMG_7790-1-1200.webp 1200w, img/optimized/IMG_7790-1-1600.webp 1600w, img/optimized/IMG_7790-1-2432.webp 2432w" sizes="(max-width: 768px) 88vw, (max-width: 1200px) 42vw, 560px" />
+          <img src="img/IMG_7790-1.png" alt="Brinde no Kasarão" loading="lazy" width="2432" height="3242" decoding="async" />
+        </picture>
         <figcaption>Um prato de presença marcante, servido com elegância.</figcaption>
       </figure>
 
@@ -204,18 +223,18 @@
   <footer id="footer" class="footer">
     <div class="footer-content">
       <div class="footer-logo">
-        <img src="img/kasarao-semfundo.png" alt="Logo Kasarão Gastrobar" loading="lazy" decoding="async" />
+        <img src="img/kasarao-semfundo.png" alt="Logo Kasarão Gastrobar" loading="lazy" decoding="async" width="504" height="495" />
       </div>
 
       <div class="social-icons">
         <span class="follow-text">Siga-nos</span>
         <a href="https://wa.me/5531885766915?text=Ol%C3%A1%21%20Gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20o%20Kasar%C3%A3o%20Gastrobar." target="_blank" rel="noopener noreferrer"
           aria-label="WhatsApp do Kasarão">
-          <img src="img/whats1.ico" alt="Ícone do WhatsApp" loading="lazy" decoding="async" />
+          <img src="img/whats1.ico" alt="Ícone do WhatsApp" loading="lazy" decoding="async" width="48" height="48" />
         </a>
         <a href="https://www.instagram.com/kasaraogastrobar/" target="_blank" rel="noopener noreferrer"
           aria-label="Instagram do Kasarão">
-          <img src="img/icone-instagram.ico" alt="" aria-hidden="true" loading="lazy" decoding="async" />
+          <img src="img/icone-instagram.ico" alt="" aria-hidden="true" loading="lazy" decoding="async" width="48" height="48" />
         </a>
       </div>
 
@@ -225,14 +244,20 @@
       </div>
     </div>
 
-    <p class="developer-credit">Desenvolvido por <strong>Luiz Gustavo</strong> <a href="https://luizgustavodev.com" target="_blank" rel="noopener noreferrer">luizgustavodev.com</a></p>
+    <div class="developer-portfolio">
+      <p class="developer-credit">Desenvolvido por <strong>Luiz Gustavo</strong></p>
+      <a class="portfolio-qr-link" href="https://luizgustavodev.com" target="_blank" rel="noopener noreferrer" aria-label="Abrir portfólio de Luiz Gustavo">
+        <img src="img/portfolio-qr.png" alt="QR Code para o portfólio de Luiz Gustavo" loading="lazy" decoding="async" width="520" height="640" />
+      </a>
+      <p class="portfolio-qr-hint">Clique no QR Code ou aproxime a câmera do celular para ver o portfólio.</p>
+    </div>
     <p>&copy; 2026 Kasarão Gastrobar</p>
   </footer>
 
   <a class="whatsapp-float"
     href="https://wa.me/5531885766915?text=Ol%C3%A1%21%20Vim%20pelo%20site%20do%20Kasar%C3%A3o%20Gastrobar%20e%20gostaria%20de%20informa%C3%A7%C3%B5es."
     target="_blank" rel="noopener noreferrer" aria-label="Falar no WhatsApp com o Kasarão">
-    <span class="whatsapp-tooltip">Converse com a gente</span>
+    <span class="whatsapp-tooltip">Olá 😉! Reserve sua mesa</span>
     <span class="whatsapp-icon" aria-hidden="true">
       <svg viewBox="0 0 32 32" width="22" height="22">
         <path fill="currentColor"

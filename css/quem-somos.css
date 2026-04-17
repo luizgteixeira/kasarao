@@ -12,7 +12,7 @@
   position: relative;
   isolation: isolate;
   /* garante camadas acima do background */
-  padding: calc(var(--nav-h) + 36px) 8% 40px;
+  padding: 56px 8% 40px;
 
   /* camada base + banner bem suave */
   background:
@@ -99,7 +99,7 @@ body.light-mode .qs-hero {
 .qs-title {
   margin: 0 0 10px;
   color: var(--primary);
-  font-size: clamp(2rem, 2vw + 1.4rem, 3rem);
+  font-size: var(--fs-h1);
   line-height: 1.1;
   letter-spacing: .2px;
 }
@@ -108,7 +108,7 @@ body.light-mode .qs-hero {
   margin: 0 auto;
   max-width: 66ch;
 
-  font-size: clamp(1.05rem, .55vw + .95rem, 1.25rem);
+  font-size: var(--fs-lead);
   line-height: 1.9;
   letter-spacing: .12px;
 
@@ -272,6 +272,11 @@ body.light-mode .qs-owner-story {
   box-shadow: 0 20px 40px rgba(0, 0, 0, .28);
 }
 
+.qs-owner-story picture {
+  display: block;
+  line-height: 0;
+}
+
 .qs-owner-copy {
   display: grid;
   gap: 14px;
@@ -317,6 +322,19 @@ body.light-mode .qs-owner-copy blockquote {
 @media (max-width: 768px) {
   .qs-owner-story {
     padding: 18px;
+  }
+
+  .qs-owner-story img {
+    height: 100%;
+    max-height: none;
+    object-fit: cover;
+    object-position: center center;
+  }
+
+  .qs-owner-story picture {
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+    border-radius: 20px;
   }
 }
 
@@ -375,5 +393,19 @@ body.light-mode .qs-cta{
 @media (prefers-reduced-motion: reduce) {
   .qs-hero::after {
     filter: none;
+  }
+}
+
+@media (max-width: 420px) {
+  .qs-hero {
+    padding: 40px 6% 34px;
+  }
+
+  .qs-wrap {
+    padding: 52px 6%;
+  }
+
+  .qs-cta-actions .btn-cardapio {
+    width: 100%;
   }
 }

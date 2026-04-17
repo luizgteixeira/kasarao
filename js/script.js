@@ -25,6 +25,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // Tema (switches)
   const toggleDesktop = document.getElementById('theme-toggle');
   const toggleMobile = document.getElementById('theme-toggle-mobile');
+  const mobileThemeQuery = window.matchMedia(
+    '(hover: none) and (pointer: coarse) and (max-width: 960px)'
+  );
 
   if (navToggle) {
     navToggle.setAttribute('aria-expanded', 'false');
@@ -89,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
     meta.setAttribute('content', light ? '#f4f1ea' : '#0C1014');
   }
 
-  function applyTheme(light) {
+  function applyTheme(light, persist = true) {
     const isLightMode = !!light;
 
     body.classList.toggle('light-mode', isLightMode);
@@ -97,24 +100,39 @@ document.addEventListener('DOMContentLoaded', () => {
     // ✅ token profissional para CSS e debugging
     body.dataset.theme = isLightMode ? 'light' : 'dark';
 
-    localStorage.setItem('theme', isLightMode ? 'light' : 'dark');
+    if (persist) {
+      localStorage.setItem('theme', isLightMode ? 'light' : 'dark');
+    }
     syncThemeToggles();
     setThemeMetaColor(isLightMode);
   }
 
-  (function initTheme() {
+  function applyResponsiveTheme() {
+    const isMobile = mobileThemeQuery.matches;
     const saved = localStorage.getItem('theme');
-    applyTheme(saved === 'light'); // default: dark
+    applyTheme(isMobile ? true : saved === 'light', !isMobile);
+  }
+
+  (function initTheme() {
+    applyResponsiveTheme(); // mobile sempre claro; desktop mantém preferência
   })();
 
   if (toggleDesktop)
-    toggleDesktop.addEventListener('change', () =>
-      applyTheme(toggleDesktop.checked)
-    );
+    toggleDesktop.addEventListener('change', () => {
+      localStorage.setItem('theme', toggleDesktop.checked ? 'light' : 'dark');
+      applyResponsiveTheme();
+    });
   if (toggleMobile)
-    toggleMobile.addEventListener('change', () =>
-      applyTheme(toggleMobile.checked)
-    );
+    toggleMobile.addEventListener('change', () => {
+      localStorage.setItem('theme', toggleMobile.checked ? 'light' : 'dark');
+      applyResponsiveTheme();
+    });
+
+  if (typeof mobileThemeQuery.addEventListener === 'function') {
+    mobileThemeQuery.addEventListener('change', applyResponsiveTheme);
+  } else if (typeof mobileThemeQuery.addListener === 'function') {
+    mobileThemeQuery.addListener(applyResponsiveTheme);
+  }
 
   /* =====================================
      3) SAUDAÇÃO + STATUS (ABERTO/FECHADO)
@@ -140,6 +158,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const weekdayName = (d) =>
       ['domingo', 'segunda', 'terça', 'quarta', 'quinta', 'sexta', 'sábado'][d];
+
+    const openingDayLabel = (daysAhead, targetDay) => {
+      if (daysAhead === 0) return 'hoje';
+      if (daysAhead === 1) return 'amanhã';
+      return weekdayName(targetDay);
+    };
 
     const fmt = (mins) => {
       const hh = String(Math.floor(mins / 60) % 24).padStart(2, '0');
@@ -169,9 +193,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (i === 0) {
           const nextToday = slots.find((s) => minutesNow < s.start);
-          if (nextToday) return { day: d, start: nextToday.start };
+          if (nextToday) return { day: d, start: nextToday.start, daysAhead: i };
         } else {
-          return { day: d, start: slots[0].start };
+          return { day: d, start: slots[0].start, daysAhead: i };
         }
       }
       return null;
@@ -184,7 +208,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       const next = findNextOpen();
       msg += next
-        ? `✨ Estamos fechados agora. Abrimos ${weekdayName(next.day)} às ${fmt(next.start)}.`
+        ? `✨ Estamos fechados agora. Abrimos ${openingDayLabel(next.daysAhead, next.day)} às ${fmt(next.start)}.`
         : `✨ Estamos fechados no momento.`;
     }
 
@@ -236,6 +260,7 @@ document.addEventListener('DOMContentLoaded', () => {
     navToggle.classList.add('is-open');
 
     navToggle.setAttribute('aria-expanded', 'true');
+    navToggle.setAttribute('aria-label', 'Fechar menu');
     navDrawer.setAttribute('aria-hidden', 'false');
     navOverlay.setAttribute('aria-hidden', 'false');
 
@@ -253,6 +278,7 @@ document.addEventListener('DOMContentLoaded', () => {
     navToggle.classList.remove('is-open');
 
     navToggle.setAttribute('aria-expanded', 'false');
+    navToggle.setAttribute('aria-label', 'Abrir menu');
     navDrawer.setAttribute('aria-hidden', 'true');
     navOverlay.setAttribute('aria-hidden', 'true');
 
@@ -290,12 +316,35 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const prevBtn = galleryEl.querySelector('.prev');
     const nextBtn = galleryEl.querySelector('.next');
+    const dotsWrap = document.createElement('div');
+    dotsWrap.className = 'gallery-dots';
+    dotsWrap.setAttribute('aria-label', 'Navegação do carrossel');
+    galleryEl.appendChild(dotsWrap);
 
     let index = slides.findIndex((s) => s.classList.contains('active'));
     if (index < 0) index = 0;
 
+    const dots = slides.map((_, i) => {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'gallery-dot';
+      button.setAttribute('aria-label', `Ir para o slide ${i + 1}`);
+      button.addEventListener('click', () => {
+        stopAutoplay();
+        show(i);
+        startAutoplay();
+      });
+      dotsWrap.appendChild(button);
+      return button;
+    });
+
     function show(i) {
       slides.forEach((s) => s.classList.toggle('active', s === slides[i]));
+      dots.forEach((dot, dotIndex) => {
+        const active = dotIndex === i;
+        dot.classList.toggle('is-active', active);
+        dot.setAttribute('aria-current', active ? 'true' : 'false');
+      });
       index = i;
     }
 
@@ -309,12 +358,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     nextBtn?.addEventListener('click', (e) => {
       e.preventDefault();
+      stopAutoplay();
       next();
+      startAutoplay();
     });
 
     prevBtn?.addEventListener('click', (e) => {
       e.preventDefault();
+      stopAutoplay();
       prev();
+      startAutoplay();
     });
 
     // Swipe básico
@@ -338,10 +391,32 @@ document.addEventListener('DOMContentLoaded', () => {
       const diff = endX - startX;
 
       if (Math.abs(diff) < 40) return;
+      stopAutoplay();
       diff < 0 ? next() : prev();
+      startAutoplay();
     });
 
+    let autoplayId = null;
+    const shouldAutoplay = galleryEl.id === 'momentos';
+
+    function stopAutoplay() {
+      if (autoplayId) clearInterval(autoplayId);
+      autoplayId = null;
+    }
+
+    function startAutoplay() {
+      if (!shouldAutoplay) return;
+      stopAutoplay();
+      autoplayId = window.setInterval(next, 5200);
+    }
+
+    galleryEl.addEventListener('mouseenter', stopAutoplay);
+    galleryEl.addEventListener('mouseleave', startAutoplay);
+    galleryEl.addEventListener('focusin', stopAutoplay);
+    galleryEl.addEventListener('focusout', startAutoplay);
+
     show(index);
+    startAutoplay();
   }
 
   document.querySelectorAll('.gallery').forEach(initGallerySlider);
@@ -439,7 +514,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function setActive(i) {
     slides.forEach((slide, idx) => slide.classList.toggle('is-active', idx === i));
-    dots.forEach((dot, idx) => dot.classList.toggle('is-active', idx === i));
+    dots.forEach((dot, idx) => {
+      const active = idx === i;
+      dot.classList.toggle('is-active', active);
+      dot.setAttribute('aria-current', active ? 'true' : 'false');
+    });
     stopVideosExcept(i);
     playActiveVideo(i);
   }
@@ -545,7 +624,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function setActive(i) {
     slides.forEach((slide, idx) => slide.classList.toggle('is-active', idx === i));
-    dots.forEach((dot, idx) => dot.classList.toggle('is-active', idx === i));
+    dots.forEach((dot, idx) => {
+      const active = idx === i;
+      dot.classList.toggle('is-active', active);
+      dot.setAttribute('aria-current', active ? 'true' : 'false');
+    });
   }
 
   function goTo(i) {

@@ -13,15 +13,18 @@
   <meta name="theme-color" content="#0C1014" />
   <link rel="canonical" href="https://kasaraogastrobar.com/contato.html" />
   <meta property="og:locale" content="pt_BR" />
+  <meta property="og:site_name" content="Kasarão Gastrobar" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Contato e Reservas | Kasarão Gastrobar em Contagem" />
   <meta property="og:description" content="Reserve sua mesa, fale com a equipe e encontre o Kasarão Gastrobar em Contagem." />
   <meta property="og:url" content="https://kasaraogastrobar.com/contato.html" />
   <meta property="og:image" content="https://kasaraogastrobar.com/img/banner-kasarao.png" />
+  <meta property="og:image:alt" content="Contato e reservas do Kasarão Gastrobar" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Contato e Reservas | Kasarão Gastrobar em Contagem" />
   <meta name="twitter:description" content="Reserve sua mesa, fale com a equipe e encontre o Kasarão Gastrobar em Contagem." />
   <meta name="twitter:image" content="https://kasaraogastrobar.com/img/banner-kasarao.png" />
+  <meta name="twitter:image:alt" content="Contato e reservas do Kasarão Gastrobar" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
@@ -29,6 +32,7 @@
     {
       "@context": "https://schema.org",
       "@type": "Restaurant",
+      "@id": "https://kasaraogastrobar.com/#restaurant",
       "name": "Kasarão Gastrobar",
       "url": "https://kasaraogastrobar.com/contato.html",
       "image": "https://kasaraogastrobar.com/img/banner-kasarao.png",
@@ -84,7 +88,7 @@
   <!-- Header e navegação: mantém separado para reaproveitar o mesmo topo em todas as páginas -->
   <header class="site-header">
     <div class="logo">
-      <a href="index.html"><img src="img/kasarao-semfundo.png" alt="Kasarão Gastrobar" fetchpriority="high" decoding="async" /></a>
+      <a href="index.html"><img src="img/kasarao-semfundo.png" alt="Kasarão Gastrobar" fetchpriority="high" decoding="async" width="504" height="495" /></a>
     </div>
 
     <!-- Menu desktop -->
@@ -118,7 +122,7 @@
     <!-- Drawer (mobile): aria-hidden controlado via JS -->
     <aside id="navDrawer" class="nav-drawer" aria-hidden="true">
       <div class="drawer-header">
-        <img src="img/kasarao-semfundo.png" alt="Kasarão Gastrobar" />
+        <img src="img/kasarao-semfundo.png" alt="Kasarão Gastrobar" width="504" height="495" decoding="async" />
         <button id="drawerClose" class="drawer-close" aria-label="Fechar menu" type="button">✕</button>
       </div>
 
@@ -153,12 +157,12 @@
     <!-- Links de contato: use ícone + texto, mantendo clique fácil e acessível -->
     <section class="contato-info" aria-label="Informações de contato">
       <a href="mailto:contato@kasaraogastrobar.com" class="btn-contato">
-        <img src="img/mail-envelope.ico" alt="" class="icon-btn" aria-hidden="true" />
+        <img src="img/mail-envelope.ico" alt="" class="icon-btn" aria-hidden="true" width="48" height="48" decoding="async" />
         contato@kasaraogastrobar.com
       </a>
 
       <a href="https://wa.me/5531885766915?text=Ol%C3%A1%21%20Quero%20falar%20com%20a%20equipe%20do%20Kasar%C3%A3o%20Gastrobar." target="_blank" rel="noopener noreferrer" class="btn-contato btn-whatsapp">
-        <img src="img/whats1.ico" alt="" class="icon-btn" aria-hidden="true" />
+        <img src="img/whats1.ico" alt="" class="icon-btn" aria-hidden="true" width="48" height="48" decoding="async" />
         Falar no WhatsApp
       </a>
 
@@ -186,18 +190,18 @@
   <footer id="footer" class="footer">
     <div class="footer-content">
       <div class="footer-logo">
-        <img src="img/kasarao-semfundo.png" alt="Logo Kasarão Gastrobar" loading="lazy" decoding="async" />
+        <img src="img/kasarao-semfundo.png" alt="Logo Kasarão Gastrobar" loading="lazy" decoding="async" width="504" height="495" />
       </div>
 
       <div class="social-icons">
         <span class="follow-text">Siga-nos</span>
         <a href="https://wa.me/5531885766915?text=Ol%C3%A1%21%20Gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20o%20Kasar%C3%A3o%20Gastrobar." target="_blank" rel="noopener noreferrer"
           aria-label="WhatsApp do Kasarão">
-          <img src="img/whats1.ico" alt="Ícone do WhatsApp" loading="lazy" decoding="async" />
+          <img src="img/whats1.ico" alt="Ícone do WhatsApp" loading="lazy" decoding="async" width="48" height="48" />
         </a>
         <a href="https://www.instagram.com/kasaraogastrobar/" target="_blank" rel="noopener noreferrer"
           aria-label="Instagram do Kasarão">
-          <img src="img/icone-instagram.ico" alt="" aria-hidden="true" loading="lazy" decoding="async" />
+          <img src="img/icone-instagram.ico" alt="" aria-hidden="true" loading="lazy" decoding="async" width="48" height="48" />
         </a>
       </div>
 
@@ -207,14 +211,20 @@
       </div>
     </div>
 
-    <p class="developer-credit">Desenvolvido por <strong>Luiz Gustavo</strong> <a href="https://luizgustavodev.com" target="_blank" rel="noopener noreferrer">luizgustavodev.com</a></p>
+    <div class="developer-portfolio">
+      <p class="developer-credit">Desenvolvido por <strong>Luiz Gustavo</strong></p>
+      <a class="portfolio-qr-link" href="https://luizgustavodev.com" target="_blank" rel="noopener noreferrer" aria-label="Abrir portfólio de Luiz Gustavo">
+        <img src="img/portfolio-qr.png" alt="QR Code para o portfólio de Luiz Gustavo" loading="lazy" decoding="async" width="520" height="640" />
+      </a>
+      <p class="portfolio-qr-hint">Clique no QR Code ou aproxime a câmera do celular para ver o portfólio.</p>
+    </div>
     <p>&copy; 2026 Kasarão Gastrobar</p>
   </footer>
 
   <a class="whatsapp-float"
     href="https://wa.me/5531885766915?text=Ol%C3%A1%21%20Vim%20pelo%20site%20do%20Kasar%C3%A3o%20Gastrobar%20e%20gostaria%20de%20informa%C3%A7%C3%B5es."
     target="_blank" rel="noopener noreferrer" aria-label="Falar no WhatsApp com o Kasarão">
-    <span class="whatsapp-tooltip">Converse com a gente</span>
+    <span class="whatsapp-tooltip">Olá 😉! Reserve sua mesa</span>
     <span class="whatsapp-icon" aria-hidden="true">
       <svg viewBox="0 0 32 32" width="22" height="22">
         <path fill="currentColor"

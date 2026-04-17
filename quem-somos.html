@@ -13,6 +13,7 @@
   <meta name="theme-color" content="#0C1014" />
   <link rel="canonical" href="https://kasaraogastrobar.com/quem-somos.html" />
   <meta property="og:locale" content="pt_BR" />
+  <meta property="og:site_name" content="Kasarão Gastrobar" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Quem Somos | Kasarão Gastrobar em Contagem" />
   <meta property="og:description"
@@ -24,6 +25,7 @@
   <meta name="twitter:title" content="Quem Somos | Kasarão Gastrobar em Contagem" />
   <meta name="twitter:description" content="História, ambiente e propósito do Kasarão Gastrobar para transformar encontros em experiências memoráveis." />
   <meta name="twitter:image" content="https://kasaraogastrobar.com/img/banner-kasarao.png" />
+  <meta name="twitter:image:alt" content="Ambiente do Kasarão Gastrobar" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
@@ -33,6 +35,7 @@
     {
       "@context": "https://schema.org",
       "@type": "Restaurant",
+      "@id": "https://kasaraogastrobar.com/#restaurant",
       "name": "Kasarão Gastrobar",
       "url": "https://kasaraogastrobar.com/quem-somos.html",
       "image": "https://kasaraogastrobar.com/img/banner-kasarao.png",
@@ -85,7 +88,7 @@
   <!-- HEADER PADRÃO (igual index/momentos/contato/cardapio) -->
   <header class="site-header">
     <div class="logo">
-      <a href="index.html"><img src="img/kasarao-semfundo.png" alt="Kasarão Gastrobar" fetchpriority="high" decoding="async" /></a>
+      <a href="index.html"><img src="img/kasarao-semfundo.png" alt="Kasarão Gastrobar" fetchpriority="high" decoding="async" width="504" height="495" /></a>
     </div>
 
     <nav class="menu" aria-label="Navegação principal">
@@ -114,7 +117,7 @@
 
     <aside id="navDrawer" class="nav-drawer" aria-hidden="true">
       <div class="drawer-header">
-        <img src="img/kasarao-semfundo.png" alt="Kasarão Gastrobar" />
+        <img src="img/kasarao-semfundo.png" alt="Kasarão Gastrobar" width="504" height="495" decoding="async" />
         <button id="drawerClose" class="drawer-close" aria-label="Fechar menu" type="button">✕</button>
       </div>
 
@@ -138,6 +141,7 @@
     </aside>
   </header>
 
+  <main id="main-content">
   <!-- HERO (Essência) -->
   <header class="qs-hero">
     <div class="qs-hero-inner">
@@ -148,12 +152,16 @@
     </div>
   </header>
 
-  <main id="main-content" class="qs-wrap">
+  <div class="qs-wrap">
     <!-- Cards: História / Ambiente / Missão -->
     <section class="qs-grid" aria-label="História, ambiente e missão">
       <article class="qs-card">
         <h2>História</h2>
-        <img src="img/k-gigante.png" alt="História do Kasarão" loading="lazy" />
+        <picture>
+          <source type="image/avif" srcset="img/optimized/k-gigante-230.avif 230w" sizes="(max-width: 980px) 88vw, 360px" />
+          <source type="image/webp" srcset="img/optimized/k-gigante-230.webp 230w" sizes="(max-width: 980px) 88vw, 360px" />
+          <img src="img/k-gigante.png" alt="História do Kasarão" loading="lazy" width="230" height="306" decoding="async" />
+        </picture>
         <p>
           O Kasarão nasceu do encontro entre boa gastronomia, drinks autorais e o desejo de criar momentos memoráveis. Nosso espaço foi pensado para unir personalidade, conforto e presença.
         </p>
@@ -161,7 +169,11 @@
 
       <article class="qs-card">
         <h2>Ambiente</h2>
-        <img src="img/ambiente-externo.png" alt="Ambiente do Kasarão" loading="lazy" />
+        <picture>
+          <source type="image/avif" srcset="img/optimized/ambiente-externo-463.avif 463w" sizes="(max-width: 980px) 88vw, 360px" />
+          <source type="image/webp" srcset="img/optimized/ambiente-externo-463.webp 463w" sizes="(max-width: 980px) 88vw, 360px" />
+          <img src="img/ambiente-externo.png" alt="Ambiente do Kasarão" loading="lazy" width="463" height="625" decoding="async" />
+        </picture>
         <p>
           Um espaço acolhedor e marcante, ideal para reunir pessoas, celebrar ocasiões especiais e desfrutar o tempo com elegância. Cada detalhe foi pensado para oferecer conforto e estilo.
         </p>
@@ -169,7 +181,11 @@
 
       <article class="qs-card">
         <h2>Missão</h2>
-        <img src="img/missao.png" alt="Missão do Kasarão" loading="lazy" />
+        <picture>
+          <source type="image/avif" srcset="img/optimized/missao-465.avif 465w" sizes="(max-width: 980px) 88vw, 360px" />
+          <source type="image/webp" srcset="img/optimized/missao-465.webp 465w" sizes="(max-width: 980px) 88vw, 360px" />
+          <img src="img/missao.png" alt="Missão do Kasarão" loading="lazy" width="465" height="624" decoding="async" />
+        </picture>
         <p>
           Proporcionar experiências gastronômicas memoráveis, valorizando ingredientes de qualidade, execução cuidadosa e um atendimento que faz o cliente se sentir bem recebido.
         </p>
@@ -185,7 +201,11 @@
       </p>
 
       <article class="qs-owner-story">
-        <img src="img/kelly-caua.png" alt="Kelly Cristina e Cauã, proprietários do Kasarão Gastrobar" loading="lazy" decoding="async" />
+        <picture>
+          <source type="image/avif" srcset="img/optimized/kelly-caua-480.avif 480w, img/optimized/kelly-caua-768.avif 768w, img/optimized/kelly-caua-1200.avif 1200w, img/optimized/kelly-caua-1600.avif 1600w, img/optimized/kelly-caua-3024.avif 3024w" sizes="(max-width: 768px) 88vw, 960px" />
+          <source type="image/webp" srcset="img/optimized/kelly-caua-480.webp 480w, img/optimized/kelly-caua-768.webp 768w, img/optimized/kelly-caua-1200.webp 1200w, img/optimized/kelly-caua-1600.webp 1600w, img/optimized/kelly-caua-3024.webp 3024w" sizes="(max-width: 768px) 88vw, 960px" />
+          <img src="img/kelly-caua.png" alt="Kelly Cristina e Cauã, proprietários do Kasarão Gastrobar" loading="lazy" decoding="async" width="3024" height="4032" />
+        </picture>
 
         <div class="qs-owner-copy">
           <p class="qs-owner-names">Kelly Cristina e Cauã</p>
@@ -209,24 +229,25 @@
         <a href="cardapio.html" class="btn-cardapio btn-ghost">Ver cardápio</a>
       </div>
     </section>
+  </div>
   </main>
 
   <!-- FOOTER PADRÃO (igual index) -->
   <footer id="footer" class="footer">
     <div class="footer-content">
       <div class="footer-logo">
-        <img src="img/kasarao-semfundo.png" alt="Logo Kasarão Gastrobar" loading="lazy" decoding="async" />
+        <img src="img/kasarao-semfundo.png" alt="Logo Kasarão Gastrobar" loading="lazy" decoding="async" width="504" height="495" />
       </div>
 
       <div class="social-icons">
         <span class="follow-text">Siga-nos</span>
         <a href="https://wa.me/5531885766915?text=Ol%C3%A1%21%20Gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20o%20Kasar%C3%A3o%20Gastrobar." target="_blank" rel="noopener noreferrer"
           aria-label="WhatsApp do Kasarão">
-          <img src="img/whats1.ico" alt="Ícone do WhatsApp" loading="lazy" decoding="async" />
+          <img src="img/whats1.ico" alt="Ícone do WhatsApp" loading="lazy" decoding="async" width="48" height="48" />
         </a>
         <a href="https://www.instagram.com/kasaraogastrobar/" target="_blank" rel="noopener noreferrer"
           aria-label="Instagram do Kasarão">
-          <img src="img/icone-instagram.ico" alt="" aria-hidden="true" loading="lazy" decoding="async" />
+          <img src="img/icone-instagram.ico" alt="" aria-hidden="true" loading="lazy" decoding="async" width="48" height="48" />
         </a>
       </div>
 
@@ -236,7 +257,13 @@
       </div>
     </div>
 
-    <p class="developer-credit">Desenvolvido por <strong>Luiz Gustavo</strong> <a href="https://luizgustavodev.com" target="_blank" rel="noopener noreferrer">luizgustavodev.com</a></p>
+    <div class="developer-portfolio">
+      <p class="developer-credit">Desenvolvido por <strong>Luiz Gustavo</strong></p>
+      <a class="portfolio-qr-link" href="https://luizgustavodev.com" target="_blank" rel="noopener noreferrer" aria-label="Abrir portfólio de Luiz Gustavo">
+        <img src="img/portfolio-qr.png" alt="QR Code para o portfólio de Luiz Gustavo" loading="lazy" decoding="async" width="520" height="640" />
+      </a>
+      <p class="portfolio-qr-hint">Clique no QR Code ou aproxime a câmera do celular para ver o portfólio.</p>
+    </div>
     <p>&copy; 2026 Kasarão Gastrobar</p>
   </footer>
 
@@ -244,7 +271,7 @@
   <a class="whatsapp-float"
     href="https://wa.me/5531885766915?text=Ol%C3%A1%21%20Vim%20pelo%20site%20do%20Kasar%C3%A3o%20Gastrobar%20e%20gostaria%20de%20informa%C3%A7%C3%B5es."
     target="_blank" rel="noopener noreferrer" aria-label="Falar no WhatsApp com o Kasarão">
-    <span class="whatsapp-tooltip">Converse com a gente</span>
+    <span class="whatsapp-tooltip">Olá 😉! Reserve sua mesa</span>
     <span class="whatsapp-icon" aria-hidden="true">
       <svg viewBox="0 0 32 32" width="22" height="22">
         <path fill="currentColor"
