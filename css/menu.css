@@ -75,6 +75,35 @@
   min-width: 0;
 }
 
+.menu .nav-item{
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.menu .nav-item > a{
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.menu .nav-item > a::after{
+  content: "";
+  width: .42em;
+  height: .42em;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  opacity: .72;
+  transform: translateY(-.12em) rotate(45deg);
+  transition: transform .22s ease, opacity .22s ease;
+}
+
+.menu .nav-item:hover > a::after,
+.menu .nav-item:focus-within > a::after{
+  opacity: 1;
+  transform: translateY(.04em) rotate(45deg);
+}
+
 .menu .nav-links a{
   text-decoration:none;
   color: var(--primary);
@@ -98,6 +127,52 @@
   color:#fff;
   background: rgba(255,255,255,0.08);
   border-color: rgba(255,255,255,0.08);
+}
+
+.nav-submenu{
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 50%;
+  min-width: 150px;
+  padding: 8px;
+  display: grid;
+  gap: 4px;
+  border-radius: 16px;
+  background: rgba(12, 16, 20, .94);
+  border: 1px solid rgba(255, 255, 255, .10);
+  box-shadow: 0 20px 46px rgba(0, 0, 0, .38);
+  opacity: 0;
+  visibility: hidden;
+  transform: translate(-50%, 8px);
+  transition: opacity .22s ease, transform .22s ease, visibility .22s ease;
+  z-index: 1250;
+}
+
+.nav-item:hover .nav-submenu,
+.nav-item:focus-within .nav-submenu,
+.nav-item--current .nav-submenu{
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, 0);
+}
+
+.menu .nav-submenu a{
+  width: 100%;
+  padding: 9px 12px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.nav-item--current .nav-submenu{
+  box-shadow:
+    0 20px 46px rgba(0, 0, 0, .38),
+    0 0 0 1px rgba(208, 172, 103, .18);
+}
+
+.nav-item--current .nav-submenu a.active{
+  color: #fff;
+  background: rgba(208, 172, 103, .18);
+  border-color: rgba(208, 172, 103, .28);
 }
 
 /* =====================================================
@@ -305,6 +380,15 @@
   border: 1px solid rgba(255,255,255,0.10);
 }
 
+.drawer-links .drawer-sublink{
+  margin-top: -12px;
+  margin-left: 14px;
+  padding-left: 18px;
+  color: color-mix(in srgb, var(--primary) 86%, #fff);
+  font-size: .96rem;
+  border-left: 2px solid rgba(208, 172, 103, .45);
+}
+
 .drawer-theme{
   margin-top: auto;
   padding-top: 16px;
@@ -323,6 +407,10 @@
 
   .menu{
     display:none !important;
+  }
+
+  .nav-submenu{
+    display: none;
   }
 
   .site-header > .theme-switch-wrapper{
