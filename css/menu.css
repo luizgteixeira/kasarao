@@ -42,6 +42,7 @@
 }
 
 .site-header .logo a{
+  /* Círculo maior permite o logo "vazar" o header sem perder leitura. */
   width: 118px;
   aspect-ratio: 1;
   display: grid;
@@ -88,6 +89,7 @@
 }
 
 .menu .nav-item > a::after{
+  /* Seta discreta indica que "Momentos" possui submenu. */
   content: "";
   width: .42em;
   height: .42em;
@@ -130,6 +132,7 @@
 }
 
 .nav-submenu{
+  /* Submenu desktop; também fica aberto quando a página filha marca o item como atual. */
   position: absolute;
   top: calc(100% + 10px);
   left: 50%;
@@ -381,6 +384,7 @@
 }
 
 .drawer-links .drawer-sublink{
+  /* Link filho no drawer: comunica hierarquia sem precisar de submenu no mobile. */
   margin-top: -12px;
   margin-left: 14px;
   padding-left: 18px;
@@ -399,6 +403,7 @@
    Responsivo
 ===================================================== */
 @media (max-width: 768px){
+  /* Mobile: logo central, tema à esquerda e drawer à direita. */
   .site-header{
     justify-content: center;
     min-height: 92px;
@@ -462,6 +467,7 @@
 }
 
 @media (min-width: 769px) and (max-width: 1360px){
+  /* Faixa crítica de notebooks: reduz respiros para manter menu e toggle visíveis. */
   .site-header{
     gap: 8px;
     padding: 10px 2.5%;
@@ -506,6 +512,7 @@
 }
 
 @media (min-width: 769px) and (max-width: 1040px){
+  /* Layout intermediário posiciona o toggle fora do fluxo para não cobrir o Cardápio. */
   .site-header{
     display: grid;
     grid-template-columns: auto minmax(0, 1fr);

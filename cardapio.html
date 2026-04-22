@@ -33,6 +33,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
+  <!-- Dados estruturados: ajudam buscadores a entender cardápio, endereço e horários da casa. -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -87,6 +88,8 @@
 
 <body>
   <a class="skip-link" href="#main-content">Pular para o conteúdo</a>
+
+  <!-- Header compartilhado: usa as mesmas classes e IDs que o script.js espera nas demais páginas. -->
   <header class="site-header">
     <div class="logo">
     <a href="index.html"><img src="img/kasarao-semfundo.png" alt="Kasarão Gastrobar" fetchpriority="high" decoding="async" width="504" height="495" /></a>
@@ -149,6 +152,7 @@
   </header>
 
   <main id="main-content" class="cardapio-page">
+    <!-- Abertura comercial da página: concentra proposta e CTAs principais do cardápio. -->
     <section class="cardapio-hero">
       <span class="cardapio-kicker">Cardápio e pedidos</span>
       <h1 class="titulo-secao">Sabores que se revelam no visual e permanecem na memória.</h1>
@@ -166,9 +170,9 @@
       </div>
     </section>
 
+    <!-- Vitrine visual do cardápio: imagens otimizadas com fallback para navegadores diferentes. -->
     <section class="cardapio-destaque" aria-label="Destaques do cardápio">
 
-      <!-- ✅ Alteração: adicionada class "card" no figure (só para estilização premium) -->
       <figure class="card">
         <picture>
           <source type="image/avif" srcset="img/optimized/amarula-230.avif 230w" sizes="(max-width: 768px) 88vw, (max-width: 1200px) 42vw, 560px" />
@@ -207,6 +211,7 @@
 
     </section>
 
+    <!-- CTA curto para quem já decidiu pedir sem passar por todo o conteúdo da página. -->
     <div class="btn-container">
       <a class="btn-cardapio" href="https://pedido.anota.ai/loja/kasarao-bistro-contagem?f=ms" target="_blank"
         rel="noopener noreferrer">
@@ -214,6 +219,7 @@
       </a>
     </div>
 
+    <!-- Bloco de apoio para reservas e dúvidas, mantendo o WhatsApp como canal principal. -->
     <section class="cardapio-note" aria-label="Atendimento e pedidos">
       <div>
         <h2>Prefere um atendimento mais próximo?</h2>

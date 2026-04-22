@@ -1,10 +1,12 @@
 .admin-page{
+  /* Largura de painel: confortável no desktop e com margem segura no mobile. */
   width: min(1180px, calc(100% - 32px));
   margin: 0 auto;
   padding: 36px 0 56px;
 }
 
 .visually-hidden{
+  /* Conteúdo disponível para leitores de tela sem aparecer visualmente. */
   position: absolute;
   width: 1px;
   height: 1px;
@@ -101,6 +103,7 @@
 }
 
 .admin-button[data-tooltip]::after{
+  /* Tooltip técnico: explica ações sem ocupar espaço permanente no painel. */
   position: absolute;
   left: 50%;
   bottom: calc(100% + 10px);
@@ -173,6 +176,7 @@
 }
 
 .admin-workspace{
+  /* Formulário e lista lado a lado para edição rápida dos depoimentos. */
   display: grid;
   grid-template-columns: minmax(320px, 420px) 1fr;
   gap: 26px;
@@ -292,6 +296,7 @@
 }
 
 .admin-item.is-inactive{
+  /* Item oculto continua editável, mas perde força visual na lista. */
   opacity: .62;
 }
 
@@ -333,6 +338,7 @@
 }
 
 @media (max-width: 900px){
+  /* Painel administrativo vira coluna única em tablets e celulares. */
   .admin-hero,
   .admin-workspace{
     grid-template-columns: 1fr;

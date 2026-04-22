@@ -349,6 +349,7 @@
 }
 
 .momentos-cta{
+  /* Convite final depois do carrossel, separado para não competir com os controles. */
   display: grid;
   grid-template-columns: minmax(0, 1.3fr) minmax(0, .9fr);
   gap: 28px;
@@ -439,6 +440,7 @@ body.light-mode .momentos-cta{
    Responsivo (mobile)
 ===================================================== */
 @media (max-width: 768px) {
+  /* Mobile preserva legenda e controles, por isso aumenta a área segura do slide. */
   .premium-carousel {
     padding: 44px 6% 84px;
   }
@@ -520,6 +522,7 @@ body.light-mode .momentos-cta{
 
 /* Acessibilidade: reduzir movimento */
 @media (prefers-reduced-motion: reduce) {
+  /* Respeita usuários sensíveis a movimento sem esconder a legenda ativa. */
   .pc-track {
     transition: none;
   }

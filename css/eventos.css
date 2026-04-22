@@ -7,6 +7,7 @@
   isolation: isolate;
   color: rgba(45, 42, 38, .94);
   overflow: hidden;
+  /* Transição visual: hero noturno do vídeo para corpo claro e celebrativo. */
   background:
     linear-gradient(180deg, rgba(12, 16, 20, .98) 0, rgba(12, 16, 20, .72) 560px, rgba(246, 240, 228, .98) 820px),
     #f6f0e4;
@@ -22,6 +23,7 @@
   filter: saturate(1.1) contrast(1.02) brightness(.82);
 }
 
+/* Camada geral de leitura sobre o vídeo, mantendo o restante da página leve. */
 .events-page::before{
   content: "";
   position: absolute;
@@ -57,6 +59,7 @@
   max-width: 760px;
 }
 
+/* Kicker usado em títulos curtos; .event-tag recebe animação extra nas seções. */
 .events-kicker,
 .event-tag{
   display: inline-flex;
@@ -84,6 +87,7 @@
   animation-range: entry 12% cover 52%;
 }
 
+/* Linha dourada que cresce quando o bloco entra na tela. */
 @keyframes eventTagLine{
   from{
     width: 0;
@@ -134,6 +138,7 @@
   margin-top: 28px;
 }
 
+/* CTAs da página de eventos ganham mais presença que os botões comuns do site. */
 .events-page .btn-cardapio{
   min-height: 48px;
   padding-inline: 24px;
@@ -191,6 +196,7 @@
   gap: 10px;
 }
 
+/* Mini-selos dos diferenciais: movimento sutil para reforçar o tom festivo. */
 .events-notes span{
   min-height: 74px;
   display: grid;
@@ -249,6 +255,7 @@
   stroke-linejoin: round;
 }
 
+/* Pulso leve e alternado dos ícones dos diferenciais. */
 @keyframes noteIconPulse{
   0%,
   100%{
@@ -302,6 +309,7 @@
   align-content: center;
 }
 
+/* Ícones grandes dos formatos; ajudam a escanear a página sem depender só do texto. */
 .event-icon{
   width: 56px;
   aspect-ratio: 1;
@@ -362,6 +370,7 @@
 }
 
 .event-format-gallery{
+  /* Dupla de imagens com alturas diferentes para dar ritmo visual a cada formato. */
   display: grid;
   grid-template-columns: .82fr 1fr;
   gap: 12px;
@@ -424,6 +433,7 @@
   background: rgba(246, 240, 228, .78);
 }
 
+/* A numeração cria sensação de processo, enquanto o ícone dá personalidade ao passo. */
 .events-flow li::before{
   content: counter(event-step, decimal-leading-zero);
   grid-row: 1 / span 2;
@@ -462,6 +472,7 @@
   stroke-linejoin: round;
 }
 
+/* Entrada dos ícones do passo a passo quando a seção aparece na rolagem. */
 @keyframes flowIconPop{
   from{
     opacity: 0;
@@ -493,6 +504,7 @@
 }
 
 .events-mosaic{
+  /* Mosaico irregular cria sensação de álbum sem exigir imagens novas. */
   display: grid;
   grid-template-columns: 1.2fr .8fr 1fr;
   grid-auto-rows: 190px;
@@ -511,6 +523,7 @@
   grid-column: span 2;
 }
 
+/* CTA final em superfície clara para fechar a página com convite direto. */
 .events-cta{
   margin-top: 58px;
   margin-bottom: 84px;
@@ -553,6 +566,7 @@ body.light-mode .events-page{
   color: rgba(45, 42, 38, .96);
 }
 
+/* O modo claro mantém o corpo leve; o hero continua branco por estar sobre vídeo. */
 body.light-mode .events-hero h1{
   color: #fff;
 }
@@ -604,6 +618,7 @@ body.light-mode .events-cta p{
   }
 }
 
+/* Tablet: seções empilham para preservar leitura e imagens com bom respiro. */
 @media (max-width: 900px){
   .events-hero{
     min-height: 680px;
@@ -646,6 +661,7 @@ body.light-mode .events-cta p{
   }
 }
 
+/* Mobile estreito: cards e galerias viram coluna única para evitar textos espremidos. */
 @media (max-width: 620px){
   .events-hero{
     min-height: 620px;

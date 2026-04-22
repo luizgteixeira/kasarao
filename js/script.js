@@ -25,6 +25,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // Tema (switches)
   const toggleDesktop = document.getElementById('theme-toggle');
   const toggleMobile = document.getElementById('theme-toggle-mobile');
+
+  // Em telas touch pequenas, a interface força tema claro para preservar legibilidade.
   const mobileThemeQuery = window.matchMedia(
     '(hover: none) and (pointer: coarse) and (max-width: 960px)'
   );
@@ -97,7 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     body.classList.toggle('light-mode', isLightMode);
 
-    // ✅ token profissional para CSS e debugging
+    // Token no DOM para CSS e inspeção rápida do tema ativo.
     body.dataset.theme = isLightMode ? 'light' : 'dark';
 
     if (persist) {
@@ -110,6 +112,8 @@ document.addEventListener('DOMContentLoaded', () => {
   function applyResponsiveTheme() {
     const isMobile = mobileThemeQuery.matches;
     const saved = localStorage.getItem('theme');
+
+    // Desktop respeita a preferência salva; mobile usa claro sem sobrescrever essa escolha.
     applyTheme(isMobile ? true : saved === 'light', !isMobile);
   }
 
@@ -255,6 +259,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function openDrawer() {
     if (!navDrawer || !navOverlay || !navToggle) return;
 
+    // Classes visuais e atributos ARIA caminham juntos para manter o drawer acessível.
     navDrawer.classList.add('is-open');
     navOverlay.classList.add('is-open');
     navToggle.classList.add('is-open');
@@ -264,7 +269,7 @@ document.addEventListener('DOMContentLoaded', () => {
     navDrawer.setAttribute('aria-hidden', 'false');
     navOverlay.setAttribute('aria-hidden', 'false');
 
-    // Opcional (UX): impede overlay de capturar cliques quando fechado
+    // O overlay só entra no fluxo quando o menu está aberto.
     navOverlay.hidden = false;
 
     body.style.overflow = 'hidden';
@@ -397,6 +402,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     let autoplayId = null;
+
+    // Só a galeria "momentos" avança sozinha; as demais ficam sob controle do visitante.
     const shouldAutoplay = galleryEl.id === 'momentos';
 
     function stopAutoplay() {
@@ -485,6 +492,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   function stopVideosExcept(activeIdx) {
+    // Ao mudar de slide, evita áudio/processamento de vídeos que saíram de foco.
     slides.forEach((slide, i) => {
       const video = slide.querySelector('video');
       if (!video) return;
@@ -675,6 +683,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   async function loadTestimonials() {
+    // Prioridade: preview local quando solicitado, JSON publicado e, por fim, rascunho local.
     const previewItems = shouldUsePreviewStorage() ? loadStoredPreview() : [];
     if (previewItems.length) return previewItems;
 

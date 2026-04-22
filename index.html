@@ -32,6 +32,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
+  <!-- Dados estruturados principais da home: concentram informações oficiais do restaurante. -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -148,9 +149,10 @@
     </aside>
   </header>
 
-  <!-- HERO -->
+  <!-- HERO: primeira impressão da home, com vídeo leve e CTAs de reserva/cardápio. -->
   <main id="main-content">
   <section id="hero" class="hero fade-in">
+    <!-- Vídeo de fundo com versões mobile/desktop; poster garante boa aparência durante o carregamento. -->
     <video autoplay muted loop playsinline preload="metadata" poster="img/banner-kasarao.png" class="bg-video">
       <source src="video/mobile/IMG_3350-mobile.webm" type="video/webm" media="(max-width: 768px)" />
       <source src="video/IMG_3350.webm" type="video/webm" />
@@ -245,6 +247,7 @@
     </section>
   </div>
 
+  <!-- Faixa de conversão: reforça reserva depois da apresentação da casa e dos horários. -->
   <section class="reserve-strip fade-in" aria-label="Reserva rápida">
     <div class="reserve-strip-copy">
       <span class="reserve-strip-kicker">Seu próximo encontro começa aqui</span>
@@ -257,6 +260,7 @@
     </div>
   </section>
 
+  <!-- Depoimentos dinâmicos: o script.js troca este conteúdo pelo JSON publicado. -->
   <section id="depoimentos" class="testimonials fade-in" aria-label="Avaliações e depoimentos">
     <div class="testimonials-head">
       <span class="testimonials-kicker">Prova social</span>

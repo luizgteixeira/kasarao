@@ -1,4 +1,5 @@
 (function initTestimonialsAdmin() {
+  // Endpoints e chaves usados tanto no modo com servidor local quanto no fallback do navegador.
   const API_URL = '/api/testimonials';
   const DATA_URL = 'data/testimonials.json';
   const STORAGE_KEY = 'kasarao.testimonials';
@@ -40,6 +41,7 @@
   }
 
   function initTouchTooltips() {
+    // Em telas touch, o primeiro toque revela a dica; o segundo executa a ação do botão.
     document.addEventListener(
       'click',
       (event) => {
@@ -73,6 +75,7 @@
   }
 
   function normalizeTestimonial(item) {
+    // Centraliza a limpeza dos dados vindos do formulário, JSON importado ou API local.
     if (!item || typeof item !== 'object') return null;
 
     const author = String(item.author || '').trim();
@@ -106,6 +109,7 @@
   }
 
   function saveDraft() {
+    // Rascunho local evita perda de alterações quando o salvamento direto não está disponível.
     window.localStorage.setItem(STORAGE_KEY, serializeTestimonials());
   }
 
@@ -231,6 +235,7 @@
   }
 
   function syncState(message) {
+    // Toda alteração passa por aqui para manter rascunho, lista renderizada e status sincronizados.
     saveDraft();
     renderList();
     const suffix = canSaveDirectly ? ' Clique em Salvar no site para concluir.' : '';
@@ -238,6 +243,7 @@
   }
 
   function setDirectSaveMode(enabled) {
+    // O botão "Salvar no site" só aparece quando a API local respondeu corretamente.
     canSaveDirectly = enabled;
     if (saveSiteButton) saveSiteButton.hidden = !enabled;
   }
@@ -274,6 +280,7 @@
   }
 
   async function loadInitialTestimonials() {
+    // Ordem de carregamento: API local, rascunho do navegador e JSON publicado no site.
     try {
       testimonials = await loadFromApi();
       setDirectSaveMode(true);
@@ -304,6 +311,7 @@
   }
 
   async function openJsonFile() {
+    // File System Access API: opção técnica para editar diretamente o JSON em navegadores compatíveis.
     if (!window.showOpenFilePicker) {
       setStatus('Este navegador não permite salvar direto. Use Baixar lista atualizada.', true);
       return;
@@ -353,6 +361,7 @@
   }
 
   async function saveToSite() {
+    // Salvamento principal do admin quando a página foi aberta pelo servidor local.
     if (!canSaveDirectly) {
       setStatus('Esta página foi aberta sem o modo de salvamento automático. Feche esta aba e abra novamente pelo arquivo iniciar-admin-depoimentos.', true);
       return;
@@ -377,6 +386,7 @@
   }
 
   function importJsonFile(file) {
+    // Importação manual: útil no celular ou quando a API local não está em execução.
     if (!file) return;
 
     const reader = new FileReader();
@@ -395,6 +405,7 @@
   }
 
   function exportJsonFile() {
+    // Exportação de segurança para publicar manualmente ou guardar uma cópia da lista atual.
     const blob = new Blob([serializeTestimonials()], { type: 'application/json' });
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
@@ -418,6 +429,8 @@
 
     const editIndexValue = form.elements.editIndex.value;
     const editIndex = Number(editIndexValue);
+
+    // O mesmo formulário serve para criar novos depoimentos e atualizar itens existentes.
     if (editIndexValue !== '' && Number.isInteger(editIndex) && editIndex >= 0 && editIndex < testimonials.length) {
       testimonials[editIndex] = item;
       syncState('Depoimento atualizado no rascunho.');

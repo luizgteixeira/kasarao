@@ -37,6 +37,7 @@
 }
 
 .cardapio-hero{
+  /* Abertura centralizada para explicar valor e levar direto ao pedido/reserva. */
   max-width: 920px;
   margin: 0 auto 40px;
 }
@@ -54,6 +55,7 @@
 }
 
 .cardapio-actions{
+  /* CTAs quebram linha naturalmente quando o espaço horizontal reduz. */
   display: flex;
   justify-content: center;
   gap: 14px;
@@ -149,6 +151,7 @@ body.light-mode .cardapio-destaque .card {
 }
 
 body[data-theme="dark"] .cardapio-destaque figcaption {
+  /* Usa o token definido pelo script.js para garantir legenda legível no tema ativo. */
   background: linear-gradient(to top, rgba(6, 8, 10, .92), rgba(6, 8, 10, .18));
   color: rgba(255, 255, 255, .95);
 }
@@ -231,10 +234,10 @@ body.light-mode .cardapio-destaque .card:hover {
   font-weight: 800;
   letter-spacing: .2px;
 
-  /* ✅ texto SEMPRE legível */
+  /* Texto sempre legível sobre fotos claras ou escuras. */
   color: rgba(255, 255, 255, .95);
 
-  /* ✅ overlay: dark por padrão */
+  /* Overlay escuro por padrão para preservar contraste da legenda. */
   background: linear-gradient(to top,
       var(--cp-cap-dark-1),
       var(--cp-cap-dark-2));
@@ -310,6 +313,7 @@ body.light-mode .cardapio-note .btn-ghost{
 }
 
 .cardapio-note{
+  /* Bloco de apoio para quem prefere falar com a equipe antes de pedir. */
   display: grid;
   grid-template-columns: minmax(0, 1.35fr) minmax(0, .9fr);
   gap: 24px;
@@ -357,6 +361,7 @@ body.light-mode .cardapio-note{
 }
 
 @media (max-width: 768px) {
+  /* Mobile: ações empilhadas e bloco final centralizado para melhorar toque/leitura. */
   .cardapio-page{
     padding: 32px 6% 72px;
   }

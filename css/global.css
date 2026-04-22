@@ -11,6 +11,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Lexend+Deca:wght@100..900&display=swap');
 
+/* Reset mínimo para reduzir diferenças entre navegadores sem apagar estilos úteis. */
 *{ margin:0; padding:0; box-sizing:border-box; }
 html{ scroll-behavior:smooth; }
 html, body{ overflow-x:hidden; }
@@ -100,6 +101,7 @@ body {
 
 /* Tema GLOBAL */
 body.light-mode{
+  /* Tema claro global; páginas específicas refinam apenas superfícies locais. */
   background:
     radial-gradient(circle at top, rgba(208,172,103,.12), transparent 36%),
     linear-gradient(180deg, #f8f3eb 0%, #eadfcf 100%);
@@ -107,6 +109,7 @@ body.light-mode{
 }
 
 .skip-link{
+  /* Link de acessibilidade visível apenas quando recebe foco pelo teclado. */
   position: fixed;
   top: 12px;
   left: 16px;
@@ -131,6 +134,7 @@ body.fade-out{ opacity:0; }
 
 /* Compensa menu fixo */
 body{
+  /* Espaço fixo para header e WhatsApp flutuante não cobrirem conteúdo. */
   padding-top: calc(var(--nav-h) + env(safe-area-inset-top));
   padding-bottom: calc(var(--wa-space) + env(safe-area-inset-bottom));
 }
@@ -229,6 +233,7 @@ footer.footer .contact-info a:hover{
 }
 
 .developer-portfolio{
+  /* Bloco do crédito/QR fica centralizado e independente das colunas do footer. */
   display: grid;
   justify-items: center;
   gap: 14px;
@@ -325,6 +330,7 @@ footer.footer p:last-child{
    WHATSAPP FLOAT (GLOBAL)
 ===================================================== */
 .whatsapp-float{
+  /* CTA global sempre acima do conteúdo, inclusive em páginas com vídeos/carrosséis. */
   position: fixed;
   right: 18px;
   bottom: 18px;
@@ -363,7 +369,7 @@ footer.footer p:last-child{
   filter: saturate(1.05);
 }
 
-/* Tooltip */
+/* Tooltip do WhatsApp: aparece ao hover no desktop e fica visível em telas touch. */
 .whatsapp-tooltip{
   position:absolute;
   right: 70px;
@@ -435,6 +441,7 @@ body.light-mode .whatsapp-tooltip::after{
 }
 
 @media (hover: none), (pointer: coarse), (max-width: 768px){
+  /* Em toque não existe hover confiável, então a mensagem fica sempre disponível. */
   .whatsapp-tooltip{
     display: block;
     right: 0;
@@ -486,8 +493,8 @@ body.light-mode .whatsapp-tooltip::after{
    - Tipografia + hierarquia
    - Links + botões
    - Cards/caixas (melhora .slide/.caption indiretamente)
-   - Focus acessível (padrão Big Tech)
-   Cole no FINAL do global.css
+   - Focus acessível
+   Complementa os estilos base sem depender de uma página específica.
 ===================================================== */
 
 /* ---------- Tipografia: base moderna e confortável ---------- */

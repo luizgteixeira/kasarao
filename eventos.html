@@ -33,6 +33,7 @@
   <link rel="stylesheet" href="css/menu.css" />
   <link rel="stylesheet" href="css/eventos.css" />
 
+  <!-- Dados estruturados: apresenta a locação do espaço como serviço oferecido pelo restaurante. -->
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -71,6 +72,7 @@
 <body>
   <a class="skip-link" href="#main-content">Pular para o conteúdo</a>
 
+  <!-- Header padrão do site; Eventos fica destacado como submenu de Momentos nesta página. -->
   <header class="site-header">
     <div class="logo">
       <a href="index.html" aria-label="Voltar para a Home"><img src="img/kasarao-semfundo.png" alt="Kasarão Gastrobar" fetchpriority="high" decoding="async" width="504" height="495" /></a>
@@ -133,11 +135,13 @@
   </header>
 
   <main id="main-content" class="events-page">
+    <!-- Vídeo decorativo do topo; o CSS limita sua presença ao hero e clareia o restante da página. -->
     <video class="events-bg-video" autoplay muted loop playsinline preload="metadata" poster="img/banner-kasarao.png" aria-hidden="true">
       <source src="video/mobile/evento-mobile.mp4" type="video/mp4" media="(max-width: 768px)" />
       <source src="video/evento.mp4" type="video/mp4" />
     </video>
 
+    <!-- Hero: primeira chamada emocional e CTA principal para iniciar o orçamento pelo WhatsApp. -->
     <section class="events-hero" aria-labelledby="events-title">
       <div class="events-hero-content">
         <span class="events-kicker">Seu evento no Kasarão</span>
@@ -151,6 +155,7 @@
       </div>
     </section>
 
+    <!-- Resumo rápido dos diferenciais antes dos formatos de evento. -->
     <section class="events-intro" aria-label="Como funcionam os eventos">
       <p>O espaço pode ganhar um clima mais íntimo, animado, profissional ou familiar. A equipe conversa com você para entender quantidade de convidados, horário, cardápio e detalhes que fazem diferença.</p>
       <div class="events-notes" aria-label="Destaques para eventos">
@@ -200,6 +205,7 @@
       </div>
     </section>
 
+    <!-- Formatos principais que o Kasarão pode receber; imagens atuais funcionam como acervo provisório. -->
     <section class="events-formats" id="formatos" aria-labelledby="formats-title">
       <div class="events-section-head">
         <span class="events-kicker">Formatos</span>
@@ -292,6 +298,7 @@
       </article>
     </section>
 
+    <!-- Passo a passo simples para reduzir fricção e orientar o contato comercial. -->
     <section class="events-flow" aria-labelledby="flow-title">
       <div>
         <span class="events-kicker">Como combinar</span>
@@ -336,6 +343,7 @@
       </ol>
     </section>
 
+    <!-- Galeria de apoio: mantém a página visual enquanto não há fotos oficiais de eventos. -->
     <section class="events-gallery" aria-labelledby="gallery-title">
       <div class="events-section-head">
         <span class="events-kicker">Clima da casa</span>
@@ -349,6 +357,7 @@
       </div>
     </section>
 
+    <!-- CTA final com duas rotas de contato para quem chegou ao fim da página. -->
     <section class="events-cta" aria-label="Solicitar orçamento para evento">
       <div>
         <span class="events-kicker">Bora marcar?</span>

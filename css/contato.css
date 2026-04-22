@@ -6,6 +6,7 @@
   padding: 48px 8% 90px;
 }
 
+/* Hero enxuto: apresenta a página antes dos canais de contato. */
 .contact-hero {
   text-align: center;
   margin: 0 auto 36px;
@@ -26,6 +27,7 @@
 
 .contact-kicker::before,
 .contact-kicker::after {
+  /* Traços decorativos equilibram o título curto sem criar mais elementos no HTML. */
   content: "";
   width: 28px;
   height: 1px;
@@ -49,6 +51,7 @@ body.light-mode .contact-intro {
 }
 
 .contato-info {
+  /* Canais principais em linha no desktop e quebrando naturalmente no mobile. */
   display: flex;
   justify-content: center;
   gap: 18px;
@@ -57,6 +60,7 @@ body.light-mode .contact-intro {
 }
 
 .btn-contato {
+  /* Botão grande para facilitar toque e leitura em links de contato. */
   display: inline-flex;
   align-items: center;
   gap: 0.75rem;
@@ -110,6 +114,7 @@ body.light-mode .btn-contato {
 }
 
 .contato-mapa {
+  /* Moldura do mapa: mantém o iframe integrado ao padrão visual do site. */
   max-width: 1080px;
   margin: 0 auto;
   padding: 28px;
@@ -156,6 +161,7 @@ body.light-mode #endereco {
 }
 
 @media (max-width: 768px) {
+  /* No mobile, cada canal ocupa uma linha para evitar botões apertados. */
   .contact-page {
     padding: 32px 6% 72px;
   }

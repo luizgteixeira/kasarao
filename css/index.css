@@ -25,6 +25,7 @@
 }
 
 .hero .bg-video {
+  /* Vídeo ocupa o hero inteiro; o contraste é tratado pela camada ::before. */
   position: absolute;
   inset: 0;
   width: 100%;
@@ -67,6 +68,7 @@
 }
 
 .hero-status{
+  /* Saudação/status calculado pelo script.js com base no horário de funcionamento. */
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -94,6 +96,7 @@
 
 /* botão principal */
 .btn-cardapio {
+  /* CTA reaproveitado em várias páginas; variações refinam cor e borda localmente. */
   display: inline-flex;
   align-items: center;
   gap: 10px;
@@ -236,6 +239,7 @@ body.light-mode .section.gallery {
 }
 
 .gallery-dots{
+  /* Dots são criados pelo script.js e usam largura maior para indicar o slide ativo. */
   position: relative;
   z-index: 3;
   display: flex;
@@ -275,6 +279,7 @@ body.light-mode .gallery-dot.is-active{
 }
 
 .section.gallery .caption[data-icon]::before{
+  /* Ícone decorativo lido do atributo data-icon, evitando marcação extra no HTML. */
   content: attr(data-icon);
   position: absolute;
   left: 18px;
@@ -314,6 +319,7 @@ body.light-mode .gallery-dot.is-active{
 }
 
 #sobre .video-card{
+  /* Card do vídeo separa o conteúdo institucional sem competir com o texto principal. */
   width: min(520px, 100%);
   padding: 20px;
   border-radius: 22px;
@@ -570,6 +576,7 @@ body.light-mode #destaques .caption{
 }
 
 #momentos.gallery .slide {
+  /* Altura reserva espaço para mídia, legenda e controles sem saltos visuais. */
   display: none;
   min-height: clamp(470px, 58vh, 620px);
   padding: 34px 22px 128px;
@@ -715,7 +722,7 @@ body.light-mode #momentos .caption{
 
 body.light-mode #horarios,
 body.light-mode #cardapio {
-  /* fundo refinado (claro premium, não “lavado”) */
+  /* Fundo claro refinado, mantendo contraste e leitura nos cards lado a lado. */
   background: linear-gradient(180deg, #efe4cf, #dcc8a6);
   border-radius: 22px;
   border: 1px solid rgba(0, 0, 0, .06);
@@ -1144,7 +1151,7 @@ body.light-mode #sobre .sobre-texto {
 
   font-size: var(--fs-lead);
 
-  /* ✅ mais “fluido” para leitura */
+  /* Ritmo mais fluido para leitura em blocos institucionais. */
   line-height: 1.85;
   letter-spacing: 0.2px;
 
