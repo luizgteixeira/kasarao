@@ -1,0 +1,26 @@
+[
+  {
+    "author": "Sem fama",
+    "age": "hoje",
+    "rating": 3,
+    "source": "Google Reviews",
+    "text": "dfuiytypotfdvuyvnsgdhnoiyujaoxp8uxcnygbAFZDVYWRCVSXJWEAYGRDCKWERCYFNIANIAGDEFTCAWEFRTCVWERTFYUWEXTRADCVYUWFTUYTRFasgdcbkagcgcxigfbcisagfcabskdysdgfsdghdfcskysdftcbsydktfabiacyftcbis",
+    "active": true
+  },
+  {
+    "author": "Maria Luiza Santos de Oliveira",
+    "age": "6 meses atrás",
+    "rating": 5,
+    "source": "Google Reviews",
+    "text": "Um ambiente super tranquilo e acolhedor! Drinks e comidas maravilhosas e atendimento impecável!!",
+    "active": true
+  },
+  {
+    "author": "Graziela Mourão",
+    "age": "11 meses atrás",
+    "rating": 5,
+    "source": "Google Reviews",
+    "text": "Lugar excelente!! Comida boa, cerveja gelada, música agradável e atendimento excepcional. Ambiente familiar.",
+    "active": true
+  }
+]

@@ -92,7 +92,8 @@ O projeto inclui uma base on-page pensada para melhorar a presença do negócio 
 - menu fixo e navegação mobile
 - seção institucional com história, ambiente, missão e proprietários
 - carrossel premium de fotos e vídeos
-- carrossel de depoimentos reais
+- carrossel de depoimentos reais carregados de `data/testimonials.json`
+- administração de depoimentos em `admin-depoimentos.html`
 - página de contato com mapa e links rápidos
 - integração com cardápio e pedido online
 - botão flutuante de WhatsApp
@@ -108,12 +109,20 @@ kasarao/
 │   ├── quem-somos.css
 │   ├── momentos.css
 │   ├── contato.css
-│   └── cardapio.css
+│   ├── cardapio.css
+│   └── admin-depoimentos.css
+├── data/
+│   └── testimonials.json
 ├── img/
 ├── js/
-│   └── script.js
+│   ├── script.js
+│   └── admin-testimonials.js
 ├── video/
+├── tools/
+│   └── admin-server.js
+├── iniciar-admin-depoimentos.cmd
 ├── index.html
+├── admin-depoimentos.html
 ├── quem-somos.html
 ├── momentos.html
 ├── contato.html
@@ -126,10 +135,19 @@ kasarao/
 ## Arquitetura das páginas
 
 - `index.html`: branding, diferenciais, CTA e prova social
+- `admin-depoimentos.html`: cadastro, edição, exclusão, ordenação, importação e exportação dos depoimentos
 - `quem-somos.html`: narrativa institucional e apresentação da essência da marca
 - `momentos.html`: galeria de fotos e vídeos da experiência do ambiente
 - `contato.html`: canais de contato, localização e acesso rápido
 - `cardapio.html`: apresentação gastronômica e link direto para pedidos
+
+## Atualização de depoimentos
+
+1. Abra `iniciar-admin-depoimentos.cmd`.
+2. Adicione, edite, oculte, exclua ou reordene os depoimentos.
+3. Use **Pré-visualizar** para conferir o rascunho no carrossel da home.
+4. Use **Salvar no site** para gravar direto em `data/testimonials.json`.
+5. Use **Baixar cópia de segurança** apenas se precisar publicar manualmente ou guardar uma cópia.
 
 ## Tecnologias utilizadas
 

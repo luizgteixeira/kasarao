@@ -947,12 +947,19 @@ body.light-mode .testimonials-highlight-chip{
 .testimonial-card{
   display: grid;
   gap: 16px;
-  min-width: 100%;
+  flex: 0 0 100%;
+  min-width: 0;
+  max-width: 100%;
   padding: 30px;
   border-radius: 22px;
   background: rgba(255,255,255,.05);
   border: 1px solid rgba(255,255,255,.10);
   box-shadow: 0 18px 42px rgba(0,0,0,.20);
+  overflow-wrap: anywhere;
+}
+
+.testimonial-card.is-empty{
+  text-align: center;
 }
 
 body.light-mode .testimonial-card{
@@ -986,6 +993,9 @@ body.light-mode .testimonial-card{
   font-size: var(--fs-lead);
   line-height: 1.8;
   font-style: italic;
+  white-space: pre-line;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .testimonial-footer{
@@ -999,6 +1009,7 @@ body.light-mode .testimonial-card{
 .testimonial-author{
   margin: 0;
   font-weight: 800;
+  overflow-wrap: anywhere;
 }
 
 .testimonial-source{
@@ -1016,6 +1027,9 @@ body.light-mode .testimonial-card{
   font-weight: 700;
   letter-spacing: .02em;
   box-shadow: 0 10px 24px rgba(0,0,0,.12);
+  white-space: normal;
+  text-align: center;
+  overflow-wrap: anywhere;
 }
 
 body:not(.light-mode) .testimonial-source{
@@ -1065,6 +1079,11 @@ body.light-mode .testimonial-source{
   justify-content: center;
   gap: 10px;
   margin-top: 18px;
+}
+
+.testimonials-carousel.has-single-testimonial .testimonials-nav,
+.testimonials-carousel.has-single-testimonial .testimonials-dots{
+  display: none;
 }
 
 .testimonials-dot{

@@ -598,29 +598,225 @@ document.addEventListener('DOMContentLoaded', () => {
   Carrossel de Depoimentos
 ============================ */
 (function initTestimonialsCarousel() {
+  const DATA_URL = 'data/testimonials.json';
+  const STORAGE_KEY = 'kasarao.testimonials';
+
   const root = document.querySelector('[data-testimonials]');
   if (!root) return;
 
   const track = root.querySelector('[data-testimonial-track]');
-  const slides = Array.from(root.querySelectorAll('[data-testimonial-slide]'));
   const prevBtn = root.querySelector('[data-testimonial-prev]');
   const nextBtn = root.querySelector('[data-testimonial-next]');
   const dotsWrap = root.querySelector('[data-testimonial-dots]');
 
-  if (!track || slides.length === 0) return;
+  if (!track) return;
 
-  let index = slides.findIndex((slide) => slide.classList.contains('is-active'));
-  if (index < 0) index = 0;
+  let slides = [];
+  let dots = [];
+  let index = 0;
+  let autoplayId = null;
 
-  const dots = slides.map((_, i) => {
-    const button = document.createElement('button');
-    button.type = 'button';
-    button.className = 'testimonials-dot';
-    button.setAttribute('aria-label', `Ir para o depoimento ${i + 1}`);
-    button.addEventListener('click', () => goTo(i));
-    dotsWrap?.appendChild(button);
-    return button;
-  });
+  function clampRating(value) {
+    const parsed = Number(value);
+    if (!Number.isFinite(parsed)) return 5;
+    return Math.min(Math.max(Math.round(parsed), 1), 5);
+  }
+
+  function normalizeTestimonial(item) {
+    if (!item || typeof item !== 'object') return null;
+
+    const author = String(item.author || '').trim();
+    const text = String(item.text || '').trim();
+    if (!author || !text || item.active === false) return null;
+
+    return {
+      author,
+      text,
+      age: String(item.age || 'Avaliação recente').trim(),
+      rating: clampRating(item.rating),
+      source: String(item.source || 'Depoimento').trim()
+    };
+  }
+
+  function normalizePayload(payload) {
+    const rawItems = Array.isArray(payload)
+      ? payload
+      : Array.isArray(payload?.testimonials)
+        ? payload.testimonials
+        : [];
+
+    return rawItems
+      .map(normalizeTestimonial)
+      .filter(Boolean);
+  }
+
+  function shouldUsePreviewStorage() {
+    const params = new URLSearchParams(window.location.search);
+    return params.get('testimonials') === 'preview' || params.get('depoimentos') === 'preview';
+  }
+
+  function loadStoredPreview() {
+    try {
+      const stored = window.localStorage.getItem(STORAGE_KEY);
+      if (!stored) return [];
+      return normalizePayload(JSON.parse(stored));
+    } catch (error) {
+      return [];
+    }
+  }
+
+  async function loadRemoteTestimonials() {
+    const response = await fetch(DATA_URL, { cache: 'no-store' });
+    if (!response.ok) {
+      throw new Error(`Não foi possível carregar ${DATA_URL}`);
+    }
+
+    return normalizePayload(await response.json());
+  }
+
+  async function loadTestimonials() {
+    const previewItems = shouldUsePreviewStorage() ? loadStoredPreview() : [];
+    if (previewItems.length) return previewItems;
+
+    try {
+      const remoteItems = await loadRemoteTestimonials();
+      if (remoteItems.length) return remoteItems;
+    } catch (error) {
+      const fallbackItems = loadStoredPreview();
+      if (fallbackItems.length) return fallbackItems;
+    }
+
+    return [];
+  }
+
+  function createStars(rating) {
+    const stars = document.createElement('div');
+    stars.className = 'testimonial-stars';
+    stars.setAttribute('aria-label', `${rating} de 5 estrelas`);
+    stars.textContent = `${'★'.repeat(rating)}${'☆'.repeat(5 - rating)}`;
+    return stars;
+  }
+
+  function createTestimonialCard(item, isActive) {
+    const article = document.createElement('article');
+    article.className = `testimonial-card${isActive ? ' is-active' : ''}`;
+    article.setAttribute('data-testimonial-slide', '');
+
+    const meta = document.createElement('div');
+    meta.className = 'testimonial-meta';
+    meta.append(createStars(item.rating));
+
+    const age = document.createElement('span');
+    age.className = 'testimonial-age';
+    age.textContent = item.age;
+    meta.append(age);
+
+    const quote = document.createElement('blockquote');
+    quote.textContent = `“${item.text}”`;
+
+    const footer = document.createElement('div');
+    footer.className = 'testimonial-footer';
+
+    const author = document.createElement('p');
+    author.className = 'testimonial-author';
+    author.textContent = item.author;
+
+    const source = document.createElement('span');
+    source.className = 'testimonial-source';
+    source.textContent = `${item.source} • ${item.rating} ${item.rating === 1 ? 'estrela' : 'estrelas'} • ${item.age}`;
+
+    footer.append(author, source);
+    article.append(meta, quote, footer);
+
+    return article;
+  }
+
+  function createStatusCard(message) {
+    const article = document.createElement('article');
+    article.className = 'testimonial-card is-active is-empty';
+    article.setAttribute('data-testimonial-slide', '');
+
+    const meta = document.createElement('div');
+    meta.className = 'testimonial-meta';
+    meta.append(createStars(5));
+
+    const age = document.createElement('span');
+    age.className = 'testimonial-age';
+    age.textContent = 'Atualizando';
+    meta.append(age);
+
+    const quote = document.createElement('blockquote');
+    quote.textContent = message;
+
+    const footer = document.createElement('div');
+    footer.className = 'testimonial-footer';
+
+    const author = document.createElement('p');
+    author.className = 'testimonial-author';
+    author.textContent = 'Kasarão Gastrobar';
+
+    const source = document.createElement('span');
+    source.className = 'testimonial-source';
+    source.textContent = 'Depoimentos dinâmicos';
+
+    footer.append(author, source);
+    article.append(meta, quote, footer);
+
+    return article;
+  }
+
+  function renderDots() {
+    if (dotsWrap) dotsWrap.textContent = '';
+
+    dots = slides.map((_, i) => {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'testimonials-dot';
+      button.setAttribute('aria-label', `Ir para o depoimento ${i + 1}`);
+      button.addEventListener('click', () => goTo(i));
+      dotsWrap?.appendChild(button);
+      return button;
+    });
+  }
+
+  function setCarouselControlsEnabled(enabled) {
+    root.classList.toggle('has-single-testimonial', slides.length <= 1);
+    prevBtn?.toggleAttribute('disabled', !enabled);
+    nextBtn?.toggleAttribute('disabled', !enabled);
+  }
+
+  function renderStatus(message) {
+    stopAutoplay();
+    index = 0;
+    track.textContent = '';
+    track.append(createStatusCard(message));
+    slides = Array.from(root.querySelectorAll('[data-testimonial-slide]'));
+    renderDots();
+    goTo(0);
+    setCarouselControlsEnabled(false);
+  }
+
+  function renderTestimonials(items) {
+    stopAutoplay();
+    index = 0;
+    track.textContent = '';
+
+    if (!items.length) {
+      renderStatus('Nenhum depoimento cadastrado no momento.');
+      return;
+    }
+
+    items.forEach((item, i) => {
+      track.append(createTestimonialCard(item, i === 0));
+    });
+
+    slides = Array.from(root.querySelectorAll('[data-testimonial-slide]'));
+    renderDots();
+    goTo(0);
+    setCarouselControlsEnabled(slides.length > 1);
+
+    if (slides.length > 1) startAutoplay();
+  }
 
   function setActive(i) {
     slides.forEach((slide, idx) => slide.classList.toggle('is-active', idx === i));
@@ -632,16 +828,19 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function goTo(i) {
+    if (!slides.length) return;
     index = (i + slides.length) % slides.length;
     track.style.transform = `translateX(-${index * 100}%)`;
     setActive(index);
   }
 
   function next() {
+    if (slides.length <= 1) return;
     goTo(index + 1);
   }
 
   function prev() {
+    if (slides.length <= 1) return;
     goTo(index - 1);
   }
 
@@ -671,14 +870,13 @@ document.addEventListener('DOMContentLoaded', () => {
     diff < 0 ? next() : prev();
   });
 
-  let autoplayId = null;
-
   function stopAutoplay() {
     if (autoplayId) clearInterval(autoplayId);
     autoplayId = null;
   }
 
   function startAutoplay() {
+    if (slides.length <= 1) return;
     stopAutoplay();
     autoplayId = window.setInterval(next, 6500);
   }
@@ -688,6 +886,11 @@ document.addEventListener('DOMContentLoaded', () => {
   root.addEventListener('touchstart', stopAutoplay, { passive: true });
   root.addEventListener('touchend', startAutoplay);
 
-  goTo(index);
-  startAutoplay();
+  renderStatus('Buscando depoimentos atualizados.');
+
+  loadTestimonials()
+    .then(renderTestimonials)
+    .catch(() => {
+      renderStatus('Não foi possível carregar os depoimentos no momento.');
+    });
 })();

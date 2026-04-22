@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#0C1014" />
+
+  <title>Administração de Depoimentos | Kasarão Gastrobar</title>
+  <link rel="icon" href="img/kasarao-k-opaco.png" type="image/x-icon" />
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/admin-depoimentos.css" />
+</head>
+
+<body>
+  <main class="admin-page">
+    <section class="admin-hero" aria-labelledby="admin-title">
+      <img class="admin-logo" src="img/kasarao-semfundo.png" alt="Kasarão Gastrobar" width="504" height="495" />
+
+      <div class="admin-hero-copy">
+        <span class="admin-kicker">Administração</span>
+        <h1 id="admin-title">Depoimentos do Kasarão</h1>
+        <p>Cadastre avaliações recentes, remova comentários obsoletos e mantenha a prova social sempre atualizada.</p>
+
+        <div class="admin-actions" aria-label="Ações dos depoimentos">
+          <button class="admin-button" type="button" data-save-site data-tooltip="Grava os depoimentos editados no site." hidden>Salvar no site</button>
+          <a class="admin-button admin-button-link" href="index.html?testimonials=preview#depoimentos" target="_blank" rel="noopener noreferrer" data-tooltip="Abre a página inicial para conferir como os depoimentos vão aparecer.">Pré-visualizar</a>
+          <button class="admin-button admin-button-secondary" type="button" data-export-file data-tooltip="Baixa uma cópia da lista atual para guardar ou enviar.">Baixar cópia de segurança</button>
+          <button class="admin-button admin-button-secondary" type="button" data-import-file data-tooltip="Carrega uma lista salva anteriormente neste editor.">Trazer lista salva</button>
+        </div>
+
+        <details class="admin-advanced">
+          <summary>Opções técnicas</summary>
+          <p>Use esta área apenas se alguém da equipe técnica pediu para salvar direto no arquivo do site.</p>
+          <div class="admin-actions" aria-label="Ações técnicas dos depoimentos">
+            <button class="admin-button admin-button-secondary" type="button" data-open-file data-tooltip="Escolhe manualmente o arquivo usado pelo site.">Escolher arquivo do site</button>
+            <button class="admin-button admin-button-secondary" type="button" data-save-file data-tooltip="Salva as alterações no arquivo escolhido acima." disabled>Salvar no arquivo escolhido</button>
+          </div>
+        </details>
+
+        <input class="visually-hidden" type="file" accept="application/json,.json" data-file-input />
+        <p class="admin-status" data-admin-status role="status">Carregando depoimentos atuais.</p>
+      </div>
+    </section>
+
+    <section class="admin-workspace" aria-label="Editor de depoimentos">
+      <form class="admin-form" data-testimonial-form>
+        <input type="hidden" name="editIndex" />
+
+        <div class="admin-form-head">
+          <span class="admin-kicker">Cadastro</span>
+          <h2 data-form-title>Novo depoimento</h2>
+        </div>
+
+        <label>
+          Nome do cliente
+          <input name="author" type="text" autocomplete="name" required maxlength="90" />
+        </label>
+
+        <label>
+          Depoimento
+          <textarea name="text" rows="7" required maxlength="900"></textarea>
+        </label>
+
+        <div class="admin-grid">
+          <label>
+            Tempo da avaliação
+            <input name="age" type="text" placeholder="Ex.: 2 semanas atrás" maxlength="40" />
+          </label>
+
+          <label>
+            Fonte
+            <input name="source" type="text" value="Google Reviews" maxlength="60" />
+          </label>
+
+          <label>
+            Estrelas
+            <select name="rating">
+              <option value="5">5 estrelas</option>
+              <option value="4">4 estrelas</option>
+              <option value="3">3 estrelas</option>
+              <option value="2">2 estrelas</option>
+              <option value="1">1 estrela</option>
+            </select>
+          </label>
+        </div>
+
+        <label class="admin-check">
+          <input name="active" type="checkbox" checked />
+          Mostrar no site
+        </label>
+
+        <div class="admin-form-actions">
+          <button class="admin-button" type="submit" data-submit-button data-tooltip="Adiciona este depoimento à lista abaixo.">Adicionar depoimento</button>
+          <button class="admin-button admin-button-secondary" type="button" data-clear-form data-tooltip="Apaga os campos do formulário sem mexer na lista.">Limpar formulário</button>
+        </div>
+      </form>
+
+      <section class="admin-list-panel" aria-labelledby="testimonial-list-title">
+        <div class="admin-list-head">
+          <div>
+            <span class="admin-kicker">Lista atual</span>
+            <h2 id="testimonial-list-title">Depoimentos cadastrados</h2>
+          </div>
+          <span class="admin-count" data-testimonial-count>0 depoimentos</span>
+        </div>
+
+        <div class="admin-list" data-testimonial-list></div>
+      </section>
+    </section>
+
+    <section class="admin-help" aria-labelledby="publish-title">
+      <h2 id="publish-title">Como publicar</h2>
+      <p>No computador onde o site está salvo, abra o arquivo <strong>iniciar-admin-depoimentos</strong>. Assim, depois de editar e pré-visualizar, basta clicar em <strong>Salvar no site</strong>.</p>
+      <p>Se o botão Salvar no site não funcionar, feche a aba e abra o painel pelo arquivo <strong>iniciar-admin-depoimentos</strong>.</p>
+    </section>
+  </main>
+
+  <script src="js/admin-testimonials.js" defer></script>
+</body>
+
+</html>
