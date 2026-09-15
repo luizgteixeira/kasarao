@@ -40,6 +40,15 @@
   margin: 0 0 8px;
 }
 
+.pc-gallery-title{
+  margin: 14px 0 0;
+  font-size: .8rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  font-weight: 800;
+  color: var(--gold);
+}
+
 .pc-subtitle {
   margin: 0 auto;
   max-width: 64ch;

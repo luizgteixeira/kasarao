@@ -207,6 +207,9 @@ footer.footer .social-icons a{
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 9px;
 }
 
 footer.footer .social-icons a img{
