@@ -2,7 +2,7 @@
    QUEM SOMOS — alinhado ao padrão do site
    - tema via body.light-mode (global.css)
    - mantém contexto (História/Ambiente/Missão/Proprietários)
-   - estética: dark premium + dourado (primary)
+   - estética: dark premium + verde (primary)
 ====================================================== */
 
 /* ---------- Hero (Essência) — Premium Upgrade ---------- */
@@ -15,7 +15,7 @@
   /* camada base + banner bem suave */
   background:
     linear-gradient(rgba(12, 16, 20, .86), rgba(21, 15, 26, .86)),
-    url("../img/kasarao-k-opaco.png") center/cover no-repeat;
+    url("../img/novo-logo.png") center/cover no-repeat;
 
   color: rgba(245, 245, 245, .92);
   border-bottom: 1px solid rgba(255, 255, 255, .06);
@@ -67,16 +67,16 @@
 
 /* modo claro — regra ÚNICA, sem duplicação */
 body.light-mode .qs-hero {
-  background-color: #f3efe7;
+  background-color: #f2f2f2;
   /* fallback */
   background-image:
-    linear-gradient(rgba(243, 239, 231, .92), rgba(230, 220, 198, .92)),
-    url("../img/kasarao-k-opaco.png");
+    linear-gradient(rgba(242, 242, 242, .92), rgba(224, 224, 224, .92)),
+    url("../img/novo-logo.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
 
-  color: rgba(45, 42, 38, .92);
+  color: color-mix(in srgb, var(--text-light) 92%, transparent);
   border-bottom-color: rgba(0, 0, 0, .06);
 }
 
@@ -127,7 +127,7 @@ body.light-mode .qs-hero {
 }
 
 body.light-mode .qs-sub {
-  color: rgba(45, 42, 38, .92);
+  color: color-mix(in srgb, var(--text-light) 92%, transparent);
   background: rgba(255, 255, 255, .45);
   border-color: rgba(0, 0, 0, .06);
   box-shadow: 0 10px 28px rgba(0, 0, 0, .08);
@@ -140,7 +140,7 @@ body.light-mode .qs-sub {
 }
 
 body.light-mode .qs-wrap {
-  background: linear-gradient(to bottom, #f3efe7, #e6dcc6);
+  background: linear-gradient(to bottom, #f2f2f2, #e0e0e0);
 }
 
 /* ---------- Grid cards (3 blocos) ---------- */
@@ -224,7 +224,7 @@ body.light-mode .qs-card:hover {
 }
 
 body.light-mode .qs-card p {
-  color: rgba(45, 42, 38, .92);
+  color: color-mix(in srgb, var(--text-light) 92%, transparent);
 }
 
 /* ---------- Proprietários ---------- */
@@ -241,7 +241,7 @@ body.light-mode .qs-card p {
 }
 
 body.light-mode .qs-owners-intro {
-  color: rgba(45, 42, 38, .88);
+  color: color-mix(in srgb, var(--text-light) 88%, transparent);
 }
 
 .qs-owner-story {
@@ -267,7 +267,7 @@ body.light-mode .qs-owner-story {
   object-fit: cover;
   object-position: center 28%;
   border-radius: 20px;
-  border: 1px solid rgba(208, 172, 103, .22);
+  border: 1px solid color-mix(in srgb, var(--primary) 22%, transparent);
   box-shadow: 0 20px 40px rgba(0, 0, 0, .28);
 }
 
@@ -309,9 +309,10 @@ body.light-mode .qs-owner-story {
 }
 
 body.light-mode .qs-owner-copy blockquote {
-  color: rgba(45, 42, 38, .92);
+  color: color-mix(in srgb, var(--text-light) 92%, transparent);
   background: rgba(255, 255, 255, .68);
   border-color: rgba(0, 0, 0, .08);
+  border-left-color: color-mix(in srgb, var(--primary) 75%, transparent);
   box-shadow: 0 14px 32px rgba(0, 0, 0, .14);
 }
 
@@ -351,7 +352,7 @@ body.light-mode .qs-owner-copy blockquote {
   padding: 30px;
   border-radius: 24px;
   background:
-    radial-gradient(circle at top left, rgba(208,172,103,.18), transparent 36%),
+    radial-gradient(circle at top left, color-mix(in srgb, var(--primary) 18%, transparent), transparent 36%),
     rgba(255,255,255,.05);
   border: 1px solid rgba(255,255,255,.10);
   box-shadow: 0 22px 48px rgba(0,0,0,.24);
@@ -359,7 +360,7 @@ body.light-mode .qs-owner-copy blockquote {
 
 body.light-mode .qs-cta{
   background:
-    radial-gradient(circle at top left, rgba(208,172,103,.14), transparent 36%),
+    radial-gradient(circle at top left, color-mix(in srgb, var(--primary) 14%, transparent), transparent 36%),
     rgba(255,255,255,.76);
   border-color: rgba(0,0,0,.08);
   box-shadow: 0 22px 44px rgba(0,0,0,.10);

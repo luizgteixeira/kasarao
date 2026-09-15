@@ -358,7 +358,7 @@
   padding: 32px;
   border-radius: 24px;
   background:
-    radial-gradient(circle at top left, rgba(208,172,103,.18), transparent 36%),
+    radial-gradient(circle at top left, color-mix(in srgb, var(--primary) 18%, transparent), transparent 36%),
     rgba(255,255,255,.05);
   border: 1px solid rgba(255,255,255,.10);
   box-shadow: 0 24px 52px rgba(0,0,0,.24);
@@ -389,14 +389,14 @@
    Light Mode (elegante, sem “lavar”)
 ===================================================== */
 body.light-mode .pc-subtitle {
-  color: rgba(45, 42, 38, .92);
+  color: color-mix(in srgb, var(--text-light) 92%, transparent);
   background: rgba(255, 255, 255, .45);
   border-color: rgba(0, 0, 0, .06);
   box-shadow: 0 8px 22px rgba(0, 0, 0, .10);
 }
 
 body.light-mode .pc-shell {
-  background: linear-gradient(180deg, #f6efdf, #e6d7bd);
+  background: linear-gradient(180deg, #f2f2f2, #e0e0e0);
   border-color: rgba(0, 0, 0, .08);
   box-shadow:
     0 24px 70px rgba(0, 0, 0, .18),
@@ -407,7 +407,7 @@ body.light-mode .caption {
   background: rgba(255, 255, 255, .80);
   border-color: rgba(0, 0, 0, .10);
   box-shadow: 0 18px 45px rgba(0, 0, 0, .12);
-  color: rgba(45, 42, 38, .92);
+  color: color-mix(in srgb, var(--text-light) 92%, transparent);
 }
 
 body.light-mode .pc-btn {
@@ -415,7 +415,7 @@ body.light-mode .pc-btn {
     radial-gradient(circle at 30% 25%,
       rgba(255, 255, 255, .95),
       rgba(255, 255, 255, .62) 62%);
-  color: #2d2a26;
+  color: var(--text-light);
   border-color: rgba(0, 0, 0, .12);
   box-shadow: 0 10px 24px rgba(0, 0, 0, .18);
 }
@@ -430,7 +430,7 @@ body.light-mode .pc-dot.is-active {
 
 body.light-mode .momentos-cta{
   background:
-    radial-gradient(circle at top left, rgba(208,172,103,.14), transparent 36%),
+    radial-gradient(circle at top left, color-mix(in srgb, var(--primary) 14%, transparent), transparent 36%),
     rgba(255,255,255,.76);
   border-color: rgba(0,0,0,.08);
   box-shadow: 0 22px 46px rgba(0,0,0,.10);

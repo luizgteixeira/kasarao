@@ -78,18 +78,18 @@
     }
   </script>
 
-  <link rel="icon" href="img/kasarao-k-opaco.png" type="image/x-icon" />
+  <link rel="icon" href="img/novo-logo.png" type="image/png" />
   <link rel="stylesheet" href="css/global.css" />
   <link rel="stylesheet" href="css/menu.css" />
   <link rel="stylesheet" href="css/contato.css" />
 </head>
 
-<body>
+<body class="light-mode">
   <a class="skip-link" href="#main-content">Pular para o conteúdo</a>
   <!-- Header e navegação: mantém separado para reaproveitar o mesmo topo em todas as páginas -->
   <header class="site-header">
     <div class="logo">
-      <a href="index.html"><img src="img/kasarao-semfundo.png" alt="Kasarão Gastrobar" fetchpriority="high" decoding="async" width="504" height="495" /></a>
+      <a href="index.html"><img src="img/novo-logo.png" alt="Kasarão Gastrobar" fetchpriority="high" decoding="async" width="218" height="206" /></a>
     </div>
 
     <!-- Menu desktop -->
@@ -108,15 +108,6 @@
       </div>
     </nav>
 
-    <!-- Toggle tema: 1 checkbox controla o tema; o JS pode espelhar no mobile -->
-    <div class="theme-switch-wrapper">
-      <span class="theme-label">Tema</span>
-      <label class="theme-switch">
-        <input type="checkbox" id="theme-toggle" aria-label="Alternar tema" />
-        <span class="slider" aria-hidden="true"></span>
-      </label>
-    </div>
-
     <!-- Botão do drawer (mobile) -->
     <button id="navToggle" class="nav-toggle" aria-label="Abrir menu" type="button">
       <span class="bar"></span><span class="bar"></span><span class="bar"></span>
@@ -128,7 +119,7 @@
     <!-- Drawer (mobile): aria-hidden controlado via JS -->
     <aside id="navDrawer" class="nav-drawer" aria-hidden="true">
       <div class="drawer-header">
-        <img src="img/kasarao-semfundo.png" alt="Kasarão Gastrobar" width="504" height="495" decoding="async" />
+        <img src="img/novo-logo.png" alt="Kasarão Gastrobar" width="218" height="206" decoding="async" />
         <button id="drawerClose" class="drawer-close" aria-label="Fechar menu" type="button">✕</button>
       </div>
 
@@ -141,16 +132,6 @@
         <a href="cardapio.html">Cardápio</a>
       </nav>
 
-      <!-- Toggle do drawer: o script.js espelha o mesmo estado visual do botão do desktop. -->
-      <div class="drawer-theme">
-        <div class="theme-switch-wrapper">
-          <span class="theme-label">Modo claro</span>
-          <label class="theme-switch">
-            <input type="checkbox" id="theme-toggle-mobile" aria-label="Alternar tema" />
-            <span class="slider" aria-hidden="true"></span>
-          </label>
-        </div>
-      </div>
     </aside>
   </header>
 
@@ -199,7 +180,7 @@
   <footer id="footer" class="footer">
     <div class="footer-content">
       <div class="footer-logo">
-        <img src="img/kasarao-semfundo.png" alt="Logo Kasarão Gastrobar" loading="lazy" decoding="async" width="504" height="495" />
+        <img src="img/novo-logo.png" alt="Logo Kasarão Gastrobar" loading="lazy" decoding="async" width="218" height="206" />
       </div>
 
       <div class="social-icons">

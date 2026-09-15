@@ -1,6 +1,6 @@
 /* ======================================================
    KASARÃO — script.js
-   - Tema em body.light-mode (persistente + sincroniza toggles)
+   - Tema sempre claro (body.light-mode fixo no HTML)
    - Menu: scrolled + hide on scroll (no .site-header)
    - Drawer mobile (navToggle/navOverlay/navDrawer/drawerClose)
    - Link ativo por página (desktop + drawer)
@@ -21,15 +21,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const navOverlay = document.getElementById('navOverlay');
   const navDrawer = document.getElementById('navDrawer');
   const drawerClose = document.getElementById('drawerClose');
-
-  // Tema (switches)
-  const toggleDesktop = document.getElementById('theme-toggle');
-  const toggleMobile = document.getElementById('theme-toggle-mobile');
-
-  // Em telas touch pequenas, a interface força tema claro para preservar legibilidade.
-  const mobileThemeQuery = window.matchMedia(
-    '(hover: none) and (pointer: coarse) and (max-width: 960px)'
-  );
 
   if (navToggle) {
     navToggle.setAttribute('aria-expanded', 'false');
@@ -75,68 +66,10 @@ document.addEventListener('DOMContentLoaded', () => {
   })();
 
   /* =====================================
-     2) TEMA — body.light-mode (persistente)
+     2) TEMA — sempre claro
   ====================================== */
-  function isLight() {
-    return body.classList.contains('light-mode');
-  }
-
-  function syncThemeToggles() {
-    const light = isLight();
-    if (toggleDesktop) toggleDesktop.checked = light;
-    if (toggleMobile) toggleMobile.checked = light;
-  }
-
-  function setThemeMetaColor(light) {
-    const meta = document.querySelector('meta[name="theme-color"]');
-    if (!meta) return;
-    // dark padrão do seu global.css + um claro compatível
-    meta.setAttribute('content', light ? '#f4f1ea' : '#0C1014');
-  }
-
-  function applyTheme(light, persist = true) {
-    const isLightMode = !!light;
-
-    body.classList.toggle('light-mode', isLightMode);
-
-    // Token no DOM para CSS e inspeção rápida do tema ativo.
-    body.dataset.theme = isLightMode ? 'light' : 'dark';
-
-    if (persist) {
-      localStorage.setItem('theme', isLightMode ? 'light' : 'dark');
-    }
-    syncThemeToggles();
-    setThemeMetaColor(isLightMode);
-  }
-
-  function applyResponsiveTheme() {
-    const isMobile = mobileThemeQuery.matches;
-    const saved = localStorage.getItem('theme');
-
-    // Desktop respeita a preferência salva; mobile usa claro sem sobrescrever essa escolha.
-    applyTheme(isMobile ? true : saved === 'light', !isMobile);
-  }
-
-  (function initTheme() {
-    applyResponsiveTheme(); // mobile sempre claro; desktop mantém preferência
-  })();
-
-  if (toggleDesktop)
-    toggleDesktop.addEventListener('change', () => {
-      localStorage.setItem('theme', toggleDesktop.checked ? 'light' : 'dark');
-      applyResponsiveTheme();
-    });
-  if (toggleMobile)
-    toggleMobile.addEventListener('change', () => {
-      localStorage.setItem('theme', toggleMobile.checked ? 'light' : 'dark');
-      applyResponsiveTheme();
-    });
-
-  if (typeof mobileThemeQuery.addEventListener === 'function') {
-    mobileThemeQuery.addEventListener('change', applyResponsiveTheme);
-  } else if (typeof mobileThemeQuery.addListener === 'function') {
-    mobileThemeQuery.addListener(applyResponsiveTheme);
-  }
+  body.classList.add('light-mode');
+  body.dataset.theme = 'light';
 
   /* =====================================
      3) SAUDAÇÃO + STATUS (ABERTO/FECHADO)

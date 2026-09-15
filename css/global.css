@@ -18,22 +18,25 @@ html, body{ overflow-x:hidden; }
 img, video{ max-width:100%; }
 
 :root{
-  /* Paleta */
+  /* Paleta (nova identidade Kasarão) */
   --bg-dark:#0c1014;
-  --bg-light:#f6f0e6;
+  --bg-light:#f2f2f2;
   --text-dark:#f5f2ec;
-  --text-light:#2d241a;
+  --text-light:#20241c;
 
-  --primary:#d0ac67;
-  --primary-hover:#b98c42;
+  --primary:#265902;            /* verde — cor de marca, ênfase principal */
+  --primary-hover:#1a3f01;
+  --primary-bright:#8fbf5c;     /* tom claro do verde, para texto/ícone sobre fundos escuros fixos (header/footer) */
+  --accent:#f29f05;             /* laranja — destaque secundário */
+  --accent-hover:#cf8600;
   --surface-dark: rgba(255,255,255,.05);
   --surface-light: rgba(255,255,255,.7);
 
   /* Compatibilidade com CSS legado */
   --cor0:#0c1014;
-  --cor1:#d0ac67;
-  --cor4:#d0ac67;
-  --cor5:#b98c42;
+  --cor1:#265902;
+  --cor4:#265902;
+  --cor5:#1a3f01;
 
   /* Layout */
   --nav-h: 92px;     /* fallback (JS atualiza) */
@@ -88,7 +91,7 @@ body {
   letter-spacing: 0.2px;
 
   background:
-    radial-gradient(circle at top, rgba(208,172,103,.08), transparent 34%),
+    radial-gradient(circle at top, color-mix(in srgb, var(--primary-bright) 10%, transparent), transparent 34%),
     linear-gradient(180deg, #0c1014 0%, #140d12 100%);
   color: var(--text-dark);
 
@@ -103,8 +106,8 @@ body {
 body.light-mode{
   /* Tema claro global; páginas específicas refinam apenas superfícies locais. */
   background:
-    radial-gradient(circle at top, rgba(208,172,103,.12), transparent 36%),
-    linear-gradient(180deg, #f8f3eb 0%, #eadfcf 100%);
+    radial-gradient(circle at top, color-mix(in srgb, var(--primary) 10%, transparent), transparent 36%),
+    linear-gradient(180deg, #f2f2f2 0%, #e6e6e6 100%);
   color: var(--text-light);
 }
 
@@ -118,7 +121,7 @@ body.light-mode{
   padding: 12px 16px;
   border-radius: 999px;
   background: linear-gradient(135deg, var(--primary), var(--primary-hover));
-  color: #0c1014;
+  color: #f2f2f2;
   font-weight: 800;
   text-decoration: none;
   box-shadow: 0 12px 30px rgba(0,0,0,.35);
@@ -193,7 +196,7 @@ footer.footer .social-icons{
 }
 
 footer.footer .follow-text{
-  color: var(--primary);
+  color: var(--primary-bright);
   font-weight: 800;
   letter-spacing: 0.4px;
 }
@@ -254,7 +257,7 @@ footer.footer .contact-info a:hover{
 }
 
 .developer-credit a{
-  color: var(--primary);
+  color: var(--primary-bright);
   font-weight: 800;
   text-decoration: none;
 }
@@ -267,7 +270,7 @@ footer.footer .contact-info a:hover{
   font-family: "Cormorant Garamond", serif;
   font-size: 1.15rem;
   font-weight: 700;
-  color: var(--primary);
+  color: var(--primary-bright);
   letter-spacing: .3px;
 }
 
@@ -277,16 +280,16 @@ footer.footer .contact-info a:hover{
   padding: 10px;
   border-radius: 20px;
   background:
-    linear-gradient(180deg, rgba(208,172,103,.20), rgba(255,255,255,.04)),
+    linear-gradient(180deg, color-mix(in srgb, var(--primary-bright) 20%, transparent), rgba(255,255,255,.04)),
     rgba(255,255,255,.04);
-  border: 1px solid rgba(208,172,103,.34);
+  border: 1px solid color-mix(in srgb, var(--primary-bright) 34%, transparent);
   box-shadow: 0 18px 42px rgba(0,0,0,.34);
   transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
 }
 
 .portfolio-qr-link:hover{
   transform: translateY(-3px);
-  border-color: rgba(208,172,103,.62);
+  border-color: color-mix(in srgb, var(--primary-bright) 62%, transparent);
   box-shadow: 0 24px 52px rgba(0,0,0,.42);
 }
 
@@ -572,7 +575,7 @@ button {
   text-decoration: none;
   font-weight: 800;
   letter-spacing: .3px;
-  color: #0c1014;
+  color: #f2f2f2;
   background: linear-gradient(135deg, var(--primary), var(--primary-hover));
   box-shadow: 0 16px 34px rgba(0,0,0,.24);
 }
@@ -619,7 +622,7 @@ body:not(.light-mode) {
 }
 
 body.light-mode {
-  color: rgba(45, 42, 38, .92);
+  color: color-mix(in srgb, var(--text-light) 92%, transparent);
 }
 
 /* ---------- Correção universal para texto dentro de slides/captions (legível sempre) ---------- */
@@ -630,7 +633,7 @@ body:not(.light-mode) .caption {
 
 body.light-mode .slide,
 body.light-mode .caption {
-  color: rgba(45, 42, 38, .92);
+  color: color-mix(in srgb, var(--text-light) 92%, transparent);
 }
 
 /* ---------- Pequena melhoria em listas (horários) ---------- */

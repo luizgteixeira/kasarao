@@ -47,9 +47,9 @@
   display: inline-flex;
   width: max-content;
   padding: 5px 10px;
-  border: 1px solid rgba(208,172,103,.45);
+  border: 1px solid color-mix(in srgb, var(--primary-bright) 45%, transparent);
   border-radius: 8px;
-  color: var(--primary);
+  color: var(--primary-bright);
   font-size: .78rem;
   font-weight: 800;
   letter-spacing: .08em;
@@ -92,10 +92,10 @@
   justify-content: center;
   gap: 8px;
   padding: 10px 15px;
-  border: 1px solid rgba(208,172,103,.50);
+  border: 1px solid color-mix(in srgb, var(--primary-bright) 50%, transparent);
   border-radius: 8px;
   background: linear-gradient(135deg, var(--primary), var(--primary-hover));
-  color: #101418;
+  color: #f2f2f2;
   font: inherit;
   font-weight: 800;
   text-decoration: none;
@@ -111,7 +111,7 @@
   width: max-content;
   max-width: min(280px, 82vw);
   padding: 8px 10px;
-  border: 1px solid rgba(208,172,103,.35);
+  border: 1px solid color-mix(in srgb, var(--primary-bright) 35%, transparent);
   border-radius: 8px;
   background: rgba(12,16,20,.96);
   color: var(--text-dark);
@@ -316,7 +316,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  color: var(--primary);
+  color: var(--primary-bright);
   font-size: .88rem;
   font-weight: 800;
   line-height: 1.45;

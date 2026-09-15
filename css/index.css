@@ -106,8 +106,8 @@
   text-decoration: none;
   font-weight: 600;
   letter-spacing: .5px;
-  background: linear-gradient(135deg, var(--primary), #b8934f);
-  color: #000;
+  background: linear-gradient(135deg, var(--primary), var(--primary-hover));
+  color: #f2f2f2;
   box-shadow: 0 8px 25px rgba(0, 0, 0, .35);
   transition: transform .35s ease, box-shadow .35s ease;
 }
@@ -183,7 +183,7 @@ body.light-mode .btn-hero-secondary:hover{
 }
 
 body.light-mode .section.gallery {
-  background: linear-gradient(to bottom, #f3efe7, #e6dcc6);
+  background: linear-gradient(to bottom, #f2f2f2, #e6e6e6);
 }
 
 .section.gallery>h2 {
@@ -289,7 +289,7 @@ body.light-mode .gallery-dot.is-active{
   border-radius: 999px;
   display: grid;
   place-items: center;
-  color: #0c1014;
+  color: #f2f2f2;
   background: linear-gradient(135deg, var(--primary), var(--primary-hover));
   box-shadow: 0 12px 26px rgba(0,0,0,.24);
   font-family: "Lexend Deca", sans-serif;
@@ -401,7 +401,7 @@ body.light-mode #sobre .video-card{
 }
 
 body.light-mode .duo-sections {
-  background: linear-gradient(to bottom, #f3efe7, #e6dcc6);
+  background: linear-gradient(to bottom, #f2f2f2, #e6e6e6);
 }
 
 .duo-sections>.section.gallery {
@@ -542,24 +542,24 @@ section#destaques {
 body.light-mode #cardapio,
 body.light-mode #destaques,
 body.light-mode section#destaques {
-  background: linear-gradient(to bottom, #f3efe7, #e6dcc6);
-  color: #2d2a26;
+  background: linear-gradient(to bottom, #f2f2f2, #e6e6e6);
+  color: var(--text-light);
 }
 
 body.light-mode #cardapio .slide.active,
 body.light-mode #destaques .slide {
-  background: linear-gradient(180deg, #ffffff, #f1eadc);
+  background: linear-gradient(180deg, #ffffff, #ececec);
 }
 
 body.light-mode #cardapio .caption,
 body.light-mode #destaques .caption {
   background: rgba(255, 255, 255, .72);
-  color: #2d2a26;
+  color: var(--text-light);
   border: 1px solid rgba(0, 0, 0, .08);
 }
 
 body.light-mode #destaques .caption{
-  background: linear-gradient(180deg, rgba(255,255,255,.88), rgba(241,234,220,.92));
+  background: linear-gradient(180deg, rgba(255,255,255,.88), rgba(230,230,230,.92));
   box-shadow: 0 16px 34px rgba(0,0,0,.10);
 }
 
@@ -691,7 +691,7 @@ body.light-mode #destaques .caption{
 body.light-mode #momentos.gallery .slide{
   background:
     radial-gradient(70% 70% at 50% 28%, color-mix(in srgb, var(--primary) 16%, transparent), transparent 64%),
-    linear-gradient(180deg, #f6efdf, #e6d7bd);
+    linear-gradient(180deg, #f2f2f2, #e0e0e0);
   border-color: rgba(0,0,0,.08);
   box-shadow:
     0 24px 70px rgba(0,0,0,.16),
@@ -701,7 +701,7 @@ body.light-mode #momentos.gallery .slide{
 body.light-mode #momentos .caption{
   background: rgba(255,255,255,.82);
   border-color: rgba(0,0,0,.10);
-  color: rgba(45,42,38,.92);
+  color: var(--text-light);
   box-shadow: 0 18px 45px rgba(0,0,0,.12);
 }
 
@@ -723,13 +723,13 @@ body.light-mode #momentos .caption{
 body.light-mode #horarios,
 body.light-mode #cardapio {
   /* Fundo claro refinado, mantendo contraste e leitura nos cards lado a lado. */
-  background: linear-gradient(180deg, #efe4cf, #dcc8a6);
+  background: linear-gradient(180deg, #f0f0f0, #dcdcdc);
   border-radius: 22px;
   border: 1px solid rgba(0, 0, 0, .06);
   box-shadow: 0 24px 60px rgba(0, 0, 0, .18);
   position: relative;
   overflow: hidden;
-  color: #2d2a26;
+  color: var(--text-light);
 }
 
 /* garante que todo conteúdo herde contraste correto */
@@ -748,7 +748,7 @@ body.light-mode #cardapio>h2 {
 /* card interno sólido (sem “retângulo claro solto”) */
 body.light-mode #horarios .slide.active,
 body.light-mode #cardapio .slide.active {
-  background: linear-gradient(180deg, #f6eddc, #efe2c9);
+  background: linear-gradient(180deg, #f5f5f5, #e8e8e8);
   border-radius: 18px;
   border: 1px solid rgba(0, 0, 0, .07);
   box-shadow:
@@ -762,7 +762,7 @@ body.light-mode #cardapio .caption {
   background: transparent;
   border: none;
   box-shadow: none;
-  color: rgba(45, 42, 38, .92);
+  color: color-mix(in srgb, var(--text-light) 92%, transparent);
 }
 
 body.light-mode #horarios .caption ul {
@@ -801,7 +801,7 @@ body.light-mode #cardapio .btn-cardapio {
   padding: 34px;
   border-radius: 28px;
   background:
-    radial-gradient(circle at top left, rgba(208,172,103,.22), transparent 34%),
+    radial-gradient(circle at top left, color-mix(in srgb, var(--primary) 22%, transparent), transparent 34%),
     rgba(255,255,255,.05);
   border: 1px solid rgba(255,255,255,.10);
   box-shadow: 0 24px 55px rgba(0,0,0,.26);
@@ -809,7 +809,7 @@ body.light-mode #cardapio .btn-cardapio {
 
 body.light-mode .reserve-strip{
   background:
-    radial-gradient(circle at top left, rgba(208,172,103,.18), transparent 36%),
+    radial-gradient(circle at top left, color-mix(in srgb, var(--primary) 18%, transparent), transparent 36%),
     rgba(255,255,255,.76);
   border-color: rgba(0,0,0,.08);
   box-shadow: 0 24px 50px rgba(0,0,0,.10);
@@ -846,7 +846,7 @@ body.light-mode .reserve-strip{
   padding: 36px;
   border-radius: 28px;
   background:
-    radial-gradient(circle at top left, rgba(208,172,103,.18), transparent 34%),
+    radial-gradient(circle at top left, color-mix(in srgb, var(--primary) 18%, transparent), transparent 34%),
     rgba(255,255,255,.04);
   border: 1px solid rgba(255,255,255,.10);
   box-shadow: 0 24px 55px rgba(0,0,0,.24);
@@ -854,7 +854,7 @@ body.light-mode .reserve-strip{
 
 body.light-mode .testimonials{
   background:
-    radial-gradient(circle at top left, rgba(208,172,103,.14), transparent 36%),
+    radial-gradient(circle at top left, color-mix(in srgb, var(--primary) 14%, transparent), transparent 36%),
     rgba(255,255,255,.76);
   border-color: rgba(0,0,0,.08);
   box-shadow: 0 24px 48px rgba(0,0,0,.10);
@@ -894,7 +894,7 @@ body.light-mode .testimonials{
   padding: 16px 18px;
   border-radius: 18px;
   background:
-    radial-gradient(circle at top left, rgba(208,172,103,.18), transparent 38%),
+    radial-gradient(circle at top left, color-mix(in srgb, var(--primary) 18%, transparent), transparent 38%),
     rgba(255,255,255,.05);
   border: 1px solid rgba(255,255,255,.10);
   box-shadow: 0 16px 36px rgba(0,0,0,.16);
@@ -902,7 +902,7 @@ body.light-mode .testimonials{
 
 body.light-mode .testimonials-highlight{
   background:
-    radial-gradient(circle at top left, rgba(208,172,103,.14), transparent 40%),
+    radial-gradient(circle at top left, color-mix(in srgb, var(--primary) 14%, transparent), transparent 40%),
     rgba(255,255,255,.82);
   border-color: rgba(0,0,0,.08);
   box-shadow: 0 16px 32px rgba(0,0,0,.08);
@@ -925,7 +925,7 @@ body.light-mode .testimonials-highlight{
 body.light-mode .testimonials-highlight-chip{
   background: rgba(255,255,255,.86);
   border-color: rgba(0,0,0,.08);
-  color: rgba(45,42,38,.92);
+  color: color-mix(in srgb, var(--text-light) 92%, transparent);
 }
 
 .testimonials-source-note{
@@ -976,7 +976,7 @@ body.light-mode .testimonial-card{
 }
 
 .testimonial-stars{
-  color: var(--primary);
+  color: var(--accent);
   letter-spacing: .25em;
   font-size: .95rem;
 }
@@ -1026,7 +1026,7 @@ body.light-mode .testimonial-card{
   padding: 8px 12px;
   border-radius: 999px;
   background:
-    radial-gradient(circle at top left, rgba(208,172,103,.22), transparent 45%),
+    radial-gradient(circle at top left, color-mix(in srgb, var(--primary) 22%, transparent), transparent 45%),
     rgba(255,255,255,.06);
   border: 1px solid rgba(255,255,255,.10);
   color: rgba(250,244,233,.94);
@@ -1041,19 +1041,19 @@ body.light-mode .testimonial-card{
 
 body:not(.light-mode) .testimonial-source{
   background:
-    radial-gradient(circle at top left, rgba(208,172,103,.26), transparent 44%),
+    radial-gradient(circle at top left, color-mix(in srgb, var(--primary-bright) 26%, transparent), transparent 44%),
     rgba(255,255,255,.10);
-  border-color: rgba(208,172,103,.22);
+  border-color: color-mix(in srgb, var(--primary-bright) 22%, transparent);
   color: rgba(250,244,233,.96);
   box-shadow: 0 10px 26px rgba(0,0,0,.18);
 }
 
 body.light-mode .testimonial-source{
   background:
-    radial-gradient(circle at top left, rgba(208,172,103,.18), transparent 48%),
+    radial-gradient(circle at top left, color-mix(in srgb, var(--primary) 18%, transparent), transparent 48%),
     rgba(255,255,255,.82);
   border-color: rgba(0,0,0,.08);
-  color: rgba(45,42,38,.82);
+  color: color-mix(in srgb, var(--text-light) 82%, transparent);
   box-shadow: 0 10px 22px rgba(0,0,0,.08);
 }
 
@@ -1221,24 +1221,24 @@ body.light-mode #sobre .sobre-texto {
 }
 
 body.light-mode #sobre .sobre-texto p {
-  color: rgba(45, 42, 38, .92);
+  color: color-mix(in srgb, var(--text-light) 92%, transparent);
 }
 
 body.light-mode #sobre .sobre-texto strong {
-  color: rgba(45, 42, 38, .98);
+  color: color-mix(in srgb, var(--text-light) 98%, transparent);
 }
 
 /* Micro-highlight (garante contraste nos dois temas) */
 #sobre .micro-highlight {
   color: inherit;
   /* herda do p corretamente */
-  background: rgba(200, 169, 106, .18);
-  border: 1px solid rgba(200, 169, 106, .30);
+  background: color-mix(in srgb, var(--primary) 18%, transparent);
+  border: 1px solid color-mix(in srgb, var(--primary) 30%, transparent);
 }
 
 body.light-mode #sobre .micro-highlight {
-  background: rgba(200, 169, 106, .16);
-  border-color: rgba(200, 169, 106, .26);
+  background: color-mix(in srgb, var(--primary) 16%, transparent);
+  border-color: color-mix(in srgb, var(--primary) 26%, transparent);
 }
 
 /* =====================================================
@@ -1254,7 +1254,7 @@ body:not(.light-mode) .slide p{
 
 /* modo claro */
 body.light-mode .slide p{
-  color: rgba(45,42,38,0.92);
+  color: color-mix(in srgb, var(--text-light) 92%, transparent);
   line-height: 1.75;
 }
 
@@ -1316,7 +1316,7 @@ body.light-mode .slide p{
   /* tema claro */
   body.light-mode #momentos .caption {
     background: rgba(255, 255, 255, .78);
-    color: #2d2a26;
+    color: var(--text-light);
     border-top: 1px solid rgba(0, 0, 0, .08);
   }
 

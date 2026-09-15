@@ -5,12 +5,12 @@
 .events-page{
   position: relative;
   isolation: isolate;
-  color: rgba(45, 42, 38, .94);
+  color: color-mix(in srgb, var(--text-light) 94%, transparent);
   overflow: hidden;
   /* Transição visual: hero noturno do vídeo para corpo claro e celebrativo. */
   background:
-    linear-gradient(180deg, rgba(12, 16, 20, .98) 0, rgba(12, 16, 20, .72) 560px, rgba(246, 240, 228, .98) 820px),
-    #f6f0e4;
+    linear-gradient(180deg, rgba(12, 16, 20, .98) 0, rgba(12, 16, 20, .72) 560px, rgba(242, 242, 242, .98) 820px),
+    #f2f2f2;
 }
 
 .events-bg-video{
@@ -31,7 +31,7 @@
   z-index: -1;
   pointer-events: none;
   background:
-    linear-gradient(180deg, rgba(12, 16, 20, .42), rgba(12, 16, 20, .54) 520px, rgba(246, 240, 228, .96) 820px),
+    linear-gradient(180deg, rgba(12, 16, 20, .42), rgba(12, 16, 20, .54) 520px, rgba(242, 242, 242, .96) 820px),
     linear-gradient(90deg, rgba(12, 16, 20, .62), rgba(12, 16, 20, .20), rgba(12, 16, 20, .48));
 }
 
@@ -70,6 +70,11 @@
   font-weight: 850;
   letter-spacing: .18em;
   text-transform: uppercase;
+}
+
+/* Kicker do hero fica sobre o vídeo escuro; precisa do tom claro do verde para legibilidade. */
+.events-hero .events-kicker{
+  color: var(--primary-bright);
 }
 
 .event-tag::after{
@@ -142,20 +147,30 @@
 .events-page .btn-cardapio{
   min-height: 48px;
   padding-inline: 24px;
-  border-color: rgba(208, 172, 103, .48);
-  box-shadow: 0 16px 36px rgba(120, 92, 46, .22);
+  border-color: color-mix(in srgb, var(--primary) 48%, transparent);
+  box-shadow: 0 16px 36px color-mix(in srgb, var(--primary-hover) 22%, transparent);
 }
 
 .events-page .btn-cardapio:not(.btn-ghost){
   background:
-    linear-gradient(135deg, color-mix(in srgb, var(--primary) 92%, #fff), color-mix(in srgb, var(--primary) 72%, #7b4f15));
-  color: #17120a;
+    linear-gradient(135deg, color-mix(in srgb, var(--primary) 92%, #fff), color-mix(in srgb, var(--primary) 72%, var(--primary-hover)));
+  color: #f2f2f2;
   font-weight: 900;
 }
 
 .events-page .btn-cardapio:hover{
   transform: translateY(-3px);
-  box-shadow: 0 22px 46px rgba(120, 92, 46, .28);
+  box-shadow: 0 22px 46px color-mix(in srgb, var(--primary-hover) 28%, transparent);
+}
+
+/* Botões do hero ficam sobre o vídeo escuro: borda/sombra usam o verde claro para não sumir. */
+.events-hero-actions .btn-cardapio{
+  border-color: color-mix(in srgb, var(--primary-bright) 48%, transparent);
+  box-shadow: 0 16px 36px color-mix(in srgb, var(--primary) 22%, transparent);
+}
+
+.events-hero-actions .btn-cardapio:hover{
+  box-shadow: 0 22px 46px color-mix(in srgb, var(--primary) 28%, transparent);
 }
 
 .events-hero-note{
@@ -185,7 +200,7 @@
 .events-intro p{
   margin: 0;
   max-width: 62ch;
-  color: rgba(45, 42, 38, .84);
+  color: color-mix(in srgb, var(--text-light) 84%, transparent);
   font-size: clamp(1.1rem, 2vw, 1.38rem);
   line-height: 1.82;
 }
@@ -207,14 +222,14 @@
   text-align: left;
   border-radius: 8px;
   background: rgba(255, 255, 255, .64);
-  border: 1px solid rgba(208, 172, 103, .26);
-  color: rgba(45, 42, 38, .86);
+  border: 1px solid color-mix(in srgb, var(--primary) 26%, transparent);
+  color: color-mix(in srgb, var(--text-light) 86%, transparent);
   font-size: .95rem;
   font-weight: 750;
   line-height: 1.25;
   word-break: normal;
   overflow-wrap: normal;
-  box-shadow: 0 14px 34px rgba(120, 92, 46, .10);
+  box-shadow: 0 14px 34px color-mix(in srgb, var(--primary-hover) 10%, transparent);
 }
 
 .note-icon{
@@ -224,12 +239,12 @@
   display: inline-grid;
   place-items: center;
   border-radius: 50%;
-  color: color-mix(in srgb, var(--primary) 88%, #5b3510);
+  color: color-mix(in srgb, var(--primary) 88%, var(--primary-hover));
   background:
     radial-gradient(circle at 32% 24%, rgba(255, 255, 255, .9), rgba(255, 255, 255, .35) 44%, transparent 70%),
-    rgba(208, 172, 103, .18);
-  border: 1px solid rgba(208, 172, 103, .32);
-  box-shadow: 0 12px 26px rgba(120, 92, 46, .13);
+    color-mix(in srgb, var(--primary) 18%, transparent);
+  border: 1px solid color-mix(in srgb, var(--primary) 32%, transparent);
+  box-shadow: 0 12px 26px color-mix(in srgb, var(--primary-hover) 13%, transparent);
   animation: noteIconPulse 3.2s ease-in-out infinite;
 }
 
@@ -260,12 +275,12 @@
   0%,
   100%{
     transform: translateY(0) scale(1);
-    box-shadow: 0 12px 26px rgba(120, 92, 46, .13);
+    box-shadow: 0 12px 26px color-mix(in srgb, var(--primary-hover) 13%, transparent);
   }
 
   50%{
     transform: translateY(-4px) scale(1.04);
-    box-shadow: 0 16px 32px rgba(120, 92, 46, .20);
+    box-shadow: 0 16px 32px color-mix(in srgb, var(--primary-hover) 20%, transparent);
   }
 }
 
@@ -283,7 +298,7 @@
 .events-section-head h2{
   max-width: 760px;
   margin: 0;
-  color: rgba(45, 42, 38, .96);
+  color: color-mix(in srgb, var(--text-light) 96%, transparent);
   font-size: clamp(2rem, 4vw, 3.7rem);
   line-height: 1.02;
 }
@@ -295,7 +310,7 @@
   align-items: center;
   padding: clamp(22px, 4vw, 42px) 0;
   border-top: 1px solid rgba(255, 255, 255, .10);
-  border-color: rgba(120, 92, 46, .16);
+  border-color: color-mix(in srgb, var(--primary-hover) 16%, transparent);
 }
 
 .event-format--reverse .event-format-copy{
@@ -317,12 +332,12 @@
   place-items: center;
   margin-bottom: 2px;
   border-radius: 50%;
-  color: color-mix(in srgb, var(--primary) 86%, #5b3510);
+  color: color-mix(in srgb, var(--primary) 86%, var(--primary-hover));
   background:
     radial-gradient(circle at 35% 25%, rgba(255, 255, 255, .82), rgba(255, 255, 255, .30) 42%, transparent 68%),
-    rgba(208, 172, 103, .18);
-  border: 1px solid rgba(208, 172, 103, .34);
-  box-shadow: 0 16px 34px rgba(120, 92, 46, .16);
+    color-mix(in srgb, var(--primary) 18%, transparent);
+  border: 1px solid color-mix(in srgb, var(--primary) 34%, transparent);
+  box-shadow: 0 16px 34px color-mix(in srgb, var(--primary-hover) 16%, transparent);
   animation: eventIconFloat 3.8s ease-in-out infinite;
 }
 
@@ -357,14 +372,14 @@
 
 .event-format h3{
   margin: 0;
-  color: rgba(45, 42, 38, .96);
+  color: color-mix(in srgb, var(--text-light) 96%, transparent);
   font-size: clamp(1.75rem, 3.5vw, 3rem);
   line-height: 1.06;
 }
 
 .event-format p{
   margin: 0;
-  color: rgba(45, 42, 38, .78);
+  color: color-mix(in srgb, var(--text-light) 78%, transparent);
   line-height: 1.78;
   font-size: 1.05rem;
 }
@@ -383,8 +398,8 @@
   object-fit: cover;
   display: block;
   border-radius: 8px;
-  border: 1px solid rgba(208, 172, 103, .22);
-  box-shadow: 0 22px 48px rgba(120, 92, 46, .18);
+  border: 1px solid color-mix(in srgb, var(--primary) 22%, transparent);
+  box-shadow: 0 22px 48px color-mix(in srgb, var(--primary-hover) 18%, transparent);
 }
 
 .event-format-gallery img{
@@ -403,13 +418,13 @@
   gap: 24px;
   border-radius: 8px;
   background: rgba(255, 255, 255, .70);
-  border: 1px solid rgba(208, 172, 103, .24);
-  box-shadow: 0 26px 58px rgba(120, 92, 46, .14);
+  border: 1px solid color-mix(in srgb, var(--primary) 24%, transparent);
+  box-shadow: 0 26px 58px color-mix(in srgb, var(--primary-hover) 14%, transparent);
 }
 
 .events-flow h2{
   margin: 10px 0 0;
-  color: rgba(45, 42, 38, .96);
+  color: color-mix(in srgb, var(--text-light) 96%, transparent);
   font-size: clamp(1.8rem, 3.4vw, 3rem);
 }
 
@@ -430,7 +445,7 @@
   align-items: start;
   padding: 16px;
   border-radius: 8px;
-  background: rgba(246, 240, 228, .78);
+  background: rgba(242, 242, 242, .78);
 }
 
 /* A numeração cria sensação de processo, enquanto o ícone dá personalidade ao passo. */
@@ -451,12 +466,12 @@
   display: inline-grid;
   place-items: center;
   border-radius: 50%;
-  color: color-mix(in srgb, var(--primary) 86%, #5b3510);
+  color: color-mix(in srgb, var(--primary) 86%, var(--primary-hover));
   background:
     radial-gradient(circle at 35% 25%, rgba(255, 255, 255, .88), rgba(255, 255, 255, .32) 44%, transparent 70%),
-    rgba(208, 172, 103, .16);
-  border: 1px solid rgba(208, 172, 103, .30);
-  box-shadow: 0 12px 26px rgba(120, 92, 46, .14);
+    color-mix(in srgb, var(--primary) 16%, transparent);
+  border: 1px solid color-mix(in srgb, var(--primary) 30%, transparent);
+  box-shadow: 0 12px 26px color-mix(in srgb, var(--primary-hover) 14%, transparent);
   animation: flowIconPop 1s cubic-bezier(.2, .8, .2, 1) both;
   animation-timeline: view();
   animation-range: entry 18% cover 42%;
@@ -491,16 +506,16 @@
 }
 
 .events-flow strong{
-  color: rgba(45, 42, 38, .96);
+  color: color-mix(in srgb, var(--text-light) 96%, transparent);
 }
 
 .events-flow span{
-  color: rgba(45, 42, 38, .76);
+  color: color-mix(in srgb, var(--text-light) 76%, transparent);
   line-height: 1.6;
 }
 
 .events-flow .flow-icon{
-  color: color-mix(in srgb, var(--primary) 86%, #5b3510);
+  color: color-mix(in srgb, var(--primary) 86%, var(--primary-hover));
 }
 
 .events-mosaic{
@@ -532,10 +547,10 @@
   padding: clamp(28px, 5vw, 50px);
   border-radius: 8px;
   background:
-    linear-gradient(135deg, rgba(208, 172, 103, .24), rgba(255, 255, 255, .62)),
+    linear-gradient(135deg, color-mix(in srgb, var(--primary) 24%, transparent), rgba(255, 255, 255, .62)),
     rgba(255, 255, 255, .72);
-  border: 1px solid rgba(208, 172, 103, .32);
-  box-shadow: 0 26px 62px rgba(120, 92, 46, .16);
+  border: 1px solid color-mix(in srgb, var(--primary) 32%, transparent);
+  box-shadow: 0 26px 62px color-mix(in srgb, var(--primary-hover) 16%, transparent);
 }
 
 .events-cta-actions{
@@ -551,19 +566,19 @@
 
 .events-cta h2{
   margin: 10px 0 12px;
-  color: rgba(45, 42, 38, .96);
+  color: color-mix(in srgb, var(--text-light) 96%, transparent);
   font-size: clamp(2rem, 4vw, 3.5rem);
   line-height: 1.02;
 }
 
 .events-cta p{
   margin: 0;
-  color: rgba(45, 42, 38, .76);
+  color: color-mix(in srgb, var(--text-light) 76%, transparent);
   line-height: 1.72;
 }
 
 body.light-mode .events-page{
-  color: rgba(45, 42, 38, .96);
+  color: color-mix(in srgb, var(--text-light) 96%, transparent);
 }
 
 /* O modo claro mantém o corpo leve; o hero continua branco por estar sobre vídeo. */
@@ -575,12 +590,12 @@ body.light-mode .events-section-head h2,
 body.light-mode .event-format h3,
 body.light-mode .events-flow h2,
 body.light-mode .events-cta h2{
-  color: rgba(45, 42, 38, .96);
+  color: color-mix(in srgb, var(--text-light) 96%, transparent);
 }
 
 body.light-mode .events-intro p,
 body.light-mode .event-format p{
-  color: rgba(45, 42, 38, .78);
+  color: color-mix(in srgb, var(--text-light) 78%, transparent);
 }
 
 body.light-mode .events-notes span,
@@ -588,7 +603,7 @@ body.light-mode .events-flow,
 body.light-mode .events-cta{
   background: rgba(255, 255, 255, .74);
   border-color: rgba(0, 0, 0, .08);
-  color: rgba(45, 42, 38, .9);
+  color: color-mix(in srgb, var(--text-light) 90%, transparent);
 }
 
 body.light-mode .events-flow li{
@@ -596,12 +611,12 @@ body.light-mode .events-flow li{
 }
 
 body.light-mode .events-flow strong{
-  color: rgba(45, 42, 38, .96);
+  color: color-mix(in srgb, var(--text-light) 96%, transparent);
 }
 
 body.light-mode .events-flow span,
 body.light-mode .events-cta p{
-  color: rgba(45, 42, 38, .78);
+  color: color-mix(in srgb, var(--text-light) 78%, transparent);
 }
 
 @media (prefers-reduced-motion: reduce){

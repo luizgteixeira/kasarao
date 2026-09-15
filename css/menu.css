@@ -50,7 +50,7 @@
   margin-block: -10px -26px;
   border-radius: 50%;
   background: rgba(12, 16, 20, 0.92);
-  border: 1px solid rgba(208, 172, 103, .22);
+  border: 1px solid color-mix(in srgb, var(--primary-bright) 30%, transparent);
   box-shadow: 0 16px 30px rgba(0, 0, 0, .32);
 }
 
@@ -108,7 +108,7 @@
 
 .menu .nav-links a{
   text-decoration:none;
-  color: var(--primary);
+  color: var(--primary-bright);
   font-weight: 700;
   letter-spacing: .4px;
   padding: 10px 14px;
@@ -169,88 +169,13 @@
 .nav-item--current .nav-submenu{
   box-shadow:
     0 20px 46px rgba(0, 0, 0, .38),
-    0 0 0 1px rgba(208, 172, 103, .18);
+    0 0 0 1px color-mix(in srgb, var(--primary-bright) 18%, transparent);
 }
 
 .nav-item--current .nav-submenu a.active{
   color: #fff;
-  background: rgba(208, 172, 103, .18);
-  border-color: rgba(208, 172, 103, .28);
-}
-
-/* =====================================================
-   TOGGLE TEMA — estilo iPhone
-===================================================== */
-
-.theme-switch-wrapper{
-  display:flex;
-  align-items:center;
-  flex: 0 0 auto;
-  gap:10px;
-  white-space:nowrap;
-}
-
-.theme-label{
-  font-size:.92rem;
-  opacity:.95;
-  color:#fff;
-}
-
-.theme-switch{
-  position:relative;
-  display:inline-block;
-  width:55px;
-  height:28px;
-}
-
-.theme-switch input{
-  opacity:0;
-  width:0;
-  height:0;
-}
-
-.theme-switch .slider{
-  position:absolute;
-  inset:0;
-  cursor:pointer;
-  background:rgba(255,255,255,0.18);
-  border:1px solid rgba(255,255,255,0.18);
-  border-radius:999px;
-  transition:0.25s;
-}
-
-.theme-switch .slider:before{
-  content:"🌙";
-  position:absolute;
-  width:22px;
-  height:22px;
-  left:4px;
-  bottom:2px;
-  background:#fff;
-  border-radius:999px;
-  display:grid;
-  place-items:center;
-  font-size:12px;
-  transition:0.25s;
-}
-
-.theme-switch input:checked + .slider{
-  background:rgba(200,169,106,0.92);
-  border-color:rgba(200,169,106,0.92);
-}
-
-.theme-switch input:checked + .slider:before{
-  transform:translateX(26px);
-  content:"☀️";
-}
-
-/* Ajuste visual no drawer */
-.nav-drawer .theme-label{
-  color:#fff;
-}
-
-.nav-drawer .theme-switch-wrapper{
-  justify-content:space-between;
+  background: color-mix(in srgb, var(--primary-bright) 18%, transparent);
+  border-color: color-mix(in srgb, var(--primary-bright) 28%, transparent);
 }
 
 /* =====================================================
@@ -388,15 +313,9 @@
   margin-top: -12px;
   margin-left: 14px;
   padding-left: 18px;
-  color: color-mix(in srgb, var(--primary) 86%, #fff);
+  color: color-mix(in srgb, var(--primary-bright) 86%, #fff);
   font-size: .96rem;
-  border-left: 2px solid rgba(208, 172, 103, .45);
-}
-
-.drawer-theme{
-  margin-top: auto;
-  padding-top: 16px;
-  border-top: 1px solid rgba(255,255,255,0.08);
+  border-left: 2px solid color-mix(in srgb, var(--primary-bright) 45%, transparent);
 }
 
 /* =====================================================
@@ -415,18 +334,6 @@
   }
 
   .nav-submenu{
-    display: none;
-  }
-
-  .site-header > .theme-switch-wrapper{
-    position: absolute;
-    top: 50%;
-    left: max(16px, env(safe-area-inset-left));
-    display: flex;
-    transform: translateY(-50%);
-  }
-
-  .site-header > .theme-switch-wrapper .theme-label{
     display: none;
   }
 
@@ -455,15 +362,6 @@
     pointer-events: none;
   }
 
-  .drawer-theme{
-    display: none;
-  }
-}
-
-@media (hover: none) and (pointer: coarse) and (max-width: 768px){
-  .site-header > .theme-switch-wrapper{
-    display: none;
-  }
 }
 
 @media (min-width: 769px) and (max-width: 1360px){
@@ -490,24 +388,6 @@
     padding: 8px 7px;
     font-size: .98rem;
     letter-spacing: 0;
-  }
-
-  .theme-label{
-    display: none;
-  }
-
-  .theme-switch{
-    width: 50px;
-    height: 26px;
-  }
-
-  .theme-switch .slider:before{
-    width: 20px;
-    height: 20px;
-  }
-
-  .theme-switch input:checked + .slider:before{
-    transform:translateX(23px);
   }
 }
 
@@ -541,13 +421,6 @@
     justify-content: end;
   }
 
-  .site-header > .theme-switch-wrapper{
-    position: absolute;
-    top: 50%;
-    left: 16px;
-    transform: translateY(-50%);
-  }
-
   .menu .nav-links a{
     padding: 8px 4px;
     font-size: .9rem;
@@ -577,21 +450,6 @@
     padding: 7px 3px;
     font-size: .84rem;
   }
-
-  .theme-switch{
-    width: 44px;
-    height: 24px;
-  }
-
-  .theme-switch .slider:before{
-    width: 18px;
-    height: 18px;
-    font-size: 10px;
-  }
-
-  .theme-switch input:checked + .slider:before{
-    transform:translateX(20px);
-  }
 }
 
 @media (max-width: 480px){
@@ -606,14 +464,5 @@
   .site-header .logo a{
     width: 78px;
     margin-block: -4px -14px;
-  }
-  .theme-label{ display: none; }
-  .theme-switch{ width: 50px; height: 26px; }
-  .theme-switch .slider:before{
-    width: 20px;
-    height: 20px;
-  }
-  .theme-switch input:checked + .slider:before{
-    transform:translateX(23px);
   }
 }
