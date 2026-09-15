@@ -15,8 +15,23 @@
 
 /* Cabeçalho da seção (não é <header>, para evitar duplicidade) */
 .pc-head {
+  position: relative;
   text-align: center;
   margin-bottom: 22px;
+}
+
+.pc-head::before{
+  /* Textura orgânica sutil (árvore do logo), discreta, sem competir com o texto. */
+  content: "";
+  position: absolute;
+  top: -16px;
+  right: 2%;
+  width: min(46vw, 340px);
+  aspect-ratio: 65 / 46;
+  background: url("../img/logo-arvore-textura-escura.png") no-repeat center / contain;
+  opacity: .12;
+  pointer-events: none;
+  z-index: -1;
 }
 
 .pc-title {

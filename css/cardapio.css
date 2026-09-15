@@ -38,8 +38,23 @@
 
 .cardapio-hero{
   /* Abertura centralizada para explicar valor e levar direto ao pedido/reserva. */
+  position: relative;
   max-width: 920px;
   margin: 0 auto 40px;
+}
+
+.cardapio-hero::before{
+  /* Textura orgânica sutil (árvore do logo), discreta, sem competir com o texto. */
+  content: "";
+  position: absolute;
+  top: -18px;
+  right: -6%;
+  width: min(46vw, 380px);
+  aspect-ratio: 65 / 46;
+  background: url("../img/logo-arvore-textura-escura.png") no-repeat center / contain;
+  opacity: .12;
+  pointer-events: none;
+  z-index: -1;
 }
 
 .cardapio-kicker{

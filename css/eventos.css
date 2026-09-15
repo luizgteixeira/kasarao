@@ -45,6 +45,18 @@
   isolation: isolate;
 }
 
+.events-hero::before{
+  /* Textura orgânica sutil (árvore do logo), discreta, sem competir com o texto. */
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: url("../img/logo-arvore-textura.png") no-repeat center 28%;
+  background-size: min(70vw, 720px);
+  opacity: .18;
+  filter: blur(1px);
+}
+
 .events-hero::after{
   content: "";
   position: absolute;
@@ -83,9 +95,9 @@
   height: 2px;
   display: inline-block;
   flex: 0 0 auto;
-  background: linear-gradient(90deg, var(--primary), color-mix(in srgb, var(--primary) 58%, transparent), transparent);
+  background: linear-gradient(90deg, var(--gold), color-mix(in srgb, var(--gold) 58%, transparent), transparent);
   opacity: 0;
-  box-shadow: 0 0 16px color-mix(in srgb, var(--primary) 42%, transparent);
+  box-shadow: 0 0 16px color-mix(in srgb, var(--gold) 42%, transparent);
   transform-origin: left center;
   animation: eventTagLine 1s cubic-bezier(.2, .8, .2, 1) both;
   animation-timeline: view();
@@ -452,7 +464,7 @@
 .events-flow li::before{
   content: counter(event-step, decimal-leading-zero);
   grid-row: 1 / span 2;
-  color: var(--primary);
+  color: var(--gold);
   font-weight: 900;
   letter-spacing: .08em;
   padding-top: 4px;

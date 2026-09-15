@@ -8,9 +8,24 @@
 
 /* Hero enxuto: apresenta a página antes dos canais de contato. */
 .contact-hero {
+  position: relative;
   text-align: center;
   margin: 0 auto 36px;
   max-width: 760px;
+}
+
+.contact-hero::before{
+  /* Textura orgânica sutil (árvore do logo), discreta, sem competir com o texto. */
+  content: "";
+  position: absolute;
+  top: -18px;
+  right: -8%;
+  width: min(46vw, 340px);
+  aspect-ratio: 65 / 46;
+  background: url("../img/logo-arvore-textura-escura.png") no-repeat center / contain;
+  opacity: .12;
+  pointer-events: none;
+  z-index: -1;
 }
 
 .contact-kicker {
