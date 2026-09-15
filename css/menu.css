@@ -18,18 +18,18 @@
   gap: 18px;
 
   padding: 12px 6%;
-  background: rgba(12, 16, 20, 0.88);
+  background: rgba(242, 242, 242, 0.88);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   overflow: visible;
 
-  border-bottom: 1px solid rgba(255,255,255,0.06);
+  border-bottom: 1px solid rgba(0,0,0,0.06);
   transition: padding .35s ease, background .35s ease, transform .35s ease;
 }
 
 .site-header.scrolled{
   padding: 10px 6%;
-  background: rgba(12,16,20,0.68);
+  background: rgba(242,242,242,0.72);
 }
 
 .site-header.hide{
@@ -42,20 +42,18 @@
 }
 
 .site-header .logo a{
-  /* Círculo maior permite o logo "vazar" o header sem perder leitura. */
+  /* O novo logo já é um selo circular com fundo e anel próprios — sem moldura extra. */
   width: 118px;
   aspect-ratio: 1;
   display: grid;
   place-items: center;
   margin-block: -10px -26px;
   border-radius: 50%;
-  background: rgba(12, 16, 20, 0.92);
-  border: 1px solid color-mix(in srgb, var(--primary-bright) 30%, transparent);
   box-shadow: 0 16px 30px rgba(0, 0, 0, .32);
 }
 
 .site-header .logo img{
-  width: 88%;
+  width: 100%;
   height: auto;
   display: block;
   object-fit: contain;
@@ -108,7 +106,7 @@
 
 .menu .nav-links a{
   text-decoration:none;
-  color: var(--primary-bright);
+  color: var(--primary);
   font-weight: 700;
   letter-spacing: .4px;
   padding: 10px 14px;
@@ -119,16 +117,16 @@
 }
 
 .menu .nav-links a:hover{
-  color:#fff;
-  background: rgba(255,255,255,0.06);
-  border-color: rgba(255,255,255,0.08);
+  color: color-mix(in srgb, var(--gold-hover) 70%, black);
+  background: color-mix(in srgb, var(--gold) 16%, transparent);
+  border-color: color-mix(in srgb, var(--gold) 35%, transparent);
   transform: translateY(-1px);
 }
 
 .menu .nav-links a.active{
-  color:#fff;
-  background: rgba(255,255,255,0.08);
-  border-color: rgba(255,255,255,0.08);
+  color: color-mix(in srgb, var(--gold-hover) 70%, black);
+  background: color-mix(in srgb, var(--gold) 16%, transparent);
+  border-color: color-mix(in srgb, var(--gold) 35%, transparent);
 }
 
 .nav-submenu{
@@ -141,9 +139,9 @@
   display: grid;
   gap: 4px;
   border-radius: 16px;
-  background: rgba(12, 16, 20, .94);
-  border: 1px solid rgba(255, 255, 255, .10);
-  box-shadow: 0 20px 46px rgba(0, 0, 0, .38);
+  background: rgba(255, 255, 255, .96);
+  border: 1px solid rgba(0, 0, 0, .08);
+  box-shadow: 0 20px 46px rgba(0, 0, 0, .18);
   opacity: 0;
   visibility: hidden;
   transform: translate(-50%, 8px);
@@ -168,14 +166,14 @@
 
 .nav-item--current .nav-submenu{
   box-shadow:
-    0 20px 46px rgba(0, 0, 0, .38),
-    0 0 0 1px color-mix(in srgb, var(--primary-bright) 18%, transparent);
+    0 20px 46px rgba(0, 0, 0, .18),
+    0 0 0 1px color-mix(in srgb, var(--gold) 22%, transparent);
 }
 
 .nav-item--current .nav-submenu a.active{
-  color: #fff;
-  background: color-mix(in srgb, var(--primary-bright) 18%, transparent);
-  border-color: color-mix(in srgb, var(--primary-bright) 28%, transparent);
+  color: color-mix(in srgb, var(--gold-hover) 70%, black);
+  background: color-mix(in srgb, var(--gold) 18%, transparent);
+  border-color: color-mix(in srgb, var(--gold) 32%, transparent);
 }
 
 /* =====================================================
@@ -186,8 +184,8 @@
   display:none;
   width:40px;
   height:40px;
-  border:1px solid rgba(255,255,255,0.14);
-  background: rgba(255,255,255,0.06);
+  border:1px solid rgba(0,0,0,0.12);
+  background: rgba(0,0,0,0.04);
   border-radius: 12px;
   cursor:pointer;
 
@@ -201,7 +199,7 @@
 .nav-toggle .bar{
   width:20px;
   height:2px;
-  background:#fff;
+  background: var(--text-light);
   border-radius:999px;
   transition: transform .25s ease, opacity .2s ease;
   transform-origin:center;
@@ -304,8 +302,8 @@
 }
 
 .drawer-links a.active{
-  background: rgba(255,255,255,0.10);
-  border: 1px solid rgba(255,255,255,0.10);
+  background: color-mix(in srgb, var(--gold) 16%, transparent);
+  border: 1px solid color-mix(in srgb, var(--gold) 30%, transparent);
 }
 
 .drawer-links .drawer-sublink{
@@ -313,9 +311,9 @@
   margin-top: -12px;
   margin-left: 14px;
   padding-left: 18px;
-  color: color-mix(in srgb, var(--primary-bright) 86%, #fff);
+  color: color-mix(in srgb, var(--gold) 86%, #fff);
   font-size: .96rem;
-  border-left: 2px solid color-mix(in srgb, var(--primary-bright) 45%, transparent);
+  border-left: 2px solid color-mix(in srgb, var(--gold) 50%, transparent);
 }
 
 /* =====================================================

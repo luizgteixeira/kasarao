@@ -147,30 +147,30 @@
 .events-page .btn-cardapio{
   min-height: 48px;
   padding-inline: 24px;
-  border-color: color-mix(in srgb, var(--primary) 48%, transparent);
-  box-shadow: 0 16px 36px color-mix(in srgb, var(--primary-hover) 22%, transparent);
+  border-color: color-mix(in srgb, var(--gold) 48%, transparent);
+  box-shadow: 0 16px 36px color-mix(in srgb, var(--gold-hover) 22%, transparent);
 }
 
 .events-page .btn-cardapio:not(.btn-ghost){
   background:
-    linear-gradient(135deg, color-mix(in srgb, var(--primary) 92%, #fff), color-mix(in srgb, var(--primary) 72%, var(--primary-hover)));
-  color: #f2f2f2;
+    linear-gradient(135deg, color-mix(in srgb, var(--gold) 92%, #fff), color-mix(in srgb, var(--gold) 72%, var(--gold-hover)));
+  color: #0c1014;
   font-weight: 900;
 }
 
 .events-page .btn-cardapio:hover{
   transform: translateY(-3px);
-  box-shadow: 0 22px 46px color-mix(in srgb, var(--primary-hover) 28%, transparent);
+  box-shadow: 0 22px 46px color-mix(in srgb, var(--gold-hover) 28%, transparent);
 }
 
-/* Botões do hero ficam sobre o vídeo escuro: borda/sombra usam o verde claro para não sumir. */
+/* Botões do hero ficam sobre o vídeo escuro: borda/sombra usam o dourado para não sumir. */
 .events-hero-actions .btn-cardapio{
-  border-color: color-mix(in srgb, var(--primary-bright) 48%, transparent);
-  box-shadow: 0 16px 36px color-mix(in srgb, var(--primary) 22%, transparent);
+  border-color: color-mix(in srgb, var(--gold) 48%, transparent);
+  box-shadow: 0 16px 36px color-mix(in srgb, var(--gold) 22%, transparent);
 }
 
 .events-hero-actions .btn-cardapio:hover{
-  box-shadow: 0 22px 46px color-mix(in srgb, var(--primary) 28%, transparent);
+  box-shadow: 0 22px 46px color-mix(in srgb, var(--gold) 28%, transparent);
 }
 
 .events-hero-note{

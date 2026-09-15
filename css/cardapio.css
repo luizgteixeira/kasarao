@@ -274,8 +274,8 @@ body.light-mode .cardapio-destaque figcaption {
   padding: 1rem 2rem;
   border-radius: 12px;
 
-  background: var(--primary);
-  color: #f2f2f2;
+  background: var(--gold);
+  color: #0c1014;
 
   font-size: 1.1rem;
   font-weight: 900;
@@ -289,7 +289,7 @@ body.light-mode .cardapio-destaque figcaption {
 }
 
 .btn-cardapio:hover {
-  background: var(--primary-hover);
+  background: var(--gold-hover);
   transform: translateY(-2px) scale(1.02);
   filter: brightness(1.02);
 }

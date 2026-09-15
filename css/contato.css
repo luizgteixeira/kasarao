@@ -85,7 +85,7 @@ body.light-mode .btn-contato {
 
 .btn-contato:hover {
   transform: translateY(-3px);
-  border-color: color-mix(in srgb, var(--primary) 36%, transparent);
+  border-color: color-mix(in srgb, var(--gold) 36%, transparent);
   background: rgba(255,255,255,.10);
 }
 
