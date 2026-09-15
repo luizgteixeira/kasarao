@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="img/banner-kasarao.png" alt="Kasarão Gastrobar" />
+  <img src="img/novo-logo.png" alt="Kasarão Gastrobar" width="160" />
 </p>
 
 <h1 align="center">Kasarão Gastrobar</h1>
@@ -32,7 +32,7 @@
 
 O Kasarão Gastrobar precisava de uma presença digital mais alinhada à experiência oferecida pela casa: ambiente marcante, proposta acolhedora, gastronomia de qualidade e atendimento cuidadoso.
 
-Mais do que “estar online”, o objetivo era criar um site capaz de comunicar valor, despertar desejo e conduzir o visitante com clareza até ações concretas, como reservar uma mesa, entrar em contato ou acessar o cardápio.
+Mais do que “estar online”, o objetivo era criar um site capaz de comunicar valor, despertar desejo e conduzir o visitante com clareza até ações concretas, como reservar o espaço, entrar em contato ou acessar o cardápio.
 
 ## Desafio
 
@@ -52,12 +52,12 @@ A solução adotada foi o desenvolvimento de um website institucional estático,
 
 O projeto foi estruturado com:
 
-- páginas dedicadas para apresentação, história, galeria, contato e cardápio
+- páginas dedicadas para apresentação, história, galeria, eventos, contato e cardápio
 - hero com vídeo e CTA principal para reserva
 - narrativa institucional mais forte na home e na página `Quem Somos`
 - seções de prova social com depoimentos reais
 - carrosséis para destacar momentos e avaliações com mais elegância
-- navegação responsiva com menu mobile e tema persistente
+- navegação responsiva com menu mobile e header adaptado por breakpoint
 - atalhos diretos para WhatsApp, mapa, e-mail e sistema de pedidos
 
 ## Decisões de produto e UX
@@ -81,6 +81,7 @@ O projeto inclui uma base on-page pensada para melhorar a presença do negócio 
 - `robots.txt`
 - `sitemap.xml`
 - imagens com `alt`
+- carregamento priorizado (`fetchpriority`/`preload`) das imagens principais de cada página
 - skip link para acessibilidade
 - layout responsivo com foco mobile-first na experiência prática
 
@@ -88,9 +89,10 @@ O projeto inclui uma base on-page pensada para melhorar a presença do negócio 
 
 - hero com vídeo de fundo
 - CTA para reservas via WhatsApp
-- modo claro/escuro com persistência
+- identidade visual em verde, laranja e dourado, com logo em destaque no header
 - menu fixo e navegação mobile
 - seção institucional com história, ambiente, missão e proprietários
+- página de eventos com formatos de locação e orçamento direto pelo WhatsApp
 - carrossel premium de fotos e vídeos
 - carrossel de depoimentos reais carregados de `data/testimonials.json`
 - administração de depoimentos em `admin-depoimentos.html`
@@ -108,6 +110,7 @@ kasarao/
 │   ├── index.css
 │   ├── quem-somos.css
 │   ├── momentos.css
+│   ├── eventos.css
 │   ├── contato.css
 │   ├── cardapio.css
 │   └── admin-depoimentos.css
@@ -125,6 +128,7 @@ kasarao/
 ├── admin-depoimentos.html
 ├── quem-somos.html
 ├── momentos.html
+├── eventos.html
 ├── contato.html
 ├── cardapio.html
 ├── robots.txt
@@ -138,6 +142,7 @@ kasarao/
 - `admin-depoimentos.html`: cadastro, edição, exclusão, ordenação, importação e exportação dos depoimentos
 - `quem-somos.html`: narrativa institucional e apresentação da essência da marca
 - `momentos.html`: galeria de fotos e vídeos da experiência do ambiente
+- `eventos.html`: formatos de locação do espaço e orçamento direto pelo WhatsApp
 - `contato.html`: canais de contato, localização e acesso rápido
 - `cardapio.html`: apresentação gastronômica e link direto para pedidos
 
