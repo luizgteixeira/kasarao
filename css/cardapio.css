@@ -78,6 +78,18 @@
   margin-top: 26px;
 }
 
+/* Aviso curto de transparência: deixa claro que o link abre uma plataforma externa. */
+.cardapio-hint{
+  margin-top: 14px;
+  text-align: center;
+  font-size: var(--fs-small);
+  color: color-mix(in srgb, var(--text-dark) 70%, transparent);
+}
+
+body.light-mode .cardapio-hint{
+  color: color-mix(in srgb, var(--text-light) 70%, transparent);
+}
+
 /* ---------- Tipografia / Título (usando tokens do global) ---------- */
 .titulo-secao {
   color: var(--primary);
