@@ -19,6 +19,8 @@
   <meta property="og:description" content="Reserve o espaço, fale com a equipe e encontre o Kasarão Gastrobar em Contagem." />
   <meta property="og:url" content="https://kasaraogastrobar.com.br/contato.html" />
   <meta property="og:image" content="https://kasaraogastrobar.com.br/img/optimized/banner-kasarao-social.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="800" />
   <meta property="og:image:alt" content="Contato e reservas do Kasarão Gastrobar" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Contato e Reservas | Kasarão Gastrobar em Contagem" />
@@ -84,6 +86,17 @@
     }
   </script>
 
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://kasaraogastrobar.com.br/" },
+        { "@type": "ListItem", "position": 2, "name": "Contato", "item": "https://kasaraogastrobar.com.br/contato.html" }
+      ]
+    }
+  </script>
+
   <link rel="icon" href="img/novo-logo.png" type="image/png" />
   <link rel="apple-touch-icon" href="img/apple-touch-icon.png" />
   <link rel="stylesheet" href="css/global.css" />
@@ -116,7 +129,7 @@
     </nav>
 
     <!-- Botão do drawer (mobile) -->
-    <button id="navToggle" class="nav-toggle" aria-label="Abrir menu" type="button">
+    <button id="navToggle" class="nav-toggle" aria-label="Abrir menu" aria-controls="navDrawer" aria-expanded="false" type="button">
       <span class="bar"></span><span class="bar"></span><span class="bar"></span>
     </button>
   </header>
@@ -189,7 +202,7 @@
         <span class="follow-text">Siga-nos</span>
         <a href="https://wa.me/5531988576915?text=Ol%C3%A1%21%20Gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20o%20Kasar%C3%A3o%20Gastrobar." target="_blank" rel="noopener noreferrer"
           aria-label="WhatsApp do Kasarão">
-          <img src="img/whats1-48.png" alt="Ícone do WhatsApp" loading="lazy" decoding="async" width="48" height="48" />
+          <img src="img/whats1-48.png" alt="" aria-hidden="true" loading="lazy" decoding="async" width="48" height="48" />
         </a>
         <a href="https://www.instagram.com/kasaraogastrobar/" target="_blank" rel="noopener noreferrer"
           aria-label="Instagram do Kasarão">

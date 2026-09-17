@@ -142,13 +142,16 @@ body.light-mode .btn-hero-secondary:hover{
   flex-wrap: wrap;
   justify-content: center;
   margin-top: 28px;
+  list-style: none;
+  padding: 0;
 }
 
-.hero-badges span{
+.hero-badges li{
   padding: 10px 16px;
   border-radius: 999px;
   background: rgba(255,255,255,.08);
   border: 1px solid rgba(255,255,255,.12);
+  /* Laranja proposital, mais vivo que var(--accent), para destacar sobre o vídeo escuro do hero. */
   color: #FA8731;
   box-shadow: 0 12px 26px rgba(0,0,0,.18);
 }
@@ -881,6 +884,7 @@ body.light-mode .testimonials{
   gap: 10px;
   margin-top: 18px;
   padding: 16px 18px;
+  list-style: none;
   border-radius: 18px;
   background:
     radial-gradient(circle at top left, color-mix(in srgb, var(--primary) 18%, transparent), transparent 38%),
@@ -1383,7 +1387,7 @@ body.light-mode .slide p{
     max-width: 13ch;
   }
 
-  .hero-badges span {
+  .hero-badges li {
     width: 100%;
   }
 

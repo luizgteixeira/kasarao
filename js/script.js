@@ -261,6 +261,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const slides = Array.from(galleryEl.querySelectorAll('.slide'));
     if (slides.length <= 1) return;
 
+    // Semântica de carrossel para leitores de tela: cada slide é anunciado com sua posição.
+    galleryEl.setAttribute('aria-roledescription', 'carrossel');
+    slides.forEach((slide, i) => {
+      slide.setAttribute('role', 'group');
+      slide.setAttribute('aria-roledescription', 'slide');
+      slide.setAttribute('aria-label', `Slide ${i + 1} de ${slides.length}`);
+    });
+
+    const liveRegion = document.createElement('p');
+    liveRegion.className = 'visually-hidden';
+    liveRegion.setAttribute('aria-live', 'polite');
+    galleryEl.appendChild(liveRegion);
+
     const prevBtn = galleryEl.querySelector('.prev');
     const nextBtn = galleryEl.querySelector('.next');
     const dotsWrap = document.createElement('div');
@@ -293,6 +306,7 @@ document.addEventListener('DOMContentLoaded', () => {
         dot.setAttribute('aria-current', active ? 'true' : 'false');
       });
       index = i;
+      liveRegion.textContent = `Slide ${i + 1} de ${slides.length}`;
     }
 
     function next() {
@@ -420,6 +434,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (!track || slides.length === 0) return;
 
+  // Semântica de carrossel para leitores de tela: cada slide é anunciado com sua posição.
+  root.setAttribute('aria-roledescription', 'carrossel');
+  slides.forEach((slide, i) => {
+    slide.setAttribute('role', 'group');
+    slide.setAttribute('aria-roledescription', 'slide');
+    slide.setAttribute('aria-label', `Slide ${i + 1} de ${slides.length}`);
+  });
+
+  const liveRegion = document.createElement('p');
+  liveRegion.className = 'visually-hidden';
+  liveRegion.setAttribute('aria-live', 'polite');
+  root.appendChild(liveRegion);
+
   let index = slides.findIndex((s) => s.classList.contains('is-active'));
   if (index < 0) index = 0;
 
@@ -471,6 +498,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     stopVideosExcept(i);
     playActiveVideo(i);
+    liveRegion.textContent = `Slide ${i + 1} de ${slides.length}`;
   }
 
   function goTo(i) {
@@ -490,7 +518,9 @@ document.addEventListener('DOMContentLoaded', () => {
   prevBtn?.addEventListener('click', prev);
   nextBtn?.addEventListener('click', next);
 
-  window.addEventListener('keydown', (e) => {
+  // Escopado ao carrossel: só responde às setas quando o foco está dentro dele
+  // (botões prev/next ou dots), em vez de capturar globalmente a página inteira.
+  root.addEventListener('keydown', (e) => {
     if (e.key === 'ArrowRight') next();
     if (e.key === 'ArrowLeft') prev();
   });
@@ -560,6 +590,20 @@ document.addEventListener('DOMContentLoaded', () => {
   const dotsWrap = root.querySelector('[data-testimonial-dots]');
 
   if (!track) return;
+
+  root.setAttribute('aria-roledescription', 'carrossel');
+  const liveRegion = document.createElement('p');
+  liveRegion.className = 'visually-hidden';
+  liveRegion.setAttribute('aria-live', 'polite');
+  root.appendChild(liveRegion);
+
+  function markSlidesAccessible() {
+    slides.forEach((slide, i) => {
+      slide.setAttribute('role', 'group');
+      slide.setAttribute('aria-roledescription', 'slide');
+      slide.setAttribute('aria-label', `Depoimento ${i + 1} de ${slides.length}`);
+    });
+  }
 
   let slides = [];
   let dots = [];
@@ -716,6 +760,7 @@ document.addEventListener('DOMContentLoaded', () => {
     track.textContent = '';
     track.append(createStatusCard(message));
     slides = Array.from(root.querySelectorAll('[data-testimonial-slide]'));
+    markSlidesAccessible();
     renderDots();
     goTo(0);
     setCarouselControlsEnabled(false);
@@ -736,6 +781,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     slides = Array.from(root.querySelectorAll('[data-testimonial-slide]'));
+    markSlidesAccessible();
     renderDots();
     goTo(0);
     setCarouselControlsEnabled(slides.length > 1);
@@ -750,6 +796,9 @@ document.addEventListener('DOMContentLoaded', () => {
       dot.classList.toggle('is-active', active);
       dot.setAttribute('aria-current', active ? 'true' : 'false');
     });
+    if (slides.length > 1) {
+      liveRegion.textContent = `Depoimento ${i + 1} de ${slides.length}`;
+    }
   }
 
   function goTo(i) {

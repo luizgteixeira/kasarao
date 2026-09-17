@@ -24,6 +24,8 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://kasaraogastrobar.com.br/" />
   <meta property="og:image" content="https://kasaraogastrobar.com.br/img/optimized/banner-kasarao-social.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="800" />
   <meta property="og:image:alt" content="Ambiente do Kasarão Gastrobar" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Kasarão Gastrobar | Ambiente Sofisticado em Contagem" />
@@ -117,7 +119,7 @@
       </ul>
     </nav>
 
-    <button id="navToggle" class="nav-toggle" aria-label="Abrir menu" type="button">
+    <button id="navToggle" class="nav-toggle" aria-label="Abrir menu" aria-controls="navDrawer" aria-expanded="false" type="button">
       <span class="bar"></span><span class="bar"></span><span class="bar"></span>
     </button>
   </header>
@@ -167,15 +169,15 @@
       </a>
       <a href="cardapio.html" class="btn-cardapio btn-hero-secondary">
         Ver Cardápio
-        <img src="img/icone-cardapio-48.png" width="30" height="30" alt="Ícone do cardápio" decoding="async" />
+        <img src="img/icone-cardapio-48.png" width="30" height="30" alt="" aria-hidden="true" decoding="async" />
       </a>
     </div>
 
-    <div class="hero-badges" aria-label="Diferenciais do Kasarão">
-      <span>Drinks autorais</span>
-      <span>Ambiente acolhedor</span>
-      <span>Eventos especiais</span>
-    </div>
+    <ul class="hero-badges" aria-label="Diferenciais do Kasarão">
+      <li>Drinks autorais</li>
+      <li>Ambiente acolhedor</li>
+      <li>Eventos especiais</li>
+    </ul>
   </section>
 
   <!-- SOBRE -->
@@ -216,7 +218,7 @@
       <h2>Horário de Funcionamento</h2>
 
       <div class="slide active">
-        <img src="img/icone-horario-48.png" alt="Ícone de horário" loading="lazy" decoding="async" width="48" height="48" />
+        <img src="img/icone-horario-48.png" alt="" aria-hidden="true" loading="lazy" decoding="async" width="48" height="48" />
         <div class="caption" data-icon="◷">
           <ul>
             <li>Quinta e Sexta: 18:00 às 23:00h</li>
@@ -231,7 +233,7 @@
       <h2>Reserve sua Mesa ou seu Evento</h2>
 
       <div class="slide active">
-        <img src="img/icone-contato-48.png" alt="Ícone contato" loading="lazy" decoding="async" width="48" height="48" />
+        <img src="img/icone-contato-48.png" alt="" aria-hidden="true" loading="lazy" decoding="async" width="48" height="48" />
         <div class="caption" data-icon="☎">
           <p>Para uma noite comum, uma celebração à mesa ou um evento privado, nossa equipe ajuda você a escolher o melhor caminho para vir ao Kasarão.</p>
 
@@ -264,11 +266,11 @@
       <h2>Um espaço pensado para valorizar a confiança de quem já viveu a experiência Kasarão.</h2>
       <p>Avaliações 5 estrelas recentes reforçam o que define a experiência Kasarão: ambiente familiar e acolhedor, atendimento atencioso e uma casa elogiada pela comida, pelos drinks e pela cerveja sempre gelada.</p>
 
-      <div class="testimonials-highlight" aria-label="Resumo de avaliações recentes">
-        <span class="testimonials-highlight-chip">Ambiente familiar, lindo e aconchegante</span>
-        <span class="testimonials-highlight-chip">Atendimento carinhoso, atencioso e impecável</span>
-        <span class="testimonials-highlight-chip">Comida, drinks e cerveja gelada sempre em destaque</span>
-      </div>
+      <ul class="testimonials-highlight" aria-label="Resumo de avaliações recentes">
+        <li class="testimonials-highlight-chip">Ambiente familiar, lindo e aconchegante</li>
+        <li class="testimonials-highlight-chip">Atendimento carinhoso, atencioso e impecável</li>
+        <li class="testimonials-highlight-chip">Comida, drinks e cerveja gelada sempre em destaque</li>
+      </ul>
 
       <p class="testimonials-source-note">Avaliações reais ordenadas por recência, com base em comentários de clientes no Google. <a href="https://www.google.com/maps?cid=3685507311951621211" target="_blank" rel="noopener noreferrer">Ver todas as avaliações no Google →</a></p>
     </div>
@@ -388,7 +390,7 @@
         <span class="follow-text">Siga-nos</span>
         <a href="https://wa.me/5531988576915?text=Ol%C3%A1%21%20Gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20o%20Kasar%C3%A3o%20Gastrobar." target="_blank" rel="noopener noreferrer"
           aria-label="WhatsApp do Kasarão">
-          <img src="img/whats1-48.png" alt="Ícone do WhatsApp" loading="lazy" decoding="async" width="48" height="48" />
+          <img src="img/whats1-48.png" alt="" aria-hidden="true" loading="lazy" decoding="async" width="48" height="48" />
         </a>
         <a href="https://www.instagram.com/kasaraogastrobar/" target="_blank" rel="noopener noreferrer"
           aria-label="Instagram do Kasarão">
