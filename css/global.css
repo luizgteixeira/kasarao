@@ -288,7 +288,17 @@ footer.footer p:last-child{
   text-align: center;
   margin: 10px 0 0;
   font-size: 0.9rem;
-  color: #6b6b6b;
+  color: #595959;
+}
+
+footer.footer p:last-child a{
+  color: var(--primary);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+footer.footer p:last-child a:hover{
+  text-decoration: underline;
 }
 
 /* Responsivo */

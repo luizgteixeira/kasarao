@@ -3,4 +3,4 @@ Allow: /
 Disallow: /admin-depoimentos.html
 Disallow: /tools/
 
-Sitemap: https://kasaraogastrobar.com/sitemap.xml
+Sitemap: https://kasaraogastrobar.com.br/sitemap.xml

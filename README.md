@@ -17,7 +17,7 @@
 </p>
 
 <p align="center">
-  <a href="https://kasaraogastrobar.com/">Site oficial</a> •
+  <a href="https://kasaraogastrobar.com.br/">Site oficial</a> •
   <a href="https://www.instagram.com/kasaraogastrobar/">Instagram</a> •
   <a href="https://luizgustavodev.com">Portfólio do desenvolvedor</a>
 </p>
