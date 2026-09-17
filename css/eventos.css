@@ -20,7 +20,7 @@
   width: 100%;
   height: min(780px, 100vh);
   object-fit: cover;
-  filter: saturate(1.1) contrast(1.02) brightness(.82);
+  filter: saturate(1.1) contrast(1.02) brightness(.95);
 }
 
 /* Camada geral de leitura sobre o vídeo, mantendo o restante da página leve. */
@@ -31,8 +31,8 @@
   z-index: -1;
   pointer-events: none;
   background:
-    linear-gradient(180deg, rgba(12, 16, 20, .42), rgba(12, 16, 20, .54) 520px, rgba(242, 242, 242, .96) 820px),
-    linear-gradient(90deg, rgba(12, 16, 20, .62), rgba(12, 16, 20, .20), rgba(12, 16, 20, .48));
+    linear-gradient(180deg, rgba(12, 16, 20, .26), rgba(12, 16, 20, .34) 520px, rgba(242, 242, 242, .96) 820px),
+    linear-gradient(90deg, rgba(12, 16, 20, .38), rgba(12, 16, 20, .12), rgba(12, 16, 20, .30));
 }
 
 .events-hero{
@@ -51,8 +51,8 @@
   inset: 0;
   z-index: -1;
   background:
-    linear-gradient(90deg, rgba(12, 16, 20, .38), rgba(12, 16, 20, .18) 48%, rgba(12, 16, 20, .08)),
-    linear-gradient(180deg, rgba(12, 16, 20, .06), rgba(12, 16, 20, .38));
+    linear-gradient(90deg, rgba(12, 16, 20, .22), rgba(12, 16, 20, .10) 48%, rgba(12, 16, 20, .05)),
+    linear-gradient(180deg, rgba(12, 16, 20, .04), rgba(12, 16, 20, .20));
 }
 
 .events-hero-content{
@@ -642,8 +642,8 @@ body.light-mode .events-cta p{
 
   .events-hero::after{
     background:
-      linear-gradient(180deg, rgba(12, 16, 20, .36), rgba(12, 16, 20, .94)),
-      rgba(12, 16, 20, .32);
+      linear-gradient(180deg, rgba(12, 16, 20, .20), rgba(12, 16, 20, .52)),
+      rgba(12, 16, 20, .16);
   }
 
   .events-intro,

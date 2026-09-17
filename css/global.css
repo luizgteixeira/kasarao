@@ -452,6 +452,16 @@ body.light-mode .whatsapp-tooltip::after{
   border-top:1px solid rgba(0,0,0,0.08);
 }
 
+@media (hover: none), (pointer: coarse){
+  /* Em touch, o :hover "gruda" depois do toque (sem mouseout pra limpar).
+     Esconde o tooltip de propósito, em vez de depender do :hover. */
+  .whatsapp-tooltip,
+  .whatsapp-float:hover .whatsapp-tooltip{
+    opacity: 0 !important;
+    visibility: hidden !important;
+  }
+}
+
 @media (max-width: 420px){
   .btn-cardapio,
   .btn-contato{
