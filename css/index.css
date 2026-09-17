@@ -915,6 +915,12 @@ body.light-mode .testimonials-highlight-chip{
   color: color-mix(in srgb, currentColor 72%, transparent);
 }
 
+.testimonials-source-note a{
+  color: var(--primary);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
 .testimonials-carousel{
   position: relative;
   max-width: 900px;
