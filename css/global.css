@@ -9,7 +9,8 @@
    - Footer fixo em dark (não alterna com tema)
 ===================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Lexend+Deca:wght@100..900&display=swap');
+/* Fontes carregadas via <link> no <head> de cada página em vez de @import,
+   que só é descoberto depois de baixar e processar este arquivo inteiro. */
 
 /* Reset mínimo para reduzir diferenças entre navegadores sem apagar estilos úteis. */
 *{ margin:0; padding:0; box-sizing:border-box; }

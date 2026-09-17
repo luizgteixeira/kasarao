@@ -94,28 +94,7 @@
   }
 }
 
-/* botão principal */
-.btn-cardapio {
-  /* CTA reaproveitado em várias páginas; variações refinam cor e borda localmente. */
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  margin-top: 25px;
-  padding: 14px 32px;
-  border-radius: 50px;
-  text-decoration: none;
-  font-weight: 600;
-  letter-spacing: .5px;
-  background: linear-gradient(135deg, var(--gold), var(--gold-hover));
-  color: #0c1014;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, .35);
-  transition: transform .35s ease, box-shadow .35s ease;
-}
-
-.btn-cardapio:hover {
-  transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, .5);
-}
+/* botão principal: .btn-cardapio usa o estilo único definido em global.css (pílula com gradiente dourado). */
 
 .hero-actions{
   position: relative;

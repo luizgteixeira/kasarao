@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /admin-depoimentos.html
+Disallow: /tools/
 
 Sitemap: https://kasaraogastrobar.com/sitemap.xml

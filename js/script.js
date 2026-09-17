@@ -206,10 +206,19 @@ document.addEventListener('DOMContentLoaded', () => {
     navOverlay.hidden = false;
 
     body.style.overflow = 'hidden';
+
+    // Move o foco para dentro do drawer para navegação por teclado/leitor de tela.
+    (drawerClose || navDrawer).focus();
   }
 
   function closeDrawer() {
     if (!navDrawer || !navOverlay || !navToggle) return;
+
+    // Devolve o foco ao botão que abriu o menu antes de esconder o drawer:
+    // nunca aplicar aria-hidden a um elemento que ainda contém o foco.
+    if (navDrawer.contains(document.activeElement)) {
+      navToggle.focus();
+    }
 
     navDrawer.classList.remove('is-open');
     navOverlay.classList.remove('is-open');

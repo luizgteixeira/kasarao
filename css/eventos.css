@@ -132,7 +132,7 @@
 .events-hero h1{
   margin: 12px 0 18px;
   max-width: 12ch;
-  font-size: clamp(3rem, 7vw, 6.8rem);
+  font-size: var(--fs-hero);
   line-height: .92;
 }
 
@@ -213,7 +213,7 @@
   margin: 0;
   max-width: 62ch;
   color: color-mix(in srgb, var(--text-light) 84%, transparent);
-  font-size: clamp(1.1rem, 2vw, 1.38rem);
+  font-size: var(--fs-lead);
   line-height: 1.82;
 }
 
@@ -311,7 +311,7 @@
   max-width: 760px;
   margin: 0;
   color: color-mix(in srgb, var(--text-light) 96%, transparent);
-  font-size: clamp(2rem, 4vw, 3.7rem);
+  font-size: var(--fs-h2);
   line-height: 1.02;
 }
 
@@ -385,7 +385,7 @@
 .event-format h3{
   margin: 0;
   color: color-mix(in srgb, var(--text-light) 96%, transparent);
-  font-size: clamp(1.75rem, 3.5vw, 3rem);
+  font-size: var(--fs-h2);
   line-height: 1.06;
 }
 
@@ -437,7 +437,7 @@
 .events-flow h2{
   margin: 10px 0 0;
   color: color-mix(in srgb, var(--text-light) 96%, transparent);
-  font-size: clamp(1.8rem, 3.4vw, 3rem);
+  font-size: var(--fs-h2);
 }
 
 .events-flow ol{
@@ -579,7 +579,7 @@
 .events-cta h2{
   margin: 10px 0 12px;
   color: color-mix(in srgb, var(--text-light) 96%, transparent);
-  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-size: var(--fs-h2);
   line-height: 1.02;
 }
 
@@ -692,10 +692,6 @@ body.light-mode .events-cta p{
 @media (max-width: 620px){
   .events-hero{
     min-height: 620px;
-  }
-
-  .events-hero h1{
-    font-size: clamp(2.6rem, 18vw, 4.2rem);
   }
 
   .events-notes,
