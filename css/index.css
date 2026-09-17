@@ -767,7 +767,9 @@ body.light-mode #cardapio .btn-cardapio {
 
 .cardapio-actions{
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
+  gap: 14px;
   margin-top: 18px;
 }
 
