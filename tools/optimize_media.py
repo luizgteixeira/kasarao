@@ -20,6 +20,7 @@ HTML_FILES = [
     ROOT / "momentos.html",
     ROOT / "cardapio.html",
     ROOT / "contato.html",
+    ROOT / "eventos.html",
 ]
 
 RESPONSIVE_WIDTHS = (480, 768, 1200, 1600)
@@ -63,6 +64,8 @@ TARGET_IMAGE_NAMES = {
     "brinde-conosco.png",
     "comemore-conosco.png",
     "IMG_1793.JPG.png",
+    "mesa-manha.png",
+    "taca-verde.png",
 }
 
 VIDEO_TARGETS = {
@@ -151,6 +154,8 @@ def sizes_for(page_name: str, image_name: str) -> str:
         return "(max-width: 980px) 88vw, 360px"
     if page_name == "index.html":
         return "(max-width: 900px) 85vw, 300px"
+    if page_name == "eventos.html":
+        return "(max-width: 620px) 90vw, (max-width: 900px) 45vw, 380px"
     return "100vw"
 
 
@@ -216,8 +221,10 @@ def update_html_images(
             image_name = src_match.group(1)
             img_tag = img_tag_with_dimensions(attrs, dimensions)
 
-            before = text[max(0, match.start() - 80) : match.start()]
-            if "<picture" in before and "</picture>" not in before:
+            before = text[: match.start()]
+            last_open = before.rfind("<picture")
+            last_close = before.rfind("</picture>")
+            if last_open != -1 and last_open > last_close:
                 return f"{indent}{img_tag}"
 
             if image_name in generated:
@@ -330,7 +337,8 @@ def add_mobile_video_sources() -> None:
     for html_file in HTML_FILES:
         text = html_file.read_text(encoding="utf-8")
         for needle, replacement in replacements.items():
-            if replacement in text:
+            mobile_source = replacement.split("\n", 1)[0]
+            if mobile_source in text:
                 continue
             text = text.replace(needle, replacement)
         html_file.write_text(text, encoding="utf-8")
