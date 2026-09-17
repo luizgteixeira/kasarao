@@ -66,6 +66,7 @@ TARGET_IMAGE_NAMES = {
     "IMG_1793.JPG.png",
     "mesa-manha.png",
     "taca-verde.png",
+    "banner-kasarao.png",
 }
 
 VIDEO_TARGETS = {
