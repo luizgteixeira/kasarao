@@ -347,6 +347,7 @@
 }
 
 .pc-dot {
+  position: relative;
   width: 9px;
   height: 9px;
   border-radius: 999px;
@@ -355,6 +356,13 @@
 
   background: rgba(255, 255, 255, .26);
   transition: transform .2s ease, background .2s ease, width .2s ease;
+}
+
+.pc-dot::before{
+  /* Área de toque real de ~24px, sem alterar o tamanho visual do dot. */
+  content: "";
+  position: absolute;
+  inset: -7.5px;
 }
 
 .pc-dot.is-active {

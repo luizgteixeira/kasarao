@@ -68,41 +68,8 @@
     });
   }
 
-  function clampRating(value) {
-    const parsed = Number(value);
-    if (!Number.isFinite(parsed)) return 5;
-    return Math.min(Math.max(Math.round(parsed), 1), 5);
-  }
-
-  function normalizeTestimonial(item) {
-    // Centraliza a limpeza dos dados vindos do formulário, JSON importado ou API local.
-    if (!item || typeof item !== 'object') return null;
-
-    const author = String(item.author || '').trim();
-    const text = String(item.text || '').trim();
-    if (!author || !text) return null;
-
-    return {
-      author,
-      age: String(item.age || 'Avaliação recente').trim(),
-      rating: clampRating(item.rating),
-      source: String(item.source || 'Google Reviews').trim(),
-      text,
-      active: item.active !== false
-    };
-  }
-
-  function normalizePayload(payload) {
-    const rawItems = Array.isArray(payload)
-      ? payload
-      : Array.isArray(payload?.testimonials)
-        ? payload.testimonials
-        : [];
-
-    return rawItems
-      .map(normalizeTestimonial)
-      .filter(Boolean);
-  }
+  // Validação/normalização compartilhada com o site público e o servidor local (js/testimonials-shared.js).
+  const { normalizeTestimonial, normalizePayload } = window.TestimonialsShared;
 
   function serializeTestimonials() {
     return `${JSON.stringify(testimonials, null, 2)}\n`;

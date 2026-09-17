@@ -566,38 +566,12 @@ document.addEventListener('DOMContentLoaded', () => {
   let index = 0;
   let autoplayId = null;
 
-  function clampRating(value) {
-    const parsed = Number(value);
-    if (!Number.isFinite(parsed)) return 5;
-    return Math.min(Math.max(Math.round(parsed), 1), 5);
-  }
-
-  function normalizeTestimonial(item) {
-    if (!item || typeof item !== 'object') return null;
-
-    const author = String(item.author || '').trim();
-    const text = String(item.text || '').trim();
-    if (!author || !text || item.active === false) return null;
-
-    return {
-      author,
-      text,
-      age: String(item.age || 'Avaliação recente').trim(),
-      rating: clampRating(item.rating),
-      source: String(item.source || 'Depoimento').trim()
-    };
-  }
+  // Validação/normalização compartilhada com o painel admin e o servidor local (js/testimonials-shared.js).
+  const { normalizePayload: normalizeSharedPayload } = window.TestimonialsShared;
 
   function normalizePayload(payload) {
-    const rawItems = Array.isArray(payload)
-      ? payload
-      : Array.isArray(payload?.testimonials)
-        ? payload.testimonials
-        : [];
-
-    return rawItems
-      .map(normalizeTestimonial)
-      .filter(Boolean);
+    // O site público só exibe depoimentos ativos.
+    return normalizeSharedPayload(payload, { activeOnly: true });
   }
 
   function shouldUsePreviewStorage() {

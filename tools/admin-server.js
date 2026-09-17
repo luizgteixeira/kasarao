@@ -9,6 +9,9 @@ const port = Number(process.env.PORT || 8090);
 const host = '127.0.0.1';
 const adminUrl = `http://${host}:${port}/admin-depoimentos.html`;
 
+// Validação/normalização compartilhada com o site público e o painel admin (js/testimonials-shared.js).
+const { normalizePayload } = require(path.join(rootDir, 'js', 'testimonials-shared.js'));
+
 const contentTypes = {
   '.css': 'text/css; charset=utf-8',
   '.html': 'text/html; charset=utf-8',
@@ -28,41 +31,6 @@ function send(response, status, body, type = 'text/plain; charset=utf-8') {
     'Cache-Control': 'no-store'
   });
   response.end(body);
-}
-
-function clampRating(value) {
-  const parsed = Number(value);
-  if (!Number.isFinite(parsed)) return 5;
-  return Math.min(Math.max(Math.round(parsed), 1), 5);
-}
-
-function normalizeTestimonial(item) {
-  if (!item || typeof item !== 'object') return null;
-
-  const author = String(item.author || '').trim();
-  const text = String(item.text || '').trim();
-  if (!author || !text) return null;
-
-  return {
-    author,
-    age: String(item.age || 'Avaliação recente').trim(),
-    rating: clampRating(item.rating),
-    source: String(item.source || 'Google Reviews').trim(),
-    text,
-    active: item.active !== false
-  };
-}
-
-function normalizePayload(payload) {
-  const rawItems = Array.isArray(payload)
-    ? payload
-    : Array.isArray(payload?.testimonials)
-      ? payload.testimonials
-      : [];
-
-  return rawItems
-    .map(normalizeTestimonial)
-    .filter(Boolean);
 }
 
 function readRequestBody(request) {
