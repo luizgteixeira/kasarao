@@ -24,7 +24,8 @@
   overflow: visible;
 
   border-bottom: 1px solid rgba(0,0,0,0.06);
-  transition: padding .35s ease, background .35s ease, transform .35s ease;
+  /* padding fica de fora da transição: anima-lo forçaria reflow a cada frame durante o scroll. */
+  transition: background .35s ease, transform .35s ease;
 }
 
 .site-header.scrolled{
@@ -72,6 +73,9 @@
   align-items:center;
   gap: 20px;
   min-width: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 .menu .nav-item{
@@ -136,6 +140,8 @@
   left: 50%;
   min-width: 150px;
   padding: 8px;
+  margin: 0;
+  list-style: none;
   display: grid;
   gap: 4px;
   border-radius: 16px;
@@ -277,12 +283,14 @@
   cursor: pointer;
 }
 
-/* Links drawer */
+/* Links drawer (classe agora no <ul>, dentro do <nav aria-label="Navegação mobile">) */
 .drawer-links{
   display:flex;
   flex-direction: column;
   gap: 16px;
   padding: 18px 4px;
+  margin: 0;
+  list-style: none;
 }
 
 .drawer-links a{
@@ -362,7 +370,10 @@
 
 }
 
-@media (min-width: 769px) and (max-width: 1360px){
+/* As 3 faixas abaixo (1041-1360 / 901-1040 / 769-900) não se sobrepõem mais:
+   cada uma é autocontida, então a ordem delas no arquivo deixou de importar. */
+
+@media (min-width: 1041px) and (max-width: 1360px){
   /* Faixa crítica de notebooks: reduz respiros para manter menu e toggle visíveis. */
   .site-header{
     gap: 8px;
@@ -389,23 +400,28 @@
   }
 }
 
-@media (min-width: 769px) and (max-width: 1040px){
+@media (min-width: 901px) and (max-width: 1040px){
   /* Layout intermediário posiciona o toggle fora do fluxo para não cobrir o Cardápio. */
   .site-header{
     display: grid;
     grid-template-columns: auto minmax(0, 1fr);
     align-items: center;
     justify-content: stretch;
-    column-gap: 8px;
-    padding-left: 74px;
+    gap: 8px;
+    padding: 10px 2.5% 10px 74px;
   }
 
   .site-header.scrolled{
-    padding-left: 74px;
+    padding: 8px 2.5% 8px 74px;
   }
 
   .site-header .logo{
     justify-self: start;
+  }
+
+  .site-header .logo a{
+    width: 98px;
+    margin-block: -8px -22px;
   }
 
   .menu{
@@ -422,17 +438,27 @@
   .menu .nav-links a{
     padding: 8px 4px;
     font-size: .9rem;
+    letter-spacing: 0;
   }
 }
 
 @media (min-width: 769px) and (max-width: 900px){
+  /* Faixa mais estreita ainda usa o mesmo layout em grid da faixa 901-1040, só mais compacto. */
   .site-header{
-    padding: 10px 12px 10px 66px;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: center;
+    justify-content: stretch;
     gap: 6px;
+    padding: 10px 12px 10px 66px;
   }
 
   .site-header.scrolled{
     padding: 8px 12px 8px 66px;
+  }
+
+  .site-header .logo{
+    justify-self: start;
   }
 
   .site-header .logo a{
@@ -440,13 +466,21 @@
     margin-block: -8px -24px;
   }
 
+  .menu{
+    width: 100%;
+    justify-content: end;
+    justify-self: end;
+  }
+
   .menu .nav-links{
     gap: 2px;
+    justify-content: end;
   }
 
   .menu .nav-links a{
     padding: 7px 3px;
     font-size: .84rem;
+    letter-spacing: 0;
   }
 }
 

@@ -35,11 +35,9 @@ img, video{ max-width:100%; }
   --surface-dark: rgba(255,255,255,.05);
   --surface-light: rgba(255,255,255,.7);
 
-  /* Compatibilidade com CSS legado */
-  --cor0:#0c1014;
-  --cor1:#265902;
-  --cor4:#265902;
-  --cor5:#1a3f01;
+  /* Gradientes de seção reutilizados entre páginas (evita repetir os mesmos hex soltos). */
+  --section-gradient-dark: linear-gradient(to bottom, var(--bg-dark), #150f1a);
+  --section-gradient-light: linear-gradient(to bottom, var(--bg-light), #e6e6e6);
 
   /* Layout */
   --nav-h: 92px;     /* fallback (JS atualiza) */
@@ -100,6 +98,7 @@ body {
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 
   transition: opacity .4s ease, background .4s ease, color .4s ease;
   min-height: 100vh;
@@ -489,15 +488,7 @@ body.light-mode .whatsapp-tooltip::after{
    Complementa os estilos base sem depender de uma página específica.
 ===================================================== */
 
-/* ---------- Tipografia: base moderna e confortável ---------- */
-body {
-  font-size: var(--fs-body);
-  line-height: 1.75;
-  letter-spacing: 0.2px;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
-}
+/* ---------- Tipografia: base moderna e confortável (ver regras de body no topo do arquivo) ---------- */
 
 /* Parágrafos: largura ideal de leitura (sem atrapalhar elementos pequenos) */
 p {
@@ -529,6 +520,12 @@ h3,
 .menu .nav-links a,
 .drawer-links a{
   font-family: "Cormorant Garamond", serif;
+}
+
+/* Título de seção reutilizado por cardapio.css e contato.css; cada um pode ajustar espaçamento/decoração local. */
+.titulo-secao{
+  color: var(--primary);
+  display: inline-block;
 }
 
 /* ---------- Links: underline elegante e acessível ---------- */

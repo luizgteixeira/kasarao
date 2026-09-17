@@ -45,46 +45,46 @@
 
     <!-- Menu desktop -->
     <nav class="menu" aria-label="Navegação principal">
-      <div class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="quem-somos.html">Quem Somos</a>
-        <div class="nav-item">
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="quem-somos.html">Quem Somos</a></li>
+        <li class="nav-item">
           <a href="momentos.html">Momentos</a>
-          <div class="nav-submenu" aria-label="Submenu de Momentos">
-            <a href="eventos.html">Eventos</a>
-          </div>
-        </div>
-        <a href="contato.html">Contato</a>
-        <a href="cardapio.html">Cardápio</a>
-      </div>
+          <ul class="nav-submenu" aria-label="Submenu de Momentos">
+            <li><a href="eventos.html">Eventos</a></li>
+          </ul>
+        </li>
+        <li><a href="contato.html">Contato</a></li>
+        <li><a href="cardapio.html">Cardápio</a></li>
+      </ul>
     </nav>
 
     <!-- Botão do drawer (mobile) -->
     <button id="navToggle" class="nav-toggle" aria-label="Abrir menu" type="button">
       <span class="bar"></span><span class="bar"></span><span class="bar"></span>
     </button>
-
-    <!-- Overlay do drawer: hidden evita foco/leitura quando fechado -->
-    <div id="navOverlay" class="nav-overlay" hidden></div>
-
-    <!-- Drawer (mobile): aria-hidden controlado via JS -->
-    <aside id="navDrawer" class="nav-drawer" aria-hidden="true">
-      <div class="drawer-header">
-        <img src="img/novo-logo.png" alt="Kasarão Gastrobar" width="175" height="176" decoding="async" />
-        <button id="drawerClose" class="drawer-close" aria-label="Fechar menu" type="button">✕</button>
-      </div>
-
-      <nav class="drawer-links" aria-label="Navegação mobile">
-        <a href="index.html">Home</a>
-        <a href="quem-somos.html">Quem Somos</a>
-        <a href="momentos.html">Momentos</a>
-        <a href="eventos.html" class="drawer-sublink">Eventos</a>
-        <a href="contato.html">Contato</a>
-        <a href="cardapio.html">Cardápio</a>
-      </nav>
-
-    </aside>
   </header>
+
+  <!-- Overlay + drawer ficam fora do header: não são conteúdo do cabeçalho fixo. -->
+  <div id="navOverlay" class="nav-overlay" hidden aria-hidden="true"></div>
+
+  <aside id="navDrawer" class="nav-drawer" aria-hidden="true">
+    <div class="drawer-header">
+      <img src="img/novo-logo.png" alt="Kasarão Gastrobar" width="175" height="176" decoding="async" />
+      <button id="drawerClose" class="drawer-close" aria-label="Fechar menu" type="button">✕</button>
+    </div>
+
+    <nav aria-label="Navegação mobile">
+      <ul class="drawer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="quem-somos.html">Quem Somos</a></li>
+        <li><a href="momentos.html">Momentos</a></li>
+        <li><a href="eventos.html" class="drawer-sublink">Eventos</a></li>
+        <li><a href="contato.html">Contato</a></li>
+        <li><a href="cardapio.html">Cardápio</a></li>
+      </ul>
+    </nav>
+  </aside>
 
   <main id="main-content" class="privacy-page">
     <section class="privacy-hero">

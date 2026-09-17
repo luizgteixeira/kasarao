@@ -49,10 +49,9 @@
   background: linear-gradient(90deg, transparent, var(--primary), transparent);
 }
 
+/* Cor e display já vêm de .titulo-secao em global.css; aqui só o que é específico do Contato. */
 .titulo-secao {
-  color: var(--primary);
   margin: 0 0 12px;
-  display: inline-block;
 }
 
 .contact-intro {

@@ -136,7 +136,7 @@ body.light-mode .qs-sub {
 /* ---------- Wrapper ---------- */
 .qs-wrap {
   padding: 70px 8%;
-  background: linear-gradient(to bottom, #0c1014, #150f1a);
+  background: var(--section-gradient-dark);
 }
 
 body.light-mode .qs-wrap {
