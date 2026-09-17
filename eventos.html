@@ -34,7 +34,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Lexend+Deca:wght@100..900&display=swap" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Lexend+Deca:wght@100..900&display=swap" />
-  <link rel="preload" as="image" fetchpriority="high" href="img/optimized/banner-kasarao-1536.webp" type="image/webp" />
   <link rel="stylesheet" href="css/global.css" />
   <link rel="stylesheet" href="css/menu.css" />
   <link rel="stylesheet" href="css/eventos.css" />
@@ -164,8 +163,8 @@
   </aside>
 
   <main id="main-content" class="events-page">
-    <!-- Vídeo decorativo do topo; o CSS limita sua presença ao hero e clareia o restante da página. -->
-    <video class="events-bg-video" autoplay muted loop playsinline preload="metadata" poster="img/optimized/banner-kasarao-1536.webp" aria-hidden="true">
+    <!-- Vídeo decorativo do topo; o CSS limita sua presença ao hero e clareia o restante da página. Sem poster para o vídeo aparecer direto. -->
+    <video class="events-bg-video" autoplay muted loop playsinline preload="auto" aria-hidden="true">
       <source src="video/mobile/evento-mobile.mp4" type="video/mp4" media="(max-width: 768px)" />
       <source src="video/web/evento-web.mp4" type="video/mp4" media="(min-width: 769px) and (max-width: 1920px)" />
       <source src="video/evento.mp4" type="video/mp4" />

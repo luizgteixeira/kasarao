@@ -36,7 +36,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Lexend+Deca:wght@100..900&display=swap" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Lexend+Deca:wght@100..900&display=swap" />
-  <link rel="preload" as="image" fetchpriority="high" href="img/optimized/banner-kasarao-1536.webp" type="image/webp" />
 
   <!-- Dados estruturados principais da home: concentram informações oficiais do restaurante. -->
     <script type="application/ld+json">
@@ -148,8 +147,8 @@
   <!-- HERO: primeira impressão da home, com vídeo leve e CTAs de reserva/cardápio. -->
   <main id="main-content">
   <section id="hero" class="hero fade-in">
-    <!-- Vídeo de fundo com versões mobile/desktop; poster garante boa aparência durante o carregamento. -->
-    <video autoplay muted loop playsinline preload="metadata" poster="img/optimized/banner-kasarao-1536.webp" class="bg-video">
+    <!-- Vídeo de fundo com versões mobile/desktop; sem poster para o vídeo aparecer direto, sem o banner estático antes. -->
+    <video autoplay muted loop playsinline preload="auto" class="bg-video">
       <source src="video/mobile/IMG_3350-mobile.webm" type="video/webm" media="(max-width: 768px)" />
       <source src="video/web/IMG_3350-web.webm" type="video/webm" media="(min-width: 769px) and (max-width: 1920px)" />
       <source src="video/IMG_3350.webm" type="video/webm" />

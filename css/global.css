@@ -452,36 +452,6 @@ body.light-mode .whatsapp-tooltip::after{
   border-top:1px solid rgba(0,0,0,0.08);
 }
 
-@media (hover: none), (pointer: coarse), (max-width: 768px){
-  /* Em toque não existe hover confiável, então a mensagem fica sempre disponível. */
-  .whatsapp-tooltip{
-    display: block;
-    right: 0;
-    bottom: calc(100% + 10px);
-    width: max-content;
-    max-width: min(220px, calc(100vw - 32px));
-    white-space: normal;
-    text-align: center;
-    opacity: 1;
-    visibility: visible;
-    transform: none;
-    font-size: .82rem;
-    line-height: 1.35;
-    padding: 9px 12px;
-  }
-
-  .whatsapp-tooltip::after{
-    right: 22px;
-    top: auto;
-    bottom: -6px;
-    transform: rotate(45deg);
-  }
-
-  .whatsapp-float:hover .whatsapp-tooltip{
-    transform: none;
-  }
-}
-
 @media (max-width: 420px){
   .btn-cardapio,
   .btn-contato{

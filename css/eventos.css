@@ -45,18 +45,6 @@
   isolation: isolate;
 }
 
-.events-hero::before{
-  /* Textura orgânica sutil (árvore do logo), discreta, sem competir com o texto. */
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  background: url("../img/logo-arvore-textura.png") no-repeat center 28%;
-  background-size: min(70vw, 720px);
-  opacity: .18;
-  filter: blur(1px);
-}
-
 .events-hero::after{
   content: "";
   position: absolute;
