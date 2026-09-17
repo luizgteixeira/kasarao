@@ -926,7 +926,6 @@ body.light-mode .testimonials-highlight-chip{
 .testimonials-source-note a{
   color: var(--primary);
   font-weight: 700;
-  white-space: nowrap;
 }
 
 .testimonials-carousel{
