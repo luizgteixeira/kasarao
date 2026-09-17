@@ -1,18 +1,34 @@
 [
   {
-    "author": "Maria Luiza Santos de Oliveira",
-    "age": "6 meses atrás",
+    "author": "Cida Oliveira",
+    "age": "um mês atrás",
     "rating": 5,
     "source": "Google Reviews",
-    "text": "Um ambiente super tranquilo e acolhedor! Drinks e comidas maravilhosas e atendimento impecável!!",
+    "text": "Muito bom amei,virei mais vezes",
     "active": true
   },
   {
-    "author": "Graziela Mourão",
-    "age": "11 meses atrás",
+    "author": "Geralda Angela",
+    "age": "um mês atrás",
     "rating": 5,
     "source": "Google Reviews",
-    "text": "Lugar excelente!! Comida boa, cerveja gelada, música agradável e atendimento excepcional. Ambiente familiar.",
+    "text": "Lugar ótimo, super familiar e atendimento muito bom",
+    "active": true
+  },
+  {
+    "author": "Valéria Fernandes",
+    "age": "um mês atrás",
+    "rating": 5,
+    "source": "Google Reviews",
+    "text": "Tudo muito Bom. Cauã, Bárbara e Kelly muito atenciosos. Gostei muito e recomendo a porção de Tilapia com 🍤🍤",
+    "active": true
+  },
+  {
+    "author": "Ana Julia Campos",
+    "age": "um mês atrás",
+    "rating": 5,
+    "source": "Google Reviews",
+    "text": "Ambiente muito agradável e atendimento ótimo! A comida é deliciosa e o preço é super justo, os pratos são feitos na hora e muito bem servidos. O Cauã e a Bárbara são muito solícitos e a Kelly é sempre muito simpática conosco. Venho sempre com minha família e recomendo muito!",
     "active": true
   }
 ]
