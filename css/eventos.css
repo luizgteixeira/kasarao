@@ -75,6 +75,7 @@
 /* Kicker do hero fica sobre o vídeo escuro; precisa do tom claro do verde para legibilidade. */
 .events-hero .events-kicker{
   color: var(--primary-bright);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, .55);
 }
 
 .event-tag::after{
@@ -107,6 +108,7 @@
 
 .events-hero h1{
   color: #fff;
+  text-shadow: 0 4px 18px rgba(0, 0, 0, .55);
 }
 
 .events-hero h1,
@@ -129,6 +131,7 @@
   color: rgba(247, 247, 247, .9);
   font-size: var(--fs-lead);
   line-height: 1.72;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, .5);
 }
 
 .events-hero-actions,
@@ -178,6 +181,7 @@
   max-width: 46ch;
   color: rgba(247, 247, 247, .78);
   font-size: .95rem;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, .5);
 }
 
 .events-intro,
@@ -640,10 +644,21 @@ body.light-mode .events-cta p{
     padding: 108px 6% 58px;
   }
 
+  /* Mobile depende do text-shadow do texto pra legibilidade, não de um vídeo escurecido. */
+  .events-bg-video{
+    filter: saturate(1.1) contrast(1.02) brightness(1.05);
+  }
+
+  .events-page::before{
+    background:
+      linear-gradient(180deg, rgba(12, 16, 20, .12), rgba(12, 16, 20, .18) 520px, rgba(242, 242, 242, .96) 820px),
+      linear-gradient(90deg, rgba(12, 16, 20, .18), rgba(12, 16, 20, .06), rgba(12, 16, 20, .14));
+  }
+
   .events-hero::after{
     background:
-      linear-gradient(180deg, rgba(12, 16, 20, .20), rgba(12, 16, 20, .52)),
-      rgba(12, 16, 20, .16);
+      linear-gradient(180deg, rgba(12, 16, 20, .08), rgba(12, 16, 20, .26)),
+      rgba(12, 16, 20, .08);
   }
 
   .events-intro,
