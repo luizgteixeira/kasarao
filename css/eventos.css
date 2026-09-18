@@ -21,6 +21,8 @@
   height: min(780px, 100vh);
   object-fit: cover;
   filter: saturate(1.1) contrast(1.02) brightness(.95);
+  /* Sem poster: cor escura evita o "flash" cinza do <video> enquanto o primeiro frame carrega. */
+  background: #0c1014;
 }
 
 /* Camada geral de leitura sobre o vídeo, mantendo o restante da página leve. */

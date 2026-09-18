@@ -22,6 +22,8 @@
   text-align: center;
   overflow: hidden;
   color: #f7f7f7;
+  /* Sem poster: cor escura evita o "flash" cinza do <video> enquanto o primeiro frame carrega. */
+  background: #0c1014;
 }
 
 .hero .bg-video {
@@ -32,6 +34,7 @@
   height: 100%;
   object-fit: cover;
   z-index: 0;
+  background: #0c1014;
 }
 
 /* contraste para textos sobre o vídeo */
