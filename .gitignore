@@ -9,3 +9,7 @@ Thumbs.db
 
 # Dependências (caso algum dia entrem no projeto)
 node_modules/
+
+# Scripts Python (tools/)
+__pycache__/
+*.pyc

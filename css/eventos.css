@@ -188,6 +188,7 @@
 
 .events-intro,
 .events-formats,
+.events-done,
 .events-flow,
 .events-gallery,
 .events-cta{
@@ -291,6 +292,7 @@
 }
 
 .events-formats,
+.events-done,
 .events-gallery{
   padding: 54px 0 20px;
 }
@@ -716,5 +718,256 @@ body.light-mode .events-cta p{
 
   .events-mosaic{
     grid-auto-rows: 240px;
+  }
+}
+
+/* =====================================================
+   Eventos realizados — galeria dirigida por dados
+   (data/eventos-realizados.json + js/eventos-realizados.js)
+===================================================== */
+
+.events-done-tabs{
+  margin-bottom: 22px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.events-done-tab{
+  padding: 9px 16px;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--primary) 30%, transparent);
+  background: rgba(255, 255, 255, .64);
+  color: color-mix(in srgb, var(--text-light) 86%, transparent);
+  font-size: .9rem;
+  font-weight: 750;
+  cursor: pointer;
+  transition: background .2s ease, color .2s ease, border-color .2s ease, transform .2s ease;
+}
+
+.events-done-tab:hover{
+  transform: translateY(-2px);
+}
+
+.events-done-tab.is-active{
+  background: linear-gradient(135deg, color-mix(in srgb, var(--primary) 92%, #000), var(--primary));
+  border-color: transparent;
+  color: #fff;
+  box-shadow: 0 12px 26px color-mix(in srgb, var(--primary-hover) 24%, transparent);
+}
+
+.events-done-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.events-done-card{
+  display: grid;
+  gap: 0;
+  padding: 0;
+  border: 1px solid color-mix(in srgb, var(--primary) 20%, transparent);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, .64);
+  box-shadow: 0 16px 34px color-mix(in srgb, var(--primary-hover) 10%, transparent);
+  overflow: hidden;
+  cursor: pointer;
+  text-align: left;
+  font: inherit;
+  color: inherit;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.events-done-card:hover,
+.events-done-card:focus-visible{
+  transform: translateY(-5px);
+  box-shadow: 0 22px 46px color-mix(in srgb, var(--primary-hover) 18%, transparent);
+}
+
+.events-done-card-cover{
+  position: relative;
+  aspect-ratio: 4 / 3;
+  background: color-mix(in srgb, var(--primary) 10%, transparent);
+}
+
+.events-done-card-cover img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.events-done-card-count{
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(12, 16, 20, .72);
+  color: #fff;
+  font-size: .78rem;
+  font-weight: 750;
+}
+
+.events-done-card-body{
+  display: grid;
+  gap: 6px;
+  padding: 16px 18px 20px;
+}
+
+.events-done-card-tag{
+  color: var(--primary);
+  font-size: .76rem;
+  font-weight: 850;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.events-done-card-body h3{
+  margin: 0;
+  color: color-mix(in srgb, var(--text-light) 96%, transparent);
+  font-size: 1.2rem;
+  line-height: 1.2;
+}
+
+.events-done-card-date{
+  color: color-mix(in srgb, var(--text-light) 62%, transparent);
+  font-size: .86rem;
+}
+
+.events-done-card-body p{
+  margin: 2px 0 0;
+  color: color-mix(in srgb, var(--text-light) 78%, transparent);
+  font-size: .94rem;
+  line-height: 1.5;
+}
+
+body.light-mode .events-done-tab,
+body.light-mode .events-done-card{
+  background: rgba(255, 255, 255, .74);
+  border-color: rgba(0, 0, 0, .08);
+}
+
+/* Lightbox: visualizador em tela cheia das fotos de um evento. */
+.events-lightbox{
+  position: fixed;
+  inset: 0;
+  z-index: 2100;
+  display: grid;
+  place-items: center;
+  padding: 28px;
+  background: rgba(8, 10, 12, .92);
+}
+
+.events-lightbox[hidden]{
+  display: none;
+}
+
+.events-lightbox-dialog{
+  position: relative;
+  width: min(1100px, 100%);
+  display: grid;
+  gap: 12px;
+}
+
+.events-lightbox-frame{
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 0;
+}
+
+.events-lightbox-frame img{
+  max-width: 100%;
+  max-height: 72vh;
+  border-radius: 8px;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, .5);
+}
+
+.events-lightbox-caption{
+  margin: 0;
+  text-align: center;
+  color: rgba(245, 245, 245, .86);
+  font-size: .92rem;
+}
+
+.events-lightbox-close,
+.events-lightbox-prev,
+.events-lightbox-next{
+  border: none;
+  border-radius: 999px;
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  background: rgba(255, 255, 255, .14);
+  color: #fff;
+  cursor: pointer;
+  transition: background .2s ease, transform .2s ease;
+}
+
+.events-lightbox-close:hover,
+.events-lightbox-prev:hover,
+.events-lightbox-next:hover{
+  background: rgba(255, 255, 255, .26);
+}
+
+.events-lightbox-close{
+  position: absolute;
+  top: -56px;
+  right: 0;
+}
+
+.events-lightbox-prev,
+.events-lightbox-next{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.events-lightbox-prev{
+  left: -8px;
+}
+
+.events-lightbox-next{
+  right: -8px;
+}
+
+.events-lightbox-prev:hover,
+.events-lightbox-next:hover{
+  transform: translateY(-50%) scale(1.06);
+}
+
+.events-lightbox-close svg,
+.events-lightbox-prev svg,
+.events-lightbox-next svg{
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+@media (max-width: 620px){
+  .events-done-grid{
+    grid-template-columns: 1fr;
+  }
+
+  .events-lightbox{
+    padding: 16px;
+  }
+
+  .events-lightbox-close{
+    top: -48px;
+  }
+
+  .events-lightbox-prev{
+    left: -4px;
+  }
+
+  .events-lightbox-next{
+    right: -4px;
   }
 }

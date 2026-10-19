@@ -1,0 +1,16 @@
+[
+  {
+    "id": "casamento-jj-2026-10",
+    "category": "casamentos",
+    "title": "Casamento J & J",
+    "date": "Outubro de 2026",
+    "description": "Buffet completo, mesa farta e um jardim que recebeu os convidados com clima de festa de verdade.",
+    "active": true,
+    "photos": [
+      { "src": "img/eventos/casamentos/casamento-jj-2026-10/foto1.png", "alt": "Noivos comemorando em festa de casamento no Kasarão" },
+      { "src": "img/eventos/casamentos/casamento-jj-2026-10/foto3.png", "alt": "Convidados reunidos no jardim do Kasarão durante festa de casamento" },
+      { "src": "img/eventos/casamentos/casamento-jj-2026-10/foto2.png", "alt": "Mesa de canapés servida em festa de casamento no Kasarão" },
+      { "src": "img/eventos/casamentos/casamento-jj-2026-10/foto4.png", "alt": "Buffet completo montado para festa de casamento no Kasarão" }
+    ]
+  }
+]
