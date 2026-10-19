@@ -69,7 +69,7 @@
   }
 
   // Validação/normalização compartilhada com o site público e o servidor local (js/testimonials-shared.js).
-  const { normalizeTestimonial, normalizePayload } = window.TestimonialsShared;
+  const { normalizeTestimonial, normalizePayload, formatTestimonialBadge } = window.TestimonialsShared;
 
   function serializeTestimonials() {
     return `${JSON.stringify(testimonials, null, 2)}\n`;
@@ -181,7 +181,7 @@
 
       const meta = document.createElement('div');
       meta.className = 'admin-item-meta';
-      meta.textContent = `${item.source} • ${item.rating} ${item.rating === 1 ? 'estrela' : 'estrelas'} • ${item.age} • ${item.active ? 'Visível no site' : 'Oculto'}`;
+      meta.textContent = `${formatTestimonialBadge(item)} • ${item.active ? 'Visível no site' : 'Oculto'}`;
 
       const text = document.createElement('p');
       text.textContent = item.text;

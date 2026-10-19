@@ -611,7 +611,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let autoplayId = null;
 
   // Validação/normalização compartilhada com o painel admin e o servidor local (js/testimonials-shared.js).
-  const { normalizePayload: normalizeSharedPayload } = window.TestimonialsShared;
+  const { normalizePayload: normalizeSharedPayload, formatTestimonialBadge } = window.TestimonialsShared;
 
   function normalizePayload(payload) {
     // O site público só exibe depoimentos ativos.
@@ -659,6 +659,8 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function createStars(rating) {
+    // Sem nota (ex.: depoimento enviado direto, sem avaliação por estrelas) não exibe o bloco.
+    if (!rating) return null;
     const stars = document.createElement('div');
     stars.className = 'testimonial-stars';
     stars.setAttribute('aria-label', `${rating} de 5 estrelas`);
@@ -673,12 +675,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const meta = document.createElement('div');
     meta.className = 'testimonial-meta';
-    meta.append(createStars(item.rating));
+    const stars = createStars(item.rating);
+    if (stars) meta.append(stars);
 
-    const age = document.createElement('span');
-    age.className = 'testimonial-age';
-    age.textContent = item.age;
-    meta.append(age);
+    if (item.age) {
+      const age = document.createElement('span');
+      age.className = 'testimonial-age';
+      age.textContent = item.age;
+      meta.append(age);
+    }
 
     const quote = document.createElement('blockquote');
     quote.textContent = `“${item.text}”`;
@@ -692,10 +697,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const source = document.createElement('span');
     source.className = 'testimonial-source';
-    source.textContent = `${item.source} • ${item.rating} ${item.rating === 1 ? 'estrela' : 'estrelas'} • ${item.age}`;
+    source.textContent = formatTestimonialBadge(item);
 
     footer.append(author, source);
-    article.append(meta, quote, footer);
+    if (meta.childNodes.length) article.append(meta);
+    article.append(quote, footer);
 
     return article;
   }
