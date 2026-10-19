@@ -842,7 +842,7 @@ body.light-mode .events-cta p{
   line-height: 1.5;
 }
 
-body.light-mode .events-done-tab,
+body.light-mode .events-done-tab:not(.is-active),
 body.light-mode .events-done-card{
   background: rgba(255, 255, 255, .74);
   border-color: rgba(0, 0, 0, .08);
