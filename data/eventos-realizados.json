@@ -12,5 +12,19 @@
       { "src": "img/eventos/casamentos/casamento-jj-2026-10/foto2.png", "alt": "Mesa de canapés servida em festa de casamento no Kasarão" },
       { "src": "img/eventos/casamentos/casamento-jj-2026-10/foto4.png", "alt": "Buffet completo montado para festa de casamento no Kasarão" }
     ]
+  },
+  {
+    "id": "formatura-psicologia-2026-10",
+    "category": "formaturas",
+    "title": "Formatura de Psicologia",
+    "date": "Outubro de 2026",
+    "description": "Terraço decorado, mesa de frios e brinde em família para comemorar a formatura com quem acompanhou a jornada toda.",
+    "active": true,
+    "photos": [
+      { "src": "img/eventos/formaturas/formatura-psicologia-2026-10/foto1.png", "alt": "Formandos e convidados reunidos no terraço do Kasarão durante festa de formatura" },
+      { "src": "img/eventos/formaturas/formatura-psicologia-2026-10/foto2.png", "alt": "Grupo celebrando a formatura em mesa decorada no Kasarão" },
+      { "src": "img/eventos/formaturas/formatura-psicologia-2026-10/foto4.png", "alt": "Formandas de Psicologia posando em frente ao painel da formatura" },
+      { "src": "img/eventos/formaturas/formatura-psicologia-2026-10/foto3.png", "alt": "Mesa de frios e queijos servida na festa de formatura no Kasarão" }
+    ]
   }
 ]
